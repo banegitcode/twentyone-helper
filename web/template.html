@@ -18,6 +18,7 @@
   .advice { flex:1 1 0; min-height:150px; background:var(--panel); border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
   .advice .big { font-size:min(38vw, 30vh, 210px); font-weight:800; line-height:.9; color:var(--go); font-variant-numeric:tabular-nums; }
   .advice.stay .big { color:var(--warn); font-size:min(17vw, 16vh, 96px); line-height:1.05; text-align:center; }
+  .advice.idle .big { color:var(--line); }
   .advice.over .big { color:var(--ink); font-size:min(15vw, 13vh, 84px); }
   .advice .sub { font-size:17px; color:var(--dim); margin-top:6px; text-align:center; padding:0 10px; min-height:22px; }
   .advice .sub em { font-style:normal; color:var(--ink); font-weight:600; }
@@ -57,7 +58,7 @@
   <div class="advice" id="advice">
     <div class="heard" id="heard"></div>
     <div class="lat" id="lat"></div>
-    <div class="big" id="big">–</div>
+    <div class="big" id="big">21</div>
     <div class="sub" id="sub">Tap the card you were dealt</div>
   </div>
   <div class="cols" id="cols"></div>
@@ -122,7 +123,7 @@ function overrideCol(j) {
 function manualStay(i) {
   if (st.over || st.stays <= 0 || st.cols[i] === 0) return false;
   history.push(snap());
-  st.cols[i] = 0; st.stays--; st.counts.staysUsed++; colCards[i] = [];
+  st.cols[i] = 0; st.stays--; st.counts.staysUsed++; if (cfg.stayBreaksStreak) st.prev = 0; colCards[i] = [];
   last = { manualStay: true, move: { stay: i, col: -1 } }; msg = 'Stay used on column ' + (i + 1); render(); return true;
 }
 
@@ -137,7 +138,7 @@ function render() {
     sub.innerHTML = 'Game over · ' + ({ deck: 'deck finished', busts: '3 busts', timer: 'card limit reached' })[st.reason] +
       (st.busts === 0 ? ' · <span class="good">Perfect +' + cfg.perfectBonus + '</span>' : '');
     if (last && !last.manualStay) sub.innerHTML = 'Last card: ' + (last.move.stay >= 0 ? 'Stay ' + (last.move.stay + 1) + ', then ' : '') + '<em>' + RANKS[last.r] +
-      '</em> → column ' + (last.move.col + 1) + (last.ev.bust ? ' · <span class="bad">BUST</span>' : last.ev.pts ? ' · <span class="good">+' + (last.ev.pts + last.ev.streak) + '</span>' : '') + '<br>' + sub.innerHTML;
+      '</em> → column ' + (last.move.col + 1) + (last.ev.bust ? ' · <span class="bad">BUST</span>' : last.ev.pts ? ' · <span class="good">+' + (last.ev.pts + last.ev.streak) + (last.ev.streak ? ' (streak +' + last.ev.streak + ')' : '') + '</span>' : '') + '<br>' + sub.innerHTML;
   } else if (last && !last.manualStay) {
     const m = last.move, ev = last.ev;
     if (m.stay >= 0) { adv.classList.add('stay'); big.innerHTML = 'STAY ' + (m.stay + 1) + '<br>then ' + (m.col + 1); }
@@ -145,10 +146,10 @@ function render() {
     let s = '<em>' + RANKS[last.r] + '</em> → column ' + (m.col + 1);
     if (m.stay >= 0) s = 'Use a Stay on column ' + (m.stay + 1) + ' first, then ' + s;
     if (ev.bust) s += ' · <span class="bad">BUST</span>';
-    else if (ev.pts) s += ' · <span class="good">+' + (ev.pts + ev.streak) + (ev.streak ? ' (streak)' : '') + '</span>';
+    else if (ev.pts) s += ' · <span class="good">+' + (ev.pts + ev.streak) + (ev.streak ? ' (streak +' + ev.streak + ')' : '') + '</span>';
     if (last.forced) s += ' · your move';
     sub.innerHTML = s;
-  } else { big.textContent = '–'; sub.textContent = msg || 'Tap the card you were dealt'; }
+  } else { adv.classList.add('idle'); big.textContent = '21'; sub.textContent = msg || 'Tap the card you were dealt'; }
   const cols = $('cols'); cols.innerHTML = '';
   for (let i = 0; i < cfg.numCols; i++) {
     const c = st.cols[i], d = document.createElement('div'); d.className = 'col';

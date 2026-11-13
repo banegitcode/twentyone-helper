@@ -20,7 +20,11 @@
       fiveCard: 800,            // 5 cards without busting
       fiveCard21: 1000,         // 5 cards totaling exactly 21 (instead of 400/800)
     },
-    streakBonus: 250,           // added when a turn scores and the previous card turn also scored
+    // Streak bonus, added when a turn scores right after other scoring turns. Entry 0 is the bonus for the
+    // 2nd scoring turn in a row, entry 1 for the 3rd, and so on; the last entry repeats for longer streaks.
+    // Seen in the real game: +250 (2 in a row), +500 (3 in a row). 4+ is an assumption (keeps growing by 250).
+    // A plain number means the same flat bonus every time.
+    streakBonus: [250, 500, 750, 1000, 1250, 1500],
     stayBreaksStreak: false,    // does using a Stay reset the streak?
     perfectBonus: 1000,         // finishing with zero busts
     timerCards: Infinity,       // short-game: only this many cards get played
@@ -40,6 +44,10 @@
     cfg.points = Object.assign({}, CONFIG.points, (cfg && cfg.points) || {});
     if (cfg.target !== 21 || cfg.maxCardsPerCol > 7) throw new Error('the search evaluator assumes target 21 and at most 7 cards per column');
     const T = cfg.target;
+    // sb[k] = bonus when a turn scores with k scoring turns immediately before it (k capped at sb.length - 1)
+    const rawSb = cfg.streakBonus == null ? CONFIG.streakBonus : cfg.streakBonus;
+    const sb = [0].concat(Array.isArray(rawSb) ? rawSb : [rawSb]).map(Number);
+    if (sb.length < 2 || sb.length > 10 || sb.some((x) => !Number.isFinite(x))) throw new Error('streakBonus must be a number or a list of 1-9 numbers');
     const next = new Int32Array(1024 * 11), pts = new Int32Array(1024 * 11); // pts: -1 bust, 0 nothing, >0 cleared
     for (let c = 0; c < 1024; c++) for (let v = 1; v <= 10; v++) {
       const h = hardOf(c) + v, a = aceOf(c) | (v === 1 ? 1 : 0), n = nOf(c) + 1, nt = not7Of(c) | (v !== 7 ? 1 : 0);
@@ -54,7 +62,7 @@
     }
     const deck = new Int32Array(11);
     cfg.rankValues.forEach((v) => (deck[v] += cfg.copiesPerRank));
-    return { cfg, next, pts, fullDeck: deck, deckSize: cfg.rankValues.length * cfg.copiesPerRank };
+    return { cfg, next, pts, sb, fullDeck: deck, deckSize: cfg.rankValues.length * cfg.copiesPerRank };
   }
   const DEFAULT_RULES = compile();
 
@@ -113,8 +121,8 @@
     if (p < 0) {
       ev.bust = true; ev.cleared = true; st.busts++; st.counts.busts++; st.cols[move.col] = 0; st.prev = 0;
     } else if (p > 0) {
-      ev.cleared = true; ev.pts = p; ev.streak = st.prev ? cfg.streakBonus : 0;
-      st.score += p + ev.streak; st.prev = 1; st.cols[move.col] = 0;
+      ev.cleared = true; ev.pts = p; ev.streak = rules.sb[st.prev];
+      st.score += p + ev.streak; if (st.prev < rules.sb.length - 1) st.prev++; st.cols[move.col] = 0;
       if (p === cfg.points.twentyOne) st.counts.s21++; else if (p === cfg.points.fiveCard) st.counts.s5++;
       else if (p === cfg.points.threeSevens) st.counts.s777++; else st.counts.s521++;
     } else { st.cols[move.col] = rules.next[k]; st.prev = 0; }
@@ -136,6 +144,7 @@
     stay: 8,               // per stay left per remaining card (stay cost scales with cards left)
     stayCap: 52,
     streak: 0,             // value of carrying a live streak into the leaf
+    streak2: 0,            // extra value per additional scoring turn already in that streak
     perfH: 0,              // perfect value shrinks by this per remaining card (more cards = more chances to bust)
     p21: 300,              // x P(random next card makes this column exactly 21)
     safe: 40,              // x P(random next card does not bust this column)
@@ -167,13 +176,13 @@
     // stays below the root: true = always, false = never, 'forced' = only when every plain placement busts,
     // 'smart' = always one level below the root, forced-only deeper
     const stayInner = params.stayInner === undefined ? true : params.stayInner;
-    const streakB = cfg.streakBonus, perfect = cfg.perfectBonus, maxBusts = cfg.maxBusts;
+    const SB = rules.sb, maxPrev = SB.length - 1, perfect = cfg.perfectBonus, maxBusts = cfg.maxBusts;
     let S = null, cache = null, egMemo = new Map(), nodes = 0;
 
     function leaf() {
       const H = S.H, deck = S.deck, rem = S.rem;
       let val = H * W.fut[S.busts] + (S.busts === 0 ? W.perfect - W.perfH * H : 0) + S.stays * W.stay * Math.min(H, W.stayCap);
-      if (S.prev) val += W.streak;
+      if (S.prev) val += W.streak + W.streak2 * (S.prev - 1);
       let room = 0, needMask = 0, anyEmpty = 0;
       for (let i = 0; i < NC; i++) {
         const c = S.cols[i]; if (c === 0) { anyEmpty = 1; room = 21; continue; }
@@ -205,7 +214,7 @@
       S.deck[v]--; S.rem--; S.H--;
       let r = 0;
       if (p < 0) { S.busts++; S.cols[j] = 0; S.prev = 0; }
-      else if (p > 0) { r = p + (S.prev ? streakB : 0); S.prev = 1; S.cols[j] = 0; }
+      else if (p > 0) { r = p + SB[S.prev]; if (S.prev < maxPrev) S.prev++; S.cols[j] = 0; }
       else { S.cols[j] = NEXT[k]; S.prev = 0; }
       return r;
     }

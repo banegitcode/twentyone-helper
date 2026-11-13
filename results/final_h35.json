@@ -1,0 +1,52 @@
+{
+ "seedStart": 2100000,
+ "count": 10000,
+ "horizon": 35,
+ "rows": [
+  {
+   "name": "Baseline",
+   "gain": 0,
+   "ci": 0,
+   "n": 10000,
+   "mean": 4950.845,
+   "median": 5100,
+   "p5": 2650,
+   "p95": 6550,
+   "zeroBust": 0.8059,
+   "bustOut": 0.0207,
+   "msPerMove": 0.06617971265035423,
+   "clears21": 7.9716,
+   "cards": 34.9508
+  },
+  {
+   "name": "Full-deck weights (v4)",
+   "gain": 504.41,
+   "ci": 22.931132487112727,
+   "n": 10000,
+   "mean": 5455.255,
+   "median": 5600,
+   "p5": 3250,
+   "p95": 7050,
+   "zeroBust": 0.8488,
+   "bustOut": 0.0104,
+   "msPerMove": 7.334173902271043,
+   "clears21": 8.3276,
+   "cards": 34.9845
+  },
+  {
+   "name": "Weights tuned for 35 cards",
+   "gain": 460.2,
+   "ci": 23.00848219720342,
+   "n": 10000,
+   "mean": 5411.045,
+   "median": 5500,
+   "p5": 3250,
+   "p95": 7000,
+   "zeroBust": 0.8331,
+   "bustOut": 0.0117,
+   "msPerMove": 7.241189822936869,
+   "clears21": 8.2235,
+   "cards": 34.983
+  }
+ ]
+}

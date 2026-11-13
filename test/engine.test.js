@@ -96,12 +96,37 @@ test('stay empties a column with no penalty; max 2', () => {
   assert.throws(() => E.applyMove(R, st, 2, { col: 1, stay: 1 }), /no stays/);
 });
 
-test('streak: back-to-back scoring turns add +250 each', () => {
+test('streak: +250 on the 2nd scoring turn in a row, +500 on the 3rd', () => {
   // set up three columns one card away from 21, then score three turns in a row
   const { st, evs } = play([[10, 0], [10, 1], [10, 2], [1, 0], [1, 1], [1, 2]]);
   assert.deepEqual(evs.slice(3).map((e) => e.pts), [400, 400, 400]);
-  assert.deepEqual(evs.slice(3).map((e) => e.streak), [0, 250, 250]);
-  assert.equal(st.score, 1700);
+  assert.deepEqual(evs.slice(3).map((e) => e.streak), [0, 250, 500]);
+  assert.equal(st.score, 1950);
+});
+
+test('streak keeps growing by 250 (assumed for 4+), resets after a miss, and a plain number means flat', () => {
+  const seq = [[10, 0], [10, 1], [10, 2], [10, 3], [1, 0], [1, 1], [1, 2], [1, 3], [5, 0], [6, 0], [10, 0], [5, 1], [6, 1], [10, 1]];
+  const { st, evs } = play(seq);
+  assert.deepEqual(evs.slice(4, 8).map((e) => e.streak), [0, 250, 500, 750]);
+  assert.equal(evs[10].pts, 400); assert.equal(evs[10].streak, 0); // non-scoring cards reset the streak
+  assert.equal(evs[13].pts, 400); assert.equal(evs[13].streak, 0);
+  assert.equal(st.score, 6 * 400 + 1500);
+  const R2 = E.compile({ streakBonus: 250 });
+  const s2 = E.newGame(R2); const out = seq.slice(0, 8).map(([v, col]) => E.applyMove(R2, s2, v, { col, stay: -1 }).streak);
+  assert.deepEqual(out.slice(4), [0, 250, 250, 250]);
+  const R3 = E.compile({ streakBonus: [250, 500] }); // last entry repeats
+  const s3 = E.newGame(R3); const o3 = seq.slice(0, 8).map(([v, col]) => E.applyMove(R3, s3, v, { col, stay: -1 }).streak);
+  assert.deepEqual(o3.slice(4), [0, 250, 500, 500]);
+});
+
+test('search sees the growing streak: prefers the order that scores three turns running', () => {
+  // exact solve of the last 3 cards (A, A, 5): columns 20, 20, 16. Scoring A, A, 5 in a row is worth 400*3 + 250 + 500.
+  const st = E.newGame(R);
+  const pol = E.createSearcher(R, { depth: 1, endgameK: 4 });
+  [[10, 0], [10, 0], [10, 1], [10, 1], [10, 2], [6, 2]].forEach(([v, c]) => E.applyMove(R, st, v, { col: c, stay: -1 }));
+  for (let v = 1; v <= 10; v++) st.deck[v] = 0; st.deck[1] = 2; st.deck[5] = 1; st.rem = 3;
+  const m = pol.choose(st, 5); // 5 first: 21 on column 2, then both aces score -> 400 + 650 + 900 + perfect 1000
+  assert.equal(m.col, 2); assert.ok(m.exact); assert.ok(Math.abs(m.value - (400 + 650 + 900 + 1000)) < 1e-6, String(m.value));
 });
 
 test('streak breaks on a non-scoring card and on a bust', () => {

@@ -4,13 +4,14 @@
 const fs = require('fs'); const P = require('./pool.js'); const E = require('./engine.js');
 const [depth, gens, pop, games, out, init, hz] = [+process.argv[2], +process.argv[3], +process.argv[4], +process.argv[5], process.argv[6], process.argv[7], +process.argv[8] || 0];
 const B = init && init !== '-' ? JSON.parse(fs.readFileSync(init)).w : E.BASELINE_WEIGHTS;
-const toVec = (w) => [...w.fut, w.perfect, w.perfH, w.stay, w.streak, w.p21, w.safe, w.four, ...w.cnt.slice(1, 5), ...w.tot.slice(2, 21), w.pAny || 0, ...(w.forced || [0, 0, 0]), w.soft || 0, w.empty || 0];
+const toVec = (w) => [...w.fut, w.perfect, w.perfH, w.stay, w.streak, w.p21, w.safe, w.four, ...w.cnt.slice(1, 5), ...w.tot.slice(2, 21), w.pAny || 0, ...(w.forced || [0, 0, 0]), w.soft || 0, w.empty || 0, w.streak2 || 0];
 const toW = (x) => ({ fut: x.slice(0, 3), perfect: x[3], perfH: x[4], stay: x[5], stayCap: 52, streak: x[6], p21: x[7], safe: x[8], four: x[9],
-  cnt: [0, ...x.slice(10, 14)], tot: [0, 0, ...x.slice(14, 33), 0], pAny: x[33], forced: x.slice(34, 37), soft: x[37], empty: x[38] });
+  cnt: [0, ...x.slice(10, 14)], tot: [0, 0, ...x.slice(14, 33), 0], pAny: x[33], forced: x.slice(34, 37), soft: x[37], empty: x[38], streak2: x[39] });
 let mu = toVec(B);
 let sd = [15, 15, 15, 200, 4, 4, 60, 80, 30, 60, 30, 30, 30, 30, ...new Array(19).fill(30)];
 if (init && init !== '-') sd = sd.map((s) => s * 0.5);
-sd.push(80, 200, 200, 200, 25, 25);
+sd.push(80, 200, 200, 200, 25, 25, 80);
+if (process.env.SDSTREAK) sd[6] = +process.env.SDSTREAK; // widen the streak weight after a rule change
 const sdScale = +process.env.SD || 1; sd = sd.map((s) => s * sdScale);
 const rng = E.mulberry32(99 + depth);
 const gauss = () => { let u = 0, v = 0; while (!u) u = rng(); v = rng(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };

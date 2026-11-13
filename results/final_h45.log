@@ -1,0 +1,2 @@
+Baseline                           n=10000 mean 6221 med 6500 p5 3850 p95 8100 0bust 68.7% 3bust 5.4% ms 0.057 gain 0 ± 0 2s
+Full-deck weights (v4)             n=10000 mean 7015 med 7200 p5 4800 p95 8750 0bust 77.2% 3bust 2.1% ms 5.591 gain 795 ± 29 182s

@@ -1,0 +1,3 @@
+Baseline                           n=10000 mean 3697 med 3800 p5 1800 p95 4950 0bust 92.5% 3bust 0.4% ms 0.068 gain 0 ± 0 1s
+Full-deck weights (v4)             n=10000 mean 3988 med 4050 p5 2250 p95 5300 0bust 93.1% 3bust 0.2% ms 9.681 gain 291 ± 17 177s
+Weights tuned for 25 cards         n=10000 mean 3983 med 4050 p5 2250 p95 5300 0bust 93.4% 3bust 0.2% ms 9.503 gain 286 ± 17 173s

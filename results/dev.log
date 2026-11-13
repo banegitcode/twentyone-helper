@@ -1,0 +1,9 @@
+Baseline (2 cards, hand weights)   n=10000 mean 7255 med 7600 p5 4500 p95 9300 0bust 61.8% 3bust 6.7% ms 0.055 gain 0 ± 0 2s
+Tuned v1 (CEM), 2 cards            n=10000 mean 7898 med 8150 p5 5650 p95 9700 0bust 72.6% 3bust 3.3% ms 0.127 gain 643 ± 34 5s
+Tuned v2 (+features), 2 cards      n=10000 mean 8086 med 8350 p5 5800 p95 9900 0bust 73.8% 3bust 2.5% ms 0.156 gain 830 ± 34 6s
+Tuned v3 (old streak rule), 3 cards n=10000 mean 8284 med 8500 p5 6100 p95 10050 0bust 74.5% 3bust 2.0% ms 1.938 gain 1029 ± 34 73s
+Tuned v4 (refit, new streak rule), 3 cards n=10000 mean 8337 med 8550 p5 6100 p95 10150 0bust 73.7% 3bust 2.0% ms 1.946 gain 1082 ± 35 73s
+v4, 2nd bust costed like 1st       n=10000 mean 8335 med 8550 p5 6100 p95 10150 0bust 73.7% 3bust 2.0% ms 8.932 gain 1079 ± 35 333s
+v4 + exact endgame (last 6)        n=10000 mean 8392 med 8600 p5 6150 p95 10200 0bust 73.8% 3bust 2.1% ms 3.411 gain 1136 ± 35 131s
+v4 + selective 4-card lookahead    n=10000 mean 8467 med 8650 p5 6300 p95 10300 0bust 73.8% 3bust 1.7% ms 6.128 gain 1212 ± 34 228s
+SHIPPED: v4 + selective + endgame 4 n=10000 mean 8470 med 8650 p5 6300 p95 10300 0bust 73.9% 3bust 1.7% ms 4.559 gain 1214 ± 34 171s

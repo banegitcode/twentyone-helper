@@ -10,4 +10,5 @@ html = html.replace('/*ENGINE*/', () => fs.readFileSync(path.join(root, 'src/eng
   .replace('/*POLICIES*/', () => JSON.stringify(pol)).replace('/*CLIPS*/', () => JSON.stringify(clips));
 fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
 fs.writeFileSync(path.join(root, 'dist/index.html'), html);
+fs.writeFileSync(path.join(root, 'docs/index.html'), html); // the GitHub Pages copy
 console.log('dist/index.html', (html.length / 1024).toFixed(0) + ' KB');

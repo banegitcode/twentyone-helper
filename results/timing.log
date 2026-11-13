@@ -1,0 +1,12 @@
+Baseline (2 cards, hand weights)   mean 0.039 p99 0.16 max 0.21 ms
+Baseline weights, 3 cards          mean 2.408 p99 13.03 max 16.02 ms
+Tuned v1 (CEM), 2 cards            mean 0.043 p99 0.16 max 0.21 ms
+Tuned v2 (+features), 2 cards      mean 0.051 p99 0.20 max 0.23 ms
+Tuned v3 (old streak rule), 3 cards mean 0.602 p99 2.04 max 2.26 ms
+Tuned v4 (refit, new streak rule), 3 cards mean 0.621 p99 2.06 max 2.24 ms
+v4, 2nd bust costed like 1st       mean 0.623 p99 2.05 max 2.36 ms
+v4 + exact endgame (last 6)        mean 1.077 p99 6.64 max 191.12 ms
+v4 + selective 4-card lookahead    mean 2.894 p99 11.42 max 17.45 ms
+SHIPPED: v4 + selective + endgame 4 mean 2.919 p99 11.44 max 18.26 ms
+v4, full 4 cards                   mean 13.353 p99 49.72 max 53.55 ms
+MC rollouts (3-card base, 60 x 2-card) mean 65.061 p99 378.26 max 470.58 ms
