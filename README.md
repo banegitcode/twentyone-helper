@@ -14,6 +14,7 @@ Tap the card you were dealt; the page shows which column to play in huge type an
   costs 60% of its prize, so break-even is 60% wins and the Kelly stake is `2.5p - 1.5` of the balance for win
   chance `p`. The page estimates `p` from the last 50 recorded games (pulled toward 60% until there is data),
   lowered if results at similar or higher stakes are worse than the overall record,
+  and lowered again if comparing your recent scores with the 15 most recent opponent scores gives a smaller figure,
   stakes a fraction of Kelly (one eighth, quarter or half), never more than 10% of the balance, moves up one
   stake at a time, and steps down after 2+ losses in a row. Streaks are not treated as predictive.
 - **Past games** can be added from Stats & settings (score, opponent score, stake, Win or Loss) without

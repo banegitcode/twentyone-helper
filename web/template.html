@@ -427,6 +427,8 @@ function summary() {
     winMargin: avg(both.filter((g) => g.res === 'W').map((g) => g.my - g.opp)), lossMargin: avg(both.filter((g) => g.res === 'L').map((g) => g.opp - g.my)),
     avgWin: avg(W.map(delta)), avgLoss: avg(L.map((g) => -delta(g))), net, balance: REC.start + net,
     best: G.length ? Math.max.apply(null, G.map((g) => g.my)) : null, oppBest: both.length ? Math.max.apply(null, both.map((g) => g.opp)) : null,
+    oppLast10: avg(both.slice(-10).map((g) => g.opp)), oppBefore: avg(both.slice(0, -10).map((g) => g.opp)),
+    oppSd: (() => { const o = both.map((g) => g.opp), m = avg(o); return o.length > 1 ? Math.sqrt(o.reduce((a, x) => a + (x - m) * (x - m), 0) / (o.length - 1)) : null; })(),
     breakEven: (() => { const P = G.filter((g) => g.prize > 0), f = P.reduce((a, g) => a + g.fee, 0), pr = P.reduce((a, g) => a + g.prize, 0); return pr ? 100 * f / pr : (REC.prize > 0 ? 100 * REC.fee / REC.prize : null); })(),
     streak: G.length ? G[G.length - 1].res + streak : '–', money: REC.start !== 0 || G.some((g) => g.fee || g.prize),
   };
@@ -442,7 +444,17 @@ function betAdvice() {
   const rec = G.slice(-50), pAll = (rec.filter(isW).length + 6) / (rec.length + 10);   // pulled toward the 60% break-even until there is data
   // Win chance at stake i: games played at similar or higher stakes count fully; the overall record fills in for the rest.
   const pAt = (i) => { const g = G.slice(-100).filter((x) => x.fee >= TIERS[i][0] * 0.5 - 1e-9); return { p: Math.min(pAll, (g.filter(isW).length + 8 * pAll) / (g.length + 8)), n: g.length }; };   // a good run at one stake never lifts it above the overall estimate
-  const fracAt = (i) => Math.min(Math.max(0, 2.5 * pAt(i).p - 1.5) * risk, 0.1);
+  // Second estimate from the scores themselves: how often one of your recent scores beats one of the opponent scores
+  // recorded at similar or higher stakes. It uses far more information than win/loss alone, but it assumes the
+  // opponent's score does not depend on yours, so the lower of the two estimates is the one used.
+  const mine = G.slice(-40).map((x) => x.my);
+  const pairAt = (i) => {
+    const o = G.filter((x) => x.opp != null && x.fee >= TIERS[i][0] * 0.5 - 1e-9).map((x) => x.opp).slice(-15); if (o.length < 5) return null;   // the 15 most recent, so tougher opponents show up quickly
+    let w = 0; for (const m of mine) for (const y of o) w += m > y ? 1 : m === y ? 0.5 : 0;
+    const raw = w / (mine.length * o.length); return { raw, n: o.length, p: (raw * o.length + 6) / (o.length + 10) };
+  };
+  const pUse = (i) => { const a = pAt(i).p, b = pairAt(i); return b ? Math.min(a, b.p) : a; };
+  const fracAt = (i) => Math.min(Math.max(0, 2.5 * pUse(i) - 1.5) * risk, 0.1);
   let idx = -1; TIERS.forEach((t, i) => { if (t[0] <= s.balance * fracAt(i) + 1e-9) idx = i; });
   const edge = idx >= 0;
   let top = -1; TIERS.forEach((t, i) => { if (G.filter((g) => g.fee === t[0]).length >= 3) top = i; });
@@ -451,8 +463,11 @@ function betAdvice() {
   let stepped = false; if (ls >= 2 && idx > 0) { idx = Math.max(0, idx - (ls >= 3 ? 2 : 1)); stepped = true; }
   if (idx < 0) idx = 0;
   if (TIERS[idx][0] > s.balance) return { tier: null, notes: ['Your balance is below the smallest stake.'] };
-  const e = pAt(idx), t = TIERS[idx];
+  const e = { p: pUse(idx), n: pAt(idx).n }, pr = pairAt(idx), t = TIERS[idx];
   notes.push('Estimated win chance at this stake <b>' + (100 * e.p).toFixed(0) + '%</b>' + (G.length ? ' (' + e.n + ' game' + (e.n === 1 ? '' : 's') + ' at similar or higher stakes, blended with your overall record)' : ' (no games recorded yet)') + '. Break-even is 60%.');
+  if (pr) notes.push('From results alone: <b>' + (100 * pAt(idx).p).toFixed(0) + '%</b>. From comparing your scores with ' + pr.n + ' opponent scores: <b>' + (100 * pr.p).toFixed(0) + '%</b>. The lower one is used.');
+  const os = G.filter((x) => x.opp != null).map((x) => x.opp), l10 = os.slice(-10), before = os.slice(0, -10);
+  if (l10.length === 10 && before.length >= 5 && avg(l10) - avg(before) > 400) notes.push('<span class="bad">Opponent scores are rising</span>: last 10 average <b>' + fmt(avg(l10)) + '</b> against ' + fmt(avg(before)) + ' before. Expect your win rate to fall.');
   if (!edge) notes.push('Your record does not show an edge yet, so this is the <b>smallest stake</b>. Free games cost nothing.');
   else notes.push('You pay <b>' + (100 * t[0] / s.balance).toFixed(1) + '%</b> of your ' + money(s.balance) + ' balance. Expected profit about <b>' + signed(t[1] * (e.p - 0.6)) + '</b> per game.');
   if (held) notes.push('Held to one step above the highest stake you have played at least 3 times: opponents may be tougher at higher stakes.');
@@ -519,6 +534,7 @@ function renderStats() {
     ['', 'Avg margin', '<b class="' + (s.margin > 0 ? 'pos' : s.margin < 0 ? 'neg' : '') + '">' + (s.margin == null ? '–' : (s.margin > 0 ? '+' : '') + fmt(s.margin)) + '</b>'],
     ['', 'Avg win $', '<b>' + cash(s.avgWin) + '</b>'], ['', 'Avg loss $', '<b>' + cash(s.avgLoss) + '</b>'], ['', 'Streak', '<b>' + s.streak + '</b>'],
     ['', 'Avg win by', '<b>' + fmt(s.winMargin) + '</b>'], ['', 'Avg loss by', '<b>' + fmt(s.lossMargin) + '</b>'], ['', 'Your best', '<b>' + fmt(s.best) + '</b>'],
+    ['', 'Opp last 10', '<b>' + fmt(s.oppLast10) + '</b>'], ['', 'Opp before that', '<b>' + fmt(s.oppBefore) + '</b>'], ['', 'Opp spread (sd)', '<b>' + fmt(s.oppSd) + '</b>'],
     ['', 'Break-even win %', '<b>' + pct(s.breakEven) + '</b>'], ['', 'Opp best', '<b>' + fmt(s.oppBest) + '</b>'], ['', 'Games', '<b>' + s.n + '</b>'],
   ];
   $('tiles').innerHTML = T.map((t) => t[0] === 'wide'
@@ -532,12 +548,12 @@ function renderStats() {
       '<small>' + (d.getMonth() + 1) + '/' + d.getDate() + '</small></span><button data-del="' + i + '" aria-label="Delete this game">✕</button></div>');
   }
   // win % for every bet amount, then the overall figure and the plain average of the per-amount percentages
-  const by = new Map(); for (const g of G) { const k = g.fee + '|' + g.prize; if (!by.has(k)) by.set(k, { fee: g.fee, prize: g.prize, n: 0, w: 0, net: 0 }); const b = by.get(k); b.n++; if (g.res === 'W') b.w++; b.net += delta(g); }
+  const by = new Map(); for (const g of G) { const k = g.fee + '|' + g.prize; if (!by.has(k)) by.set(k, { fee: g.fee, prize: g.prize, n: 0, w: 0, net: 0, o: [] }); const b = by.get(k); b.n++; if (g.opp != null) b.o.push(g.opp); if (g.res === 'W') b.w++; b.net += delta(g); }
   const bs = Array.from(by.values()).sort((a, b) => a.fee - b.fee), netCls = (x) => (x > 0 ? 'pos' : x < 0 ? 'neg' : '');
   const srow = (cls, name, sub, n, wl, pc, net) => '<div class="srow ' + cls + '"><span>' + name + (sub ? '<small>' + sub + '</small>' : '') + '</span><span>' + n + '</span><span>' + wl + '</span><span>' + pc + '</span><span class="' + netCls(net) + '">' + (net == null ? '' : signed(net)) + '</span></div>';
   $('byStake').innerHTML = !bs.length ? '<div class="empty">No games yet.</div>'
     : '<div class="srow head"><span>Bet</span><span>Games</span><span>W–L</span><span>Win %</span><span>Net</span></div>' +
-      bs.map((b) => srow('', b.fee || b.prize ? 'Pay $' + amt(b.fee) : 'No stake', b.prize ? 'win $' + amt(b.prize) : '', b.n, b.w + '–' + (b.n - b.w), pct(100 * b.w / b.n), b.net)).join('') +
+      bs.map((b) => srow('', b.fee || b.prize ? 'Pay $' + amt(b.fee) : 'No stake', (b.prize ? 'win $' + amt(b.prize) : '') + (b.o.length ? ' · opp avg ' + fmt(avg(b.o)) : ''), b.n, b.w + '–' + (b.n - b.w), pct(100 * b.w / b.n), b.net)).join('') +
       srow('total', 'All games', '', s.n, s.w + '–' + s.l, pct(s.winPct), s.net) +
       (bs.length > 1 ? srow('total', 'Average of bet amounts', 'each amount counted once', '', '', pct(avg(bs.map((b) => 100 * b.w / b.n))), null) : '');
   $('glist').innerHTML = rows.join('') || '<div class="empty">No games yet.</div>';
