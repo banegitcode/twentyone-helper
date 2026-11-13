@@ -3,7 +3,16 @@
 Live page: https://banegitcode.github.io/twentyone-helper/ (one self-contained file, works offline once loaded).
 
 Tap the card you were dealt; the page shows which column to play in huge type and applies the move.
-Tap a different column if you played it somewhere else. Undo and New Game are at the bottom.
+
+- **Columns show every card**, stacked like the game. If a card went somewhere else, **drag it to the right
+  column** (any card, not only the last one) and everything after it is recalculated. A card that just cleared a
+  column stays as a dashed outline so it can still be dragged.
+- **At the end of a game** a sheet asks for Win or Loss, with optional opponent score, entry fee and prize.
+- **Stats & settings** keeps wins, losses, win %, the opponent's record and average score, your average score and
+  margin, current balance, average win and loss amounts, and the list of recent games (each can be deleted).
+- The record and the game in progress are saved in the browser on that device only (no account, nothing uploaded).
+  Clearing the browser's site data erases them.
+- Undo and New Game are at the bottom.
 
 **Best measured, not perfect.** The shipped policy averages **8,755** points per full-deck game on 10,000 fresh
 shuffles, against **7,275** for the reference baseline on the same shuffles: **+1,480 ± 34** (95% CI, paired).
