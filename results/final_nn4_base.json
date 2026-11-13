@@ -1,0 +1,37 @@
+{
+ "seedStart": 2400000,
+ "count": 10000,
+ "horizon": 52,
+ "rows": [
+  {
+   "name": "Baseline (2 cards, hand weights)",
+   "gain": 0,
+   "ci": 0,
+   "n": 10000,
+   "mean": 7250.305,
+   "median": 7600,
+   "p5": 4600,
+   "p95": 9250,
+   "zeroBust": 0.6265,
+   "bustOut": 0.0659,
+   "msPerMove": 0.04790455205378695,
+   "clears21": 12.8129,
+   "cards": 51.4026
+  },
+  {
+   "name": "SHIPPED: network v2 + selective 3-card + exact last 4",
+   "gain": 1504.05,
+   "ci": 33.796884938094585,
+   "n": 10000,
+   "mean": 8754.355,
+   "median": 8900,
+   "p5": 6800,
+   "p95": 10400,
+   "zeroBust": 0.7774,
+   "bustOut": 0.0081,
+   "msPerMove": 13.75793169315245,
+   "clears21": 13.9056,
+   "cards": 51.96
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+Current shipped (nn3)              n=4000 mean 8714 med 8850 p5 6800 p95 10300 0bust 77.8% 3bust 0.9% ms 12.913 gain 0 ± 0 194s
+nn4 td0                            n=4000 mean 8735 med 8850 p5 6800 p95 10300 0bust 77.3% 3bust 1.1% ms 13.828 gain 22 ± 30 207s
+nn4 td25                           n=4000 mean 8744 med 8850 p5 6850 p95 10300 0bust 77.3% 3bust 0.8% ms 13.820 gain 31 ± 30 208s
+nn4 td5                            n=4000 mean 8725 med 8850 p5 6800 p95 10300 0bust 77.1% 3bust 0.9% ms 13.738 gain 12 ± 32 208s
+nn4 td25s                          n=4000 mean 8721 med 8850 p5 6800 p95 10300 0bust 77.0% 3bust 1.1% ms 14.448 gain 7 ± 33 217s

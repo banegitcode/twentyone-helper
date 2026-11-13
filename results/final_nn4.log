@@ -1,0 +1,2 @@
+Current shipped (nn3)              n=10000 mean 8727 med 8850 p5 6800 p95 10400 0bust 77.6% 3bust 0.8% ms 13.401 gain 0 ± 0 502s
+Candidate: search-value labels (25% game result) n=10000 mean 8754 med 8900 p5 6800 p95 10400 0bust 77.7% 3bust 0.8% ms 14.084 gain 27 ± 19 532s

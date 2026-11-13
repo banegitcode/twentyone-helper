@@ -1,0 +1,2 @@
+Baseline (2 cards, hand weights)   n=10000 mean 7250 med 7600 p5 4600 p95 9250 0bust 62.6% 3bust 6.6% ms 0.048 gain 0 ± 0 2s
+SHIPPED: network v2 + selective 3-card + exact last 4 n=10000 mean 8754 med 8900 p5 6800 p95 10400 0bust 77.7% 3bust 0.8% ms 13.758 gain 1504 ± 34 517s

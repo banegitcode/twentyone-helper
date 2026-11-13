@@ -1,0 +1,13 @@
+2461308 rows, net 56-128-48-1 val mse at start 0.1961
+epoch 1 train 0.1898 val 0.1900 lr 3.0e-4 36s
+epoch 2 train 0.1887 val 0.1897 lr 2.3e-4 32s
+epoch 3 train 0.1881 val 0.1893 lr 1.7e-4 32s
+epoch 4 train 0.1876 val 0.1890 lr 1.3e-4 32s
+epoch 5 train 0.1872 val 0.1887 lr 1.0e-4 32s
+epoch 6 train 0.1869 val 0.1883 lr 7.7e-5 32s
+epoch 7 train 0.1867 val 0.1882 lr 5.9e-5 32s
+epoch 8 train 0.1866 val 0.1882 lr 4.5e-5 32s
+epoch 9 train 0.1865 val 0.1882 lr 3.4e-5 32s
+epoch 10 train 0.1864 val 0.1882 lr 2.6e-5 32s
+epoch 11 train 0.1863 val 0.1882 lr 2.0e-5 32s
+epoch 12 train 0.1862 val 0.1881 lr 1.5e-5 31s

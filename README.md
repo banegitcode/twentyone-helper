@@ -5,10 +5,10 @@ Live page: https://banegitcode.github.io/twentyone-helper/ (one self-contained f
 Tap the card you were dealt; the page shows which column to play in huge type and applies the move.
 Tap a different column if you played it somewhere else. Undo and New Game are at the bottom.
 
-**Best measured, not perfect.** The shipped policy averages **8,702** points per full-deck game on 10,000 fresh
-shuffles, against **7,267** for the reference baseline on the same shuffles: **+1,435 ± 33** (95% CI, paired).
+**Best measured, not perfect.** The shipped policy averages **8,754** points per full-deck game on 10,000 fresh
+shuffles, against **7,250** for the reference baseline on the same shuffles: **+1,504 ± 34** (95% CI, paired).
 It is a search that looks 2–3 cards ahead and judges the resulting positions with a small neural network
-trained on 450,000 self-played games.
+trained on 650,000 self-played games.
 
 ## Rules as implemented
 
@@ -37,7 +37,21 @@ If the real game pays something different for a 4-streak, change the list and re
 
 ## Results
 
-### Shipped policy
+### Shipped policy (network v2)
+
+Full deck, **fresh seeds 2,400,000–2,409,999**, 10,000 games per row, same shuffles for every row:
+
+| Policy | Mean | Median | 5th pct | 95th pct | Zero-bust | Ended by 3 busts | Gain (95% CI) |
+|---|---|---|---|---|---|---|---|
+| Baseline (2 cards ahead, hand weights) | 7250 | 7600 | 4600 | 9250 | 62.6% | 6.6% | — |
+| Network v1 (the shipped row in the next table) | 8727 | 8850 | 6800 | 10400 | 77.6% | 0.8% | — |
+| **Shipped:** network v2 + selective 3-card + exact last 4 | **8754** | 8900 | 6800 | 10400 | 77.7% | 0.8% | **+1504 ± 34** vs baseline, **+27 ± 19** vs v1 |
+
+Network v2 has the same size and speed as v1; only its training changed (see "What was tried"). The v1 tables
+below (timing, fallback row, short games) were not re-run for v2. Rows are in
+[results/final_nn4.log](results/final_nn4.log) and [results/final_nn4_base.log](results/final_nn4_base.log).
+
+### Network v1
 
 Full deck, **fresh seeds 2,200,000–2,209,999** (never used for training, tuning or choosing between policies).
 Every policy plays the same shuffles; the gain is the paired difference from the baseline. Timing is
@@ -108,6 +122,12 @@ itself knows the card limit, which is what matters.
   A third pass on all the data added +16 ± 36, so it has levelled off. Bigger networks scored higher than
   smaller ones (128x48 beat 64x32 by about 45) but cost more time per move.
 
+- **Search-value training labels (shipped, network v2).** 200,000 more games in which each position is also
+  labelled with the search's own value at the next card. That label is far less noisy than the final game
+  result. Fine-tuning v1 on a blend (75% search value, 25% game result) gave +31 ± 30 on validation and
+  **+27 ± 19** on fresh shuffles. Pure search value (+22 ± 30), a 50/50 blend (+12 ± 32) and training from scratch
+  (+7 ± 33) were not clearly better than v1 on validation.
+
 - **Deeper search.** 3 cards ahead is a clear win over 2. Full 4 cards ahead adds about as much as selective
   deepening but costs 13 ms per move on a desktop, so the page only looks 4 ahead when the top moves are within
   150 points of each other (top 3 moves).
@@ -158,6 +178,18 @@ node src/gen_data.js results/gen_spec2.json 1250000 200000 scratch/d2.bin 13
 
 ```bash
 node src/train_nn.js scratch/d2.bin,scratch/d1.bin results/nn3_128x48.json 128,48 14
+```
+
+```bash
+node src/gen_data.js results/gen_spec3.json 1000000 200000 scratch/d3.bin 13 td
+```
+
+```bash
+node src/blend.js scratch/d3.bin scratch/d3_l25.bin 0.25
+```
+
+```bash
+node src/train_nn.js scratch/d3_l25.bin results/nn4_td25.json 128,48 12 results/nn3_128x48.json
 ```
 
 ```bash

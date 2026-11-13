@@ -1,0 +1,37 @@
+{
+ "seedStart": 2400000,
+ "count": 10000,
+ "horizon": 52,
+ "rows": [
+  {
+   "name": "Current shipped (nn3)",
+   "gain": 0,
+   "ci": 0,
+   "n": 10000,
+   "mean": 8727.315,
+   "median": 8850,
+   "p5": 6800,
+   "p95": 10400,
+   "zeroBust": 0.7757,
+   "bustOut": 0.0077,
+   "msPerMove": 13.400531495966103,
+   "clears21": 13.8332,
+   "cards": 51.9729
+  },
+  {
+   "name": "Candidate: search-value labels (25% game result)",
+   "gain": 27.04,
+   "ci": 19.061732303324966,
+   "n": 10000,
+   "mean": 8754.355,
+   "median": 8900,
+   "p5": 6800,
+   "p95": 10400,
+   "zeroBust": 0.7774,
+   "bustOut": 0.0081,
+   "msPerMove": 14.083861027827172,
+   "clears21": 13.9056,
+   "cards": 51.96
+  }
+ ]
+}
