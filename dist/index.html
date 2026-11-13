@@ -868,6 +868,9 @@ function summary() {
     best: G.length ? Math.max.apply(null, G.map((g) => g.my)) : null, oppBest: both.length ? Math.max.apply(null, both.map((g) => g.opp)) : null,
     oppLast10: avg(both.slice(-10).map((g) => g.opp)), oppBefore: avg(both.slice(0, -10).map((g) => g.opp)),
     oppSd: (() => { const o = both.map((g) => g.opp), m = avg(o); return o.length > 1 ? Math.sqrt(o.reduce((a, x) => a + (x - m) * (x - m), 0) / (o.length - 1)) : null; })(),
+    oppAfterW: avg(G.filter((g, i) => i > 0 && g.opp != null && G[i - 1].res === 'W').map((g) => g.opp)),
+    oppAfterL: avg(G.filter((g, i) => i > 0 && g.opp != null && G[i - 1].res === 'L').map((g) => g.opp)),
+    nAfterL: G.filter((g, i) => i > 0 && g.opp != null && G[i - 1].res === 'L').length,
     breakEven: (() => { const P = G.filter((g) => g.prize > 0), f = P.reduce((a, g) => a + g.fee, 0), pr = P.reduce((a, g) => a + g.prize, 0); return pr ? 100 * f / pr : (REC.prize > 0 ? 100 * REC.fee / REC.prize : null); })(),
     streak: G.length ? G[G.length - 1].res + streak : '–', money: REC.start !== 0 || G.some((g) => g.fee || g.prize),
   };
@@ -907,6 +910,7 @@ function betAdvice() {
   if (pr) notes.push('From results alone: <b>' + (100 * pAt(idx).p).toFixed(0) + '%</b>. From comparing your scores with ' + pr.n + ' opponent scores: <b>' + (100 * pr.p).toFixed(0) + '%</b>. The lower one is used.');
   const os = G.filter((x) => x.opp != null).map((x) => x.opp), l10 = os.slice(-10), before = os.slice(0, -10);
   if (l10.length === 10 && before.length >= 5 && avg(l10) - avg(before) > 400) notes.push('<span class="bad">Opponent scores are rising</span>: last 10 average <b>' + fmt(avg(l10)) + '</b> against ' + fmt(avg(before)) + ' before. Expect your win rate to fall.');
+  if (s.nAfterL >= 3 && s.oppAfterW != null && s.oppAfterW - s.oppAfterL > 400) notes.push('Opponents average <b>' + fmt(s.oppAfterW) + '</b> after you win and <b>' + fmt(s.oppAfterL) + '</b> after you lose (' + s.nAfterL + ' games after a loss): the game looks like it gets harder as you win.');
   if (!edge) notes.push('Your record does not show an edge yet, so this is the <b>smallest stake</b>. Free games cost nothing.');
   else notes.push('You pay <b>' + (100 * t[0] / s.balance).toFixed(1) + '%</b> of your ' + money(s.balance) + ' balance. Expected profit about <b>' + signed(t[1] * (e.p - 0.6)) + '</b> per game.');
   if (held) notes.push('Held to one step above the highest stake you have played at least 3 times: opponents may be tougher at higher stakes.');
@@ -974,7 +978,8 @@ function renderStats() {
     ['', 'Avg win $', '<b>' + cash(s.avgWin) + '</b>'], ['', 'Avg loss $', '<b>' + cash(s.avgLoss) + '</b>'], ['', 'Streak', '<b>' + s.streak + '</b>'],
     ['', 'Avg win by', '<b>' + fmt(s.winMargin) + '</b>'], ['', 'Avg loss by', '<b>' + fmt(s.lossMargin) + '</b>'], ['', 'Your best', '<b>' + fmt(s.best) + '</b>'],
     ['', 'Opp last 10', '<b>' + fmt(s.oppLast10) + '</b>'], ['', 'Opp before that', '<b>' + fmt(s.oppBefore) + '</b>'], ['', 'Opp spread (sd)', '<b>' + fmt(s.oppSd) + '</b>'],
-    ['', 'Break-even win %', '<b>' + pct(s.breakEven) + '</b>'], ['', 'Opp best', '<b>' + fmt(s.oppBest) + '</b>'], ['', 'Games', '<b>' + s.n + '</b>'],
+    ['', 'Opp after you win', '<b>' + fmt(s.oppAfterW) + '</b>'], ['', 'Opp after you lose', '<b>' + fmt(s.oppAfterL) + '</b>'], ['', 'Games', '<b>' + s.n + '</b>'],
+    ['', 'Break-even win %', '<b>' + pct(s.breakEven) + '</b>'], ['', 'Opp best', '<b>' + fmt(s.oppBest) + '</b>'], ['', 'Games after a loss', '<b>' + s.nAfterL + '</b>'],
   ];
   $('tiles').innerHTML = T.map((t) => t[0] === 'wide'
     ? '<div class="tile wide"><div><span>' + t[1] + '</span>' + t[2] + '</div><span>' + t[3] + '</span></div>'
