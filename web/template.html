@@ -105,6 +105,10 @@
   .grow small { color:var(--dim); display:block; font-size:10px; }
   .grow .amt { text-align:right; font-weight:700; }
   .grow button { border:0; background:transparent; color:var(--dim); font-size:16px; padding:4px; }
+  .tiers { display:grid; grid-template-columns:repeat(5,1fr); gap:5px; margin-bottom:10px; }
+  .tiers button { border:1px solid var(--line); background:var(--bg); color:var(--ink); border-radius:10px; padding:6px 0 5px; font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .tiers button small { display:block; font-size:9.5px; font-weight:500; color:var(--dim); }
+  .tiers button.on { border-color:var(--gold); background:#2b2a17; color:var(--gold); }
   .empty { color:var(--dim); font-size:13px; text-align:center; padding:14px 0; }
 </style>
 </head>
@@ -143,6 +147,8 @@
         <label class="field">Your score<input id="rMy" inputmode="numeric" autocomplete="off"></label>
         <label class="field">Opponent score<input id="rOpp" inputmode="numeric" autocomplete="off" placeholder="optional"></label>
       </div>
+      <h3 style="margin-top:4px">Stake (prize · you pay)</h3>
+      <div class="tiers" id="rTiers"></div>
       <div class="frow">
         <label class="field">Entry fee<input id="rFee" inputmode="decimal" autocomplete="off"></label>
         <label class="field">Prize if you win<input id="rPrize" inputmode="decimal" autocomplete="off"></label>
@@ -162,7 +168,8 @@
       <div class="tiles" id="tiles"></div>
       <h3>Recent games</h3>
       <div class="glist" id="glist"></div>
-      <h3>Money</h3>
+      <h3>Money · usual stake</h3>
+      <div class="tiers" id="cTiers"></div>
       <div class="frow">
         <label class="field">Starting balance<input id="cStart" inputmode="decimal" autocomplete="off"></label>
         <label class="field">Entry fee per game<input id="cFee" inputmode="decimal" autocomplete="off"></label>
@@ -349,6 +356,12 @@ document.addEventListener('pointercancel', (e) => endDrag(e, true));
 // ------------------------------- record: wins, losses, opponent, balance -------------------------------
 // games: [{t, my, opp|null, res:'W'|'L', fee, prize}]
 let REC = Object.assign({ start: 0, fee: 0, prize: 0, games: [] }, store.get('twentyone.record.v1', {}));
+const TIERS = [[2.4, 4], [4.8, 8], [9.6, 16], [12, 20], [18, 30], [24, 40], [36, 60], [48, 80], [60, 100], [120, 200]];   // [entry fee, prize] as offered in the game's 1v1 mode
+function drawTiers(id, feeId, prizeId, after) {
+  const fee = num($(feeId).value), prize = num($(prizeId).value);
+  $(id).innerHTML = TIERS.map((t, i) => '<button data-i="' + i + '"' + (t[0] === fee && t[1] === prize ? ' class="on"' : '') + '>$' + t[1] + '<small>$' + (t[0] % 1 ? t[0].toFixed(2) : t[0]) + '</small></button>').join('');
+  $(id).onclick = (e) => { const b = e.target.closest('[data-i]'); if (!b) return; const t = TIERS[+b.dataset.i]; $(feeId).value = t[0]; $(prizeId).value = t[1]; drawTiers(id, feeId, prizeId, after); if (after) after(t); };
+}
 const saveRec = () => store.set('twentyone.record.v1', REC);
 const num = (s) => { const x = parseFloat(String(s).replace(/[^0-9.\-]/g, '')); return Number.isFinite(x) ? x : null; };
 const money = (x) => (x < 0 ? '-' : '') + '$' + Math.abs(x).toFixed(2);
@@ -366,6 +379,7 @@ function summary() {
     winMargin: avg(both.filter((g) => g.res === 'W').map((g) => g.my - g.opp)), lossMargin: avg(both.filter((g) => g.res === 'L').map((g) => g.opp - g.my)),
     avgWin: avg(W.map(delta)), avgLoss: avg(L.map((g) => -delta(g))), net, balance: REC.start + net,
     best: G.length ? Math.max.apply(null, G.map((g) => g.my)) : null, oppBest: both.length ? Math.max.apply(null, both.map((g) => g.opp)) : null,
+    breakEven: (() => { const P = G.filter((g) => g.prize > 0), f = P.reduce((a, g) => a + g.fee, 0), pr = P.reduce((a, g) => a + g.prize, 0); return pr ? 100 * f / pr : (REC.prize > 0 ? 100 * REC.fee / REC.prize : null); })(),
     streak: G.length ? G[G.length - 1].res + streak : '–', money: REC.start !== 0 || G.some((g) => g.fee || g.prize),
   };
 }
@@ -381,7 +395,7 @@ function openResult() {
   closeSheets();
   $('rMy').value = st.score; $('rOpp').value = ''; $('rFee').value = REC.fee || ''; $('rPrize').value = REC.prize || '';
   $('resLead').textContent = st.over ? 'Enter the opponent’s score if you have it, then tap Win or Loss.' : 'This game is not finished. Recording it will start a new one.';
-  suggest(); $('resultScrim').classList.add('open');
+  drawTiers('rTiers', 'rFee', 'rPrize'); suggest(); $('resultScrim').classList.add('open');
 }
 function suggest() {
   const my = num($('rMy').value), opp = num($('rOpp').value);
@@ -404,6 +418,7 @@ function renderStats() {
     ['', 'Avg margin', '<b class="' + (s.margin > 0 ? 'pos' : s.margin < 0 ? 'neg' : '') + '">' + (s.margin == null ? '–' : (s.margin > 0 ? '+' : '') + fmt(s.margin)) + '</b>'],
     ['', 'Avg win $', '<b>' + cash(s.avgWin) + '</b>'], ['', 'Avg loss $', '<b>' + cash(s.avgLoss) + '</b>'], ['', 'Streak', '<b>' + s.streak + '</b>'],
     ['', 'Avg win by', '<b>' + fmt(s.winMargin) + '</b>'], ['', 'Avg loss by', '<b>' + fmt(s.lossMargin) + '</b>'], ['', 'Your best', '<b>' + fmt(s.best) + '</b>'],
+    ['', 'Break-even win %', '<b>' + pct(s.breakEven) + '</b>'], ['', 'Opp best', '<b>' + fmt(s.oppBest) + '</b>'], ['', 'Games', '<b>' + s.n + '</b>'],
   ];
   $('tiles').innerHTML = T.map((t) => t[0] === 'wide'
     ? '<div class="tile wide"><div><span>' + t[1] + '</span>' + t[2] + '</div><span>' + t[3] + '</span></div>'
@@ -418,13 +433,15 @@ function renderStats() {
   $('glist').innerHTML = rows.join('') || '<div class="empty">No games yet.</div>';
   $('stRecord').style.display = log.length ? '' : 'none';
 }
+const drawStakeTiers = () => drawTiers('cTiers', 'cFee', 'cPrize', (t) => { REC.fee = t[0]; REC.prize = t[1]; saveRec(); renderStats(); renderStrip(); });
 function openStats() {
   closeSheets(); $('cStart').value = REC.start || ''; $('cFee').value = REC.fee || ''; $('cPrize').value = REC.prize || ''; $('lenSel').value = String(horizonN);
-  renderStats(); $('statsScrim').classList.add('open');
+  drawStakeTiers(); renderStats(); $('statsScrim').classList.add('open');
 }
 $('recStrip').onclick = openStats; $('statsBtn').onclick = openStats; $('recBtn').onclick = openResult;
 $('rWin').onclick = () => record('W'); $('rLoss').onclick = () => record('L'); $('rSkip').onclick = closeSheets;
 $('rMy').oninput = suggest; $('rOpp').oninput = suggest;
+$('rFee').oninput = $('rPrize').oninput = () => drawTiers('rTiers', 'rFee', 'rPrize');
 $('stClose').onclick = () => { closeSheets(); render(); };
 $('stRecord').onclick = openResult;
 $('stReset').onclick = () => { if (REC.games.length && confirm('Erase all ' + REC.games.length + ' recorded games? This cannot be undone.')) { REC.games = []; saveRec(); renderStats(); renderStrip(); } };
@@ -432,7 +449,7 @@ $('glist').onclick = (e) => {
   const b = e.target.closest('[data-del]'); if (!b) return;
   if (confirm('Delete this game from your record?')) { REC.games.splice(+b.dataset.del, 1); saveRec(); renderStats(); renderStrip(); }
 };
-for (const [id, key] of [['cStart', 'start'], ['cFee', 'fee'], ['cPrize', 'prize']]) $(id).oninput = (e) => { REC[key] = num(e.target.value) || 0; saveRec(); renderStats(); renderStrip(); };
+for (const [id, key] of [['cStart', 'start'], ['cFee', 'fee'], ['cPrize', 'prize']]) $(id).oninput = (e) => { REC[key] = num(e.target.value) || 0; saveRec(); drawStakeTiers(); renderStats(); renderStrip(); };
 for (const id of ['resultScrim', 'statsScrim']) $(id).addEventListener('click', (e) => { if (e.target === $(id)) { closeSheets(); render(); } });
 $('lenSel').onchange = (e) => { horizonN = +e.target.value; makePolicy(); rebuild(); render(); };
 
