@@ -1,0 +1,67 @@
+{
+ "seedStart": 2200000,
+ "count": 10000,
+ "horizon": 52,
+ "rows": [
+  {
+   "name": "Baseline (2 cards, hand weights)",
+   "gain": 0,
+   "ci": 0,
+   "n": 10000,
+   "mean": 7266.745,
+   "median": 7600,
+   "p5": 4650,
+   "p95": 9300,
+   "zeroBust": 0.6176,
+   "bustOut": 0.0645,
+   "msPerMove": 0.04829825862759358,
+   "clears21": 12.8188,
+   "cards": 51.4454
+  },
+  {
+   "name": "Previous shipped (tuned weights, v4)",
+   "gain": 1188.665,
+   "ci": 34.1345413181335,
+   "n": 10000,
+   "mean": 8455.41,
+   "median": 8650,
+   "p5": 6300,
+   "p95": 10300,
+   "zeroBust": 0.7371,
+   "bustOut": 0.0178,
+   "msPerMove": 4.519736734798499,
+   "clears21": 13.8822,
+   "cards": 51.8436
+  },
+  {
+   "name": "Network, 2 cards only (slow-phone fallback)",
+   "gain": 1311.145,
+   "ci": 33.92090780759515,
+   "n": 10000,
+   "mean": 8577.89,
+   "median": 8700,
+   "p5": 6600,
+   "p95": 10250,
+   "zeroBust": 0.7472,
+   "bustOut": 0.0127,
+   "msPerMove": 3.6602940169062044,
+   "clears21": 13.6455,
+   "cards": 51.9277
+  },
+  {
+   "name": "SHIPPED: network + selective 3-card + exact last 4",
+   "gain": 1434.96,
+   "ci": 33.30610160846731,
+   "n": 10000,
+   "mean": 8701.705,
+   "median": 8850,
+   "p5": 6800,
+   "p95": 10300,
+   "zeroBust": 0.7671,
+   "bustOut": 0.0097,
+   "msPerMove": 13.63974367143741,
+   "clears21": 13.8289,
+   "cards": 51.942
+  }
+ ]
+}

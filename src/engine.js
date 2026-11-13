@@ -135,6 +135,41 @@
   }
 
   // ---------------------------------------------------------------------------
+  // Features for the learned (neural) evaluator. Describes a position between cards.
+  // ---------------------------------------------------------------------------
+  const NF = 56;
+  const _ord = new Int32Array(8), _key = new Int32Array(8);
+  function featurize(cols, deck, rem, H, busts, stays, prev, NC, f) {
+    f[0] = H / 52; f[1] = rem / 52; f[2] = busts === 0 ? 1 : 0; f[3] = busts === 1 ? 1 : 0; f[4] = busts >= 2 ? 1 : 0;
+    f[5] = stays / 2; f[6] = prev > 0 ? 1 : 0; f[7] = (prev > 5 ? 5 : prev) / 5;
+    for (let v = 1; v <= 10; v++) f[7 + v] = deck[v] / rem;
+    // columns sorted by soft total, high first; empty columns last
+    for (let i = 0; i < NC; i++) {
+      const c = cols[i], h = c & 31; _ord[i] = i;
+      _key[i] = c === 0 ? -1 : (((c >> 5) & 1) && h <= 11 ? h + 10 : h) * 8 + ((c >> 6) & 7);
+    }
+    for (let i = 1; i < NC; i++) { const o = _ord[i], k = _key[o]; let j = i - 1; while (j >= 0 && _key[_ord[j]] < k) { _ord[j + 1] = _ord[j]; j--; } _ord[j + 1] = o; }
+    let room = 0, needMask = 0, p = 20;
+    for (let q = 0; q < 4; q++, p += 9) {
+      const c = q < NC ? cols[_ord[q]] : 0;
+      if (c === 0) { for (let x = 0; x < 9; x++) f[p + x] = 0; if (q < NC) room = 21; continue; }
+      const hard = c & 31, ace = (c >> 5) & 1, n = (c >> 6) & 7, not7 = (c >> 9) & 1, need = 21 - hard, softA = ace && hard <= 11 ? 1 : 0;
+      if (need > room) room = need;
+      let make = 0;
+      if (need <= 10) { make = deck[need]; needMask |= 1 << need; }
+      else if (ace) { make = deck[need - 10]; needMask |= 1 << (need - 10); }
+      else if (hard === 10) { make = deck[1]; needMask |= 2; }
+      let bust = 0; for (let x = need + 1; x <= 10; x++) bust += deck[x];
+      f[p] = 1; f[p + 1] = (softA ? hard + 10 : hard) / 21; f[p + 2] = hard / 21; f[p + 3] = softA; f[p + 4] = n / 4;
+      f[p + 5] = n === 4 ? 1 : 0; f[p + 6] = !not7 && n <= 2 ? 1 : 0; f[p + 7] = make / rem; f[p + 8] = bust / rem;
+    }
+    let a = 0; if (needMask) for (let x = 1; x <= 10; x++) if (needMask & (1 << x)) a += deck[x];
+    let fo = 0; if (room < 10) for (let x = room + 1; x <= 10; x++) fo += deck[x];
+    f[18] = a / rem; f[19] = fo / rem;
+    return f;
+  }
+
+  // ---------------------------------------------------------------------------
   // Search policy
   // ---------------------------------------------------------------------------
   // Leaf weights. Leaf value estimates the future of a non-terminal state.
@@ -178,8 +213,25 @@
     const stayInner = params.stayInner === undefined ? true : params.stayInner;
     const SB = rules.sb, maxPrev = SB.length - 1, perfect = cfg.perfectBonus, maxBusts = cfg.maxBusts;
     let S = null, cache = null, egMemo = new Map(), nodes = 0;
+    // Optional learned evaluator: params.nn = { layers: [{ nIn, nOut, W, b }], scale }. Replaces the weighted leaf.
+    const NN = params.nn ? params.nn.layers.map((l) => ({ nIn: l.nIn, nOut: l.nOut, W: Float64Array.from(l.W), b: Float64Array.from(l.b) })) : null;
+    const nnScale = params.nn ? params.nn.scale || 1000 : 0, nnA = new Float64Array(128), nnB = new Float64Array(128);
+    function nnLeaf() {
+      featurize(S.cols, S.deck, S.rem, S.H, S.busts, S.stays, S.prev, NC, nnA);
+      let x = nnA, y = nnB;
+      for (let li = 0; li < NN.length; li++) {
+        const L = NN[li], W = L.W, nIn = L.nIn, nOut = L.nOut, last = li === NN.length - 1;
+        for (let o = 0, k = 0; o < nOut; o++) {
+          let s = L.b[o]; for (let i = 0; i < nIn; i++, k++) s += W[k] * x[i];
+          y[o] = last || s > 0 ? s : 0;
+        }
+        const t = x; x = y; y = t;
+      }
+      return x[0] * nnScale;
+    }
 
     function leaf() {
+      if (NN) return nnLeaf();
       const H = S.H, deck = S.deck, rem = S.rem;
       let val = H * W.fut[S.busts] + (S.busts === 0 ? W.perfect - W.perfH * H : 0) + S.stays * W.stay * Math.min(H, W.stayCap);
       if (S.prev) val += W.streak + W.streak2 * (S.prev - 1);
@@ -255,7 +307,12 @@
 
     function chance(d, sp) {
       if (isTerminal()) return terminal();
-      if (d === 0) { nodes++; return leaf(); }
+      if (d === 0) {
+        nodes++;
+        if (!NN || !useCache) return leaf();
+        const k0 = key(0), h0 = cache.get(k0); if (h0 !== undefined) return h0; // the network is costly: reuse repeated positions
+        const lv = leaf(); cache.set(k0, lv); return lv;
+      }
       let k;
       if (useCache) { k = key(d); const hit = cache.get(k); if (hit !== undefined) return hit; }
       let sum = 0;
@@ -363,6 +420,6 @@
 
   return {
     CONFIG, compile, DEFAULT_RULES, BASELINE_WEIGHTS, mulberry32, shuffledDeck, newGame, cloneGame, applyMove,
-    cardsLeftToPlay, createSearcher, playGame, softTotal, hardOf, aceOf, nOf, mkCol,
+    cardsLeftToPlay, createSearcher, featurize, NF, playGame, softTotal, hardOf, aceOf, nOf, mkCol,
   };
 });

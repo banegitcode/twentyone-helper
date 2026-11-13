@@ -1,0 +1,26 @@
+{
+ "Baseline (2 cards, hand weights)": {
+  "mean": 0.03877060395561999,
+  "p99": 0.15591599999999772,
+  "max": 0.2166250000000005,
+  "moves": 2073
+ },
+ "Previous shipped (tuned weights, v4)": {
+  "mean": 2.956462466956104,
+  "p99": 11.394082999999227,
+  "max": 17.463167000000112,
+  "moves": 2073
+ },
+ "Network, 2 cards only (slow-phone fallback)": {
+  "mean": 2.421191110096162,
+  "p99": 6.624750000000859,
+  "max": 6.992624999999862,
+  "moves": 2080
+ },
+ "SHIPPED: network + selective 3-card + exact last 4": {
+  "mean": 9.149774786538483,
+  "p99": 32.779459000001225,
+  "max": 40.55541700000322,
+  "moves": 2080
+ }
+}

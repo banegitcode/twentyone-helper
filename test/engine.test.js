@@ -215,3 +215,19 @@ test('exact endgame equals brute-force enumeration on the last 4 cards', () => {
   assert.ok(m.exact);
   assert.ok(Math.abs(m.value + st.score - best) < 1e-6, `${m.value + st.score} vs ${best}`);
 });
+
+test('learned evaluator: features are column-order independent and the network leaf is used', () => {
+  const st = E.newGame(R);
+  [[10, 0], [6, 1], [1, 2], [7, 3], [7, 3]].forEach(([v, c]) => E.applyMove(R, st, v, { col: c, stay: -1 }));
+  const f1 = E.featurize(st.cols, st.deck, st.rem, E.cardsLeftToPlay(st), st.busts, st.stays, st.prev, 4, new Float64Array(E.NF));
+  const perm = Int32Array.from([st.cols[2], st.cols[3], st.cols[0], st.cols[1]]);
+  const f2 = E.featurize(perm, st.deck, st.rem, E.cardsLeftToPlay(st), st.busts, st.stays, st.prev, 4, new Float64Array(E.NF));
+  assert.deepEqual(Array.from(f1), Array.from(f2));
+  assert.ok(f1.every((x) => Number.isFinite(x) && x >= 0 && x <= 1));
+  // a network that only rewards "cards left" (feature 0) makes every non-terminal move tie on the leaf,
+  // so an immediate 21 must win on its real points
+  const W = new Array(E.NF).fill(0); W[0] = 1;
+  const pol = E.createSearcher(R, { depth: 1, cache: true, nn: { scale: 1000, layers: [{ nIn: E.NF, nOut: 1, W, b: [0] }] } });
+  const m = pol.choose(st, 1); // ace on the 10 = 21
+  assert.equal(m.col, 0);
+});

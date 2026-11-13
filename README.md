@@ -5,8 +5,10 @@ Live page: https://banegitcode.github.io/twentyone-helper/ (one self-contained f
 Tap the card you were dealt; the page shows which column to play in huge type and applies the move.
 Tap a different column if you played it somewhere else. Undo and New Game are at the bottom.
 
-**Best measured, not perfect.** The shipped policy averages **8,467** points per full-deck game on 10,000 fresh
-shuffles, against **7,233** for the reference baseline on the same shuffles: **+1,234 ± 35** (95% CI, paired).
+**Best measured, not perfect.** The shipped policy averages **8,702** points per full-deck game on 10,000 fresh
+shuffles, against **7,267** for the reference baseline on the same shuffles: **+1,435 ± 33** (95% CI, paired).
+It is a search that looks 2–3 cards ahead and judges the resulting positions with a small neural network
+trained on 450,000 self-played games.
 
 ## Rules as implemented
 
@@ -35,7 +37,24 @@ If the real game pays something different for a 4-streak, change the list and re
 
 ## Results
 
-Full deck, **fresh seeds 2,000,000–2,009,999** (never used for tuning or for choosing between policies).
+### Shipped policy
+
+Full deck, **fresh seeds 2,200,000–2,209,999** (never used for training, tuning or choosing between policies).
+Every policy plays the same shuffles; the gain is the paired difference from the baseline. Timing is
+single-threaded on a desktop core (Node 22).
+
+| Policy | Mean | Median | 5th pct | 95th pct | Zero-bust | Ended by 3 busts | ms/move (mean / p99 / max) | Gain vs baseline (95% CI) |
+|---|---|---|---|---|---|---|---|---|
+| Baseline (2 cards ahead, hand weights) | 7267 | 7600 | 4650 | 9300 | 61.8% | 6.5% | 0.04 / 0.2 / 0.2 | — |
+| Previous best (tuned weights, selective 4-card) | 8455 | 8650 | 6300 | 10300 | 73.7% | 1.8% | 3.0 / 11 / 17 | +1189 ± 34 |
+| Network, 2 cards only (what a slow phone falls back to) | 8578 | 8700 | 6600 | 10250 | 74.7% | 1.3% | 2.4 / 7 / 7 | +1311 ± 34 |
+| **Shipped:** network + selective 3-card + exact last 4 | **8702** | 8850 | 6800 | 10300 | 76.7% | 1.0% | 9.2 / 33 / 41 | **+1435 ± 33** |
+
+10,000 games per row. Rows are in [results/final_nn.log](results/final_nn.log).
+
+### Search-and-weights policies (before the network)
+
+Full deck, fresh seeds 2,000,000–2,009,999. The "Shipped" row here is the "Previous best" row above.
 Every policy plays the same shuffles; the gain is the paired difference from the baseline.
 Timing is single-threaded on a desktop core (Node 22).
 
@@ -65,20 +84,29 @@ reference figure because the streak rule here is the corrected, growing one.
 
 ### Short games (timer runs out early)
 
-Fresh seeds 2,100,000–2,109,999, game stops after N cards. Shipped policy vs baseline:
+Fresh seeds 2,300,000–2,309,999, game stops after N cards (52 is the full-deck row from above):
 
-| Cards played | Baseline mean | Shipped mean | Zero-bust (shipped) | Gain (95% CI) |
-|---|---|---|---|---|
-| 25 | 3697 | 3988 | 93.1% | +291 ± 17 |
-| 35 | 4951 | 5455 | 84.9% | +504 ± 23 |
-| 45 | 6221 | 7015 | 77.2% | +795 ± 29 |
-| 52 | 7233 | 8467 | 74.5% | +1234 ± 35 |
+| Cards played | Baseline mean | Previous best | Shipped mean | Zero-bust (shipped) | Gain vs baseline (95% CI) |
+|---|---|---|---|---|---|
+| 25 | 3701 | 3979 | 4010 | 94.8% | +309 ± 17 |
+| 35 | 4958 | 5444 | 5524 | 87.7% | +566 ± 23 |
+| 45 | 6212 | 7023 | 7145 | 80.7% | +933 ± 29 |
+| 52 | 7267 | 8455 | 8702 | 76.7% | +1435 ± 33 |
 
-Weights tuned separately for 25 and 35 cards did not beat the full-deck weights (3,983 and 5,411), and the
-45-card tune found no improvement, so the page uses the same weights for every game length. The search
+The network was trained on full-deck games only and still wins at every length.
+
+Before the network, weights tuned separately for 25 and 35 cards did not beat the full-deck weights, and the
+45-card tune found no improvement, so the page uses one policy for every game length. The search
 itself knows the card limit, which is what matters.
 
 ## What was tried
+
+- **Learned evaluator (shipped).** A small neural network (56 inputs, 128 and 48 hidden units) predicts the points
+  still to come from a position. It was trained in two rounds of self-play: 250,000 games by the tuned-weights
+  player, then 200,000 by the first network. Half the games contain one random move so the network also sees
+  positions the player would not choose. It replaces the hand-built evaluator and is worth about +250 per game.
+  A third pass on all the data added +16 ± 36, so it has levelled off. Bigger networks scored higher than
+  smaller ones (128x48 beat 64x32 by about 45) but cost more time per move.
 
 - **Deeper search.** 3 cards ahead is a clear win over 2. Full 4 cards ahead adds about as much as selective
   deepening but costs 13 ms per move on a desktop, so the page only looks 4 ahead when the top moves are within
@@ -95,10 +123,10 @@ itself knows the card limit, which is what matters.
 
 ## Speed
 
-The shipped policy averages 2.9 ms per move and peaks at 18 ms on a desktop core. Phones are a few times
-slower, so the page also carries a time guard: if the extra 4-card look is predicted to take more than 40 ms
-on the device, that move falls back to the plain 3-card search (2 ms on desktop). The backtests ran without
-the guard. Move time on an actual phone was not measured.
+The shipped policy averages 9 ms per move on a desktop core; 99% of moves are under 33 ms and the slowest was
+41 ms. The page also carries a time guard: if the extra 3-card look is predicted to take more than 60 ms on the
+device, that move uses the 2-card network search instead (the 8,578 row). On the desktop the guard never
+triggered and the score was unchanged (3,000-game check). Move time on an actual phone was not measured.
 
 ## Voice mode (optional, limited testing)
 
@@ -125,10 +153,19 @@ node src/backtest.js results/specs.json 2000000 10000 results/final.json
 ```
 
 ```bash
+node src/gen_data.js results/gen_spec2.json 1250000 200000 scratch/d2.bin 13
+```
+
+```bash
+node src/train_nn.js scratch/d2.bin,scratch/d1.bin results/nn3_128x48.json 128,48 14
+```
+
+```bash
 node web/build.js
 ```
 
 - [src/engine.js](src/engine.js) — rules, seeded simulator, search, exact endgame.
+- [src/gen_data.js](src/gen_data.js) — self-play data. [src/train_nn.js](src/train_nn.js) — network trainer (plain JS).
 - [src/tune.js](src/tune.js) — weight tuner. [src/backtest.js](src/backtest.js) — paired backtest. [src/timing.js](src/timing.js) — per-move timing.
 - [web/template.html](web/template.html) + [web/build.js](web/build.js) — the page; the build writes `dist/index.html` and `docs/index.html`.
-- 24 unit tests cover every scoring rule, ace handling, busts, stays, streaks, the Perfect Bonus and the exact endgame.
+- 25 unit tests cover every scoring rule, ace handling, busts, stays, streaks, the Perfect Bonus, the exact endgame and the network hook.

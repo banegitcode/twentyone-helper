@@ -1,0 +1,52 @@
+{
+ "seedStart": 2300000,
+ "count": 10000,
+ "horizon": 25,
+ "rows": [
+  {
+   "name": "Baseline (2 cards, hand weights)",
+   "gain": 0,
+   "ci": 0,
+   "n": 10000,
+   "mean": 3701.27,
+   "median": 3800,
+   "p5": 1800,
+   "p95": 4950,
+   "zeroBust": 0.9264,
+   "bustOut": 0.0035,
+   "msPerMove": 0.070352213721678,
+   "clears21": 5.3778,
+   "cards": 24.9984
+  },
+  {
+   "name": "Previous shipped (tuned weights, v4)",
+   "gain": 277.655,
+   "ci": 17.170379681309814,
+   "n": 10000,
+   "mean": 3978.925,
+   "median": 4050,
+   "p5": 2250,
+   "p95": 5300,
+   "zeroBust": 0.9315,
+   "bustOut": 0.0019,
+   "msPerMove": 9.906570830839987,
+   "clears21": 5.5442,
+   "cards": 24.9994
+  },
+  {
+   "name": "SHIPPED: network + selective 3-card + exact last 4",
+   "gain": 308.72,
+   "ci": 17.211339918507303,
+   "n": 10000,
+   "mean": 4009.99,
+   "median": 4050,
+   "p5": 2600,
+   "p95": 5300,
+   "zeroBust": 0.948,
+   "bustOut": 0.0023,
+   "msPerMove": 20.645593355584225,
+   "clears21": 5.487,
+   "cards": 24.9997
+  }
+ ]
+}
