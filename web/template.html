@@ -119,6 +119,8 @@
   .bet ul { margin:6px 0 0; padding-left:18px; color:var(--dim); font-size:12.5px; line-height:1.45; }
   .bet ul b { color:var(--ink); }
   .advice .stake { margin-top:8px; border:1px solid #5a5223; background:#22230f; color:var(--gold); border-radius:999px; padding:6px 14px; font-size:13px; font-weight:700; }
+  .chk { display:flex; align-items:center; gap:8px; margin-top:10px; font-size:13px; color:var(--dim); }
+  .chk input { width:20px; height:20px; accent-color:var(--go); }
   .empty { color:var(--dim); font-size:13px; text-align:center; padding:14px 0; }
 </style>
 </head>
@@ -152,7 +154,7 @@
 
   <div class="scrim" id="resultScrim">
     <div class="sheet" role="dialog" aria-label="Record result">
-      <h2>Game over</h2>
+      <h2 id="resTitle">Game over</h2>
       <p class="lead" id="resLead">Did you win?</p>
       <div class="frow">
         <label class="field">Your score<input id="rMy" inputmode="numeric" autocomplete="off"></label>
@@ -168,6 +170,7 @@
         <button class="bwin" id="rWin">WIN</button>
         <button class="bloss" id="rLoss">LOSS</button>
       </div>
+      <label class="chk" id="rInclWrap" style="display:none"><input type="checkbox" id="rIncl" checked> My starting balance already includes this game</label>
       <button class="ghostbtn" id="rSkip">Not now</button>
     </div>
   </div>
@@ -202,6 +205,7 @@
             <option value="0.5">Aggressive (one half)</option>
           </select></label>
       </div>
+      <button class="ghostbtn" id="stPast" style="color:var(--ink)">Add a game you already played</button>
       <button class="ghostbtn" id="stRecord">Record a result for the current game</button>
       <button class="ghostbtn danger" id="stReset">Erase all recorded games</button>
       <button class="ghostbtn" id="stClose" style="color:var(--ink)">Close</button>
@@ -426,21 +430,30 @@ function summary() {
 // never more than 10% of the balance, moves up one stake at a time, and steps down during a losing run.
 // A losing or winning run does not change the odds of the next game; it only moves the win-rate estimate like any other result.
 function betAdvice() {
-  const s = summary(), G = REC.games, risk = REC.risk || 0.25, notes = [];
+  const s = summary(), G = REC.games, risk = REC.risk || 0.25, notes = [], isW = (g) => g.res === 'W';
   if (!(s.balance > 0)) return { tier: null, notes: ['Set your <b>starting balance</b> below to get a suggested stake.'] };
-  const rec = G.slice(-50), w = rec.filter((g) => g.res === 'W').length, p = (w + 6) / (rec.length + 10);   // pulled toward 60% until there is data
-  const kelly = Math.max(0, 2.5 * p - 1.5), frac = Math.min(kelly * risk, 0.1), budget = s.balance * frac;
-  notes.push('Estimated win chance <b>' + (100 * p).toFixed(0) + '%</b> from your last ' + rec.length + ' game' + (rec.length === 1 ? '' : 's') + ' (pulled toward the 60% break-even until there is more data).');
-  let idx = -1; TIERS.forEach((t, i) => { if (t[0] <= budget + 1e-9) idx = i; });
-  if (kelly <= 0) notes.push('Your record does not show an edge yet (you need more than 60% wins), so this is the <b>smallest stake</b>. Free games cost nothing.');
-  else notes.push('Stake budget <b>' + money(budget) + '</b> = ' + (100 * frac).toFixed(1) + '% of your ' + money(s.balance) + ' balance.');
+  const rec = G.slice(-50), pAll = (rec.filter(isW).length + 6) / (rec.length + 10);   // pulled toward the 60% break-even until there is data
+  // Win chance at stake i: games played at similar or higher stakes count fully; the overall record fills in for the rest.
+  const pAt = (i) => { const g = G.slice(-100).filter((x) => x.fee >= TIERS[i][0] * 0.5 - 1e-9); return { p: Math.min(pAll, (g.filter(isW).length + 8 * pAll) / (g.length + 8)), n: g.length }; };   // a good run at one stake never lifts it above the overall estimate
+  const fracAt = (i) => Math.min(Math.max(0, 2.5 * pAt(i).p - 1.5) * risk, 0.1);
+  let idx = -1; TIERS.forEach((t, i) => { if (t[0] <= s.balance * fracAt(i) + 1e-9) idx = i; });
+  const edge = idx >= 0;
   let top = -1; TIERS.forEach((t, i) => { if (G.filter((g) => g.fee === t[0]).length >= 3) top = i; });
-  if (idx > top + 1) { idx = top + 1; notes.push('Held to one step above the highest stake you have played at least 3 times: opponents may be tougher at higher stakes.'); }
+  let held = false; if (idx > top + 1) { idx = top + 1; held = true; }
   let ls = 0; for (let i = G.length - 1; i >= 0 && G[i].res === 'L'; i--) ls++;
-  if (ls >= 2 && idx > 0) { idx = Math.max(0, idx - (ls >= 3 ? 2 : 1)); notes.push('Stepped down after <b>' + ls + ' losses in a row</b>. This is a guard against chasing losses, not a prediction.'); }
+  let stepped = false; if (ls >= 2 && idx > 0) { idx = Math.max(0, idx - (ls >= 3 ? 2 : 1)); stepped = true; }
   if (idx < 0) idx = 0;
   if (TIERS[idx][0] > s.balance) return { tier: null, notes: ['Your balance is below the smallest stake.'] };
-  return { tier: TIERS[idx], p, notes };
+  const e = pAt(idx), t = TIERS[idx];
+  notes.push('Estimated win chance at this stake <b>' + (100 * e.p).toFixed(0) + '%</b>' + (G.length ? ' (' + e.n + ' game' + (e.n === 1 ? '' : 's') + ' at similar or higher stakes, blended with your overall record)' : ' (no games recorded yet)') + '. Break-even is 60%.');
+  if (!edge) notes.push('Your record does not show an edge yet, so this is the <b>smallest stake</b>. Free games cost nothing.');
+  else notes.push('You pay <b>' + (100 * t[0] / s.balance).toFixed(1) + '%</b> of your ' + money(s.balance) + ' balance. Expected profit about <b>' + signed(t[1] * (e.p - 0.6)) + '</b> per game.');
+  if (held) notes.push('Held to one step above the highest stake you have played at least 3 times: opponents may be tougher at higher stakes.');
+  if (stepped) notes.push('Stepped down after <b>' + ls + ' losses in a row</b>. This is a guard against chasing losses, not a prediction.');
+  const nx = TIERS[idx + 1]; if (nx && edge && !held && !stepped && fracAt(idx + 1) > 0) notes.push('Next stake up (win $' + amt(nx[1]) + ') at a balance of about <b>' + money(nx[0] / fracAt(idx + 1)) + '</b>.');
+  const day = new Date().toDateString(), today = G.filter((g) => new Date(g.t).toDateString() === day && !g.past), netT = today.reduce((a, g) => a + delta(g), 0), startT = s.balance - netT;
+  if (today.length >= 3 && startT > 0 && netT <= -0.2 * startT) notes.push('<span class="bad">Down ' + money(-netT) + ' today</span>, over 20% of where you started the day. That is a sensible point to stop.');
+  return { tier: t, p: e.p, notes };
 }
 function renderBet() {
   const b = betAdvice();
@@ -456,11 +469,18 @@ function renderStrip() {
     ' · you <b>' + fmt(s.myAvg) + '</b>' + (s.oppAvg != null ? ' · opp <b>' + fmt(s.oppAvg) + '</b>' : '');
 }
 function closeSheets() { $('resultScrim').classList.remove('open'); $('statsScrim').classList.remove('open'); if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); }
-function openResult() {
-  closeSheets();
-  $('rMy').value = st.score; $('rOpp').value = ''; $('rFee').value = REC.fee || ''; $('rPrize').value = REC.prize || '';
-  $('resLead').textContent = st.over ? 'Enter the opponent’s score if you have it, then tap Win or Loss.' : 'This game is not finished. Recording it will start a new one.';
+let pastMode = false, pastN = 0;
+function openResult(past) {
+  closeSheets(); pastMode = past === true; pastN = 0;
+  const b = betAdvice(), useSug = b.tier && (!REC.games.length || REC.followed);   // default to the suggested stake while you are following it
+  $('rMy').value = pastMode ? '' : st.score; $('rOpp').value = '';
+  $('rFee').value = useSug ? b.tier[0] : REC.fee || ''; $('rPrize').value = useSug ? b.tier[1] : REC.prize || '';
+  $('resTitle').textContent = pastMode ? 'Add a past game' : st.over ? 'Game over' : 'Record this game';
+  $('resLead').textContent = pastMode ? 'Enter the scores and stake, then tap Win or Loss. The sheet stays open for the next one.'
+    : st.over ? 'Enter the opponent’s score if you have it, then tap Win or Loss.' : 'This game is not finished. Recording it will start a new one.';
+  $('rInclWrap').style.display = pastMode ? '' : 'none'; $('rSkip').textContent = pastMode ? 'Done' : 'Not now';
   drawTiers('rTiers', 'rFee', 'rPrize'); suggest(); $('resultScrim').classList.add('open');
+  if (pastMode) $('rMy').focus();
 }
 function suggest() {
   const my = num($('rMy').value), opp = num($('rOpp').value);
@@ -469,7 +489,15 @@ function suggest() {
 function record(res) {
   const my = num($('rMy').value); if (my == null) { $('rMy').focus(); return; }
   const fee = Math.max(0, num($('rFee').value) || 0), prize = Math.max(0, num($('rPrize').value) || 0);
-  REC.games.push({ t: Date.now(), my, opp: num($('rOpp').value), res, fee, prize }); REC.fee = fee; REC.prize = prize; saveRec();
+  const b = betAdvice(), g = { t: Date.now(), my, opp: num($('rOpp').value), res, fee, prize };
+  if (pastMode) {
+    g.past = true; if ($('rIncl').checked) REC.start -= delta(g);          // keep the balance where it is
+    REC.games.push(g); REC.fee = fee; REC.prize = prize; saveRec(); pastN++;
+    $('rMy').value = ''; $('rOpp').value = ''; suggest(); renderStrip();
+    const s = summary(); $('resLead').textContent = 'Saved ' + pastN + ' · record now ' + s.w + '–' + s.l + '. Add another, or tap Done.'; $('rMy').focus(); return;
+  }
+  REC.followed = !!(b.tier && b.tier[0] === fee && b.tier[1] === prize);
+  REC.games.push(g); REC.fee = fee; REC.prize = prize; saveRec();
   newGame(); const s = summary(); flash((res === 'W' ? 'Win' : 'Loss') + ' recorded · ' + s.w + '–' + s.l + (s.money ? ' · balance ' + money(s.balance) : ''));
 }
 function renderStats() {
@@ -504,12 +532,12 @@ function openStats() {
   closeSheets(); $('cStart').value = REC.start || ''; $('cFee').value = REC.fee || ''; $('cPrize').value = REC.prize || ''; $('lenSel').value = String(horizonN); $('cRisk').value = String(REC.risk || 0.25);
   drawStakeTiers(); renderStats(); $('statsScrim').classList.add('open');
 }
-$('recStrip').onclick = openStats; $('statsBtn').onclick = openStats; $('recBtn').onclick = openResult;
-$('rWin').onclick = () => record('W'); $('rLoss').onclick = () => record('L'); $('rSkip').onclick = closeSheets;
+$('recStrip').onclick = openStats; $('statsBtn').onclick = openStats; $('recBtn').onclick = () => openResult();
+$('rWin').onclick = () => record('W'); $('rLoss').onclick = () => record('L'); $('rSkip').onclick = () => { const wasPast = pastMode; closeSheets(); render(); if (wasPast) openStats(); };
 $('rMy').oninput = suggest; $('rOpp').oninput = suggest;
 $('rFee').oninput = $('rPrize').oninput = () => drawTiers('rTiers', 'rFee', 'rPrize');
 $('stClose').onclick = () => { closeSheets(); render(); };
-$('stRecord').onclick = openResult; $('stakeBtn').onclick = openStats;
+$('stRecord').onclick = () => openResult(); $('stPast').onclick = () => openResult(true); $('stakeBtn').onclick = openStats;
 $('cRisk').onchange = (e) => { REC.risk = +e.target.value; saveRec(); renderStats(); };
 $('stReset').onclick = () => { if (REC.games.length && confirm('Erase all ' + REC.games.length + ' recorded games? This cannot be undone.')) { REC.games = []; saveRec(); renderStats(); renderStrip(); } };
 $('glist').onclick = (e) => {

@@ -13,8 +13,11 @@ Tap the card you were dealt; the page shows which column to play in huge type an
 - **Bet calculator.** Before each game the page suggests a stake from the game's 18 fixed 1v1 stakes. Every stake
   costs 60% of its prize, so break-even is 60% wins and the Kelly stake is `2.5p - 1.5` of the balance for win
   chance `p`. The page estimates `p` from the last 50 recorded games (pulled toward 60% until there is data),
+  lowered if results at similar or higher stakes are worse than the overall record,
   stakes a fraction of Kelly (one eighth, quarter or half), never more than 10% of the balance, moves up one
   stake at a time, and steps down after 2+ losses in a row. Streaks are not treated as predictive.
+- **Past games** can be added from Stats & settings (score, opponent score, stake, Win or Loss) without
+  changing the current balance.
 - The record and the game in progress are saved in the browser on that device only (no account, nothing uploaded).
   Clearing the browser's site data erases them.
 - 10, J, Q and K share one **10** button (16 in the deck), since the game treats them the same.
