@@ -1,0 +1,11 @@
+4925723 rows, net 56-128-48-52 val CE at start 3.9717
+epoch 1 train CE 2.2556 val CE 2.2102 mean error 26 lr 1.0e-3 89s
+epoch 2 train CE 2.1919 val CE 2.1846 mean error -18 lr 7.2e-4 89s
+epoch 3 train CE 2.1767 val CE 2.1782 mean error -47 lr 5.1e-4 89s
+epoch 4 train CE 2.1685 val CE 2.1696 mean error 2 lr 3.7e-4 88s
+epoch 5 train CE 2.1636 val CE 2.1654 mean error -21 lr 2.6e-4 88s
+epoch 6 train CE 2.1602 val CE 2.1624 mean error 12 lr 1.9e-4 88s
+epoch 7 train CE 2.1580 val CE 2.1620 mean error -28 lr 1.4e-4 88s
+epoch 8 train CE 2.1565 val CE 2.1602 mean error 16 lr 9.7e-5 88s
+epoch 9 train CE 2.1553 val CE 2.1599 mean error 13 lr 7.0e-5 88s
+epoch 10 train CE 2.1546 val CE 2.1586 mean error -16 lr 5.0e-5 88s

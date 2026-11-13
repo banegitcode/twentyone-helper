@@ -169,6 +169,16 @@ itself knows the card limit, which is what matters.
   **+27 ± 19** on fresh shuffles. Pure search value (+22 ± 30), a 50/50 blend (+12 ± 32) and training from scratch
   (+7 ± 33) were not clearly better than v1 on validation.
 
+- **Playing for the win instead of the average score (not shipped).** In a 1v1 game what matters is beating the
+  opponent, so I trained a network that predicts the whole spread of points still to come and let the search
+  maximise the chance of beating an opponent of a given strength. On 3,000 validation shuffles it was worse than
+  the score-maximising policy against every opponent tested: -0.2 ± 0.3 percentage points of win chance against
+  weak opponents (average 5,000) up to -2.0 ± 0.9 against strong ones (average 8,000). The chance of winning
+  rises almost in a straight line with score over the range that matters, so the highest average score is
+  already the best way to win, and the spread network is a slightly weaker judge of positions (8,732 average
+  against 8,781). Code: `params.util` in [src/engine.js](src/engine.js), [src/train_dist.js](src/train_dist.js),
+  [src/winrate.js](src/winrate.js); results in [results/winrate_val.log](results/winrate_val.log).
+
 - **Deeper search.** 3 cards ahead is a clear win over 2. Full 4 cards ahead adds about as much as selective
   deepening but costs 13 ms per move on a desktop, so the page only looks 4 ahead when the top moves are within
   150 points of each other (top 3 moves).

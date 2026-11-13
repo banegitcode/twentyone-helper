@@ -1,0 +1,7 @@
+score-maximising policy: mean 8781 148s
+distribution network used for average score: mean 8732
+opponent 5000 ± 1500 | win chance: score policy 97.37% win policy 97.16% gain -0.22 ± 0.31 points | its mean score 8626 247s
+opponent 6000 ± 1500 | win chance: score policy 92.80% win policy 92.13% gain -0.67 ± 0.45 points | its mean score 8657 189s
+opponent 7000 ± 1500 | win chance: score policy 82.99% win policy 81.94% gain -1.05 ± 0.66 points | its mean score 8686 150s
+opponent 7300 ± 1300 | win chance: score policy 80.78% win policy 79.61% gain -1.17 ± 0.76 points | its mean score 8686 140s
+opponent 8000 ± 1300 | win chance: score policy 68.22% win policy 66.25% gain -1.97 ± 0.90 points | its mean score 8679 121s

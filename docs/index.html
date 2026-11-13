@@ -410,7 +410,7 @@
   function makeSearchState(rules, st) {
     return {
       cols: Int32Array.from(st.cols), deck: Int32Array.from(st.deck), rem: st.rem, H: cardsLeftToPlay(st),
-      busts: st.busts, stays: st.stays, prev: st.prev,
+      busts: st.busts, stays: st.stays, prev: st.prev, score: st.score,
     };
   }
 
@@ -431,6 +431,13 @@
     // Optional learned evaluator: params.nn = { layers: [{ nIn, nOut, W, b }], scale }. Replaces the weighted leaf.
     const NN = params.nn ? params.nn.layers.map((l) => ({ nIn: l.nIn, nOut: l.nOut, W: Float64Array.from(l.W), b: Float64Array.from(l.b) })) : null;
     const nnScale = params.nn ? params.nn.scale || 1000 : 0, nnA = new Float64Array(128), nnB = new Float64Array(128);
+    // Optional win-chance mode: params.util = { table, step } where table[k] = chance that a final score of k*step beats the
+    // opponent. The network must then be a distribution network (params.nn.dist = { nBins, binW }): it predicts how the
+    // points still to come are spread, and the search maximises the chance of winning instead of the average score.
+    const UT = params.util ? Float64Array.from(params.util.table) : null, utStep = params.util ? params.util.step || 50 : 50;
+    const DIST = params.nn && params.nn.dist ? params.nn.dist : null;
+    if (UT && !DIST) throw new Error('win-chance mode needs a distribution network');
+    const Uat = (x) => { const k = Math.round(x / utStep); return UT[k < 0 ? 0 : k >= UT.length ? UT.length - 1 : k]; };
     function nnLeaf() {
       featurize(S.cols, S.deck, S.rem, S.H, S.busts, S.stays, S.prev, NC, nnA);
       let x = nnA, y = nnB;
@@ -442,7 +449,12 @@
         }
         const t = x; x = y; y = t;
       }
-      return x[0] * nnScale;
+      if (!DIST) return x[0] * nnScale;
+      const B = DIST.nBins, bw = DIST.binW; let mx = -Infinity;
+      for (let b = 0; b < B; b++) if (x[b] > mx) mx = x[b];
+      let z = 0, acc = 0;
+      for (let b = 0; b < B; b++) { const e = Math.exp(x[b] - mx); z += e; acc += e * (UT ? Uat(S.score + b * bw + bw / 2 - 25) : b * bw + bw / 2 - 25); }
+      return acc / z;                       // win chance (win-chance mode) or expected points to come
     }
 
     function leaf() {
@@ -470,7 +482,7 @@
       if (room < 10) { let f = 0; for (let x = room + 1; x <= 10; x++) f += deck[x]; val += W.forced[S.busts] * f / rem; }
       return val;
     }
-    const terminal = () => (S.busts === 0 ? perfect : 0);
+    const terminal = () => (UT ? Uat(S.score + (S.busts === 0 ? perfect : 0)) : S.busts === 0 ? perfect : 0);
     const isTerminal = () => S.busts >= maxBusts || S.H <= 0;
 
     // Place card v (after optional stay on column si) into column j. Returns immediate reward.
@@ -483,6 +495,7 @@
       if (p < 0) { S.busts++; S.cols[j] = 0; S.prev = 0; }
       else if (p > 0) { r = p + SB[S.prev]; if (S.prev < maxPrev) S.prev++; S.cols[j] = 0; }
       else { S.cols[j] = NEXT[k]; S.prev = 0; }
+      if (UT) { S.score += r; return 0; }   // win-chance mode: points go into the running score, not the search value
       return r;
     }
 
@@ -509,15 +522,15 @@
       }
     }
 
-    const FW = NC + 3, sv = new Int32Array(64 * FW); // save stack
-    function save(sp) { const b = sp * FW; for (let i = 0; i < NC; i++) sv[b + i] = S.cols[i]; sv[b + NC] = S.busts; sv[b + NC + 1] = S.stays; sv[b + NC + 2] = S.prev; }
-    function restore(sp, v) { const b = sp * FW; for (let i = 0; i < NC; i++) S.cols[i] = sv[b + i]; S.busts = sv[b + NC]; S.stays = sv[b + NC + 1]; S.prev = sv[b + NC + 2]; S.deck[v]++; S.rem++; S.H++; }
+    const FW = NC + 4, sv = new Int32Array(64 * FW); // save stack
+    function save(sp) { const b = sp * FW; for (let i = 0; i < NC; i++) sv[b + i] = S.cols[i]; sv[b + NC] = S.busts; sv[b + NC + 1] = S.stays; sv[b + NC + 2] = S.prev; sv[b + NC + 3] = S.score; }
+    function restore(sp, v) { const b = sp * FW; for (let i = 0; i < NC; i++) S.cols[i] = sv[b + i]; S.busts = sv[b + NC]; S.stays = sv[b + NC + 1]; S.prev = sv[b + NC + 2]; S.score = sv[b + NC + 3]; S.deck[v]++; S.rem++; S.H++; }
 
     let drawHash = 0;
     const ZH = [0, 1, 7, 49, 343, 2401, 16807, 117649, 823543, 5764801, 40353607]; // base-7 multiset hash (<=6 draws)
     function key(d) {
       const c = Array.from(S.cols).sort((a, b) => a - b);
-      return c.join(',') + '|' + S.busts + S.stays + S.prev + d + '|' + drawHash;
+      return c.join(',') + '|' + S.busts + S.stays + S.prev + d + '|' + drawHash + (UT ? '|' + S.score : '');
     }
 
     function chance(d, sp) {
@@ -560,7 +573,7 @@
     // ---- exact endgame: expectimax to the end, true objective, memoized per game ----
     function egKey() {
       const c = Array.from(S.cols).sort((a, b) => a - b);
-      let s = c.join(',') + '|' + S.busts + S.stays + S.prev + S.H + '|';
+      let s = c.join(',') + '|' + S.busts + S.stays + S.prev + S.H + '|' + (UT ? S.score + '|' : '');
       for (let v = 1; v <= 10; v++) s += S.deck[v] + '.';
       return s;
     }
