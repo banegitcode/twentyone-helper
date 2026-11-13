@@ -121,6 +121,11 @@
   .advice .stake { margin-top:8px; border:1px solid #5a5223; background:#22230f; color:var(--gold); border-radius:999px; padding:6px 14px; font-size:13px; font-weight:700; }
   .chk { display:flex; align-items:center; gap:8px; margin-top:10px; font-size:13px; color:var(--dim); }
   .chk input { width:20px; height:20px; accent-color:var(--go); }
+  .srow { display:grid; grid-template-columns:1.5fr .8fr 1fr 1fr 1.1fr; align-items:center; gap:6px; background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:7px 10px; font-size:13px; font-variant-numeric:tabular-nums; }
+  .srow.head { background:transparent; border:0; padding:0 10px; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--dim); }
+  .srow.total { border-color:#5a5223; background:#22230f; font-weight:700; }
+  .srow span:nth-child(n+2) { text-align:right; }
+  .srow small { color:var(--dim); font-size:10px; display:block; font-weight:500; }
   .empty { color:var(--dim); font-size:13px; text-align:center; padding:14px 0; }
 </style>
 </head>
@@ -181,6 +186,8 @@
       <p class="lead" id="stLead"></p>
       <div id="betBox"></div>
       <div class="tiles" id="tiles"></div>
+      <h3>By bet amount</h3>
+      <div class="glist" id="byStake"></div>
       <h3>Recent games</h3>
       <div class="glist" id="glist"></div>
       <h3>Money · usual stake</h3>
@@ -963,6 +970,15 @@ function renderStats() {
       (g.opp == null ? '–' : g.opp.toLocaleString()) + '<small>opponent</small></span><span class="amt ' + (dl > 0 ? 'pos' : dl < 0 ? 'neg' : '') + '">' + (g.fee || g.prize ? signed(dl) : '') +
       '<small>' + (d.getMonth() + 1) + '/' + d.getDate() + '</small></span><button data-del="' + i + '" aria-label="Delete this game">✕</button></div>');
   }
+  // win % for every bet amount, then the overall figure and the plain average of the per-amount percentages
+  const by = new Map(); for (const g of G) { const k = g.fee + '|' + g.prize; if (!by.has(k)) by.set(k, { fee: g.fee, prize: g.prize, n: 0, w: 0, net: 0 }); const b = by.get(k); b.n++; if (g.res === 'W') b.w++; b.net += delta(g); }
+  const bs = Array.from(by.values()).sort((a, b) => a.fee - b.fee), netCls = (x) => (x > 0 ? 'pos' : x < 0 ? 'neg' : '');
+  const srow = (cls, name, sub, n, wl, pc, net) => '<div class="srow ' + cls + '"><span>' + name + (sub ? '<small>' + sub + '</small>' : '') + '</span><span>' + n + '</span><span>' + wl + '</span><span>' + pc + '</span><span class="' + netCls(net) + '">' + (net == null ? '' : signed(net)) + '</span></div>';
+  $('byStake').innerHTML = !bs.length ? '<div class="empty">No games yet.</div>'
+    : '<div class="srow head"><span>Bet</span><span>Games</span><span>W–L</span><span>Win %</span><span>Net</span></div>' +
+      bs.map((b) => srow('', b.fee || b.prize ? 'Pay $' + amt(b.fee) : 'No stake', b.prize ? 'win $' + amt(b.prize) : '', b.n, b.w + '–' + (b.n - b.w), pct(100 * b.w / b.n), b.net)).join('') +
+      srow('total', 'All games', '', s.n, s.w + '–' + s.l, pct(s.winPct), s.net) +
+      (bs.length > 1 ? srow('total', 'Average of bet amounts', 'each amount counted once', '', '', pct(avg(bs.map((b) => 100 * b.w / b.n))), null) : '');
   $('glist').innerHTML = rows.join('') || '<div class="empty">No games yet.</div>';
   $('stRecord').style.display = log.length ? '' : 'none';
 }
