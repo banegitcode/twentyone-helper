@@ -14,9 +14,22 @@
   }
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   html, body { margin:0; min-height:100%; background:var(--bg); color:var(--ink); font-family:-apple-system, system-ui, "Segoe UI", Roboto, sans-serif; overscroll-behavior:none; touch-action:manipulation; }
-  body { display:flex; flex-direction:column; min-height:100dvh; max-width:560px; margin:0 auto; padding:calc(6px + env(safe-area-inset-top)) 10px calc(8px + env(safe-area-inset-bottom)); gap:7px; user-select:none; -webkit-user-select:none;
+  body { display:flex; flex-direction:column; min-height:100dvh; max-width:560px; margin:0 auto; padding:calc(6px + env(safe-area-inset-top)) 10px calc(8px + env(safe-area-inset-bottom)); user-select:none; -webkit-user-select:none;
     background:radial-gradient(120% 60% at 50% 0%, #16291f 0%, var(--bg) 70%); }
   button, input, select { font-family:inherit; }
+  #game { display:flex; flex-direction:column; flex:1 1 auto; gap:7px; min-height:0; }
+  #lobby { padding:6px 2px 24px; }
+  body.inlobby #game { display:none; } body:not(.inlobby) #lobby { display:none; }
+  .lobhead { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:6px 2px 12px; }
+  .lobhead h1 { margin:0; font-size:26px; letter-spacing:-.01em; } .lobsub { color:var(--dim); font-size:13px; margin-top:2px; }
+  .lobrec { text-align:right; font-variant-numeric:tabular-nums; } .lobrec .wl { display:block; font-size:30px; white-space:nowrap; font-weight:800; line-height:1.1; } .lobrec .wl i { font-style:normal; color:var(--dim); font-weight:500; }
+  .lobmid { font-size:13px; color:var(--dim); margin:-6px 2px 10px; font-variant-numeric:tabular-nums; } .lobmid b { color:var(--ink); font-weight:600; }
+  .lobmsg { background:#17432a; border:1px solid #2a6b45; color:var(--go); border-radius:12px; padding:9px 12px; font-size:14px; font-weight:600; margin-bottom:8px; }
+  .lobmsg.loss { background:#45201c; border-color:#70332d; color:var(--bad); }
+  .enter { width:100%; height:64px; border:0; border-radius:16px; background:linear-gradient(180deg,#6cf09c,#3fc873); color:#06210f; font-size:22px; font-weight:800; letter-spacing:.02em; box-shadow:0 4px 0 #1f7f45; margin:2px 0 4px; }
+  .enter:active { transform:translateY(3px); box-shadow:0 1px 0 #1f7f45; }
+  #lobby h3 { margin:20px 2px 8px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); font-weight:700; }
+  #lobby .tile, #lobby .grow, #lobby .srow, #lobby .tiers button, #lobby .field input, #lobby .field select { background:var(--panel); }
   .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
   .stat { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:5px 4px 4px; text-align:center; }
   .stat b { display:block; font-size:21px; font-variant-numeric:tabular-nums; line-height:1.15; }
@@ -129,32 +142,72 @@
   .empty { color:var(--dim); font-size:13px; text-align:center; padding:14px 0; }
 </style>
 </head>
-<body>
-  <div class="stats">
-    <div class="stat main"><b id="sScore">0</b><span>Score</span></div>
-    <div class="stat"><b id="sLeft">52</b><span>Cards left</span></div>
-    <div class="stat"><b id="sBusts">0/3</b><span>Busts</span></div>
-    <div class="stat"><b id="sStays">2</b><span>Stays left</span></div>
+<body class="inlobby">
+  <div id="lobby">
+    <div class="lobhead">
+      <div><h1>21 Helper</h1><div class="lobsub" id="stLead"></div></div>
+      <div class="lobrec"><span class="wl" id="rsWL"></span></div>
+    </div>
+    <div class="lobmid" id="rsMid"></div>
+    <div class="lobmsg" id="lobMsg" style="display:none"></div>
+    <div id="betBox"></div>
+    <button class="enter" id="enterBtn">Enter game</button>
+    <button class="ghostbtn" id="newBtn" style="display:none">Discard it and start a new game</button>
+    <button class="ghostbtn" id="stRecord" style="display:none;color:var(--ink)">Record a result for the game in progress</button>
+    <div id="tiles"></div>
+    <h3>By bet amount</h3>
+    <div class="glist" id="byStake"></div>
+    <h3>Recent games</h3>
+    <div class="glist" id="glist"></div>
+    <button class="ghostbtn" id="stPast" style="color:var(--ink)">Add a game you already played</button>
+    <h3>Settings · usual stake</h3>
+    <div class="tiers" id="cTiers"></div>
+    <div class="frow">
+      <label class="field">Starting balance<input id="cStart" inputmode="decimal" autocomplete="off"></label>
+      <label class="field">Entry fee per game<input id="cFee" inputmode="decimal" autocomplete="off"></label>
+    </div>
+    <div class="frow">
+      <label class="field">Prize for a win<input id="cPrize" inputmode="decimal" autocomplete="off"></label>
+      <label class="field">Game length
+        <select id="lenSel" aria-label="Game length">
+          <option value="52">Full deck (52)</option><option value="45">Timer: ~45 cards</option>
+          <option value="35">Timer: ~35 cards</option><option value="25">Timer: ~25 cards</option>
+        </select></label>
+    </div>
+    <div class="frow" style="grid-template-columns:1fr">
+      <label class="field">Bet calculator risk level
+        <select id="cRisk">
+          <option value="0.125">Cautious (one eighth of the Kelly stake)</option>
+          <option value="0.25">Balanced (one quarter)</option>
+          <option value="0.5">Aggressive (one half)</option>
+        </select></label>
+    </div>
+    <button class="ghostbtn danger" id="stReset">Erase all recorded games</button>
   </div>
-  <button class="record" id="recStrip" aria-label="Open stats">
-    <span class="wl" id="rsWL"></span><span class="mid" id="rsMid"></span><span class="chev">›</span>
-  </button>
-  <div class="advice" id="advice">
-    <div class="heard" id="heard"></div>
-    <div class="lat" id="lat"></div>
-    <div class="cap" id="cap"></div>
-    <div class="big" id="big">21</div>
-    <div class="sub" id="sub">Tap the card you were dealt</div>
-    <button class="recbtn" id="recBtn" style="display:none">Record result</button>
-    <button class="stake" id="stakeBtn" style="display:none"></button>
-  </div>
-  <div class="cols" id="cols"></div>
-  <div class="hint" id="hint"></div>
-  <div class="keys" id="keys"></div>
-  <div class="bar">
-    <button id="voiceBtn">🎤 Voice: off</button>
-    <button id="echoBtn" style="display:none">Speaker (echo guard on)</button>
-    <button id="statsBtn">Stats &amp; settings</button>
+
+  <div id="game">
+    <div class="stats">
+      <div class="stat main"><b id="sScore">0</b><span>Score</span></div>
+      <div class="stat"><b id="sLeft">52</b><span>Cards left</span></div>
+      <div class="stat"><b id="sBusts">0/3</b><span>Busts</span></div>
+      <div class="stat"><b id="sStays">2</b><span>Stays left</span></div>
+    </div>
+    <div class="advice" id="advice">
+      <div class="heard" id="heard"></div>
+      <div class="lat" id="lat"></div>
+      <div class="cap" id="cap"></div>
+      <div class="big" id="big">21</div>
+      <div class="sub" id="sub">Tap the card you were dealt</div>
+      <button class="recbtn" id="recBtn" style="display:none">Record result</button>
+    </div>
+    <div class="cols" id="cols"></div>
+    <div class="hint" id="hint"></div>
+    <div class="keys" id="keys"></div>
+    <div class="bar">
+      <button id="statsBtn">‹ Lobby</button>
+      <button id="voiceBtn">🎤 Voice: off</button>
+      <button id="echoBtn" style="display:none">Speaker (echo guard on)</button>
+    </div>
   </div>
 
   <div class="scrim" id="resultScrim">
@@ -180,44 +233,6 @@
     </div>
   </div>
 
-  <div class="scrim" id="statsScrim">
-    <div class="sheet" role="dialog" aria-label="Stats and settings">
-      <h2>Your record</h2>
-      <p class="lead" id="stLead"></p>
-      <div id="betBox"></div>
-      <div class="tiles" id="tiles"></div>
-      <h3>By bet amount</h3>
-      <div class="glist" id="byStake"></div>
-      <h3>Recent games</h3>
-      <div class="glist" id="glist"></div>
-      <h3>Money · usual stake</h3>
-      <div class="tiers" id="cTiers"></div>
-      <div class="frow">
-        <label class="field">Starting balance<input id="cStart" inputmode="decimal" autocomplete="off"></label>
-        <label class="field">Entry fee per game<input id="cFee" inputmode="decimal" autocomplete="off"></label>
-      </div>
-      <div class="frow">
-        <label class="field">Prize for a win<input id="cPrize" inputmode="decimal" autocomplete="off"></label>
-        <label class="field">Game length
-          <select id="lenSel" aria-label="Game length">
-            <option value="52">Full deck (52)</option><option value="45">Timer: ~45 cards</option>
-            <option value="35">Timer: ~35 cards</option><option value="25">Timer: ~25 cards</option>
-          </select></label>
-      </div>
-      <div class="frow" style="grid-template-columns:1fr">
-        <label class="field">Bet calculator risk level
-          <select id="cRisk">
-            <option value="0.125">Cautious (one eighth of the Kelly stake)</option>
-            <option value="0.25">Balanced (one quarter)</option>
-            <option value="0.5">Aggressive (one half)</option>
-          </select></label>
-      </div>
-      <button class="ghostbtn" id="stPast" style="color:var(--ink)">Add a game you already played</button>
-      <button class="ghostbtn" id="stRecord">Record a result for the current game</button>
-      <button class="ghostbtn danger" id="stReset">Erase all recorded games</button>
-      <button class="ghostbtn" id="stClose" style="color:var(--ink)">Close</button>
-    </div>
-  </div>
 <script>
 /*ENGINE*/
 </script>
@@ -267,6 +282,11 @@ function rebuild() {
   return true;
 }
 function newGame() { log = []; makePolicy(); rebuild(); closeSheets(); clearTimeout(flashT); $('hint').classList.remove('flash'); render(); }
+const inLobby = () => document.body.classList.contains('inlobby');
+function enterGame(fresh) {          // from the lobby into the calculator
+  if (fresh || !log.length || st.over) newGame();
+  document.body.classList.remove('inlobby'); $('lobMsg').style.display = 'none'; window.scrollTo(0, 0); render();
+}
 function undo() { if (!log.length) return false; log.pop(); rebuild(); render(); return true; }
 // Play rank r. forced = {stay, col} when the user says where it actually went.
 function playRank(r, forced) {
@@ -305,6 +325,7 @@ document.addEventListener('keydown', (e) => {
   if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
   const tag = (e.target && e.target.tagName) || ''; if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
   if (document.querySelector('.scrim.open')) { if (e.key === 'Escape') { closeSheets(); render(); } return; }
+  if (inLobby()) { if (e.key === 'Enter') { e.preventDefault(); enterGame(); } return; }
   const k = e.key.toLowerCase(); let r = -1;
   if (k >= '1' && k <= '9' && k.length === 1) r = +k - 1; else if (k === '0' || k === 't' || k === 'j' || k === 'q' || k === 'k') r = 9; else if (k === 'a') r = 0;
   if (r >= 0) { e.preventDefault(); if (!playRank(r) && !st.over) flash('No ' + RANKS[r] + ' left in the deck'); return; }
@@ -332,8 +353,6 @@ function render() {
     if (m.stay >= 0) s = 'Use a Stay on column ' + (m.stay + 1) + ' first, then ' + s;
     sub.innerHTML = s + ptsHtml(last.ev);
   } else { adv.classList.add('idle'); big.textContent = '21'; sub.textContent = 'Tap the card you were dealt'; }
-  const ba = !log.length ? betAdvice() : null; $('stakeBtn').style.display = ba && ba.tier ? '' : 'none';
-  if (ba && ba.tier) $('stakeBtn').textContent = 'Suggested stake: win $' + amt(ba.tier[1]) + ' · pay $' + amt(ba.tier[0]);
 
   const cols = $('cols'); cols.innerHTML = '';
   for (let i = 0; i < cfg.numCols; i++) {
@@ -489,12 +508,12 @@ function renderBet() {
 }
 function renderStrip() {
   const s = summary();
-  if (!s.n) { $('rsWL').innerHTML = '0<i>–</i>0'; $('rsMid').textContent = 'No games recorded yet · tap for stats'; return; }
+  if (!s.n) { $('rsWL').innerHTML = '0<i>–</i>0'; $('rsMid').textContent = 'No games recorded yet'; return; }
   $('rsWL').innerHTML = '<span class="pos">' + s.w + '</span><i>–</i><span class="neg">' + s.l + '</span>';
   $('rsMid').innerHTML = '<b>' + s.winPct.toFixed(0) + '%</b> wins' + (s.money ? ' · <b class="' + (s.balance < REC.start ? 'neg' : 'pos') + '">' + money(s.balance) + '</b>' : '') +
     ' · you <b>' + fmt(s.myAvg) + '</b>' + (s.oppAvg != null ? ' · opp <b>' + fmt(s.oppAvg) + '</b>' : '');
 }
-function closeSheets() { $('resultScrim').classList.remove('open'); $('statsScrim').classList.remove('open'); if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); }
+function closeSheets() { $('resultScrim').classList.remove('open'); if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); }
 let pastMode = false, pastN = 0;
 function openResult(past) {
   closeSheets(); pastMode = past === true; pastN = 0;
@@ -524,27 +543,31 @@ function record(res) {
   }
   REC.followed = !!(b.tier && b.tier[0] === fee && b.tier[1] === prize);
   REC.games.push(g); REC.fee = fee; REC.prize = prize; saveRec();
-  newGame(); const s = summary(); flash((res === 'W' ? 'Win' : 'Loss') + ' recorded · ' + s.w + '–' + s.l + (s.money ? ' · balance ' + money(s.balance) : ''));
+  newGame(); const s = summary(), m = $('lobMsg');
+  m.textContent = (res === 'W' ? 'Win' : 'Loss') + ' recorded · ' + my.toLocaleString() + (g.opp != null ? ' to ' + g.opp.toLocaleString() : '') + (fee || prize ? ' · ' + signed(delta(g)) : '') + ' · record ' + s.w + '–' + s.l;
+  m.className = 'lobmsg' + (res === 'L' ? ' loss' : ''); openStats(); m.style.display = '';
 }
 function renderStats() {
   renderBet();
   const s = summary(), pct = (x) => (x == null ? '–' : x.toFixed(1) + '%'), cash = (x) => (x == null ? '–' : money(x));
   $('stLead').textContent = s.n ? s.n + ' game' + (s.n === 1 ? '' : 's') + ' recorded' : 'Finish a game and tap Win or Loss to start tracking.';
-  const T = [
-    ['wide', 'Current balance', '<b class="' + (s.net < 0 ? 'neg' : s.net > 0 ? 'pos' : '') + '">' + money(s.balance) + '</b>', 'Net ' + signed(s.net)],
-    ['', 'Wins', '<b class="pos">' + s.w + '</b>'], ['', 'Losses', '<b class="neg">' + s.l + '</b>'], ['', 'Win %', '<b>' + pct(s.winPct) + '</b>'],
-    ['', 'Opp wins', '<b>' + s.l + '</b>'], ['', 'Opp losses', '<b>' + s.w + '</b>'], ['', 'Opp win %', '<b>' + pct(s.oppPct) + '</b>'],
-    ['', 'Your avg score', '<b>' + fmt(s.myAvg) + '</b>'], ['', 'Opp avg score', '<b>' + fmt(s.oppAvg) + '</b>'],
-    ['', 'Avg margin', '<b class="' + (s.margin > 0 ? 'pos' : s.margin < 0 ? 'neg' : '') + '">' + (s.margin == null ? '–' : (s.margin > 0 ? '+' : '') + fmt(s.margin)) + '</b>'],
-    ['', 'Avg win $', '<b>' + cash(s.avgWin) + '</b>'], ['', 'Avg loss $', '<b>' + cash(s.avgLoss) + '</b>'], ['', 'Streak', '<b>' + s.streak + '</b>'],
-    ['', 'Avg win by', '<b>' + fmt(s.winMargin) + '</b>'], ['', 'Avg loss by', '<b>' + fmt(s.lossMargin) + '</b>'], ['', 'Your best', '<b>' + fmt(s.best) + '</b>'],
-    ['', 'Opp last 10', '<b>' + fmt(s.oppLast10) + '</b>'], ['', 'Opp before that', '<b>' + fmt(s.oppBefore) + '</b>'], ['', 'Opp spread (sd)', '<b>' + fmt(s.oppSd) + '</b>'],
-    ['', 'Opp after you win', '<b>' + fmt(s.oppAfterW) + '</b>'], ['', 'Opp after you lose', '<b>' + fmt(s.oppAfterL) + '</b>'], ['', 'Games', '<b>' + s.n + '</b>'],
-    ['', 'Break-even win %', '<b>' + pct(s.breakEven) + '</b>'], ['', 'Opp best', '<b>' + fmt(s.oppBest) + '</b>'], ['', 'Games after a loss', '<b>' + s.nAfterL + '</b>'],
+  const tile = (label, html) => '<div class="tile">' + html + '<span>' + label + '</span></div>', B = (x, c) => '<b' + (c ? ' class="' + c + '"' : '') + '>' + x + '</b>';
+  const sg = (x) => (x > 0 ? 'pos' : x < 0 ? 'neg' : '');
+  const groups = [
+    ['Money', '<div class="tile wide"><div><span>Current balance</span>' + B(money(s.balance), sg(s.net)) + '</div><span>Net ' + signed(s.net) + '</span></div>' +
+      tile('Avg win $', B(cash(s.avgWin))) + tile('Avg loss $', B(cash(s.avgLoss))) + tile('Break-even %', B(pct(s.breakEven)))],
+    ['Your record', tile('Wins', B(s.w, 'pos')) + tile('Losses', B(s.l, 'neg')) + tile('Win %', B(pct(s.winPct))) +
+      tile('Games', B(s.n)) + tile('Streak', B(s.streak)) + tile('Your best', B(fmt(s.best)))],
+    ['Scores', tile('Your avg score', B(fmt(s.myAvg))) + tile('Opp avg score', B(fmt(s.oppAvg))) + tile('Avg margin', B(s.margin == null ? '–' : (s.margin > 0 ? '+' : '') + fmt(s.margin), sg(s.margin))) +
+      tile('Avg win by', B(fmt(s.winMargin))) + tile('Avg loss by', B(fmt(s.lossMargin))) + tile('Opp best', B(fmt(s.oppBest)))],
+    ['Opponent record', tile('Opp wins', B(s.l)) + tile('Opp losses', B(s.w)) + tile('Opp win %', B(pct(s.oppPct)))],
+    ['Is it getting harder?', tile('Opp last 10', B(fmt(s.oppLast10))) + tile('Opp before that', B(fmt(s.oppBefore))) + tile('Opp spread (sd)', B(fmt(s.oppSd))) +
+      tile('Opp after you win', B(fmt(s.oppAfterW))) + tile('Opp after you lose', B(fmt(s.oppAfterL))) + tile('Games after a loss', B(s.nAfterL))],
   ];
-  $('tiles').innerHTML = T.map((t) => t[0] === 'wide'
-    ? '<div class="tile wide"><div><span>' + t[1] + '</span>' + t[2] + '</div><span>' + t[3] + '</span></div>'
-    : '<div class="tile">' + t[2] + '<span>' + t[1] + '</span></div>').join('');
+  $('tiles').innerHTML = groups.map((g) => '<h3>' + g[0] + '</h3><div class="tiles">' + g[1] + '</div>').join('');
+  const prog = log.length > 0 && !st.over;
+  $('enterBtn').textContent = prog ? 'Resume game (' + st.played + ' cards in)' : 'Enter game';
+  $('newBtn').style.display = prog ? '' : 'none';
   const G = REC.games, rows = [];
   for (let i = G.length - 1; i >= 0 && rows.length < 40; i--) {
     const g = G[i], d = new Date(g.t), dl = delta(g);
@@ -567,14 +590,14 @@ function renderStats() {
 const drawStakeTiers = () => drawTiers('cTiers', 'cFee', 'cPrize', (t) => { REC.fee = t[0]; REC.prize = t[1]; saveRec(); renderStats(); renderStrip(); });
 function openStats() {
   closeSheets(); $('cStart').value = REC.start || ''; $('cFee').value = REC.fee || ''; $('cPrize').value = REC.prize || ''; $('lenSel').value = String(horizonN); $('cRisk').value = String(REC.risk || 0.25);
-  drawStakeTiers(); renderStats(); $('statsScrim').classList.add('open');
+  drawStakeTiers(); renderStats(); document.body.classList.add('inlobby'); window.scrollTo(0, 0);
 }
-$('recStrip').onclick = openStats; $('statsBtn').onclick = openStats; $('recBtn').onclick = () => openResult();
+$('statsBtn').onclick = () => { $('lobMsg').style.display = 'none'; openStats(); }; $('enterBtn').onclick = () => enterGame();
+$('newBtn').onclick = () => { if (confirm('Discard the game in progress and start a new one?')) enterGame(true); }; $('recBtn').onclick = () => openResult();
 $('rWin').onclick = () => record('W'); $('rLoss').onclick = () => record('L'); $('rSkip').onclick = () => { const wasPast = pastMode; closeSheets(); render(); if (wasPast) openStats(); };
 $('rMy').oninput = suggest; $('rOpp').oninput = suggest;
 $('rFee').oninput = $('rPrize').oninput = () => drawTiers('rTiers', 'rFee', 'rPrize');
-$('stClose').onclick = () => { closeSheets(); render(); };
-$('stRecord').onclick = () => openResult(); $('stPast').onclick = () => openResult(true); $('stakeBtn').onclick = openStats;
+$('stRecord').onclick = () => openResult(); $('stPast').onclick = () => openResult(true);
 $('cRisk').onchange = (e) => { REC.risk = +e.target.value; saveRec(); renderStats(); };
 $('stReset').onclick = () => { if (REC.games.length && confirm('Erase all ' + REC.games.length + ' recorded games? This cannot be undone.')) { REC.games = []; saveRec(); renderStats(); renderStrip(); } };
 $('glist').onclick = (e) => {
@@ -582,7 +605,7 @@ $('glist').onclick = (e) => {
   if (confirm('Delete this game from your record?')) { REC.games.splice(+b.dataset.del, 1); saveRec(); renderStats(); renderStrip(); }
 };
 for (const [id, key] of [['cStart', 'start'], ['cFee', 'fee'], ['cPrize', 'prize']]) $(id).oninput = (e) => { REC[key] = num(e.target.value) || 0; saveRec(); drawStakeTiers(); renderStats(); renderStrip(); };
-for (const id of ['resultScrim', 'statsScrim']) $(id).addEventListener('click', (e) => { if (e.target === $(id)) { closeSheets(); render(); } });
+for (const id of ['resultScrim']) $(id).addEventListener('click', (e) => { if (e.target === $(id)) { closeSheets(); render(); } });
 $('lenSel').onchange = (e) => { horizonN = +e.target.value; makePolicy(); rebuild(); render(); };
 
 // ------------------------------- voice mode -------------------------------
@@ -779,13 +802,14 @@ document.addEventListener('visibilitychange', async () => {
   try { wake = await navigator.wakeLock.request('screen'); } catch (e) {}
 });
 document.addEventListener('touchend', () => { if (voiceOn && actx && actx.state !== 'running') actx.resume().catch(() => {}); }, { passive: true });
-window.__t = { parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice,
+window.__t = { parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice, enterGame, openStats,
   get st() { return st; }, get last() { return last; }, get log() { return log; }, get rec() { return REC; } };
 (function init() {
   const saved = store.get('twentyone.game.v1', null);
   makePolicy();
   if (saved && Array.isArray(saved.log)) { horizonN = [25, 35, 45, 52].indexOf(saved.horizonN) >= 0 ? saved.horizonN : 52; makePolicy(); log = saved.log; for (const a of log) if (a.t === 'card' && a.r > 9) a.r = 9; if (!replay(log)) log = []; }
   rebuild(); render();
+  if (log.length) document.body.classList.remove('inlobby'); else openStats();   // a game in progress reopens in the calculator; otherwise start in the lobby
 })();
 </script>
 </body>

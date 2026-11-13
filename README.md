@@ -2,7 +2,12 @@
 
 Live page: https://banegitcode.github.io/twentyone-helper/ (one self-contained file, works offline once loaded).
 
-Tap the card you were dealt; the page shows which column to play in huge type and applies the move.
+The page opens in a **lobby**: the suggested stake, an **Enter game** button, and every stat grouped by topic
+(money, your record, scores, opponent record, whether opponents are getting tougher, results by bet amount,
+recent games, settings). Enter game opens the calculator on its own, with no stats on screen. Recording Win or
+Loss at the end returns to the lobby with everything updated.
+
+In the calculator, tap the card you were dealt; the page shows which column to play in huge type and applies the move.
 
 - **Columns show every card**, stacked like the game. If a card went somewhere else, **drag it to the right
   column** (any card, not only the last one) and everything after it is recalculated. A card that just cleared a
