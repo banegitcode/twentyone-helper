@@ -22,9 +22,10 @@
     },
     // Streak bonus, added when a turn scores right after other scoring turns. Entry 0 is the bonus for the
     // 2nd scoring turn in a row, entry 1 for the 3rd, and so on; the last entry repeats for longer streaks.
-    // Seen in the real game: +250 (2 in a row), +500 (3 in a row). 4+ is an assumption (keeps growing by 250).
+    // Seen in the real game: +250 (2 in a row), +500 (3 in a row), +1,000 (4 in a row). 5+ is an assumption
+    // (doubles once more to +2,000, then stays there); 5+ streaks happen in well under 1% of games.
     // A plain number means the same flat bonus every time.
-    streakBonus: [250, 500, 750, 1000, 1250, 1500],
+    streakBonus: [250, 500, 1000, 2000],
     stayBreaksStreak: false,    // does using a Stay reset the streak?
     perfectBonus: 1000,         // finishing with zero busts
     timerCards: Infinity,       // short-game: only this many cards get played

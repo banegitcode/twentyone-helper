@@ -1,0 +1,4 @@
+Current network (trained on old rule) n=4000 mean 8772 med 8850 p5 6850 p95 10500 0bust 77.3% 3bust 0.8% ms 13.371 gain 0 ± 0 202s
+nn5 td25                           n=4000 mean 8788 med 8900 p5 6850 p95 10500 0bust 77.3% 3bust 1.1% ms 13.905 gain 17 ± 24 209s
+nn5 td50                           n=4000 mean 8788 med 8900 p5 6800 p95 10500 0bust 76.5% 3bust 0.9% ms 14.612 gain 16 ± 26 220s
+nn5 td75                           n=4000 mean 8775 med 8900 p5 6800 p95 10500 0bust 76.2% 3bust 1.0% ms 14.860 gain 4 ± 28 223s

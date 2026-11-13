@@ -1,0 +1,52 @@
+{
+ "seedStart": 2500000,
+ "count": 10000,
+ "horizon": 52,
+ "rows": [
+  {
+   "name": "Baseline (2 cards, hand weights)",
+   "gain": 0,
+   "ci": 0,
+   "n": 10000,
+   "mean": 7274.625,
+   "median": 7600,
+   "p5": 4750,
+   "p95": 9300,
+   "zeroBust": 0.6191,
+   "bustOut": 0.0625,
+   "msPerMove": 0.05169742549572678,
+   "clears21": 12.8451,
+   "cards": 51.4447
+  },
+  {
+   "name": "Network v2 (trained under old 4-streak rule)",
+   "gain": 1481.7,
+   "ci": 33.87027867017296,
+   "n": 10000,
+   "mean": 8756.325,
+   "median": 8850,
+   "p5": 6750,
+   "p95": 10500,
+   "zeroBust": 0.7739,
+   "bustOut": 0.0121,
+   "msPerMove": 22.11877760264977,
+   "clears21": 13.8678,
+   "cards": 51.924
+  },
+  {
+   "name": "Network v3 (retrained for +1,000 4-streak)",
+   "gain": 1480.41,
+   "ci": 34.30257045938251,
+   "n": 10000,
+   "mean": 8755.035,
+   "median": 8850,
+   "p5": 6750,
+   "p95": 10500,
+   "zeroBust": 0.7676,
+   "bustOut": 0.0117,
+   "msPerMove": 14.47406000336094,
+   "clears21": 13.8422,
+   "cards": 51.9206
+  }
+ ]
+}

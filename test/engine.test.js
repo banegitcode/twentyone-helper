@@ -104,13 +104,19 @@ test('streak: +250 on the 2nd scoring turn in a row, +500 on the 3rd', () => {
   assert.equal(st.score, 1950);
 });
 
-test('streak keeps growing by 250 (assumed for 4+), resets after a miss, and a plain number means flat', () => {
+test('a five-card 800 counts towards the streak (seen in the real game)', () => {
+  const { evs } = play([[2, 0], [2, 0], [2, 0], [2, 0], [10, 1], [1, 1], [3, 0], [10, 2]]);
+  assert.equal(evs[5].pts, 400); assert.equal(evs[5].streak, 0);
+  assert.equal(evs[6].pts, 800); assert.equal(evs[6].streak, 250);
+});
+
+test('streak pays +250, +500, +1,000 (seen in the real game), resets after a miss, and a plain number means flat', () => {
   const seq = [[10, 0], [10, 1], [10, 2], [10, 3], [1, 0], [1, 1], [1, 2], [1, 3], [5, 0], [6, 0], [10, 0], [5, 1], [6, 1], [10, 1]];
   const { st, evs } = play(seq);
-  assert.deepEqual(evs.slice(4, 8).map((e) => e.streak), [0, 250, 500, 750]);
+  assert.deepEqual(evs.slice(4, 8).map((e) => e.streak), [0, 250, 500, 1000]);
   assert.equal(evs[10].pts, 400); assert.equal(evs[10].streak, 0); // non-scoring cards reset the streak
   assert.equal(evs[13].pts, 400); assert.equal(evs[13].streak, 0);
-  assert.equal(st.score, 6 * 400 + 1500);
+  assert.equal(st.score, 6 * 400 + 1750);
   const R2 = E.compile({ streakBonus: 250 });
   const s2 = E.newGame(R2); const out = seq.slice(0, 8).map(([v, col]) => E.applyMove(R2, s2, v, { col, stay: -1 }).streak);
   assert.deepEqual(out.slice(4), [0, 250, 250, 250]);

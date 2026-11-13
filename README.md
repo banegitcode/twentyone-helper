@@ -5,10 +5,10 @@ Live page: https://banegitcode.github.io/twentyone-helper/ (one self-contained f
 Tap the card you were dealt; the page shows which column to play in huge type and applies the move.
 Tap a different column if you played it somewhere else. Undo and New Game are at the bottom.
 
-**Best measured, not perfect.** The shipped policy averages **8,754** points per full-deck game on 10,000 fresh
-shuffles, against **7,250** for the reference baseline on the same shuffles: **+1,504 ± 34** (95% CI, paired).
+**Best measured, not perfect.** The shipped policy averages **8,755** points per full-deck game on 10,000 fresh
+shuffles, against **7,275** for the reference baseline on the same shuffles: **+1,480 ± 34** (95% CI, paired).
 It is a search that looks 2–3 cards ahead and judges the resulting positions with a small neural network
-trained on 650,000 self-played games.
+trained on 850,000 self-played games.
 
 ## Rules as implemented
 
@@ -18,7 +18,8 @@ All rules and point values live in one object, `CONFIG` in [src/engine.js](src/e
 - Exactly 21: +400. Exactly three 7s: +600. Five cards without busting: +800. Five cards totaling 21: +1,000.
 - Over 21 is a bust: the column clears, no points; the third bust ends the game.
 - Stay: empty a column with no penalty, at most 2 per game.
-- Streak bonus for scoring on consecutive cards: **+250 for the 2nd in a row, +500 for the 3rd** (both seen in the real game).
+- Streak bonus for scoring on consecutive cards: **+250 for the 2nd in a row, +500 for the 3rd, +1,000 for the 4th**
+  (all seen in the real game). A five-card 800 counts towards the streak (also seen).
 - Zero busts at the end: +1,000 Perfect Bonus (counted in every number below). No time bonus.
 - The game ends when the deck runs out, on the third bust, or at the card limit (short-game mode).
 
@@ -26,18 +27,38 @@ Assumptions I could not confirm — each is one line in `CONFIG`:
 
 | Assumption | Setting |
 |---|---|
-| Streaks of 4+ keep growing by 250 (+750, +1,000, …) | `streakBonus: [250, 500, 750, 1000, 1250, 1500]` |
+| A 5th score in a row pays +2,000 (doubling once more), and so does every one after it. This comes up in fewer than 1 game in 100 | `streakBonus: [250, 500, 1000, 2000]` |
 | Using a Stay does not break a streak | `stayBreaksStreak: false` |
 | A Stay can be used right before placing the current card | built into the move format |
 | Three 7s pays 600 instead of 400, not on top of it | `points.threeSevens` |
 | A bust on the 5th card is a bust, not an 800 | built into the placement table |
 | The Perfect Bonus is also paid when the timer ends the game | `perfectBonus` |
 
-If the real game pays something different for a 4-streak, change the list and re-run the tuner and backtest.
+If the real game pays something different for a 5-streak, change the list and re-run the training and backtest.
 
 ## Results
 
-### Shipped policy (network v2)
+### Shipped policy (network v3, current rules)
+
+Full deck, **fresh seeds 2,500,000–2,509,999**, 10,000 games per row, same shuffles for every row, with the
+4-streak paying +1,000:
+
+| Policy | Mean | Median | 5th pct | 95th pct | Zero-bust | Ended by 3 busts | Gain vs baseline (95% CI) |
+|---|---|---|---|---|---|---|---|
+| Baseline (2 cards ahead, hand weights) | 7275 | 7600 | 4750 | 9300 | 61.9% | 6.3% | — |
+| Network v2 (trained when a 4-streak was assumed to pay +750) | 8756 | 8850 | 6750 | 10500 | 77.4% | 1.2% | +1482 ± 34 |
+| **Shipped:** network v3 (retrained for the +1,000 4-streak) | **8755** | 8850 | 6750 | 10500 | 76.8% | 1.2% | **+1480 ± 34** |
+
+Retraining for the corrected rule made no measurable difference (v3 was +17 ± 24 on validation and level on
+fresh shuffles). The search already applies the exact streak payout to the next 2–3 cards; only the network's
+longer-range estimate was out of date. v3 is shipped because it was trained on the rules as now known.
+Rows are in [results/final_nn5.log](results/final_nn5.log).
+
+**Every table below this point was measured with the earlier assumption that a 4-streak pays +750**, and the
+short-game tables were not re-run (the timer does not end real games early). They are kept as the record of
+how each idea compared.
+
+### Network v2 (old 4-streak assumption)
 
 Full deck, **fresh seeds 2,400,000–2,409,999**, 10,000 games per row, same shuffles for every row:
 
@@ -200,4 +221,4 @@ node web/build.js
 - [src/gen_data.js](src/gen_data.js) — self-play data. [src/train_nn.js](src/train_nn.js) — network trainer (plain JS).
 - [src/tune.js](src/tune.js) — weight tuner. [src/backtest.js](src/backtest.js) — paired backtest. [src/timing.js](src/timing.js) — per-move timing.
 - [web/template.html](web/template.html) + [web/build.js](web/build.js) — the page; the build writes `dist/index.html` and `docs/index.html`.
-- 25 unit tests cover every scoring rule, ace handling, busts, stays, streaks, the Perfect Bonus, the exact endgame and the network hook.
+- 26 unit tests cover every scoring rule, ace handling, busts, stays, streaks, the Perfect Bonus, the exact endgame and the network hook.

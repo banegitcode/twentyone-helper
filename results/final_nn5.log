@@ -1,0 +1,3 @@
+Baseline (2 cards, hand weights)   n=10000 mean 7275 med 7600 p5 4750 p95 9300 0bust 61.9% 3bust 6.3% ms 0.052 gain 0 ± 0 2s
+Network v2 (trained under old 4-streak rule) n=10000 mean 8756 med 8850 p5 6750 p95 10500 0bust 77.4% 3bust 1.2% ms 22.119 gain 1482 ± 34 827s
+Network v3 (retrained for +1,000 4-streak) n=10000 mean 8755 med 8850 p5 6750 p95 10500 0bust 76.8% 3bust 1.2% ms 14.474 gain 1480 ± 34 546s
