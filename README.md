@@ -17,6 +17,9 @@ Tap the card you were dealt; the page shows which column to play in huge type an
   stake at a time, and steps down after 2+ losses in a row. Streaks are not treated as predictive.
 - The record and the game in progress are saved in the browser on that device only (no account, nothing uploaded).
   Clearing the browser's site data erases them.
+- 10, J, Q and K share one **10** button (16 in the deck), since the game treats them the same.
+- **Keyboard:** `1`–`9` enter that card (`1` or `A` is the ace), `0` enters any ten-value card, `Backspace` undoes,
+  `N` starts a new game.
 - Undo and New Game are at the bottom.
 
 **Best measured, not perfect.** The shipped policy averages **8,755** points per full-deck game on 10,000 fresh

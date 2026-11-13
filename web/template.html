@@ -68,6 +68,9 @@
   .keys { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
   .key { position:relative; height:min(15vw, 8vh, 72px); border:0; border-radius:12px; background:var(--card); color:var(--cardink); font-size:26px; font-weight:800; box-shadow:0 2px 0 rgba(0,0,0,.35); }
   .key:active { transform:translateY(2px); filter:brightness(.88); box-shadow:none; }
+  .key u { position:absolute; left:7px; top:4px; text-decoration:none; font-size:11px; font-weight:600; color:#9aa79f; display:none; }
+  @media (hover:hover) and (pointer:fine) { .key u { display:block; } }
+  .key.w2 { grid-column:span 2; } .key.w3 { grid-column:span 3; }
   .key i { position:absolute; right:6px; top:4px; font-style:normal; font-size:12px; font-weight:600; color:#6b7a70; }
   .key.out { background:#243028; color:#4f5f55; box-shadow:none; } .key.out i { color:#4f5f55; }
   .key.util { background:var(--panel); color:var(--ink); font-size:14px; font-weight:600; border:1px solid var(--line); box-shadow:none; }
@@ -212,7 +215,8 @@
 const POLICIES = /*POLICIES*/;
 const CLIPS = /*CLIPS*/;
 const E = TwentyOne, rules = E.DEFAULT_RULES, cfg = rules.cfg;
-const RANKS = cfg.ranks, VALS = cfg.rankValues, WORDS = ['one', 'two', 'three', 'four'];
+// One button per card value: 10, J, Q and K are the same card to the game, so they share the "10" button (16 copies).
+const VALS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], RANKS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10'], COPIES = VALS.map((v) => rules.fullDeck[v]), WORDS = ['one', 'two', 'three', 'four'];
 const $ = (id) => document.getElementById(id);
 const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
@@ -227,7 +231,7 @@ let st, rankLeft, colCards, log = [], last, policy, horizonN = 52, flashT = 0;
 function makePolicy() { policy = E.createSearcher(rules, POLICIES[horizonN] || POLICIES[52]); }
 function replay(actions) {
   const hz = horizonN >= rules.deckSize ? Infinity : horizonN, nCards = actions.filter((a) => a.t === 'card').length;
-  const s = E.newGame(rules, { horizon: Math.max(hz, nCards) }), rl = RANKS.map(() => cfg.copiesPerRank), cc = RANKS.slice(0, cfg.numCols).map(() => []);
+  const s = E.newGame(rules, { horizon: Math.max(hz, nCards) }), rl = COPIES.slice(), cc = RANKS.slice(0, cfg.numCols).map(() => []);
   let ls = null;
   for (let k = 0; k < actions.length; k++) {
     const a = actions[k];
@@ -251,10 +255,11 @@ function rebuild() {
   store.set('twentyone.game.v1', { log, horizonN });
   return true;
 }
-function newGame() { log = []; makePolicy(); rebuild(); closeSheets(); render(); }
+function newGame() { log = []; makePolicy(); rebuild(); closeSheets(); clearTimeout(flashT); $('hint').classList.remove('flash'); render(); }
 function undo() { if (!log.length) return false; log.pop(); rebuild(); render(); return true; }
 // Play rank r. forced = {stay, col} when the user says where it actually went.
 function playRank(r, forced) {
+  if (r > 9) r = 9;                                             // J, Q, K count as 10
   if (st.over || rankLeft[r] <= 0) return null;
   const t0 = performance.now(), move = forced || policy.choose(st, VALS[r]), ms = performance.now() - t0;
   log.push({ t: 'card', r, move: { stay: move.stay, col: move.col }, forced: !!forced, ms });
@@ -283,6 +288,18 @@ function flash(text) {
 const hintText = () => (log.length ? 'Wrong column? Drag the card to where it went.' : '');
 const ptsHtml = (ev) => ev.bust ? ' · <span class="bad">BUST</span>' : ev.pts ? ' · <span class="good">+' + (ev.pts + ev.streak) + (ev.streak ? ' (streak +' + ev.streak + ')' : '') + '</span>' : '';
 
+function askNewGame() { if (!log.length || confirm(st.over ? 'Start a new game without recording this one?' : 'Start a new game?')) newGame(); }
+// Keyboard: 1-9 = that card (1 or A = ace), 0 = any ten-value card, Backspace = undo, N = new game.
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
+  const tag = (e.target && e.target.tagName) || ''; if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+  if (document.querySelector('.scrim.open')) { if (e.key === 'Escape') { closeSheets(); render(); } return; }
+  const k = e.key.toLowerCase(); let r = -1;
+  if (k >= '1' && k <= '9' && k.length === 1) r = +k - 1; else if (k === '0' || k === 't' || k === 'j' || k === 'q' || k === 'k') r = 9; else if (k === 'a') r = 0;
+  if (r >= 0) { e.preventDefault(); if (!playRank(r) && !st.over) flash('No ' + RANKS[r] + ' left in the deck'); return; }
+  if (k === 'backspace' || k === 'z' || k === 'u') { e.preventDefault(); undo(); }
+  else if (k === 'n') { e.preventDefault(); askNewGame(); }
+});
 function render() {
   $('sScore').textContent = st.score.toLocaleString();
   $('sLeft').textContent = E.cardsLeftToPlay(st);
@@ -327,11 +344,11 @@ function render() {
   const keys = $('keys'); keys.innerHTML = '';
   RANKS.forEach((name, r) => {
     const b = document.createElement('button'); b.className = 'key' + (rankLeft[r] ? '' : ' out');
-    b.innerHTML = name + '<i>' + rankLeft[r] + '</i>'; b.onclick = () => playRank(r); keys.appendChild(b);
+    b.innerHTML = name + '<i>' + rankLeft[r] + '</i><u>' + (r === 9 ? 0 : r + 1) + '</u>'; b.onclick = () => playRank(r); keys.appendChild(b);
   });
-  const u = document.createElement('button'); u.className = 'key util'; u.textContent = 'Undo'; u.onclick = undo; keys.appendChild(u);
-  const n = document.createElement('button'); n.className = 'key util'; n.textContent = 'New Game';
-  n.onclick = () => { if (!log.length || confirm(st.over ? 'Start a new game without recording this one?' : 'Start a new game?')) newGame(); }; keys.appendChild(n);
+  const u = document.createElement('button'); u.className = 'key util w2'; u.innerHTML = 'Undo<u>⌫</u>'; u.onclick = undo; keys.appendChild(u);
+  const n = document.createElement('button'); n.className = 'key util w3'; n.innerHTML = 'New Game<u>N</u>';
+  n.onclick = askNewGame; keys.appendChild(n);
   renderStrip();
 }
 
@@ -521,6 +538,7 @@ const CARD_WORDS = {
   ten: 9, tin: 9, tan: 9, tenn: 9, '10': 9,
   jack: 10, jacks: 10, jak: 10, jacques: 10, queen: 11, queens: 11, quinn: 11, clean: 11, king: 12, kings: 12, kin: 12, keen: 12,
 };
+for (const w in CARD_WORDS) if (CARD_WORDS[w] > 9) CARD_WORDS[w] = 9;   // jack, queen, king = the ten button
 const COL_WORDS = { one: 0, won: 0, '1': 0, two: 1, to: 1, too: 1, '2': 1, three: 2, tree: 2, free: 2, '3': 2, four: 3, for: 3, fore: 3, '4': 3 };
 // Parse a transcript into commands. pending = the last word could still become a two-word
 // command ("stay …", "new …"), so it is not consumed yet. Everything else is ignored.
@@ -701,7 +719,7 @@ window.__t = { parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuar
 (function init() {
   const saved = store.get('twentyone.game.v1', null);
   makePolicy();
-  if (saved && Array.isArray(saved.log)) { horizonN = [25, 35, 45, 52].indexOf(saved.horizonN) >= 0 ? saved.horizonN : 52; makePolicy(); log = saved.log; if (!replay(log)) log = []; }
+  if (saved && Array.isArray(saved.log)) { horizonN = [25, 35, 45, 52].indexOf(saved.horizonN) >= 0 ? saved.horizonN : 52; makePolicy(); log = saved.log; for (const a of log) if (a.t === 'card' && a.r > 9) a.r = 9; if (!replay(log)) log = []; }
   rebuild(); render();
 })();
 </script>
