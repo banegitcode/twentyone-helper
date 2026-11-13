@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0e1512">
+<title>21 Helper</title>
+<style>
+  :root { --bg:#0e1512; --panel:#17221d; --line:#2a3a32; --ink:#eef4ef; --dim:#8fa398; --go:#5fe08a; --warn:#ffb84d; --bad:#ff6b5e; --card:#f4f1e8; --cardink:#18201c; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--ink); font-family:-apple-system, system-ui, "Segoe UI", Roboto, sans-serif; overscroll-behavior:none; touch-action:manipulation; }
+  body { display:flex; flex-direction:column; max-width:560px; margin:0 auto; padding:calc(6px + env(safe-area-inset-top)) 10px calc(8px + env(safe-area-inset-bottom)); gap:8px; user-select:none; -webkit-user-select:none; }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+  .stat { background:var(--panel); border-radius:10px; padding:6px 4px; text-align:center; }
+  .stat b { display:block; font-size:20px; font-variant-numeric:tabular-nums; line-height:1.15; }
+  .stat span { font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); }
+  .advice { flex:1 1 0; min-height:150px; background:var(--panel); border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+  .advice .big { font-size:min(38vw, 30vh, 210px); font-weight:800; line-height:.9; color:var(--go); font-variant-numeric:tabular-nums; }
+  .advice.stay .big { color:var(--warn); font-size:min(17vw, 16vh, 96px); line-height:1.05; text-align:center; }
+  .advice.over .big { color:var(--ink); font-size:min(15vw, 13vh, 84px); }
+  .advice .sub { font-size:17px; color:var(--dim); margin-top:6px; text-align:center; padding:0 10px; min-height:22px; }
+  .advice .sub em { font-style:normal; color:var(--ink); font-weight:600; }
+  .advice .sub .good { color:var(--go); font-weight:700; } .advice .sub .bad { color:var(--bad); font-weight:700; }
+  .heard { position:absolute; top:8px; left:12px; font-size:13px; color:var(--dim); }
+  .heard b { color:var(--ink); font-size:16px; }
+  .lat { position:absolute; top:8px; right:12px; font-size:11px; color:var(--dim); text-align:right; }
+  .cols { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+  .col { background:var(--panel); border:2px solid var(--line); border-radius:12px; padding:6px 2px 4px; text-align:center; min-height:92px; position:relative; }
+  .col.hit { border-color:var(--go); } .col.stayhit { border-color:var(--warn); }
+  .col .idx { font-size:11px; color:var(--dim); letter-spacing:.08em; }
+  .col .tot { font-size:30px; font-weight:700; line-height:1.1; font-variant-numeric:tabular-nums; }
+  .col .tot small { font-size:13px; color:var(--dim); font-weight:500; }
+  .col .cards { font-size:13px; color:var(--dim); min-height:17px; white-space:nowrap; overflow:hidden; }
+  .col .staybtn { margin-top:3px; font-size:11px; padding:3px 8px; border-radius:999px; border:1px solid var(--line); background:transparent; color:var(--warn); }
+  .col .staybtn[disabled] { visibility:hidden; }
+  .hint { font-size:11px; color:var(--dim); text-align:center; margin:-3px 0; }
+  .keys { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
+  .key { position:relative; height:min(15vw, 9.2vh, 78px); border:0; border-radius:12px; background:var(--card); color:var(--cardink); font-size:28px; font-weight:800; font-family:inherit; }
+  .key:active { transform:scale(.95); filter:brightness(.85); }
+  .key i { position:absolute; right:6px; top:4px; font-style:normal; font-size:12px; font-weight:600; color:#6b7a70; }
+  .key.out { background:#2a332e; color:#55645b; } .key.out i { color:#55645b; }
+  .key.util { background:var(--panel); color:var(--ink); font-size:15px; font-weight:600; border:1px solid var(--line); }
+  .bar { display:flex; gap:6px; align-items:center; }
+  .bar button, .bar select { flex:1; min-width:0; height:40px; border-radius:10px; border:1px solid var(--line); background:var(--panel); color:var(--ink); font-size:13px; font-family:inherit; font-weight:600; }
+  .bar button.on { background:#1d3b2a; border-color:var(--go); color:var(--go); }
+  .bar button.err { border-color:var(--bad); color:var(--bad); }
+</style>
+</head>
+<body>
+  <div class="stats">
+    <div class="stat"><b id="sScore">0</b><span>Score</span></div>
+    <div class="stat"><b id="sLeft">52</b><span>Cards left</span></div>
+    <div class="stat"><b id="sBusts">0/3</b><span>Busts</span></div>
+    <div class="stat"><b id="sStays">2</b><span>Stays left</span></div>
+  </div>
+  <div class="advice" id="advice">
+    <div class="heard" id="heard"></div>
+    <div class="lat" id="lat"></div>
+    <div class="big" id="big">–</div>
+    <div class="sub" id="sub">Tap the card you were dealt</div>
+  </div>
+  <div class="cols" id="cols"></div>
+  <div class="hint">Played it somewhere else? Tap that column.</div>
+  <div class="keys" id="keys"></div>
+  <div class="bar">
+    <button id="voiceBtn">🎤 Voice: off</button>
+    <button id="echoBtn" style="display:none">Speaker (echo guard on)</button>
+    <select id="lenSel" aria-label="Game length">
+      <option value="52">Full deck (52)</option><option value="45">Timer: ~45 cards</option>
+      <option value="35">Timer: ~35 cards</option><option value="25">Timer: ~25 cards</option>
+    </select>
+  </div>
+<script>
+/*ENGINE*/
+</script>
+<script>
+'use strict';
+const POLICIES = /*POLICIES*/;
+const CLIPS = /*CLIPS*/;
+const E = TwentyOne, rules = E.DEFAULT_RULES, cfg = rules.cfg;
+const RANKS = cfg.ranks, VALS = cfg.rankValues, WORDS = ['one', 'two', 'three', 'four'];
+const $ = (id) => document.getElementById(id);
+
+let st, rankLeft, colCards, history, last, policy, horizonN = 52, msg = null;
+
+function makePolicy() { policy = E.createSearcher(rules, POLICIES[horizonN] || POLICIES[52]); }
+function newGame() {
+  st = E.newGame(rules, { horizon: horizonN >= rules.deckSize ? Infinity : horizonN });
+  rankLeft = RANKS.map(() => cfg.copiesPerRank); colCards = [[], [], [], []]; history = []; last = null; msg = null;
+  makePolicy(); render();
+}
+function applyHorizon() {
+  const hz = horizonN >= rules.deckSize ? Infinity : horizonN;
+  if (st.over && st.reason === 'timer' && st.played < hz && st.rem > 0) { st.over = false; st.reason = ''; if (st.busts === 0) st.score -= cfg.perfectBonus; }
+  if (!st.over) st.horizon = Math.max(hz, st.played + 1);
+}
+function snap() { return { st: E.cloneGame(st), rankLeft: rankLeft.slice(), colCards: colCards.map((c) => c.slice()), last }; }
+function undo() {
+  const h = history.pop(); if (!h) return false;
+  st = h.st; rankLeft = h.rankLeft; colCards = h.colCards; last = h.last; msg = null; applyHorizon(); render(); return true;
+}
+// Play rank r. forced = {stay, col} when the user says where it actually went.
+function playRank(r, forced) {
+  if (st.over || rankLeft[r] <= 0) return null;
+  const v = VALS[r], t0 = performance.now();
+  const move = forced || policy.choose(st, v);
+  const ms = performance.now() - t0;
+  history.push(snap());
+  const ev = E.applyMove(rules, st, v, move);
+  rankLeft[r]--;
+  if (move.stay >= 0) colCards[move.stay] = [];
+  if (ev.cleared) colCards[move.col] = []; else colCards[move.col].push(RANKS[r]);
+  last = { r, move: { stay: move.stay, col: move.col }, ev, ms, forced: !!forced }; msg = null;
+  render(); return last;
+}
+function overrideCol(j) {
+  if (!last || last.manualStay) return;
+  if (last.move.col === j && last.move.stay < 0) return;
+  const r = last.r; undo(); playRank(r, { stay: -1, col: j });
+}
+function manualStay(i) {
+  if (st.over || st.stays <= 0 || st.cols[i] === 0) return false;
+  history.push(snap());
+  st.cols[i] = 0; st.stays--; st.counts.staysUsed++; colCards[i] = [];
+  last = { manualStay: true, move: { stay: i, col: -1 } }; msg = 'Stay used on column ' + (i + 1); render(); return true;
+}
+
+function render() {
+  $('sScore').textContent = st.score.toLocaleString();
+  $('sLeft').textContent = E.cardsLeftToPlay(st);
+  $('sBusts').textContent = st.busts + '/' + cfg.maxBusts; $('sBusts').style.color = st.busts ? 'var(--bad)' : '';
+  $('sStays').textContent = st.stays;
+  const adv = $('advice'), big = $('big'), sub = $('sub'); adv.className = 'advice';
+  if (st.over) {
+    adv.classList.add('over'); big.textContent = st.score.toLocaleString();
+    sub.innerHTML = 'Game over · ' + ({ deck: 'deck finished', busts: '3 busts', timer: 'card limit reached' })[st.reason] +
+      (st.busts === 0 ? ' · <span class="good">Perfect +' + cfg.perfectBonus + '</span>' : '');
+    if (last && !last.manualStay) sub.innerHTML = 'Last card: ' + (last.move.stay >= 0 ? 'Stay ' + (last.move.stay + 1) + ', then ' : '') + '<em>' + RANKS[last.r] +
+      '</em> → column ' + (last.move.col + 1) + (last.ev.bust ? ' · <span class="bad">BUST</span>' : last.ev.pts ? ' · <span class="good">+' + (last.ev.pts + last.ev.streak) + '</span>' : '') + '<br>' + sub.innerHTML;
+  } else if (last && !last.manualStay) {
+    const m = last.move, ev = last.ev;
+    if (m.stay >= 0) { adv.classList.add('stay'); big.innerHTML = 'STAY ' + (m.stay + 1) + '<br>then ' + (m.col + 1); }
+    else big.textContent = m.col + 1;
+    let s = '<em>' + RANKS[last.r] + '</em> → column ' + (m.col + 1);
+    if (m.stay >= 0) s = 'Use a Stay on column ' + (m.stay + 1) + ' first, then ' + s;
+    if (ev.bust) s += ' · <span class="bad">BUST</span>';
+    else if (ev.pts) s += ' · <span class="good">+' + (ev.pts + ev.streak) + (ev.streak ? ' (streak)' : '') + '</span>';
+    if (last.forced) s += ' · your move';
+    sub.innerHTML = s;
+  } else { big.textContent = '–'; sub.textContent = msg || 'Tap the card you were dealt'; }
+  const cols = $('cols'); cols.innerHTML = '';
+  for (let i = 0; i < cfg.numCols; i++) {
+    const c = st.cols[i], d = document.createElement('div'); d.className = 'col';
+    if (last && last.move.col === i) d.classList.add('hit');
+    if (last && last.move.stay === i && last.move.col !== i) d.classList.add('stayhit');
+    const soft = E.softTotal(c), hard = E.hardOf(c);
+    d.innerHTML = '<div class="idx">COL ' + (i + 1) + '</div><div class="tot">' + (c ? soft : '·') + (c && soft !== hard ? '<small> /' + hard + '</small>' : '') +
+      '</div><div class="cards">' + colCards[i].join(' ') + '</div>';
+    const b = document.createElement('button'); b.className = 'staybtn'; b.textContent = 'Stay'; b.disabled = st.over || !c || st.stays <= 0;
+    b.onclick = (e) => { e.stopPropagation(); manualStay(i); };
+    d.appendChild(b); d.onclick = () => overrideCol(i); cols.appendChild(d);
+  }
+  const keys = $('keys'); keys.innerHTML = '';
+  RANKS.forEach((name, r) => {
+    const b = document.createElement('button'); b.className = 'key' + (rankLeft[r] ? '' : ' out');
+    b.innerHTML = name + '<i>' + rankLeft[r] + '</i>'; b.onclick = () => playRank(r); keys.appendChild(b);
+  });
+  const u = document.createElement('button'); u.className = 'key util'; u.textContent = 'Undo'; u.onclick = undo; keys.appendChild(u);
+  const n = document.createElement('button'); n.className = 'key util'; n.textContent = 'New Game';
+  n.onclick = () => { if (st.played === 0 || st.over || confirm('Start a new game?')) newGame(); }; keys.appendChild(n);
+}
+$('lenSel').onchange = (e) => {
+  horizonN = +e.target.value; applyHorizon(); makePolicy(); render();
+};
+
+// ------------------------------- voice mode -------------------------------
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+const IS_ANDROID = /Android/i.test(navigator.userAgent), IS_MOBILE = IS_ANDROID || /iPhone|iPad|iPod/i.test(navigator.userAgent);
+let voiceOn = false, voiceGen = 0, rec = null, actx = null, buffers = {}, wake = null;
+let ran = [];            // commands already handled in this recognition session, in transcript order
+let echoGroups = [];     // what we just said out loud, so we can ignore hearing ourselves
+let echoGuard = true, speakEnd = 0, lastErr = '', backoff = 250, fails = 0;
+let micEndT = 0, micUsedT = 0, meter = null, DEBUG = /[?&]debug/.test(location.search), lats = [];
+
+const CARD_WORDS = {
+  ace: 0, aces: 0, ice: 0, one: 0, won: 0, '1': 0,
+  two: 1, to: 1, too: 1, tu: 1, '2': 1, three: 2, tree: 2, free: 2, '3': 2,
+  four: 3, for: 3, fore: 3, '4': 3, five: 4, fife: 4, hive: 4, '5': 4,
+  six: 5, sex: 5, sicks: 5, sick: 5, '6': 5, seven: 6, heaven: 6, '7': 6,
+  eight: 7, ate: 7, ait: 7, '8': 7, nine: 8, nein: 8, mine: 8, line: 8, '9': 8,
+  ten: 9, tin: 9, tan: 9, tenn: 9, '10': 9,
+  jack: 10, jacks: 10, jak: 10, jacques: 10, queen: 11, queens: 11, quinn: 11, clean: 11, king: 12, kings: 12, kin: 12, keen: 12,
+};
+const COL_WORDS = { one: 0, won: 0, '1': 0, two: 1, to: 1, too: 1, '2': 1, three: 2, tree: 2, free: 2, '3': 2, four: 3, for: 3, fore: 3, '4': 3 };
+// Parse a transcript into commands. pending = the last word could still become a two-word
+// command ("stay …", "new …"), so it is not consumed yet. Everything else is ignored.
+function parse(text, isFinal) {
+  let words = text.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean);
+  // split digit runs like "78" into single cards (but keep "10")
+  words = words.flatMap((w) => (/^\d+$/.test(w) && w !== '10' && w.length > 1) ? w.replace(/10/g, ' 10 ').trim().split(/\s+/).flatMap((x) => x === '10' ? [x] : x.split('')) : [w]);
+  const cmds = []; let pending = false;
+  for (let i = 0; i < words.length; i++) {
+    const w = words[i], nx = words[i + 1];
+    if (w === 'stay' || w === 'stays' || w === 'say') {
+      if (nx === undefined) { pending = !isFinal; break; }
+      if (nx in COL_WORDS) { cmds.push({ t: 'stay', col: COL_WORDS[nx] }); i++; } continue;
+    }
+    if (w === 'new' || w === 'knew') {
+      if (nx === undefined) { pending = !isFinal; break; }
+      if (nx === 'game' || nx === 'gain' || nx === 'came') { cmds.push({ t: 'new' }); i++; } continue;
+    }
+    if (w === 'newgame') { cmds.push({ t: 'new' }); continue; }
+    if (w === 'undo' || w === 'undue' || w === 'undone') { cmds.push({ t: 'undo' }); continue; }
+    if (w === 'and' && nx === 'do') { cmds.push({ t: 'undo' }); i++; continue; }
+    if (w in CARD_WORDS) cmds.push({ t: 'card', r: CARD_WORDS[w] });
+  }
+  return { cmds, pending };
+}
+const cmdId = (c) => c.t + ':' + (c.t === 'card' ? c.r : c.t === 'stay' ? c.col : '');
+function runCmd(c, tHeard) {   // returns true if it changed the game (and so can be reverted with undo)
+  if (c.t === 'undo') { undo(); setHeard('undo'); return false; }
+  if (c.t === 'new') { newGame(); setHeard('new game'); return false; }
+  if (c.t === 'stay') { const ok = manualStay(c.col); setHeard('stay ' + (c.col + 1) + (ok ? '' : ' (not possible)')); return ok; }
+  const res = playRank(c.r); setHeard(RANKS[c.r] + (res ? '' : ' (none left)'));
+  if (res) speakMove(res.move, tHeard);
+  return !!res;
+}
+function setHeard(s) { $('heard').innerHTML = 'heard <b>' + s + '</b>'; }
+function isEcho(c) {
+  if (!echoGuard) return false;
+  const now = performance.now(), id = cmdId(c);
+  echoGroups = echoGroups.filter((g) => g.until > now && g.left > 0);
+  for (const g of echoGroups) if (now >= g.from && g.ids.indexOf(id) >= 0) { g.left--; return true; }
+  return false;
+}
+// Bring the game in line with the recognizer's current transcript for this session.
+// Acts on interim text immediately; if the recognizer later changes its mind about a card,
+// the wrong card is undone and the corrected one is played.
+function reconcile(cmds, isFinal, tHeard) {
+  let k = 0; while (k < ran.length && k < cmds.length && ran[k].id === cmdId(cmds[k])) k++;
+  if (k < ran.length) {
+    if (k === cmds.length && !isFinal) return;                 // interim text shrank: wait for it to settle
+    const tail = ran.slice(k), oldLen = ran.length;
+    if (tail.every((x) => x.rev)) { for (let j = tail.length - 1; j >= 0; j--) if (tail[j].did) undo(); ran.length = k; }
+    else { ran.length = k; for (let j = k; j < oldLen && j < cmds.length; j++) ran.push({ id: cmdId(cmds[j]), rev: false, did: false }); }
+  }
+  for (let j = ran.length; j < cmds.length; j++) {
+    const c = cmds[j], id = cmdId(c);
+    if (isEcho(c)) { ran.push({ id, rev: true, did: false }); $('heard').innerHTML = 'heard my own voice (ignored)'; continue; }
+    const did = runCmd(c, tHeard);
+    ran.push({ id, rev: c.t === 'card' || c.t === 'stay', did });
+  }
+}
+
+function speakMove(move, tHeard) {
+  if (!actx || !voiceOn) return;
+  if (actx.state !== 'running') { actx.resume().then(() => { if (actx.state === 'running') speakMove(move, tHeard); }).catch(() => {}); return; }
+  const seq = move.stay >= 0 ? ['stay', WORDS[move.stay], 'then', WORDS[move.col]] : [WORDS[move.col]];
+  let t = Math.max(actx.currentTime + 0.005, speakEnd + 0.12); const t0 = t;
+  for (const name of seq) {
+    const b = buffers[name]; if (!b) continue;
+    const src = actx.createBufferSource(); src.buffer = b.buf; src.connect(actx.destination);
+    src.start(t, b.lead); t += b.buf.duration - b.lead - b.tail + 0.03;
+  }
+  speakEnd = t;
+  const now = performance.now(), startMs = now + (t0 - actx.currentTime) * 1000, endMs = now + (t - actx.currentTime) * 1000;
+  echoGroups.push(move.stay >= 0
+    ? { ids: ['stay:' + move.stay, 'card:' + move.stay, 'card:' + move.col], left: 2, from: startMs, until: endMs + 1500 }
+    : { ids: ['card:' + move.col], left: 1, from: startMs, until: endMs + 1500 });
+  if (tHeard) {
+    const out = (actx.outputLatency || actx.baseLatency || 0) * 1000;
+    let s = 'heard→sound ' + (startMs - tHeard + out).toFixed(0) + ' ms';
+    if (meter && micEndT > micUsedT) {
+      const full = startMs - micEndT + out; micUsedT = micEndT; lats.push(full);
+      s += '<br>word end→sound ' + full.toFixed(0) + ' ms (n=' + lats.length + ', median ' + median(lats).toFixed(0) + ')';
+      window.__lat = lats;
+    }
+    $('lat').innerHTML = s;
+  }
+}
+const median = (a) => { const s = a.slice().sort((x, y) => x - y); return s[Math.floor(s.length / 2)]; };
+
+async function loadClips() {
+  actx = actx || new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
+  if (actx.state !== 'running') await actx.resume();
+  for (const name in CLIPS) {
+    if (buffers[name]) continue;
+    const bin = atob(CLIPS[name]), u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+    const buf = await new Promise((ok, no) => actx.decodeAudioData(u8.buffer, ok, no));
+    const d = buf.getChannelData(0); let a = 0, z = d.length - 1; // trim leading/trailing silence
+    while (a < d.length && Math.abs(d[a]) < 0.02) a++; while (z > a && Math.abs(d[z]) < 0.02) z--;
+    buffers[name] = { buf, lead: Math.max(0, a / buf.sampleRate - 0.005), tail: Math.max(0, (d.length - 1 - z) / buf.sampleRate - 0.02) };
+  }
+}
+// Desktop only, with ?debug in the URL: watch the mic level to timestamp the end of each spoken word,
+// so the page can show the true delay from end of word to start of the spoken answer.
+async function startMeter() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+    const an = actx.createAnalyser(); an.fftSize = 512; actx.createMediaStreamSource(stream).connect(an);
+    const buf = new Float32Array(an.fftSize); let floor = 0.004;
+    const timer = setInterval(() => {
+      an.getFloatTimeDomainData(buf); let s = 0; for (let i = 0; i < buf.length; i++) s += buf[i] * buf[i];
+      const rms = Math.sqrt(s / buf.length); if (rms < floor * 3) floor = 0.99 * floor + 0.01 * rms;
+      if (rms > Math.max(0.012, floor * 4) && actx.currentTime > speakEnd + 0.25) micEndT = performance.now();
+    }, 8);
+    meter = { stream, timer };
+  } catch (e) { console.warn('meter', e); }
+}
+function stopMeter() { if (meter) { clearInterval(meter.timer); meter.stream.getTracks().forEach((t) => t.stop()); meter = null; } }
+function killRec() { if (rec) { rec.onresult = rec.onerror = rec.onend = rec.onstart = null; try { rec.abort(); } catch (e) {} rec = null; } }
+function startRec() {
+  killRec();
+  const r = rec = new SR(); r.interimResults = true; r.lang = 'en-US'; r.maxAlternatives = 1;
+  r.continuous = !IS_ANDROID;   // Android Chrome repeats the whole session text in continuous mode
+  ran = []; lastErr = '';
+  r.onresult = (e) => {
+    const tHeard = performance.now(); backoff = 250; fails = 0;
+    let text = '', allFinal = true;
+    for (let i = 0; i < e.results.length; i++) { text += ' ' + e.results[i][0].transcript; if (!e.results[i].isFinal) allFinal = false; }
+    const p = parse(text, allFinal);
+    reconcile(p.cmds, allFinal, tHeard);
+  };
+  r.onerror = (e) => {
+    lastErr = e.error;
+    if ((e.error === 'not-allowed' || e.error === 'service-not-allowed') && document.visibilityState === 'visible') voiceFail('🎤 Mic blocked');
+  };
+  r.onend = () => {
+    if (rec !== r) return; rec = null;
+    if (!voiceOn || document.hidden) return;                    // restarted when the page is visible again
+    let wait = 60;
+    if (lastErr === 'network' || lastErr === 'audio-capture') { if (++fails > 6) { voiceFail('🎤 Speech service unavailable'); return; } wait = backoff; backoff = Math.min(backoff * 2, 5000); }
+    const gen = voiceGen;
+    setTimeout(() => { if (voiceOn && gen === voiceGen && !rec) { try { startRec(); } catch (e) {} } }, wait);
+  };
+  r.start();
+}
+function voiceFail(label) { setVoice(false); const b = $('voiceBtn'); b.classList.add('err'); b.textContent = label; }
+async function setVoice(on) {
+  const gen = ++voiceGen; voiceOn = on;
+  const b = $('voiceBtn'); b.classList.toggle('on', on); b.classList.remove('err');
+  b.textContent = on ? '🎤 Voice: listening' : '🎤 Voice: off';
+  $('echoBtn').style.display = on ? '' : 'none';
+  if (on) {
+    try { await loadClips(); } catch (e) { if (gen === voiceGen) voiceFail('🎤 Audio failed'); return; }
+    if (gen !== voiceGen || !voiceOn) return;
+    if (DEBUG && !IS_MOBILE && !meter) { await startMeter(); if (gen !== voiceGen || !voiceOn) { stopMeter(); return; } }
+    backoff = 250; fails = 0; echoGroups = []; speakEnd = 0;
+    try { startRec(); } catch (e) { voiceFail('🎤 Voice failed'); return; }
+    try { wake = await navigator.wakeLock.request('screen'); } catch (e) {}
+  } else {
+    killRec(); stopMeter();
+    if (wake) { try { wake.release(); } catch (e) {} wake = null; }
+    $('heard').textContent = ''; $('lat').textContent = '';
+  }
+}
+$('voiceBtn').onclick = () => {
+  if (!SR) { $('voiceBtn').textContent = '🎤 Not supported here'; $('voiceBtn').classList.add('err'); return; }
+  setVoice(!voiceOn);
+};
+$('echoBtn').onclick = () => { echoGuard = !echoGuard; $('echoBtn').textContent = echoGuard ? 'Speaker (echo guard on)' : 'Headphones (guard off)'; };
+document.addEventListener('visibilitychange', async () => {
+  if (!voiceOn || document.visibilityState !== 'visible') return;
+  if (actx && actx.state !== 'running') actx.resume().catch(() => {});
+  if (!rec) { try { startRec(); } catch (e) {} }
+  try { wake = await navigator.wakeLock.request('screen'); } catch (e) {}
+});
+document.addEventListener('touchend', () => { if (voiceOn && actx && actx.state !== 'running') actx.resume().catch(() => {}); }, { passive: true });
+window.__t = { parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, speakMove, loadClips, get st() { return st; }, get last() { return last; } };
+newGame();
+</script>
+</body>
+</html>
