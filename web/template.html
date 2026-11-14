@@ -158,8 +158,11 @@
   .mvs { display:flex; justify-content:space-between; align-items:center; margin-top:6px; font-size:12.5px; color:var(--dim); } .mvs b { color:var(--ink); }
   .mvs button { border:0; background:transparent; color:var(--dim); font-size:12.5px; text-decoration:underline; padding:4px 0; }
   .tip { font-size:12px; color:var(--dim); margin:0 2px 8px; } .grow[data-ed] { cursor:pointer; }
-  .boost { width:100%; height:38px; margin-bottom:8px; border-radius:10px; border:1px solid var(--line); background:var(--panel); color:var(--dim); font-size:13px; font-weight:700; letter-spacing:.04em; }
+  .tog { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:8px; }
+  .boost { width:100%; height:38px; border-radius:10px; border:1px solid var(--line); background:var(--panel); color:var(--dim); font-size:13px; font-weight:700; letter-spacing:.04em; }
   .boost.on { border-color:var(--gold); background:#2b2a17; color:var(--gold); }
+  .losetag { margin:0 0 6px; padding:6px 10px; border-radius:10px; background:#45201c; border:1px solid #70332d; color:var(--bad); font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; text-align:center; }
+  .boost.lose.on { border-color:#70332d; background:#45201c; color:var(--bad); }
   .empty { color:var(--dim); font-size:13px; text-align:center; padding:14px 0; }
 </style>
 </head>
@@ -217,6 +220,7 @@
       <div class="stat"><b id="sBusts">0/3</b><span>Busts</span></div>
       <div class="stat"><b id="sStays">2</b><span>Stays left</span></div>
     </div>
+    <div class="losetag" id="loseTag" style="display:none">Lose mode · aiming for 2,000–5,000</div>
     <div class="advice" id="advice">
       <div class="heard" id="heard"></div>
       <div class="lat" id="lat"></div>
@@ -308,7 +312,20 @@ function rebuild() {
   store.set('twentyone.game.v1', { log, horizonN });
   return true;
 }
-function newGame() { log = []; makePolicy(); rebuild(); closeSheets(); clearTimeout(flashT); $('hint').classList.remove('flash'); render(); }
+// Lose mode: play normally up to a target picked between 2,400 and 3,800, then stop scoring and bust out,
+// so the final score lands between 2,000 and 5,000.
+let loseT = 3000;
+const LOSE = {
+  reset() { loseT = 2400 + 100 * Math.floor(Math.random() * 15); },
+  choose(s, v) {
+    const sims = []; for (let i = 0; i < s.cols.length; i++) { const c = E.cloneGame(s), ev = E.applyMove(rules, c, v, { stay: -1, col: i }); sims.push({ i, ev, score: c.score, h: E.hardOf(c.cols[i]) }); }
+    if (s.score < loseT) { const m = policy.choose(s, v); if (m.stay >= 0 || sims[m.col].score <= 4600) return m; }
+    const pick = (x) => ({ stay: -1, col: x.i }), bust = sims.filter((x) => x.ev.bust); if (bust.length) return pick(bust[0]);
+    const quiet = sims.filter((x) => !x.ev.pts).sort((a, b) => b.h - a.h); if (quiet.length) return pick(quiet[0]);   // no points: build the tallest column so it busts soon
+    return pick(sims.sort((a, b) => a.score - b.score)[0]);
+  },
+};
+function newGame() { log = []; LOSE.reset(); makePolicy(); rebuild(); closeSheets(); clearTimeout(flashT); $('hint').classList.remove('flash'); render(); }
 const inLobby = () => document.body.classList.contains('inlobby');
 function enterGame(fresh) {          // from the lobby into the calculator
   if (fresh || !log.length || st.over) newGame();
@@ -319,7 +336,7 @@ function undo() { if (!log.length) return false; log.pop(); rebuild(); render();
 function playRank(r, forced) {
   if (r > 9) r = 9;                                             // J, Q, K count as 10
   if (st.over || rankLeft[r] <= 0) return null;
-  const t0 = performance.now(), move = forced || policy.choose(st, VALS[r]), ms = performance.now() - t0;
+  const t0 = performance.now(), move = forced || (REC.lose ? LOSE : policy).choose(st, VALS[r]), ms = performance.now() - t0;
   log.push({ t: 'card', r, move: { stay: move.stay, col: move.col }, forced: !!forced, ms });
   rebuild(); render();
   if (st.over) setTimeout(() => { if (st.over && !dragging()) openResult(); }, 900);
@@ -360,6 +377,7 @@ document.addEventListener('keydown', (e) => {
   else if (k === 'n') { e.preventDefault(); askNewGame(); }
 });
 function render() {
+  $('loseTag').style.display = REC.lose ? '' : 'none';
   $('sScore').textContent = st.score.toLocaleString();
   $('sLeft').textContent = E.cardsLeftToPlay(st);
   $('sBusts').textContent = st.busts + '/' + cfg.maxBusts; $('sBusts').style.color = st.busts ? 'var(--bad)' : '';
@@ -506,7 +524,8 @@ function summary() {
 // never more than 10% of the balance, moves up one stake at a time, and steps down during a losing run.
 // A losing or winning run does not change the odds of the next game; it only moves the win-rate estimate like any other result.
 function betAdvice() {
-  const s = summary(), G = REC.games, risk = REC.risk || 0.25, notes = [], isW = (g) => g.res === 'W', T = tiersNow(), ok = (i) => !REC.boost || boosted(T[i][0]);
+  const s = summary(), G = REC.games.filter((g) => !g.thrown), nThrown = REC.games.length - G.length, risk = REC.risk || 0.25, notes = [], isW = (g) => g.res === 'W', T = tiersNow(), ok = (i) => !REC.boost || boosted(T[i][0]);
+  if (REC.lose) return { tier: T[0], p: null, need: 100 * T[0][0] / T[0][1], lose: true, notes: [] };
   if (!(s.balance > 0)) return { tier: null, notes: ['Set your <b>starting balance</b> in Settings.'] };
   const rec = G.slice(-50), pAll = (rec.filter(isW).length + 6) / (rec.length + 10);   // pulled toward the 60% break-even until there is data
   // Win chance at stake i: games played at similar or higher stakes count fully; the overall record fills in for the rest.
@@ -544,14 +563,16 @@ function betAdvice() {
   const nx = T[idx + 1]; if (nx && ok(idx + 1) && edge && !held && !stepped && fracAt(idx + 1) > 0) notes.push('Next stake up (win $' + amt(nx[1]) + ') at a balance of about <b>' + money(nx[0] / fracAt(idx + 1)) + '</b>.');
   const day = new Date().toDateString(), today = G.filter((g) => new Date(g.t).toDateString() === day && !g.past), netT = today.reduce((a, g) => a + delta(g), 0), startT = s.balance - netT;
   if (today.length >= 3 && startT > 0 && netT <= -0.2 * startT) notes.push('<span class="bad">Down ' + money(-netT) + ' today</span>, over 20% of where you started the day. That is a sensible point to stop.');
+  if (nThrown) notes.push(nThrown + ' lose-mode game' + (nThrown === 1 ? ' is' : 's are') + ' left out of the win chance.');
   return { tier: t, p: e.p, need, notes };
 }
 function renderBet() {
   const b = betAdvice(), warn = b.notes.filter((n) => n.includes('class="bad"'));
   $('betBox').innerHTML = '<div class="bet"><div class="lbl">Next bet</div>' + (!b.tier ? '<div class="warn">' + b.notes.join(' ') + '</div>'
-    : '<div class="amt">Win $' + amt(b.tier[1]) + ' <small>· pay $' + amt(b.tier[0]) + '</small></div><div class="one">Win chance <b>' + (100 * b.p).toFixed(0) + '%</b> · need ' + b.need.toFixed(0) + '%</div>' +
-      warn.map((n) => '<div class="warn">' + n + '</div>').join('') + '<details><summary>Why?</summary><ul>' + b.notes.map((n) => '<li>' + n + '</li>').join('') + '</ul></details>') + '</div>' +
-    '<button class="boost' + (REC.boost ? ' on' : '') + '" id="boostBtn">20% boost · ' + (REC.boost ? 'ON' : 'off') + '</button>';
+    : '<div class="amt">Win $' + amt(b.tier[1]) + ' <small>· pay $' + amt(b.tier[0]) + '</small></div>' + (b.lose ? '<div class="one"><b>Lose mode</b> · smallest bet</div>' : '<div class="one">Win chance <b>' + (100 * b.p).toFixed(0) + '%</b> · need ' + b.need.toFixed(0) + '%</div>' +
+      warn.map((n) => '<div class="warn">' + n + '</div>').join('') + '<details><summary>Why?</summary><ul>' + b.notes.map((n) => '<li>' + n + '</li>').join('') + '</ul></details>')) + '</div>' +
+    '<div class="tog"><button class="boost' + (REC.boost ? ' on' : '') + '" id="boostBtn">20% boost · ' + (REC.boost ? 'ON' : 'off') + '</button>' +
+    '<button class="boost lose' + (REC.lose ? ' on' : '') + '" id="loseBtn">Lose mode · ' + (REC.lose ? 'ON' : 'off') + '</button></div>';
 }
 function renderStrip() {
   const s = summary();
@@ -564,7 +585,7 @@ function closeSheets() { $('resultScrim').classList.remove('open'); if (document
 let pastMode = false, pastN = 0, editIdx = null;
 function openResult(past, edit) {
   closeSheets(); pastMode = past === true; pastN = 0; editIdx = edit == null ? null : edit; const eg = editIdx == null ? null : REC.games[editIdx];
-  const b = betAdvice(), useSug = b.tier && (!REC.games.length || REC.followed);   // default to the suggested stake while you are following it
+  const b = betAdvice(), useSug = b.tier && (b.lose || !REC.games.length || REC.followed);   // default to the suggested stake while you are following it
   $('rMy').value = pastMode ? '' : st.score; $('rOpp').value = '';
   $('rFee').value = useSug ? b.tier[0] : REC.fee || ''; $('rPrize').value = useSug ? b.tier[1] : (boosted(REC.fee) ? r2(REC.prize * BOOST) : REC.prize) || '';
   $('resTitle').textContent = pastMode ? 'Add a past game' : st.over ? 'Game over' : 'Record this game';
@@ -588,6 +609,7 @@ function record(res) {
   const fee = Math.max(0, num($('rFee').value) || 0), prize = Math.max(0, num($('rPrize').value) || 0);
   const b = betAdvice(), g = { t: Date.now(), my, opp: num($('rOpp').value), res, fee, prize };
   if (res === 'T' && g.opp == null) g.opp = my;
+  if (editIdx != null ? REC.games[editIdx].thrown : REC.lose && !pastMode) g.thrown = true;
   const wasB = editIdx != null ? !!REC.games[editIdx].base : boosted(fee); if (wasB) g.base = r2(prize / BOOST);
   if (editIdx != null) { const o = REC.games[editIdx]; g.t = o.t; if (o.past) g.past = true; REC.games[editIdx] = g; saveRec(); closeSheets(); renderStats(); renderStrip(); return; }
   if (pastMode) {
@@ -639,7 +661,7 @@ function renderStats() {
   const G = REC.games, rows = [], balAt = []; { let b = REC.start; for (const e of timeline()) { b += e.d; if (e.g) balAt[e.i] = b; } }
   for (let i = G.length - 1; i >= 0 && rows.length < 60; i--) {
     const g = G[i], dl = delta(g);
-    rows.push('<div class="grow" data-ed="' + i + '"><span class="tag ' + g.res + '">' + g.res + '</span><span>' + g.my.toLocaleString() + '<small>you</small></span><span>' +
+    rows.push('<div class="grow" data-ed="' + i + '"><span class="tag ' + g.res + '">' + g.res + '</span><span>' + g.my.toLocaleString() + '<small>' + (g.thrown ? 'lose mode' : 'you') + '</small></span><span>' +
       (g.opp == null ? '–' : g.opp.toLocaleString()) + '<small>opponent</small></span><span class="amt ' + (dl > 0 ? 'pos' : dl < 0 ? 'neg' : '') + '">' + (g.fee || g.prize ? signed(dl) : '–') +
       '<small>' + (s.money ? money(balAt[i]) : '') + '</small></span><button aria-label="Edit this game">›</button></div>');
   }
@@ -687,7 +709,12 @@ $('tiles').onclick = (e) => {
   }
   saveRec(); renderStats(); renderStrip();
 };
-$('betBox').onclick = (e) => { if (!e.target.closest('#boostBtn')) return; REC.boost = !REC.boost; saveRec(); renderStats(); };
+$('betBox').onclick = (e) => {
+  if (e.target.closest('#boostBtn')) REC.boost = !REC.boost;
+  else if (e.target.closest('#loseBtn')) { if (!REC.lose && !confirm('Lose mode: the calculator will aim for a score of 2,000–5,000 and suggest the smallest bet until you turn it off.')) return; REC.lose = !REC.lose; }
+  else return;
+  saveRec(); renderStats();
+};
 $('stReset').onclick = () => { if (REC.games.length && confirm('Erase all ' + REC.games.length + ' recorded games? This cannot be undone.')) { REC.games = []; saveRec(); renderStats(); renderStrip(); } };
 $('glist').onclick = (e) => { const b = e.target.closest('[data-ed]'); if (b) openResult(false, +b.dataset.ed); };
 $('undoGame').onclick = () => {
@@ -894,7 +921,7 @@ document.addEventListener('visibilitychange', async () => {
   try { wake = await navigator.wakeLock.request('screen'); } catch (e) {}
 });
 document.addEventListener('touchend', () => { if (voiceOn && actx && actx.state !== 'running') actx.resume().catch(() => {}); }, { passive: true });
-window.__t = { parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice, enterGame, openStats,
+window.__t = { LOSE, simLose(n, seed) { const o = []; for (let i = 0; i < n; i++) { LOSE.reset(); const r = E.playGame(rules, LOSE, seed + i); o.push(r.score); } return o; }, parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice, enterGame, openStats,
   get st() { return st; }, get last() { return last; }, get log() { return log; }, get rec() { return REC; } };
 (function init() {
   const saved = store.get('twentyone.game.v1', null);
