@@ -2,7 +2,7 @@
 
 Live page: https://banegitcode.github.io/twentyone-helper/ (one self-contained file, works offline once loaded).
 
-The page opens in a **lobby**: the suggested stake, an **Enter game** button, and every stat grouped by topic
+The page opens in a **lobby**: the suggested stake, an **Enter game** button, and profit and loss (total, today, a profit-by-game line), record and scores, with by-day, by-bet, more stats, games and settings folded away until tapped
 (money, your record, scores, opponent record, whether opponents are getting tougher, results by bet amount,
 recent games, settings). Enter game opens the calculator on its own, with no stats on screen. Recording Win or
 Loss at the end returns to the lobby with everything updated.

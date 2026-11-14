@@ -139,6 +139,19 @@
   .srow.total { border-color:#5a5223; background:#22230f; font-weight:700; }
   .srow span:nth-child(n+2) { text-align:right; }
   .srow small { color:var(--dim); font-size:10px; display:block; font-weight:500; }
+  .tile.wide > span { font-size:13px; text-transform:none; letter-spacing:0; }
+  .tile i { font-style:normal; font-weight:700; }
+  .bet .one { margin-top:2px; font-size:14px; color:var(--dim); } .bet .one b { color:var(--ink); }
+  .bet .warn { margin-top:6px; font-size:13px; line-height:1.4; color:var(--dim); } .bet .warn b { color:var(--ink); }
+  .bet details { margin-top:6px; } .bet summary { font-size:12px; color:var(--gold); font-weight:700; list-style:none; cursor:pointer; }
+  .bet summary::-webkit-details-marker, .sec summary::-webkit-details-marker { display:none; }
+  .sec { border-top:1px solid var(--line); margin-top:14px; } .sec + .sec { margin-top:0; }
+  .sec summary { display:flex; justify-content:space-between; align-items:center; padding:15px 2px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); font-weight:700; list-style:none; cursor:pointer; }
+  .sec summary::after { content:'+'; font-size:20px; font-weight:400; color:var(--dim); line-height:1; } .sec[open] summary::after { content:'–'; }
+  .sec[open] { padding-bottom:14px; }
+  .chart { margin-top:6px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:8px 10px 4px; }
+  .chart svg { display:block; width:100%; height:70px; }
+  .chart div { display:flex; justify-content:space-between; font-size:10px; color:var(--dim); letter-spacing:.05em; text-transform:uppercase; padding-top:2px; }
   .empty { color:var(--dim); font-size:13px; text-align:center; padding:14px 0; }
 </style>
 </head>
@@ -152,37 +165,38 @@
     <div class="lobmsg" id="lobMsg" style="display:none"></div>
     <div id="betBox"></div>
     <button class="enter" id="enterBtn">Enter game</button>
-    <button class="ghostbtn" id="newBtn" style="display:none">Discard it and start a new game</button>
-    <button class="ghostbtn" id="stRecord" style="display:none;color:var(--ink)">Record a result for the game in progress</button>
+    <button class="ghostbtn" id="newBtn" style="display:none">Start a new game instead</button>
+    <button class="ghostbtn" id="stRecord" style="display:none;color:var(--ink)">Record result now</button>
     <div id="tiles"></div>
-    <h3>By bet amount</h3>
-    <div class="glist" id="byStake"></div>
-    <h3>Recent games</h3>
-    <div class="glist" id="glist"></div>
-    <button class="ghostbtn" id="stPast" style="color:var(--ink)">Add a game you already played</button>
-    <h3>Settings · usual stake</h3>
-    <div class="tiers" id="cTiers"></div>
+    <details class="sec"><summary>By day</summary><div class="glist" id="byDay"></div></details>
+    <details class="sec"><summary>By bet</summary><div class="glist" id="byStake"></div></details>
+    <details class="sec"><summary>More stats</summary><div class="tiles" id="more"></div></details>
+    <details class="sec"><summary>Games</summary><div class="glist" id="glist"></div>
+      <button class="ghostbtn" id="stPast" style="color:var(--ink)">Add a past game</button></details>
+    <details class="sec" id="setSec"><summary>Settings</summary>
     <div class="frow">
       <label class="field">Starting balance<input id="cStart" inputmode="decimal" autocomplete="off"></label>
-      <label class="field">Entry fee per game<input id="cFee" inputmode="decimal" autocomplete="off"></label>
+      <label class="field">Risk
+        <select id="cRisk">
+          <option value="0.125">Cautious</option>
+          <option value="0.25">Balanced</option>
+          <option value="0.5">Aggressive</option>
+        </select></label>
     </div>
+    <div class="field" style="margin-bottom:6px">Usual bet</div>
+    <div class="tiers" id="cTiers"></div>
     <div class="frow">
-      <label class="field">Prize for a win<input id="cPrize" inputmode="decimal" autocomplete="off"></label>
+      <label class="field">Entry fee<input id="cFee" inputmode="decimal" autocomplete="off"></label>
+      <label class="field">Prize<input id="cPrize" inputmode="decimal" autocomplete="off"></label>
+    </div>
+    <div class="frow" style="grid-template-columns:1fr">
       <label class="field">Game length
         <select id="lenSel" aria-label="Game length">
           <option value="52">Full deck (52)</option><option value="45">Timer: ~45 cards</option>
           <option value="35">Timer: ~35 cards</option><option value="25">Timer: ~25 cards</option>
         </select></label>
     </div>
-    <div class="frow" style="grid-template-columns:1fr">
-      <label class="field">Bet calculator risk level
-        <select id="cRisk">
-          <option value="0.125">Cautious (one eighth of the Kelly stake)</option>
-          <option value="0.25">Balanced (one quarter)</option>
-          <option value="0.5">Aggressive (one half)</option>
-        </select></label>
-    </div>
-    <button class="ghostbtn danger" id="stReset">Erase all recorded games</button>
+    <button class="ghostbtn danger" id="stReset">Erase all games</button></details>
   </div>
 
   <div id="game">
@@ -452,6 +466,9 @@ function summary() {
     oppAfterL: avg(G.filter((g, i) => i > 0 && g.opp != null && G[i - 1].res === 'L').map((g) => g.opp)),
     nAfterL: G.filter((g, i) => i > 0 && g.opp != null && G[i - 1].res === 'L').length,
     breakEven: (() => { const P = G.filter((g) => g.prize > 0), f = P.reduce((a, g) => a + g.fee, 0), pr = P.reduce((a, g) => a + g.prize, 0); return pr ? 100 * f / pr : (REC.prize > 0 ? 100 * REC.fee / REC.prize : null); })(),
+    won: W.reduce((a, g) => a + delta(g), 0), lost: L.reduce((a, g) => a - delta(g), 0), staked: G.reduce((a, g) => a + g.fee, 0),
+    todayNet: G.filter((g) => new Date(g.t).toDateString() === new Date().toDateString()).reduce((a, g) => a + delta(g), 0),
+    days: (() => { const m = new Map(); for (const g of G) { const d = new Date(g.t), k = d.toDateString(); if (!m.has(k)) m.set(k, { t: g.t, label: k === new Date().toDateString() ? 'Today' : (d.getMonth() + 1) + '/' + d.getDate(), n: 0, w: 0, net: 0 }); const x = m.get(k); x.n++; if (g.res === 'W') x.w++; x.net += delta(g); } return Array.from(m.values()).sort((a, b) => b.t - a.t); })(),
     streak: G.length ? G[G.length - 1].res + streak : '–', money: REC.start !== 0 || G.some((g) => g.fee || g.prize),
   };
 }
@@ -462,7 +479,7 @@ function summary() {
 // A losing or winning run does not change the odds of the next game; it only moves the win-rate estimate like any other result.
 function betAdvice() {
   const s = summary(), G = REC.games, risk = REC.risk || 0.25, notes = [], isW = (g) => g.res === 'W';
-  if (!(s.balance > 0)) return { tier: null, notes: ['Set your <b>starting balance</b> below to get a suggested stake.'] };
+  if (!(s.balance > 0)) return { tier: null, notes: ['Set your <b>starting balance</b> in Settings.'] };
   const rec = G.slice(-50), pAll = (rec.filter(isW).length + 6) / (rec.length + 10);   // pulled toward the 60% break-even until there is data
   // Win chance at stake i: games played at similar or higher stakes count fully; the overall record fills in for the rest.
   const pAt = (i) => { const g = G.slice(-100).filter((x) => x.fee >= TIERS[i][0] * 0.5 - 1e-9); return { p: Math.min(pAll, (g.filter(isW).length + 8 * pAll) / (g.length + 8)), n: g.length }; };   // a good run at one stake never lifts it above the overall estimate
@@ -501,17 +518,17 @@ function betAdvice() {
   return { tier: t, p: e.p, notes };
 }
 function renderBet() {
-  const b = betAdvice();
-  $('betBox').innerHTML = '<div class="bet"><div class="lbl">Suggested stake for the next game</div>' +
-    (b.tier ? '<div class="amt">Win $' + amt(b.tier[1]) + ' <small>· pay $' + amt(b.tier[0]) + '</small></div>' : '') +
-    '<ul>' + b.notes.map((n) => '<li>' + n + '</li>').join('') + '</ul></div>';
+  const b = betAdvice(), warn = b.notes.filter((n) => n.includes('class="bad"'));
+  $('betBox').innerHTML = '<div class="bet"><div class="lbl">Next bet</div>' + (!b.tier ? '<div class="warn">' + b.notes.join(' ') + '</div>'
+    : '<div class="amt">Win $' + amt(b.tier[1]) + ' <small>· pay $' + amt(b.tier[0]) + '</small></div><div class="one">Win chance <b>' + (100 * b.p).toFixed(0) + '%</b> · need 60%</div>' +
+      warn.map((n) => '<div class="warn">' + n + '</div>').join('') + '<details><summary>Why?</summary><ul>' + b.notes.map((n) => '<li>' + n + '</li>').join('') + '</ul></details>') + '</div>';
 }
 function renderStrip() {
   const s = summary();
-  if (!s.n) { $('rsWL').innerHTML = '0<i>–</i>0'; $('rsMid').textContent = 'No games recorded yet'; return; }
+  if (!s.n) { $('rsWL').innerHTML = '0<i>–</i>0'; $('rsMid').textContent = 'No games yet'; return; }
   $('rsWL').innerHTML = '<span class="pos">' + s.w + '</span><i>–</i><span class="neg">' + s.l + '</span>';
   $('rsMid').innerHTML = '<b>' + s.winPct.toFixed(0) + '%</b> wins' + (s.money ? ' · <b class="' + (s.balance < REC.start ? 'neg' : 'pos') + '">' + money(s.balance) + '</b>' : '') +
-    ' · you <b>' + fmt(s.myAvg) + '</b>' + (s.oppAvg != null ? ' · opp <b>' + fmt(s.oppAvg) + '</b>' : '');
+    (s.money ? ' · today <b class="' + (s.todayNet < 0 ? 'neg' : s.todayNet > 0 ? 'pos' : '') + '">' + signed(s.todayNet) + '</b>' : '');
 }
 function closeSheets() { $('resultScrim').classList.remove('open'); if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); }
 let pastMode = false, pastN = 0;
@@ -550,21 +567,31 @@ function record(res) {
 function renderStats() {
   renderBet();
   const s = summary(), pct = (x) => (x == null ? '–' : x.toFixed(1) + '%'), cash = (x) => (x == null ? '–' : money(x));
-  $('stLead').textContent = s.n ? s.n + ' game' + (s.n === 1 ? '' : 's') + ' recorded' : 'Finish a game and tap Win or Loss to start tracking.';
+  $('stLead').textContent = s.n ? s.n + ' game' + (s.n === 1 ? '' : 's') : '';
   const tile = (label, html) => '<div class="tile">' + html + '<span>' + label + '</span></div>', B = (x, c) => '<b' + (c ? ' class="' + c + '"' : '') + '>' + x + '</b>';
   const sg = (x) => (x > 0 ? 'pos' : x < 0 ? 'neg' : '');
+  // running profit after every game, drawn as one line against a zero line
+  let chart = '';
+  if (s.n > 1 && s.money) {
+    const c = [0]; for (const g of REC.games) c.push(c[c.length - 1] + delta(g));
+    const lo = Math.min.apply(null, c), hi = Math.max.apply(null, c), sp = hi - lo || 1, X = (i) => (300 * i / (c.length - 1)).toFixed(1), Y = (v) => (4 + 62 * (hi - v) / sp).toFixed(1);
+    chart = '<div class="chart"><svg viewBox="0 0 300 70" preserveAspectRatio="none"><line x1="0" x2="300" y1="' + Y(0) + '" y2="' + Y(0) + '" stroke="var(--line)" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/>' +
+      '<polyline fill="none" stroke="var(--' + (s.net < 0 ? 'bad' : 'go') + ')" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke" points="' + c.map((v, i) => X(i) + ',' + Y(v)).join(' ') + '"/></svg>' +
+      '<div><span>Low ' + signed(lo) + '</span><span>Profit by game</span><span>High ' + signed(hi) + '</span></div></div>';
+  }
   const groups = [
-    ['Money', '<div class="tile wide"><div><span>Current balance</span>' + B(money(s.balance), sg(s.net)) + '</div><span>Net ' + signed(s.net) + '</span></div>' +
-      tile('Avg win $', B(cash(s.avgWin))) + tile('Avg loss $', B(cash(s.avgLoss))) + tile('Break-even %', B(pct(s.breakEven)))],
-    ['Your record', tile('Wins', B(s.w, 'pos')) + tile('Losses', B(s.l, 'neg')) + tile('Win %', B(pct(s.winPct))) +
-      tile('Games', B(s.n)) + tile('Streak', B(s.streak)) + tile('Your best', B(fmt(s.best)))],
-    ['Scores', tile('Your avg score', B(fmt(s.myAvg))) + tile('Opp avg score', B(fmt(s.oppAvg))) + tile('Avg margin', B(s.margin == null ? '–' : (s.margin > 0 ? '+' : '') + fmt(s.margin), sg(s.margin))) +
-      tile('Avg win by', B(fmt(s.winMargin))) + tile('Avg loss by', B(fmt(s.lossMargin))) + tile('Opp best', B(fmt(s.oppBest)))],
-    ['Opponent record', tile('Opp wins', B(s.l)) + tile('Opp losses', B(s.w)) + tile('Opp win %', B(pct(s.oppPct)))],
-    ['Is it getting harder?', tile('Opp last 10', B(fmt(s.oppLast10))) + tile('Opp before that', B(fmt(s.oppBefore))) + tile('Opp spread (sd)', B(fmt(s.oppSd))) +
-      tile('Opp after you win', B(fmt(s.oppAfterW))) + tile('Opp after you lose', B(fmt(s.oppAfterL))) + tile('Games after a loss', B(s.nAfterL))],
+    ['Profit and loss', '<div class="tile wide"><div><span>Profit</span>' + B(signed(s.net), sg(s.net)) + '</div><span>Today <i class="' + sg(s.todayNet) + '">' + signed(s.todayNet) + '</i></span></div>' +
+      tile('Balance', B(money(s.balance))) + tile('Won', B(money(s.won), 'pos')) + tile('Lost', B(money(s.lost), 'neg')), chart],
+    ['Record', tile('Win %', B(pct(s.winPct))) + tile('Streak', B(s.streak)) + tile('Games', B(s.n))],
+    ['Scores', tile('You', B(fmt(s.myAvg))) + tile('Opponent', B(fmt(s.oppAvg))) + tile('Margin', B(s.margin == null ? '–' : (s.margin > 0 ? '+' : '') + fmt(s.margin), sg(s.margin)))],
   ];
-  $('tiles').innerHTML = groups.map((g) => '<h3>' + g[0] + '</h3><div class="tiles">' + g[1] + '</div>').join('');
+  $('tiles').innerHTML = groups.map((g) => '<h3>' + g[0] + '</h3><div class="tiles">' + g[1] + '</div>' + (g[2] || '')).join('');
+  $('more').innerHTML = tile('Avg win', B(cash(s.avgWin))) + tile('Avg loss', B(cash(s.avgLoss))) + tile('Break-even', B(pct(s.breakEven))) +
+    tile('Staked', B(money(s.staked))) + tile('Return', B(s.staked ? (s.net > 0 ? '+' : '') + (100 * s.net / s.staked).toFixed(0) + '%' : '–', sg(s.net))) + tile('Opp win %', B(pct(s.oppPct))) +
+    tile('Your best', B(fmt(s.best))) + tile('Opp best', B(fmt(s.oppBest))) + tile('Opp W–L', B(s.l + '–' + s.w)) +
+    tile('Win by', B(fmt(s.winMargin))) + tile('Lose by', B(fmt(s.lossMargin))) + tile('Opp spread', B(fmt(s.oppSd))) +
+    tile('Opp last 10', B(fmt(s.oppLast10))) + tile('Opp earlier', B(fmt(s.oppBefore))) + tile('Your W–L', B(s.w + '–' + s.l)) +
+    tile('Opp after win', B(fmt(s.oppAfterW))) + tile('Opp after loss', B(fmt(s.oppAfterL))) + tile('After-loss games', B(s.nAfterL));
   const prog = log.length > 0 && !st.over;
   $('enterBtn').textContent = prog ? 'Resume game (' + st.played + ' cards in)' : 'Enter game';
   $('newBtn').style.display = prog ? '' : 'none';
@@ -580,10 +607,14 @@ function renderStats() {
   const bs = Array.from(by.values()).sort((a, b) => a.fee - b.fee), netCls = (x) => (x > 0 ? 'pos' : x < 0 ? 'neg' : '');
   const srow = (cls, name, sub, n, wl, pc, net) => '<div class="srow ' + cls + '"><span>' + name + (sub ? '<small>' + sub + '</small>' : '') + '</span><span>' + n + '</span><span>' + wl + '</span><span>' + pc + '</span><span class="' + netCls(net) + '">' + (net == null ? '' : signed(net)) + '</span></div>';
   $('byStake').innerHTML = !bs.length ? '<div class="empty">No games yet.</div>'
-    : '<div class="srow head"><span>Bet</span><span>Games</span><span>W–L</span><span>Win %</span><span>Net</span></div>' +
+    : '<div class="srow head"><span>Bet</span><span>Games</span><span>W–L</span><span>Win %</span><span>Profit</span></div>' +
       bs.map((b) => srow('', b.fee || b.prize ? 'Pay $' + amt(b.fee) : 'No stake', (b.prize ? 'win $' + amt(b.prize) : '') + (b.o.length ? ' · opp avg ' + fmt(avg(b.o)) : ''), b.n, b.w + '–' + (b.n - b.w), pct(100 * b.w / b.n), b.net)).join('') +
-      srow('total', 'All games', '', s.n, s.w + '–' + s.l, pct(s.winPct), s.net) +
-      (bs.length > 1 ? srow('total', 'Average of bet amounts', 'each amount counted once', '', '', pct(avg(bs.map((b) => 100 * b.w / b.n))), null) : '');
+      srow('total', 'All', '', s.n, s.w + '–' + s.l, pct(s.winPct), s.net) +
+      (bs.length > 1 ? srow('total', 'Avg of bets', '', '', '', pct(avg(bs.map((b) => 100 * b.w / b.n))), null) : '');
+  $('byDay').innerHTML = !s.days.length ? '<div class="empty">No games yet.</div>'
+    : '<div class="srow head"><span>Day</span><span>Games</span><span>W–L</span><span>Win %</span><span>Profit</span></div>' +
+      s.days.slice(0, 30).map((d) => srow('', d.label, '', d.n, d.w + '–' + (d.n - d.w), pct(100 * d.w / d.n), d.net)).join('') +
+      srow('total', 'All', '', s.n, s.w + '–' + s.l, pct(s.winPct), s.net);
   $('glist').innerHTML = rows.join('') || '<div class="empty">No games yet.</div>';
   $('stRecord').style.display = log.length ? '' : 'none';
 }
