@@ -272,3 +272,18 @@ node web/build.js
 - [src/tune.js](src/tune.js) — weight tuner. [src/backtest.js](src/backtest.js) — paired backtest. [src/timing.js](src/timing.js) — per-move timing.
 - [web/template.html](web/template.html) + [web/build.js](web/build.js) — the page; the build writes `dist/index.html` and `docs/index.html`.
 - 26 unit tests cover every scoring rule, ace handling, busts, stays, streaks, the Perfect Bonus, the exact endgame and the network hook.
+
+## Is there more score to find? (ceiling check)
+
+Fresh shuffles from seed 2,600,000 unless noted. Logs: `results/headroom.log`, `results/val_nn6.log`, `results/clairvoyant.log`.
+
+| Player | Games | Average | Gain vs shipped |
+|---|---|---|---|
+| Shipped (13 ms/move) | 6,000 | 8,776 | – |
+| Search one card deeper everywhere (883 ms/move) | 1,000 | 8,800 | +27 ± 56 |
+| Shipped + 100 rollouts on close calls (362 ms/move) | 800 | 8,727 | −37 ± 97 |
+| Network 4x larger (validation seeds 1,500,000+) | 4,000 | 8,773 | −16 ± 35 |
+| Whole deck known in advance (`src/clairvoyant.js`, not real play) | 60 | 12,657 | – |
+
+Shipped player over 6,000 games: best 12,950; 10,000+ in 13.9%, 11,000+ in 2.1%, 12,000+ in 0.18%, 13,000+ never.
+None of the stronger players beats the shipped one, so about 8,800 is the best measured average under these rules.

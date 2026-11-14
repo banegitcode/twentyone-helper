@@ -481,7 +481,7 @@
     let S = null, cache = null, egMemo = new Map(), nodes = 0;
     // Optional learned evaluator: params.nn = { layers: [{ nIn, nOut, W, b }], scale }. Replaces the weighted leaf.
     const NN = params.nn ? params.nn.layers.map((l) => ({ nIn: l.nIn, nOut: l.nOut, W: Float64Array.from(l.W), b: Float64Array.from(l.b) })) : null;
-    const nnScale = params.nn ? params.nn.scale || 1000 : 0, nnA = new Float64Array(128), nnB = new Float64Array(128);
+    const nnScale = params.nn ? params.nn.scale || 1000 : 0, nnW = NN ? Math.max(128, ...NN.map((l) => Math.max(l.nIn, l.nOut))) : 128, nnA = new Float64Array(nnW), nnB = new Float64Array(nnW);
     // Optional win-chance mode: params.util = { table, step } where table[k] = chance that a final score of k*step beats the
     // opponent. The network must then be a distribution network (params.nn.dist = { nBins, binW }): it predicts how the
     // points still to come are spread, and the search maximises the chance of winning instead of the average score.

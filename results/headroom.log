@@ -1,0 +1,3 @@
+Shipped                                        n=6000 mean 8776 max 12950 >=10k 13.88% >=11k 2.13% >=12k 0.18% >=13k 0.00% >=14k 0.00% ms/move 13.5 gain vs shipped 0 ± 0 305s
+Deeper everywhere (3 ahead, 4 on close calls)  n=1000 mean 8800 max 12950 >=10k 12.00% >=11k 1.60% >=12k 0.20% >=13k 0.00% >=14k 0.00% ms/move 883.1 gain vs shipped 27 ± 56 3306s
+Shipped + 100 rollouts on close calls          n=800 mean 8727 max 11800 >=10k 12.88% >=11k 1.88% >=12k 0.00% >=13k 0.00% >=14k 0.00% ms/move 362.0 gain vs shipped -37 ± 97 1101s

@@ -1,0 +1,2 @@
+Shipped (128x48)                   n=4000 mean 8789 med 8900 p5 6850 p95 10500 0bust 77.3% 3bust 1.1% ms 13.826 gain 0 ± 0 208s
+Larger network 256x96              n=4000 mean 8773 med 8850 p5 6750 p95 10550 0bust 77.3% 3bust 1.2% ms 26.842 gain -16 ± 35 406s
