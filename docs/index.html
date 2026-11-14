@@ -117,7 +117,9 @@
   .glist { display:flex; flex-direction:column; gap:4px; }
   .grow { display:grid; grid-template-columns:26px 1fr 1fr 70px 28px; align-items:center; gap:6px; background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:6px 8px; font-size:13px; font-variant-numeric:tabular-nums; }
   .grow .tag { font-weight:800; text-align:center; border-radius:6px; padding:2px 0; font-size:12px; }
-  .grow .tag.W { background:#17432a; color:var(--go); } .grow .tag.L { background:#45201c; color:var(--bad); } .grow .tag.T { background:#2b2a17; color:var(--gold); }
+  .grow .tag.W { background:#17432a; color:var(--go); } .grow .tag.L { background:#45201c; color:var(--bad); } .grow .tag.T { background:#2b2a17; color:var(--gold); } .grow .tag.P { background:#1f2a3a; color:#8fb8ff; }
+  .wlbtns .bpend { grid-column:span 2; height:44px; font-size:14px; background:#1f2a3a; color:#8fb8ff; border-color:#35507a !important; }
+  .pend { display:flex; flex-direction:column; gap:4px; margin-bottom:8px; } .pend button { text-align:left; padding:9px 12px; border-radius:12px; border:1px solid #35507a; background:#1f2a3a; color:#8fb8ff; font-size:14px; font-weight:600; }
   .wlbtns .btie { grid-column:span 2; height:44px; font-size:15px; background:#2b2a17; color:var(--gold); border-color:#5a5223 !important; } .btie.sug { background:var(--gold); color:#221c02; }
   .grow small { color:var(--dim); display:block; font-size:10px; }
   .grow .amt { text-align:right; font-weight:700; }
@@ -153,7 +155,7 @@
   .chart { margin-top:6px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:8px 10px 4px; }
   .chart svg { display:block; width:100%; height:70px; }
   .chart div { display:flex; justify-content:space-between; font-size:10px; color:var(--dim); letter-spacing:.05em; text-transform:uppercase; padding-top:2px; }
-  .mv { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-top:6px; }
+  .mv { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:6px; }
   .mv button { height:40px; border-radius:10px; border:1px solid var(--line); background:var(--panel); color:var(--ink); font-size:14px; font-weight:700; }
   .mvs { display:flex; justify-content:space-between; align-items:center; margin-top:6px; font-size:12.5px; color:var(--dim); } .mvs b { color:var(--ink); }
   .mvs button { border:0; background:transparent; color:var(--dim); font-size:12.5px; text-decoration:underline; padding:4px 0; }
@@ -174,6 +176,7 @@
     </div>
     <div class="lobmid" id="rsMid"></div>
     <div class="lobmsg" id="lobMsg" style="display:none"></div>
+    <div class="pend" id="pendBox"></div>
     <div id="betBox"></div>
     <button class="enter" id="enterBtn">Enter game</button>
     <button class="ghostbtn" id="newBtn" style="display:none">Start a new game instead</button>
@@ -251,6 +254,7 @@
         <button class="bwin" id="rWin">WIN</button>
         <button class="bloss" id="rLoss">LOSS</button>
         <button class="btie" id="rTie">TIE</button>
+        <button class="bpend" id="rPend">Opponent still playing · decide later</button>
       </div>
       <label class="chk" id="rInclWrap" style="display:none"><input type="checkbox" id="rIncl" checked> My starting balance already includes this game</label>
       <button class="ghostbtn danger" id="rDel" style="display:none">Delete this game</button>
@@ -917,6 +921,7 @@ const num = (s) => { const x = parseFloat(String(s).replace(/[^0-9.\-]/g, '')); 
 const money = (x) => (x < 0 ? '-' : '') + '$' + Math.abs(x).toFixed(2);
 const signed = (x) => (x > 0 ? '+' : '') + money(x);
 // A tie returns the entry less the house cut: the two entries minus the prize, split between the two players.
+// A pending game has paid its entry and has no result yet.
 const delta = (g) => (g.res === 'W' ? g.prize - g.fee : g.res === 'T' ? (g.base || g.prize) / 2 - g.fee : -g.fee);   // base = the prize before a boost
 const avg = (a) => (a.length ? a.reduce((s, x) => s + x, 0) / a.length : null);
 const fmt = (x) => (x == null ? '–' : Math.round(x).toLocaleString());
@@ -931,13 +936,13 @@ function timeline() {
 function summary() {
   const G = REC.games, W = G.filter((g) => g.res === 'W'), L = G.filter((g) => g.res === 'L'), both = G.filter((g) => g.opp != null), dec = W.length + L.length;
   const P = timeline().filter((e) => !e.cash), net = P.reduce((a, e) => a + e.d, 0), isToday = (t) => new Date(t).toDateString() === new Date().toDateString();
-  let streak = 0; for (let i = G.length - 1; i >= 0 && G[i].res === G[G.length - 1].res; i--) streak++;
+  const Rv = G.filter((g) => g.res !== 'P'); let streak = 0; for (let i = Rv.length - 1; i >= 0 && Rv[i].res === Rv[Rv.length - 1].res; i--) streak++;
   return {
-    n: G.length, w: W.length, l: L.length, t: G.length - dec, winPct: dec ? 100 * W.length / dec : null, oppPct: dec ? 100 * L.length / dec : null,
+    n: G.length, w: W.length, l: L.length, t: G.filter((g) => g.res === 'T').length, pend: G.length - Rv.length, winPct: dec ? 100 * W.length / dec : null, oppPct: dec ? 100 * L.length / dec : null,
     myAvg: avg(G.map((g) => g.my)), oppAvg: avg(both.map((g) => g.opp)), margin: avg(both.map((g) => g.my - g.opp)),
     winMargin: avg(both.filter((g) => g.res === 'W').map((g) => g.my - g.opp)), lossMargin: avg(both.filter((g) => g.res === 'L').map((g) => g.opp - g.my)),
     avgWin: avg(W.map(delta)), avgLoss: avg(L.map((g) => -delta(g))), net, gnet: G.reduce((a, g) => a + delta(g), 0), adj: REC.moves.reduce((a, m) => a + (m.adj ? m.a : 0), 0), balance: REC.start + net + REC.moves.reduce((a, m) => a + (m.adj ? 0 : m.a), 0),
-    dep: REC.moves.reduce((a, m) => a + (m.adj ? 0 : Math.max(0, m.a)), 0), wd: REC.moves.reduce((a, m) => a + (m.adj ? 0 : Math.max(0, -m.a)), 0),
+    dep: REC.moves.reduce((a, m) => a + (m.adj || m.other ? 0 : Math.max(0, m.a)), 0), wd: REC.moves.reduce((a, m) => a + (m.adj || m.other ? 0 : Math.max(0, -m.a)), 0), other: REC.moves.reduce((a, m) => a + (m.other ? m.a : 0), 0),
     best: G.length ? Math.max.apply(null, G.map((g) => g.my)) : null, oppBest: both.length ? Math.max.apply(null, both.map((g) => g.opp)) : null,
     oppLast10: avg(both.slice(-10).map((g) => g.opp)), oppBefore: avg(both.slice(0, -10).map((g) => g.opp)),
     oppSd: (() => { const o = both.map((g) => g.opp), m = avg(o); return o.length > 1 ? Math.sqrt(o.reduce((a, x) => a + (x - m) * (x - m), 0) / (o.length - 1)) : null; })(),
@@ -947,8 +952,8 @@ function summary() {
     breakEven: (() => { const P = G.filter((g) => g.prize > 0), f = P.reduce((a, g) => a + g.fee, 0), pr = P.reduce((a, g) => a + g.prize, 0); return pr ? 100 * f / pr : (REC.prize > 0 ? 100 * REC.fee / REC.prize : null); })(),
     won: P.reduce((a, e) => a + Math.max(0, e.d), 0), lost: P.reduce((a, e) => a + Math.max(0, -e.d), 0), staked: G.reduce((a, g) => a + g.fee, 0),
     todayNet: P.filter((e) => isToday(e.t)).reduce((a, e) => a + e.d, 0),
-    days: (() => { const m = new Map(); for (const e of P) { const d = new Date(e.t), k = d.toDateString(); if (!m.has(k)) m.set(k, { t: e.t, label: isToday(e.t) ? 'Today' : (d.getMonth() + 1) + '/' + d.getDate(), n: 0, w: 0, l: 0, net: 0 }); const x = m.get(k); x.net += e.d; if (e.g) { x.n++; if (e.g.res === 'W') x.w++; if (e.g.res === 'L') x.l++; } } return Array.from(m.values()).sort((a, b) => b.t - a.t); })(),
-    streak: G.length ? G[G.length - 1].res + streak : '–', money: REC.start !== 0 || G.some((g) => g.fee || g.prize),
+    days: (() => { const m = new Map(); for (const e of P) { const d = new Date(e.t), k = d.toDateString(); if (!m.has(k)) m.set(k, { t: e.t, label: isToday(e.t) ? 'Today' : (d.getMonth() + 1) + '/' + d.getDate(), n: 0, w: 0, l: 0, tie: 0, net: 0 }); const x = m.get(k); x.net += e.d; if (e.g) { x.n++; if (e.g.res === 'T') x.tie++; if (e.g.res === 'W') x.w++; if (e.g.res === 'L') x.l++; } } return Array.from(m.values()).sort((a, b) => b.t - a.t); })(),
+    streak: Rv.length ? Rv[Rv.length - 1].res + streak : '–', money: REC.start !== 0 || G.some((g) => g.fee || g.prize),
   };
 }
 // ------------------------------- bet calculator -------------------------------
@@ -956,7 +961,7 @@ function summary() {
 // The rule itself is described where the stake is sized, inside betAdvice.
 const BK = { mult: 0.5, z: 0, cap: 0.15, dd: 2.5, ddFree: 0.1, ddMin: 0.25 };   // chosen by bankroll simulation, see README
 function betAdvice() {
-  const s = summary(), G = REC.games.filter((g) => !g.thrown), nThrown = REC.games.length - G.length, notes = [], isW = (g) => g.res === 'W', T = tiersNow(), ok = (i) => !REC.boost || boosted(T[i][0]);
+  const s = summary(), G = REC.games.filter((g) => !g.thrown && g.res !== 'P'), nThrown = REC.games.filter((g) => g.thrown).length, notes = [], isW = (g) => g.res === 'W', T = tiersNow(), ok = (i) => !REC.boost || boosted(T[i][0]);
   if (REC.lose) return { tier: T[0], p: null, need: 100 * T[0][0] / T[0][1], lose: true, notes: [] };
   if (!(s.balance > 0)) return { tier: null, notes: ['Set your <b>starting balance</b> in Settings.'] };
   const rec = G.slice(-50), pAll = (rec.filter(isW).length + 6) / (rec.length + 10);   // pulled toward the 60% break-even until there is data
@@ -1027,11 +1032,11 @@ function openResult(past, edit) {
   $('resTitle').textContent = pastMode ? 'Add a past game' : st.over ? 'Game over' : 'Record this game';
   $('resLead').textContent = pastMode ? 'Enter the scores and stake, then tap Win or Loss. The sheet stays open for the next one.'
     : st.over ? 'Enter the opponent’s score if you have it, then tap Win or Loss.' : 'This game is not finished. Recording it will start a new one.';
-  $('rInclWrap').style.display = pastMode ? '' : 'none'; $('rSkip').textContent = pastMode ? 'Done' : 'Not now';
+  $('rInclWrap').style.display = pastMode ? '' : 'none'; $('rPend').style.display = pastMode || eg ? 'none' : ''; $('rSkip').textContent = pastMode ? 'Done' : 'Not now';
   $('rDel').style.display = eg ? '' : 'none';
   if (eg) {
     $('rMy').value = eg.my; $('rOpp').value = eg.opp == null ? '' : eg.opp; $('rFee').value = eg.fee || ''; $('rPrize').value = eg.prize || '';
-    $('resTitle').textContent = 'Edit game'; $('resLead').textContent = 'Was a ' + (eg.res === 'W' ? 'win' : eg.res === 'T' ? 'tie' : 'loss') + '. Fix anything, then tap the right result.'; $('rSkip').textContent = 'Cancel';
+    $('resTitle').textContent = eg.res === 'P' ? 'Pending match' : 'Edit game'; $('resLead').textContent = eg.res === 'P' ? 'Enter the opponent’s score, then tap the result.' : 'Was a ' + (eg.res === 'W' ? 'win' : eg.res === 'T' ? 'tie' : 'loss') + '. Fix anything, then tap the right result.'; $('rSkip').textContent = 'Cancel';
   }
   drawTiers('rTiers', 'rFee', 'rPrize'); suggest(); $('resultScrim').classList.add('open');
   if (pastMode) $('rMy').focus();
@@ -1047,7 +1052,7 @@ function record(res) {
   if (res === 'T' && g.opp == null) g.opp = my;
   if (editIdx != null ? REC.games[editIdx].thrown : REC.lose && !pastMode) g.thrown = true;
   const wasB = editIdx != null ? !!REC.games[editIdx].base : boosted(fee); if (wasB) g.base = r2(prize / BOOST);
-  if (editIdx != null) { const o = REC.games[editIdx]; g.t = o.t; if (o.past) g.past = true; REC.games[editIdx] = g; saveRec(); closeSheets(); renderStats(); renderStrip(); return; }
+  if (editIdx != null) { const o = REC.games[editIdx]; g.t = o.t; if (o.past) g.past = true; REC.games[editIdx] = g; saveRec(); closeSheets(); $('lobMsg').style.display = 'none'; renderStats(); renderStrip(); return; }
   if (pastMode) {
     g.past = true; if ($('rIncl').checked) REC.start -= delta(g);          // keep the balance where it is
     REC.games.push(g); REC.fee = fee; REC.prize = g.base || prize; saveRec(); pastN++;
@@ -1057,7 +1062,7 @@ function record(res) {
   REC.followed = !!(b.tier && b.tier[0] === fee && b.tier[1] === prize);
   REC.games.push(g); REC.fee = fee; REC.prize = g.base || prize; saveRec();
   newGame(); const s = summary(), m = $('lobMsg');
-  m.textContent = (res === 'W' ? 'Win' : res === 'T' ? 'Tie' : 'Loss') + ' recorded · ' + my.toLocaleString() + (g.opp != null ? ' to ' + g.opp.toLocaleString() : '') + (fee || prize ? ' · ' + signed(delta(g)) : '') + ' · record ' + s.w + '–' + s.l;
+  m.textContent = (res === 'P' ? 'Saved as pending · ' + my.toLocaleString() + ' · enter the result when the opponent finishes' : (res === 'W' ? 'Win' : res === 'T' ? 'Tie' : 'Loss') + ' recorded · ' + my.toLocaleString() + (g.opp != null ? ' to ' + g.opp.toLocaleString() : '') + (fee || prize ? ' · ' + signed(delta(g)) : '') + ' · record ' + s.w + '–' + s.l);
   m.className = 'lobmsg' + (res === 'L' ? ' loss' : ''); openStats(); m.style.display = '';
 }
 function renderStats() {
@@ -1075,12 +1080,12 @@ function renderStats() {
       '<polyline fill="none" stroke="var(--' + (s.net < 0 ? 'bad' : 'go') + ')" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke" points="' + c.map((v, i) => X(i) + ',' + Y(v)).join(' ') + '"/></svg>' +
       '<div><span>Low ' + signed(lo) + '</span><span>Profit by game</span><span>High ' + signed(hi) + '</span></div></div>';
   }
-  const wl = (x) => x.w + '–' + x.l + (x.n > x.w + x.l ? '–' + (x.n - x.w - x.l) : ''), pc = (x) => pct(x.w + x.l ? 100 * x.w / (x.w + x.l) : null), sAll = { w: s.w, l: s.l, n: s.n };
+  const wl = (x) => x.w + '–' + x.l + (x.tie ? '–' + x.tie : ''), pc = (x) => pct(x.w + x.l ? 100 * x.w / (x.w + x.l) : null), sAll = { w: s.w, l: s.l, tie: s.t };
   const groups = [
     ['Profit and loss', '<div class="tile wide"><div><span>Profit</span>' + B(signed(s.net), sg(s.net)) + '</div><span>Today <i class="' + sg(s.todayNet) + '">' + signed(s.todayNet) + '</i></span></div>' +
       tile('Balance', B(money(s.balance))) + tile('Won', B(money(s.won), 'pos')) + tile('Lost', B(money(s.lost), 'neg')), chart +
-      '<div class="mv"><button data-mv="1">Deposit</button><button data-mv="-1">Withdraw</button><button data-mv="2">Fix balance</button></div>' +
-      (REC.moves.length ? '<div class="mvs"><span>' + (s.dep ? 'Deposited <b>' + money(s.dep) + '</b>' : '') + (s.dep && s.wd ? ' · ' : '') + (s.wd ? 'Withdrawn <b>' + money(s.wd) + '</b>' : '') + ((s.dep || s.wd) && s.adj ? ' · ' : '') + (s.adj ? 'Corrected <b>' + signed(s.adj) + '</b>' : '') + '</span><button data-mv="0">Undo last</button></div>' : '')],
+      '<div class="mv"><button data-mv="1">Deposit</button><button data-mv="-1">Withdraw</button><button data-mv="3">Other games +/−</button><button data-mv="2">Fix balance</button></div>' +
+      (REC.moves.length ? '<div class="mvs"><span>' + (s.dep ? 'Deposited <b>' + money(s.dep) + '</b>' : '') + (s.dep && s.wd ? ' · ' : '') + (s.wd ? 'Withdrawn <b>' + money(s.wd) + '</b>' : '') + ((s.dep || s.wd) && s.adj ? ' · ' : '') + (s.adj ? 'Corrected <b>' + signed(s.adj) + '</b>' : '') + ((s.dep || s.wd || s.adj) && s.other ? ' · ' : '') + (s.other ? 'Other games <b>' + signed(s.other) + '</b>' : '') + '</span><button data-mv="0">Undo last</button></div>' : '')],
     ['Record', tile('Win %', B(pct(s.winPct))) + tile('Streak', B(s.streak)) + tile('Games', B(s.n))],
     ['Scores', tile('You', B(fmt(s.myAvg))) + tile('Opponent', B(fmt(s.oppAvg))) + tile('Margin', B(s.margin == null ? '–' : (s.margin > 0 ? '+' : '') + fmt(s.margin), sg(s.margin)))],
   ];
@@ -1102,8 +1107,9 @@ function renderStats() {
       '<small>' + (s.money ? money(balAt[i]) : '') + '</small></span><button aria-label="Edit this game">›</button></div>');
   }
   $('undoGame').style.display = G.length ? '' : 'none';
+  $('pendBox').innerHTML = G.map((g, i) => (g.res === 'P' ? '<button data-ed="' + i + '">Pending · you ' + g.my.toLocaleString() + (g.fee ? ' · $' + amt(g.fee) + ' bet' : '') + ' · tap to enter result</button>' : '')).join('');
   // win % for every bet amount, then the overall figure and the plain average of the per-amount percentages
-  const by = new Map(); for (const g of G) { const k = g.fee + '|' + g.prize; if (!by.has(k)) by.set(k, { fee: g.fee, prize: g.prize, n: 0, w: 0, l: 0, net: 0, o: [] }); const b = by.get(k); b.n++; if (g.opp != null) b.o.push(g.opp); if (g.res === 'W') b.w++; if (g.res === 'L') b.l++; b.net += delta(g); }
+  const by = new Map(); for (const g of G) { const k = g.fee + '|' + g.prize; if (!by.has(k)) by.set(k, { fee: g.fee, prize: g.prize, n: 0, w: 0, l: 0, tie: 0, net: 0, o: [] }); const b = by.get(k); b.n++; if (g.res === 'T') b.tie++; if (g.opp != null) b.o.push(g.opp); if (g.res === 'W') b.w++; if (g.res === 'L') b.l++; b.net += delta(g); }
   const bs = Array.from(by.values()).sort((a, b) => a.fee - b.fee), netCls = (x) => (x > 0 ? 'pos' : x < 0 ? 'neg' : '');
   const srow = (cls, name, sub, n, wl, pc, net) => '<div class="srow ' + cls + '"><span>' + name + (sub ? '<small>' + sub + '</small>' : '') + '</span><span>' + n + '</span><span>' + wl + '</span><span>' + pc + '</span><span class="' + netCls(net) + '">' + (net == null ? '' : signed(net)) + '</span></div>';
   $('byStake').innerHTML = !bs.length ? '<div class="empty">No games yet.</div>'
@@ -1125,14 +1131,19 @@ function openStats() {
 }
 $('statsBtn').onclick = () => { $('lobMsg').style.display = 'none'; openStats(); }; $('enterBtn').onclick = () => enterGame();
 $('newBtn').onclick = () => { if (confirm('Discard the game in progress and start a new one?')) enterGame(true); }; $('recBtn').onclick = () => openResult();
-$('rWin').onclick = () => record('W'); $('rTie').onclick = () => record('T'); $('rLoss').onclick = () => record('L'); $('rSkip').onclick = () => { const wasPast = pastMode, wasEdit = editIdx != null; closeSheets(); if (wasEdit) return; render(); if (wasPast) openStats(); };
+$('rWin').onclick = () => record('W'); $('rTie').onclick = () => record('T'); $('rPend').onclick = () => record('P'); $('rLoss').onclick = () => record('L'); $('rSkip').onclick = () => { const wasPast = pastMode, wasEdit = editIdx != null; closeSheets(); if (wasEdit) return; render(); if (wasPast) openStats(); };
 $('rMy').oninput = suggest; $('rOpp').oninput = suggest;
 $('rFee').oninput = $('rPrize').oninput = () => drawTiers('rTiers', 'rFee', 'rPrize');
 $('stRecord').onclick = () => openResult(); $('stPast').onclick = () => openResult(true);
 // Deposits and withdrawals move the balance only: profit and every other stat stay as they are.
 $('tiles').onclick = (e) => {
   const b = e.target.closest('[data-mv]'); if (!b) return; const k = +b.dataset.mv;
-  if (!k) { const m = REC.moves[REC.moves.length - 1]; if (!confirm('Undo the last ' + (m.adj ? 'correction' : m.a > 0 ? 'deposit' : 'withdrawal') + ' of ' + money(Math.abs(m.a)) + '?')) return; REC.moves.pop(); }
+  if (!k) { const m = REC.moves[REC.moves.length - 1]; if (!confirm('Undo the last ' + (m.adj ? 'correction' : m.other ? 'other-games entry' : m.a > 0 ? 'deposit' : 'withdrawal') + ' of ' + money(Math.abs(m.a)) + '?')) return; REC.moves.pop(); }
+  else if (k === 3) {
+    const x = num(prompt('Profit or loss from other games? Put a minus for a loss, for example -5')); if (!x) return;
+    if (x < 0 && -x > summary().balance + 1e-9) { alert('That is more than your balance.'); return; }
+    REC.moves.push({ t: Date.now(), a: x, other: true });
+  }
   else if (k === 2) {
     const bal = summary().balance, x = num(prompt('What is your real balance? The page says ' + money(bal) + '. The difference is added to your profit or loss.')); if (x == null || x < 0 || Math.abs(x - bal) < 0.005) return;
     REC.moves.push({ t: Date.now(), a: x - bal, adj: true });
@@ -1151,10 +1162,11 @@ $('betBox').onclick = (e) => {
   saveRec(); renderStats();
 };
 $('stReset').onclick = () => { if (REC.games.length && confirm('Erase all ' + REC.games.length + ' recorded games? This cannot be undone.')) { REC.games = []; saveRec(); renderStats(); renderStrip(); } };
+$('pendBox').onclick = (e) => { const b = e.target.closest('[data-ed]'); if (b) openResult(false, +b.dataset.ed); };
 $('glist').onclick = (e) => { const b = e.target.closest('[data-ed]'); if (b) openResult(false, +b.dataset.ed); };
 $('undoGame').onclick = () => {
   const g = REC.games[REC.games.length - 1]; if (!g) return; const bal = summary().balance;
-  if (!confirm('Undo the last game (' + (g.res === 'W' ? 'win' : g.res === 'T' ? 'tie' : 'loss') + ', ' + g.my.toLocaleString() + ')? Balance goes back to ' + money(bal - delta(g)) + '.')) return;
+  if (!confirm('Undo the last game (' + (g.res === 'W' ? 'win' : g.res === 'T' ? 'tie' : g.res === 'P' ? 'pending' : 'loss') + ', ' + g.my.toLocaleString() + ')? Balance goes back to ' + money(bal - delta(g)) + '.')) return;
   REC.games.pop(); saveRec(); renderStats(); renderStrip();
 };
 $('rDel').onclick = () => { if (editIdx == null || !confirm('Delete this game?')) return; REC.games.splice(editIdx, 1); saveRec(); closeSheets(); renderStats(); renderStrip(); };
