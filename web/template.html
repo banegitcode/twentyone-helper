@@ -467,10 +467,10 @@ document.addEventListener('pointercancel', (e) => endDrag(e, true));
 let REC = Object.assign({ start: 0, fee: 0, prize: 0, risk: 0.25, games: [], moves: [] }, store.get('twentyone.record.v1', {}));
 const TIERS = [[0.06, 0.1], [0.12, 0.2], [0.18, 0.3], [0.24, 0.4], [0.48, 0.8], [0.6, 1], [1.2, 2], [1.8, 3], [2.4, 4], [4.8, 8], [9.6, 16], [12, 20], [18, 30], [24, 40], [36, 60], [48, 80], [60, 100], [120, 200]];   // [entry fee, prize] as offered in the game's 1v1 mode
 const amt = (x) => (x % 1 ? x.toFixed(2) : String(x));
-// While a boost is switched on, a win pays 20% more on entries up to $9.60.
-const BOOST = 1.2, BOOST_MAX = 9.6, r2 = (x) => Math.round(x * 100) / 100, BASE_TIERS = TIERS;
+// While a boost is switched on, a win pays that much more (1% to 30%, 20% unless changed) on entries up to $9.60.
+const boostPct = () => Math.min(30, Math.max(1, +REC.boostPct || 20)), boostF = () => 1 + boostPct() / 100, BOOST_MAX = 9.6, r2 = (x) => Math.round(x * 100) / 100, BASE_TIERS = TIERS;
 const boosted = (fee) => !!REC.boost && fee > 0 && fee <= BOOST_MAX + 1e-9;
-const tiersNow = () => TIERS.map((t) => (boosted(t[0]) ? [t[0], r2(t[1] * BOOST)] : t));
+const tiersNow = () => TIERS.map((t) => (boosted(t[0]) ? [t[0], r2(t[1] * boostF())] : t));
 function drawTiers(id, feeId, prizeId, after, plain) {
   const TIERS = plain ? BASE_TIERS : tiersNow();
   const fee = num($(feeId).value), prize = num($(prizeId).value);
@@ -573,7 +573,7 @@ function renderBet() {
   $('betBox').innerHTML = '<div class="bet"><div class="lbl">Next bet</div>' + (!b.tier ? '<div class="warn">' + b.notes.join(' ') + '</div>'
     : '<div class="amt">Win $' + amt(b.tier[1]) + ' <small>· pay $' + amt(b.tier[0]) + '</small></div>' + (b.lose ? '<div class="one"><b>Lose mode</b> · smallest bet</div>' : '<div class="one">Win chance <b>' + (100 * b.p).toFixed(0) + '%</b> · need ' + b.need.toFixed(0) + '%</div>' +
       warn.map((n) => '<div class="warn">' + n + '</div>').join('') + '<details><summary>Why?</summary><ul>' + b.notes.map((n) => '<li>' + n + '</li>').join('') + '</ul></details>')) + '</div>' +
-    '<div class="tog"><button class="boost' + (REC.boost ? ' on' : '') + '" id="boostBtn">20% boost · ' + (REC.boost ? 'ON' : 'off') + '</button>' +
+    '<div class="tog"><button class="boost' + (REC.boost ? ' on' : '') + '" id="boostBtn">' + boostPct() + '% boost · ' + (REC.boost ? 'ON' : 'off') + '</button>' +
     '<button class="boost lose' + (REC.lose ? ' on' : '') + '" id="loseBtn">Lose mode · ' + (REC.lose ? 'ON' : 'off') + '</button></div>';
 }
 function renderStrip() {
@@ -589,7 +589,7 @@ function openResult(past, edit) {
   closeSheets(); pastMode = past === true; pastN = 0; editIdx = edit == null ? null : edit; const eg = editIdx == null ? null : REC.games[editIdx];
   const b = betAdvice(), useSug = b.tier && (b.lose || !REC.games.length || REC.followed);   // default to the suggested stake while you are following it
   $('rMy').value = pastMode ? '' : st.score; $('rOpp').value = '';
-  $('rFee').value = useSug ? b.tier[0] : REC.fee || ''; $('rPrize').value = useSug ? b.tier[1] : (boosted(REC.fee) ? r2(REC.prize * BOOST) : REC.prize) || '';
+  $('rFee').value = useSug ? b.tier[0] : REC.fee || ''; $('rPrize').value = useSug ? b.tier[1] : (boosted(REC.fee) ? r2(REC.prize * boostF()) : REC.prize) || '';
   $('resTitle').textContent = pastMode ? 'Add a past game' : st.over ? 'Game over' : 'Record this game';
   $('resLead').textContent = pastMode ? 'Enter the scores and stake, then tap Win or Loss. The sheet stays open for the next one.'
     : st.over ? 'Enter the opponent’s score if you have it, then tap Win or Loss.' : 'This game is not finished. Recording it will start a new one.';
@@ -612,7 +612,7 @@ function record(res) {
   const b = betAdvice(), g = { t: Date.now(), my, opp: num($('rOpp').value), res, fee, prize };
   if (res === 'T' && g.opp == null) g.opp = my;
   if (editIdx != null ? REC.games[editIdx].thrown : REC.lose && !pastMode) g.thrown = true;
-  const wasB = editIdx != null ? !!REC.games[editIdx].base : boosted(fee); if (wasB) g.base = r2(prize / BOOST);
+  const eo = editIdx != null ? REC.games[editIdx] : null, wasB = eo ? !!eo.base : boosted(fee); if (wasB) g.base = r2(prize / (eo ? eo.prize / eo.base : boostF()));   // an edited game keeps the boost it was played with
   if (editIdx != null) { const o = REC.games[editIdx]; g.t = o.t; if (o.past) g.past = true; REC.games[editIdx] = g; saveRec(); closeSheets(); $('lobMsg').style.display = 'none'; renderStats(); renderStrip(); return; }
   if (pastMode) {
     g.past = true; if ($('rIncl').checked) REC.start -= delta(g);          // keep the balance where it is
@@ -717,7 +717,10 @@ $('tiles').onclick = (e) => {
   saveRec(); renderStats(); renderStrip();
 };
 $('betBox').onclick = (e) => {
-  if (e.target.closest('#boostBtn')) REC.boost = !REC.boost;
+  if (e.target.closest('#boostBtn')) {
+    if (!REC.boost) { const x = num(prompt('Boost percent, 1 to 30?', boostPct())); if (x == null) return; if (!(x >= 1 && x <= 30)) { alert('Enter a number from 1 to 30.'); return; } REC.boostPct = x; }
+    REC.boost = !REC.boost;
+  }
   else if (e.target.closest('#loseBtn')) { if (!REC.lose && !confirm('Lose mode: the calculator will aim for a score of 2,000–5,000 and suggest the smallest bet until you turn it off.')) return; REC.lose = !REC.lose; }
   else return;
   saveRec(); renderStats();
