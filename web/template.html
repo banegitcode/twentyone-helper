@@ -188,14 +188,8 @@
       <div class="glist" id="glist"></div>
       <button class="ghostbtn" id="stPast" style="color:var(--ink)">Add a past game</button></details>
     <details class="sec" id="setSec"><summary>Settings</summary>
-    <div class="frow">
+    <div class="frow" style="grid-template-columns:1fr">
       <label class="field">Starting balance<input id="cStart" inputmode="decimal" autocomplete="off"></label>
-      <label class="field">Risk
-        <select id="cRisk">
-          <option value="0.125">Cautious</option>
-          <option value="0.25">Balanced</option>
-          <option value="0.5">Aggressive</option>
-        </select></label>
     </div>
     <div class="field" style="margin-bottom:6px">Usual bet</div>
     <div class="tiers" id="cTiers"></div>
@@ -520,11 +514,10 @@ function summary() {
 }
 // ------------------------------- bet calculator -------------------------------
 // Every stake pays prize = fee / 0.6, so a win returns +2/3 of the fee and a loss costs the fee: break-even is 60% wins.
-// Kelly stake as a share of balance = 2.5p - 1.5 for win chance p. The page stakes only a fraction of that (the risk level),
-// never more than 10% of the balance, moves up one stake at a time, and steps down during a losing run.
-// A losing or winning run does not change the odds of the next game; it only moves the win-rate estimate like any other result.
+// The rule itself is described where the stake is sized, inside betAdvice.
+const BK = { mult: 0.5, z: 0, cap: 0.15, dd: 2.5, ddFree: 0.1, ddMin: 0.25 };   // chosen by bankroll simulation, see README
 function betAdvice() {
-  const s = summary(), G = REC.games.filter((g) => !g.thrown), nThrown = REC.games.length - G.length, risk = REC.risk || 0.25, notes = [], isW = (g) => g.res === 'W', T = tiersNow(), ok = (i) => !REC.boost || boosted(T[i][0]);
+  const s = summary(), G = REC.games.filter((g) => !g.thrown), nThrown = REC.games.length - G.length, notes = [], isW = (g) => g.res === 'W', T = tiersNow(), ok = (i) => !REC.boost || boosted(T[i][0]);
   if (REC.lose) return { tier: T[0], p: null, need: 100 * T[0][0] / T[0][1], lose: true, notes: [] };
   if (!(s.balance > 0)) return { tier: null, notes: ['Set your <b>starting balance</b> in Settings.'] };
   const rec = G.slice(-50), pAll = (rec.filter(isW).length + 6) / (rec.length + 10);   // pulled toward the 60% break-even until there is data
@@ -540,27 +533,31 @@ function betAdvice() {
     const raw = w / (mine.length * o.length); return { raw, n: o.length, p: (raw * o.length + 6) / (o.length + 10) };
   };
   const pUse = (i) => { const a = pAt(i).p, b = pairAt(i); return b ? Math.min(a, b.p) : a; };
-  const fracAt = (i) => { const p = pUse(i), b = T[i][1] / T[i][0] - 1; return Math.min(Math.max(0, p - (1 - p) / b) * risk, 0.1); };   // Kelly share for a bet that pays b to 1
+  // One rule for the stake. Start from the Kelly share for a bet that pays b to 1, which is the share that grows a balance fastest
+  // when the win chance is known. It is only estimated (and the estimate is already pulled toward break-even while data is thin),
+  // so half of the Kelly share is staked, never more than 15% of the balance, and the share is cut while profit is more than
+  // 10% of the balance below its high: to half at 20% below, to a quarter at 30% or more.
+  const nData = rec.length, pSafe = (i) => { const p = pUse(i); return p - BK.z * Math.sqrt(p * (1 - p) / (nData + 10)); };
+  const curve = [0]; for (const e of timeline()) if (!e.cash) curve.push(curve[curve.length - 1] + e.d);
+  const high = Math.max.apply(null, curve), below = high - curve[curve.length - 1], dd = below > 0 ? below / (s.balance + below) : 0, ddMult = Math.max(BK.ddMin, Math.min(1, 1 - BK.dd * (dd - BK.ddFree)));
+  const fracAt = (i) => { const p = pSafe(i), b = T[i][1] / T[i][0] - 1; return Math.min(Math.max(0, p - (1 - p) / b) * BK.mult * ddMult, BK.cap); };
   let idx = -1; T.forEach((t, i) => { if (ok(i) && t[0] <= s.balance * fracAt(i) + 1e-9) idx = i; });
   const edge = idx >= 0;
   let top = -1; TIERS.forEach((t, i) => { if (G.filter((g) => g.fee === t[0]).length >= 3) top = i; });
   let held = false; if (idx > top + 1) { idx = top + 1; held = true; }
-  let ls = 0; for (let i = G.length - 1; i >= 0 && G[i].res === 'L'; i--) ls++;
-  let stepped = false; if (ls >= 2 && idx > 0) { idx = Math.max(0, idx - (ls >= 3 ? 2 : 1)); stepped = true; }
   if (idx < 0) idx = 0;
   if (T[idx][0] > s.balance) return { tier: null, notes: ['Your balance is below the smallest stake.'] };
   const e = { p: pUse(idx), n: pAt(idx).n }, pr = pairAt(idx), t = T[idx], need = 100 * t[0] / t[1];
-  notes.push('Estimated win chance at this stake <b>' + (100 * e.p).toFixed(0) + '%</b>' + (G.length ? ' (' + e.n + ' game' + (e.n === 1 ? '' : 's') + ' at similar or higher stakes, blended with your overall record)' : ' (no games recorded yet)') + '. Break-even is ' + need.toFixed(0) + '%.');
+  notes.push('Win chance <b>' + (100 * e.p).toFixed(0) + '%</b> from your last ' + nData + ' game' + (nData === 1 ? '' : 's') + ' and recent opponent scores. Break-even is ' + need.toFixed(0) + '%.');
   if (boosted(t[0])) notes.push('<b>Boost on</b>: a win pays $' + amt(t[1]) + ' in place of $' + amt(TIERS[idx][1]) + '. Only stakes up to $' + amt(BOOST_MAX) + ' are suggested.');
-  if (pr) notes.push('From results alone: <b>' + (100 * pAt(idx).p).toFixed(0) + '%</b>. From comparing your scores with ' + pr.n + ' opponent scores: <b>' + (100 * pr.p).toFixed(0) + '%</b>. The lower one is used.');
   const os = G.filter((x) => x.opp != null).map((x) => x.opp), l10 = os.slice(-10), before = os.slice(0, -10);
   if (l10.length === 10 && before.length >= 5 && avg(l10) - avg(before) > 400) notes.push('<span class="bad">Opponent scores are rising</span>: last 10 average <b>' + fmt(avg(l10)) + '</b> against ' + fmt(avg(before)) + ' before. Expect your win rate to fall.');
   if (s.nAfterL >= 3 && s.oppAfterW != null && s.oppAfterW - s.oppAfterL > 400) notes.push('Opponents average <b>' + fmt(s.oppAfterW) + '</b> after you win and <b>' + fmt(s.oppAfterL) + '</b> after you lose (' + s.nAfterL + ' games after a loss): the game looks like it gets harder as you win.');
-  if (!edge) notes.push('Your record does not show an edge yet, so this is the <b>smallest stake</b>. Free games cost nothing.');
-  else notes.push('You pay <b>' + (100 * t[0] / s.balance).toFixed(1) + '%</b> of your ' + money(s.balance) + ' balance. Expected profit about <b>' + signed(t[1] * e.p - t[0]) + '</b> per game.');
-  if (held) notes.push('Held to one step above the highest stake you have played at least 3 times: opponents may be tougher at higher stakes.');
-  if (stepped) notes.push('Stepped down after <b>' + ls + ' losses in a row</b>. This is a guard against chasing losses, not a prediction.');
-  const nx = T[idx + 1]; if (nx && ok(idx + 1) && edge && !held && !stepped && fracAt(idx + 1) > 0) notes.push('Next stake up (win $' + amt(nx[1]) + ') at a balance of about <b>' + money(nx[0] / fracAt(idx + 1)) + '</b>.');
+  if (!edge) notes.push('No clear edge yet, so this is the <b>smallest stake</b>.');
+  else notes.push('<b>' + (100 * t[0] / s.balance).toFixed(1) + '%</b> of your balance. Expected profit about <b>' + signed(t[1] * e.p - t[0]) + '</b> a game.');
+  if (ddMult < 1) notes.push('<span class="bad">Down ' + money(below) + ' from your high</span>: stake cut to <b>' + (100 * ddMult).toFixed(0) + '%</b> of normal until it recovers.');
+  if (held) notes.push('Held to one step above the highest stake you have played 3 times.');
+  const nx = T[idx + 1]; if (nx && ok(idx + 1) && edge && !held && fracAt(idx + 1) > 0) notes.push('Next stake up (win $' + amt(nx[1]) + ') at a balance of about <b>' + money(nx[0] / fracAt(idx + 1)) + '</b>.');
   const day = new Date().toDateString(), today = G.filter((g) => new Date(g.t).toDateString() === day && !g.past), netT = today.reduce((a, g) => a + delta(g), 0), startT = s.balance - netT;
   if (today.length >= 3 && startT > 0 && netT <= -0.2 * startT) notes.push('<span class="bad">Down ' + money(-netT) + ' today</span>, over 20% of where you started the day. That is a sensible point to stop.');
   if (nThrown) notes.push(nThrown + ' lose-mode game' + (nThrown === 1 ? ' is' : 's are') + ' left out of the win chance.');
@@ -684,7 +681,7 @@ function renderStats() {
 }
 const drawStakeTiers = () => drawTiers('cTiers', 'cFee', 'cPrize', (t) => { REC.fee = t[0]; REC.prize = t[1]; saveRec(); renderStats(); renderStrip(); }, true);
 function openStats() {
-  closeSheets(); $('cStart').value = REC.start || ''; $('cFee').value = REC.fee || ''; $('cPrize').value = REC.prize || ''; $('lenSel').value = String(horizonN); $('cRisk').value = String(REC.risk || 0.25);
+  closeSheets(); $('cStart').value = REC.start || ''; $('cFee').value = REC.fee || ''; $('cPrize').value = REC.prize || ''; $('lenSel').value = String(horizonN);
   drawStakeTiers(); renderStats(); document.body.classList.add('inlobby'); window.scrollTo(0, 0);
 }
 $('statsBtn').onclick = () => { $('lobMsg').style.display = 'none'; openStats(); }; $('enterBtn').onclick = () => enterGame();
@@ -693,7 +690,6 @@ $('rWin').onclick = () => record('W'); $('rTie').onclick = () => record('T'); $(
 $('rMy').oninput = suggest; $('rOpp').oninput = suggest;
 $('rFee').oninput = $('rPrize').oninput = () => drawTiers('rTiers', 'rFee', 'rPrize');
 $('stRecord').onclick = () => openResult(); $('stPast').onclick = () => openResult(true);
-$('cRisk').onchange = (e) => { REC.risk = +e.target.value; saveRec(); renderStats(); };
 // Deposits and withdrawals move the balance only: profit and every other stat stay as they are.
 $('tiles').onclick = (e) => {
   const b = e.target.closest('[data-mv]'); if (!b) return; const k = +b.dataset.mv;
@@ -921,7 +917,7 @@ document.addEventListener('visibilitychange', async () => {
   try { wake = await navigator.wakeLock.request('screen'); } catch (e) {}
 });
 document.addEventListener('touchend', () => { if (voiceOn && actx && actx.state !== 'running') actx.resume().catch(() => {}); }, { passive: true });
-window.__t = { LOSE, simLose(n, seed) { const o = []; for (let i = 0; i < n; i++) { LOSE.reset(); const r = E.playGame(rules, LOSE, seed + i); o.push(r.score); } return o; }, parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice, enterGame, openStats,
+window.__t = { LOSE, BK, simLose(n, seed) { const o = []; for (let i = 0; i < n; i++) { LOSE.reset(); const r = E.playGame(rules, LOSE, seed + i); o.push(r.score); } return o; }, parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice, enterGame, openStats,
   get st() { return st; }, get last() { return last; }, get log() { return log; }, get rec() { return REC; } };
 (function init() {
   const saved = store.get('twentyone.game.v1', null);

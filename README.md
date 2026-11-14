@@ -20,8 +20,22 @@ In the calculator, tap the card you were dealt; the page shows which column to p
   chance `p`. The page estimates `p` from the last 50 recorded games (pulled toward 60% until there is data),
   lowered if results at similar or higher stakes are worse than the overall record,
   and lowered again if comparing your recent scores with the 15 most recent opponent scores gives a smaller figure,
-  stakes a fraction of Kelly (one eighth, quarter or half), never more than 10% of the balance, moves up one
-  stake at a time, and steps down after 2+ losses in a row. Streaks are not treated as predictive.
+  stakes **half of Kelly**, never more than 15% of the balance, moves up one stake at a time, and cuts the share
+  while profit is more than 10% of the balance below its high (to half at 20% below, a quarter at 30%+).
+  There is one mode and no risk setting. Streaks are not treated as predictive.
+  The constants were picked with `web/simbet.js`, which drives the page's own calculator through simulated
+  bankrolls ($50 start, 60 runs, same random draws for both rules; your score ~N(8755, 1100), opponent ~N(mean, 1300)).
+  Median final balance, old rule (quarter Kelly, 10% cap, step down on losing runs) → new rule:
+
+  | Scenario | Old | New | Typical worst drop, old → new |
+  |---|---|---|---|
+  | Opponent mean 7,300 (~80% wins), 300 games | $3,675 | $7,249 | 18% → 28% |
+  | Same, first 60 games only | $90 | $136 | 10% → 20% |
+  | Opponent mean 8,000 (~68% wins), 300 games | $60 | $65 | 12% → 21% |
+  | Opponent mean 8,700 (~50% wins, no edge), 300 games | $46.80 | $46.55 | 7% → 8% |
+  | Opponents 150 points tougher per stake step, 300 games | $108 | $104 | 14% → 23% |
+
+  These are simulations with made-up opponents, not results from the real app.
 - **Past games** can be added from Stats & settings (score, opponent score, stake, Win or Loss) without
   changing the current balance.
 - The record and the game in progress are saved in the browser on that device only (no account, nothing uploaded).
