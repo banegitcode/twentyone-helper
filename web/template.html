@@ -117,7 +117,8 @@
   .glist { display:flex; flex-direction:column; gap:4px; }
   .grow { display:grid; grid-template-columns:26px 1fr 1fr 70px 28px; align-items:center; gap:6px; background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:6px 8px; font-size:13px; font-variant-numeric:tabular-nums; }
   .grow .tag { font-weight:800; text-align:center; border-radius:6px; padding:2px 0; font-size:12px; }
-  .grow .tag.W { background:#17432a; color:var(--go); } .grow .tag.L { background:#45201c; color:var(--bad); }
+  .grow .tag.W { background:#17432a; color:var(--go); } .grow .tag.L { background:#45201c; color:var(--bad); } .grow .tag.T { background:#2b2a17; color:var(--gold); }
+  .wlbtns .btie { grid-column:span 2; height:44px; font-size:15px; background:#2b2a17; color:var(--gold); border-color:#5a5223 !important; } .btie.sug { background:var(--gold); color:#221c02; }
   .grow small { color:var(--dim); display:block; font-size:10px; }
   .grow .amt { text-align:right; font-weight:700; }
   .grow button { border:0; background:transparent; color:var(--dim); font-size:16px; padding:4px; }
@@ -241,6 +242,7 @@
       <div class="wlbtns">
         <button class="bwin" id="rWin">WIN</button>
         <button class="bloss" id="rLoss">LOSS</button>
+        <button class="btie" id="rTie">TIE</button>
       </div>
       <label class="chk" id="rInclWrap" style="display:none"><input type="checkbox" id="rIncl" checked> My starting balance already includes this game</label>
       <button class="ghostbtn" id="rSkip">Not now</button>
@@ -434,7 +436,7 @@ document.addEventListener('pointerup', (e) => endDrag(e, false));
 document.addEventListener('pointercancel', (e) => endDrag(e, true));
 
 // ------------------------------- record: wins, losses, opponent, balance -------------------------------
-// games: [{t, my, opp|null, res:'W'|'L', fee, prize}]
+// games: [{t, my, opp|null, res:'W'|'L'|'T', fee, prize}]
 let REC = Object.assign({ start: 0, fee: 0, prize: 0, risk: 0.25, games: [] }, store.get('twentyone.record.v1', {}));
 const TIERS = [[0.06, 0.1], [0.12, 0.2], [0.18, 0.3], [0.24, 0.4], [0.48, 0.8], [0.6, 1], [1.2, 2], [1.8, 3], [2.4, 4], [4.8, 8], [9.6, 16], [12, 20], [18, 30], [24, 40], [36, 60], [48, 80], [60, 100], [120, 200]];   // [entry fee, prize] as offered in the game's 1v1 mode
 const amt = (x) => (x % 1 ? x.toFixed(2) : String(x));
@@ -447,15 +449,16 @@ const saveRec = () => store.set('twentyone.record.v1', REC);
 const num = (s) => { const x = parseFloat(String(s).replace(/[^0-9.\-]/g, '')); return Number.isFinite(x) ? x : null; };
 const money = (x) => (x < 0 ? '-' : '') + '$' + Math.abs(x).toFixed(2);
 const signed = (x) => (x > 0 ? '+' : '') + money(x);
-const delta = (g) => (g.res === 'W' ? g.prize - g.fee : -g.fee);
+// A tie returns the entry less the house cut: the two entries minus the prize, split between the two players.
+const delta = (g) => (g.res === 'W' ? g.prize - g.fee : g.res === 'T' ? g.prize / 2 - g.fee : -g.fee);
 const avg = (a) => (a.length ? a.reduce((s, x) => s + x, 0) / a.length : null);
 const fmt = (x) => (x == null ? '–' : Math.round(x).toLocaleString());
 function summary() {
-  const G = REC.games, W = G.filter((g) => g.res === 'W'), L = G.filter((g) => g.res === 'L'), both = G.filter((g) => g.opp != null);
+  const G = REC.games, W = G.filter((g) => g.res === 'W'), L = G.filter((g) => g.res === 'L'), both = G.filter((g) => g.opp != null), dec = W.length + L.length;
   const net = G.reduce((s, g) => s + delta(g), 0);
   let streak = 0; for (let i = G.length - 1; i >= 0 && G[i].res === G[G.length - 1].res; i--) streak++;
   return {
-    n: G.length, w: W.length, l: L.length, winPct: G.length ? 100 * W.length / G.length : null, oppPct: G.length ? 100 * L.length / G.length : null,
+    n: G.length, w: W.length, l: L.length, t: G.length - dec, winPct: dec ? 100 * W.length / dec : null, oppPct: dec ? 100 * L.length / dec : null,
     myAvg: avg(G.map((g) => g.my)), oppAvg: avg(both.map((g) => g.opp)), margin: avg(both.map((g) => g.my - g.opp)),
     winMargin: avg(both.filter((g) => g.res === 'W').map((g) => g.my - g.opp)), lossMargin: avg(both.filter((g) => g.res === 'L').map((g) => g.opp - g.my)),
     avgWin: avg(W.map(delta)), avgLoss: avg(L.map((g) => -delta(g))), net, balance: REC.start + net,
@@ -466,9 +469,9 @@ function summary() {
     oppAfterL: avg(G.filter((g, i) => i > 0 && g.opp != null && G[i - 1].res === 'L').map((g) => g.opp)),
     nAfterL: G.filter((g, i) => i > 0 && g.opp != null && G[i - 1].res === 'L').length,
     breakEven: (() => { const P = G.filter((g) => g.prize > 0), f = P.reduce((a, g) => a + g.fee, 0), pr = P.reduce((a, g) => a + g.prize, 0); return pr ? 100 * f / pr : (REC.prize > 0 ? 100 * REC.fee / REC.prize : null); })(),
-    won: W.reduce((a, g) => a + delta(g), 0), lost: L.reduce((a, g) => a - delta(g), 0), staked: G.reduce((a, g) => a + g.fee, 0),
+    won: G.reduce((a, g) => a + Math.max(0, delta(g)), 0), lost: G.reduce((a, g) => a + Math.max(0, -delta(g)), 0), staked: G.reduce((a, g) => a + g.fee, 0),
     todayNet: G.filter((g) => new Date(g.t).toDateString() === new Date().toDateString()).reduce((a, g) => a + delta(g), 0),
-    days: (() => { const m = new Map(); for (const g of G) { const d = new Date(g.t), k = d.toDateString(); if (!m.has(k)) m.set(k, { t: g.t, label: k === new Date().toDateString() ? 'Today' : (d.getMonth() + 1) + '/' + d.getDate(), n: 0, w: 0, net: 0 }); const x = m.get(k); x.n++; if (g.res === 'W') x.w++; x.net += delta(g); } return Array.from(m.values()).sort((a, b) => b.t - a.t); })(),
+    days: (() => { const m = new Map(); for (const g of G) { const d = new Date(g.t), k = d.toDateString(); if (!m.has(k)) m.set(k, { t: g.t, label: k === new Date().toDateString() ? 'Today' : (d.getMonth() + 1) + '/' + d.getDate(), n: 0, w: 0, l: 0, net: 0 }); const x = m.get(k); x.n++; if (g.res === 'W') x.w++; if (g.res === 'L') x.l++; x.net += delta(g); } return Array.from(m.values()).sort((a, b) => b.t - a.t); })(),
     streak: G.length ? G[G.length - 1].res + streak : '–', money: REC.start !== 0 || G.some((g) => g.fee || g.prize),
   };
 }
@@ -526,7 +529,7 @@ function renderBet() {
 function renderStrip() {
   const s = summary();
   if (!s.n) { $('rsWL').innerHTML = '0<i>–</i>0'; $('rsMid').textContent = 'No games yet'; return; }
-  $('rsWL').innerHTML = '<span class="pos">' + s.w + '</span><i>–</i><span class="neg">' + s.l + '</span>';
+  $('rsWL').innerHTML = '<span class="pos">' + s.w + '</span><i>–</i><span class="neg">' + s.l + '</span>' + (s.t ? '<i>–</i><span style="color:var(--gold)">' + s.t + '</span>' : '');
   $('rsMid').innerHTML = '<b>' + s.winPct.toFixed(0) + '%</b> wins' + (s.money ? ' · <b class="' + (s.balance < REC.start ? 'neg' : 'pos') + '">' + money(s.balance) + '</b>' : '') +
     (s.money ? ' · today <b class="' + (s.todayNet < 0 ? 'neg' : s.todayNet > 0 ? 'pos' : '') + '">' + signed(s.todayNet) + '</b>' : '');
 }
@@ -546,12 +549,13 @@ function openResult(past) {
 }
 function suggest() {
   const my = num($('rMy').value), opp = num($('rOpp').value);
-  $('rWin').classList.toggle('sug', my != null && opp != null && my > opp); $('rLoss').classList.toggle('sug', my != null && opp != null && my < opp);
+  $('rWin').classList.toggle('sug', my != null && opp != null && my > opp); $('rLoss').classList.toggle('sug', my != null && opp != null && my < opp); $('rTie').classList.toggle('sug', my != null && opp != null && my === opp);
 }
 function record(res) {
   const my = num($('rMy').value); if (my == null) { $('rMy').focus(); return; }
   const fee = Math.max(0, num($('rFee').value) || 0), prize = Math.max(0, num($('rPrize').value) || 0);
   const b = betAdvice(), g = { t: Date.now(), my, opp: num($('rOpp').value), res, fee, prize };
+  if (res === 'T' && g.opp == null) g.opp = my;
   if (pastMode) {
     g.past = true; if ($('rIncl').checked) REC.start -= delta(g);          // keep the balance where it is
     REC.games.push(g); REC.fee = fee; REC.prize = prize; saveRec(); pastN++;
@@ -561,7 +565,7 @@ function record(res) {
   REC.followed = !!(b.tier && b.tier[0] === fee && b.tier[1] === prize);
   REC.games.push(g); REC.fee = fee; REC.prize = prize; saveRec();
   newGame(); const s = summary(), m = $('lobMsg');
-  m.textContent = (res === 'W' ? 'Win' : 'Loss') + ' recorded · ' + my.toLocaleString() + (g.opp != null ? ' to ' + g.opp.toLocaleString() : '') + (fee || prize ? ' · ' + signed(delta(g)) : '') + ' · record ' + s.w + '–' + s.l;
+  m.textContent = (res === 'W' ? 'Win' : res === 'T' ? 'Tie' : 'Loss') + ' recorded · ' + my.toLocaleString() + (g.opp != null ? ' to ' + g.opp.toLocaleString() : '') + (fee || prize ? ' · ' + signed(delta(g)) : '') + ' · record ' + s.w + '–' + s.l;
   m.className = 'lobmsg' + (res === 'L' ? ' loss' : ''); openStats(); m.style.display = '';
 }
 function renderStats() {
@@ -579,6 +583,7 @@ function renderStats() {
       '<polyline fill="none" stroke="var(--' + (s.net < 0 ? 'bad' : 'go') + ')" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke" points="' + c.map((v, i) => X(i) + ',' + Y(v)).join(' ') + '"/></svg>' +
       '<div><span>Low ' + signed(lo) + '</span><span>Profit by game</span><span>High ' + signed(hi) + '</span></div></div>';
   }
+  const wl = (x) => x.w + '–' + x.l + (x.n > x.w + x.l ? '–' + (x.n - x.w - x.l) : ''), pc = (x) => pct(x.w + x.l ? 100 * x.w / (x.w + x.l) : null), sAll = { w: s.w, l: s.l, n: s.n };
   const groups = [
     ['Profit and loss', '<div class="tile wide"><div><span>Profit</span>' + B(signed(s.net), sg(s.net)) + '</div><span>Today <i class="' + sg(s.todayNet) + '">' + signed(s.todayNet) + '</i></span></div>' +
       tile('Balance', B(money(s.balance))) + tile('Won', B(money(s.won), 'pos')) + tile('Lost', B(money(s.lost), 'neg')), chart],
@@ -590,7 +595,7 @@ function renderStats() {
     tile('Staked', B(money(s.staked))) + tile('Return', B(s.staked ? (s.net > 0 ? '+' : '') + (100 * s.net / s.staked).toFixed(0) + '%' : '–', sg(s.net))) + tile('Opp win %', B(pct(s.oppPct))) +
     tile('Your best', B(fmt(s.best))) + tile('Opp best', B(fmt(s.oppBest))) + tile('Opp W–L', B(s.l + '–' + s.w)) +
     tile('Win by', B(fmt(s.winMargin))) + tile('Lose by', B(fmt(s.lossMargin))) + tile('Opp spread', B(fmt(s.oppSd))) +
-    tile('Opp last 10', B(fmt(s.oppLast10))) + tile('Opp earlier', B(fmt(s.oppBefore))) + tile('Your W–L', B(s.w + '–' + s.l)) +
+    tile('Opp last 10', B(fmt(s.oppLast10))) + tile('Opp earlier', B(fmt(s.oppBefore))) + tile('Ties', B(s.t)) +
     tile('Opp after win', B(fmt(s.oppAfterW))) + tile('Opp after loss', B(fmt(s.oppAfterL))) + tile('After-loss games', B(s.nAfterL));
   const prog = log.length > 0 && !st.over;
   $('enterBtn').textContent = prog ? 'Resume game (' + st.played + ' cards in)' : 'Enter game';
@@ -603,18 +608,18 @@ function renderStats() {
       '<small>' + (d.getMonth() + 1) + '/' + d.getDate() + '</small></span><button data-del="' + i + '" aria-label="Delete this game">✕</button></div>');
   }
   // win % for every bet amount, then the overall figure and the plain average of the per-amount percentages
-  const by = new Map(); for (const g of G) { const k = g.fee + '|' + g.prize; if (!by.has(k)) by.set(k, { fee: g.fee, prize: g.prize, n: 0, w: 0, net: 0, o: [] }); const b = by.get(k); b.n++; if (g.opp != null) b.o.push(g.opp); if (g.res === 'W') b.w++; b.net += delta(g); }
+  const by = new Map(); for (const g of G) { const k = g.fee + '|' + g.prize; if (!by.has(k)) by.set(k, { fee: g.fee, prize: g.prize, n: 0, w: 0, l: 0, net: 0, o: [] }); const b = by.get(k); b.n++; if (g.opp != null) b.o.push(g.opp); if (g.res === 'W') b.w++; if (g.res === 'L') b.l++; b.net += delta(g); }
   const bs = Array.from(by.values()).sort((a, b) => a.fee - b.fee), netCls = (x) => (x > 0 ? 'pos' : x < 0 ? 'neg' : '');
   const srow = (cls, name, sub, n, wl, pc, net) => '<div class="srow ' + cls + '"><span>' + name + (sub ? '<small>' + sub + '</small>' : '') + '</span><span>' + n + '</span><span>' + wl + '</span><span>' + pc + '</span><span class="' + netCls(net) + '">' + (net == null ? '' : signed(net)) + '</span></div>';
   $('byStake').innerHTML = !bs.length ? '<div class="empty">No games yet.</div>'
     : '<div class="srow head"><span>Bet</span><span>Games</span><span>W–L</span><span>Win %</span><span>Profit</span></div>' +
-      bs.map((b) => srow('', b.fee || b.prize ? 'Pay $' + amt(b.fee) : 'No stake', (b.prize ? 'win $' + amt(b.prize) : '') + (b.o.length ? ' · opp avg ' + fmt(avg(b.o)) : ''), b.n, b.w + '–' + (b.n - b.w), pct(100 * b.w / b.n), b.net)).join('') +
-      srow('total', 'All', '', s.n, s.w + '–' + s.l, pct(s.winPct), s.net) +
-      (bs.length > 1 ? srow('total', 'Avg of bets', '', '', '', pct(avg(bs.map((b) => 100 * b.w / b.n))), null) : '');
+      bs.map((b) => srow('', b.fee || b.prize ? 'Pay $' + amt(b.fee) : 'No stake', (b.prize ? 'win $' + amt(b.prize) : '') + (b.o.length ? ' · opp avg ' + fmt(avg(b.o)) : ''), b.n, wl(b), pc(b), b.net)).join('') +
+      srow('total', 'All', '', s.n, wl(sAll), pct(s.winPct), s.net) +
+      (bs.length > 1 ? srow('total', 'Avg of bets', '', '', '', pct(avg(bs.filter((b) => b.w + b.l).map((b) => 100 * b.w / (b.w + b.l)))), null) : '');
   $('byDay').innerHTML = !s.days.length ? '<div class="empty">No games yet.</div>'
     : '<div class="srow head"><span>Day</span><span>Games</span><span>W–L</span><span>Win %</span><span>Profit</span></div>' +
-      s.days.slice(0, 30).map((d) => srow('', d.label, '', d.n, d.w + '–' + (d.n - d.w), pct(100 * d.w / d.n), d.net)).join('') +
-      srow('total', 'All', '', s.n, s.w + '–' + s.l, pct(s.winPct), s.net);
+      s.days.slice(0, 30).map((d) => srow('', d.label, '', d.n, wl(d), pc(d), d.net)).join('') +
+      srow('total', 'All', '', s.n, wl(sAll), pct(s.winPct), s.net);
   $('glist').innerHTML = rows.join('') || '<div class="empty">No games yet.</div>';
   $('stRecord').style.display = log.length ? '' : 'none';
 }
@@ -625,7 +630,7 @@ function openStats() {
 }
 $('statsBtn').onclick = () => { $('lobMsg').style.display = 'none'; openStats(); }; $('enterBtn').onclick = () => enterGame();
 $('newBtn').onclick = () => { if (confirm('Discard the game in progress and start a new one?')) enterGame(true); }; $('recBtn').onclick = () => openResult();
-$('rWin').onclick = () => record('W'); $('rLoss').onclick = () => record('L'); $('rSkip').onclick = () => { const wasPast = pastMode; closeSheets(); render(); if (wasPast) openStats(); };
+$('rWin').onclick = () => record('W'); $('rTie').onclick = () => record('T'); $('rLoss').onclick = () => record('L'); $('rSkip').onclick = () => { const wasPast = pastMode; closeSheets(); render(); if (wasPast) openStats(); };
 $('rMy').oninput = suggest; $('rOpp').oninput = suggest;
 $('rFee').oninput = $('rPrize').oninput = () => drawTiers('rTiers', 'rFee', 'rPrize');
 $('stRecord').onclick = () => openResult(); $('stPast').onclick = () => openResult(true);
