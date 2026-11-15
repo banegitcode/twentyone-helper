@@ -531,7 +531,7 @@ function summary() {
 // ------------------------------- bet calculator -------------------------------
 // Every stake pays prize = fee / 0.6, so a win returns +2/3 of the fee and a loss costs the fee: break-even is 60% wins.
 // The rule itself is described where the stake is sized, inside betAdvice.
-const BK = { mult: 0.5, z: 0, cap: 0.15, dd: 2.5, ddFree: 0.1, ddMin: 0.25, prior: 6 };   // chosen by bankroll simulation, see README
+const BK = { mult: 0.5, z: 0, cap: 0.15, dd: 2.5, ddFree: 0.1, ddMin: 0.25, prior: 6, minBet: 0.6 };   // chosen by bankroll simulation, see README
 function betAdvice() {
   const s = summary(), G = REC.games.filter((g) => !g.thrown && g.res !== 'P' && g.res !== 'T'), nThrown = REC.games.filter((g) => g.thrown).length, notes = [], isW = (g) => g.res === 'W', T = tiersNow(), ok = (i) => !REC.boost || boosted(T[i][0]);
   if (REC.lose) return { tier: T[0], p: null, need: 100 * T[0][0] / T[0][1], lose: true, notes: [] };
@@ -562,6 +562,10 @@ function betAdvice() {
   let top = -1; TIERS.forEach((t, i) => { if (G.filter((g) => g.fee === t[0]).length >= 3) top = i; });
   let held = false; if (idx > top + 1) { idx = top + 1; held = true; }
   if (idx < 0) idx = 0;
+  // Floor: never suggest less than $0.60 while the balance covers it.
+  const floorAmt = BK.minBet; let fl = -1, floored = false;
+  T.forEach((t, i) => { if (ok(i) && t[0] <= s.balance && (fl < 0 || T[fl][0] < floorAmt - 1e-9)) fl = i; });
+  if (fl > idx) { idx = fl; floored = true; held = false; }
   if (T[idx][0] > s.balance) return { tier: null, notes: ['Your balance is below the smallest stake.'] };
   const e = { p: pUse(idx), n: pAt(idx).n }, pr = pairAt(idx), t = T[idx], need = 100 * t[0] / t[1];
   notes.push('Your win rate is <b>' + (s.winPct == null ? '–' : s.winPct.toFixed(0) + '%') + '</b>. The bet is sized on <b>' + (100 * e.p).toFixed(0) + '%</b>: the same record, pulled toward break-even while games are few and lowered if recent opponents at this stake score higher. Break-even is ' + need.toFixed(0) + '%.');
@@ -569,7 +573,7 @@ function betAdvice() {
   const os = G.filter((x) => x.opp != null).map((x) => x.opp), l10 = os.slice(-10), before = os.slice(0, -10);
   if (l10.length === 10 && before.length >= 5 && avg(l10) - avg(before) > 400) notes.push('<span class="bad">Opponent scores are rising</span>: last 10 average <b>' + fmt(avg(l10)) + '</b> against ' + fmt(avg(before)) + ' before. Expect your win rate to fall.');
   if (s.nAfterL >= 3 && s.oppAfterW != null && s.oppAfterW - s.oppAfterL > 400) notes.push('Opponents average <b>' + fmt(s.oppAfterW) + '</b> after you win and <b>' + fmt(s.oppAfterL) + '</b> after you lose (' + s.nAfterL + ' games after a loss): the game looks like it gets harder as you win.');
-  if (!edge) notes.push('No clear edge yet, so this is the <b>smallest stake</b>.');
+  if (floored || !edge) notes.push((edge ? 'The sizing rule asks for less, so' : 'No clear edge yet, so') + ' this is ' + (t[0] < BK.minBet - 1e-9 ? 'the <b>largest stake your balance covers</b>.' : 'your <b>$' + amt(BK.minBet) + ' minimum</b>.'));
   else notes.push('<b>' + (100 * t[0] / s.balance).toFixed(1) + '%</b> of your balance. Expected profit about <b>' + signed(t[1] * e.p - t[0]) + '</b> a game.');
   if (ddMult < 1) notes.push('<span class="bad">Down ' + money(below) + ' from your high</span>: stake cut to <b>' + (100 * ddMult).toFixed(0) + '%</b> of normal until it recovers.');
   if (held) notes.push('Held to one step above the highest stake you have played 3 times.');
