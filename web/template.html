@@ -495,16 +495,16 @@ function timeline() {
   return out;
 }
 function summary() {
-  const G = REC.games, W = G.filter((g) => g.res === 'W'), L = G.filter((g) => g.res === 'L'), both = G.filter((g) => g.opp != null), dec = W.length + L.length;
+  const G = REC.games, W = G.filter((g) => g.res === 'W'), L = G.filter((g) => g.res === 'L'), S = G.filter((g) => !g.thrown), both = S.filter((g) => g.opp != null), dec = W.length + L.length;   // S: score stats leave out Lose mode games
   const P = timeline().filter((e) => !e.cash), net = P.reduce((a, e) => a + e.d, 0), isToday = (t) => new Date(t).toDateString() === new Date().toDateString();
   const Rv = G.filter((g) => g.res !== 'P'); let streak = 0; for (let i = Rv.length - 1; i >= 0 && Rv[i].res === Rv[Rv.length - 1].res; i--) streak++;
   return {
     n: G.length, w: W.length, l: L.length, t: G.filter((g) => g.res === 'T').length, pend: G.length - Rv.length, winPct: dec ? 100 * W.length / dec : null, oppPct: dec ? 100 * L.length / dec : null,
-    myAvg: avg(G.map((g) => g.my)), oppAvg: avg(both.map((g) => g.opp)), margin: avg(both.map((g) => g.my - g.opp)),
+    myAvg: avg(S.map((g) => g.my)), nScore: S.length, oppAvg: avg(both.map((g) => g.opp)), margin: avg(both.map((g) => g.my - g.opp)),
     winMargin: avg(both.filter((g) => g.res === 'W').map((g) => g.my - g.opp)), lossMargin: avg(both.filter((g) => g.res === 'L').map((g) => g.opp - g.my)),
     avgWin: avg(W.map(delta)), avgLoss: avg(L.map((g) => -delta(g))), net, gnet: G.reduce((a, g) => a + delta(g), 0), adj: REC.moves.reduce((a, m) => a + (m.adj ? m.a : 0), 0), balance: REC.start + net + REC.moves.reduce((a, m) => a + (m.adj ? 0 : m.a), 0),
     dep: REC.moves.reduce((a, m) => a + (m.adj || m.other ? 0 : Math.max(0, m.a)), 0), wd: REC.moves.reduce((a, m) => a + (m.adj || m.other ? 0 : Math.max(0, -m.a)), 0), other: REC.moves.reduce((a, m) => a + (m.other ? m.a : 0), 0),
-    best: G.length ? Math.max.apply(null, G.map((g) => g.my)) : null, oppBest: both.length ? Math.max.apply(null, both.map((g) => g.opp)) : null,
+    best: S.length ? Math.max.apply(null, S.map((g) => g.my)) : null, oppBest: both.length ? Math.max.apply(null, both.map((g) => g.opp)) : null,
     oppLast10: avg(both.slice(-10).map((g) => g.opp)), oppBefore: avg(both.slice(0, -10).map((g) => g.opp)),
     oppSd: (() => { const o = both.map((g) => g.opp), m = avg(o); return o.length > 1 ? Math.sqrt(o.reduce((a, x) => a + (x - m) * (x - m), 0) / (o.length - 1)) : null; })(),
     oppAfterW: avg(G.filter((g, i) => i > 0 && g.opp != null && G[i - 1].res === 'W').map((g) => g.opp)),
@@ -653,7 +653,7 @@ function renderStats() {
   $('tiles').innerHTML = groups.map((g) => '<h3>' + g[0] + '</h3><div class="tiles">' + g[1] + '</div>' + (g[2] || '')).join('');
   $('more').innerHTML = tile('Avg win', B(cash(s.avgWin))) + tile('Avg loss', B(cash(s.avgLoss))) + tile('Break-even', B(pct(s.breakEven))) +
     tile('Staked', B(money(s.staked))) + tile('Return', B(s.staked ? (s.net > 0 ? '+' : '') + (100 * s.net / s.staked).toFixed(0) + '%' : '–', sg(s.net))) + tile('Opp win %', B(pct(s.oppPct))) +
-    tile('Your best', B(fmt(s.best))) + tile('Opp best', B(fmt(s.oppBest))) + tile('Opp W–L', B(s.l + '–' + s.w)) +
+    tile('Your best', B(fmt(s.best))) + tile('Vs engine 8,800', B(s.myAvg == null ? '–' : (s.myAvg - 8800 > 0 ? '+' : '') + fmt(s.myAvg - 8800), sg(s.myAvg == null ? 0 : s.myAvg - 8800))) + tile('Opp best', B(fmt(s.oppBest))) + tile('Opp W–L', B(s.l + '–' + s.w)) +
     tile('Win by', B(fmt(s.winMargin))) + tile('Lose by', B(fmt(s.lossMargin))) + tile('Opp spread', B(fmt(s.oppSd))) +
     tile('Opp last 10', B(fmt(s.oppLast10))) + tile('Opp earlier', B(fmt(s.oppBefore))) + tile('Ties', B(s.t)) +
     tile('Opp after win', B(fmt(s.oppAfterW))) + tile('Opp after loss', B(fmt(s.oppAfterL))) + tile('After-loss games', B(s.nAfterL));
