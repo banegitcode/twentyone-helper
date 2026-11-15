@@ -160,6 +160,11 @@
   .mvs { display:flex; justify-content:space-between; align-items:center; margin-top:6px; font-size:12.5px; color:var(--dim); } .mvs b { color:var(--ink); }
   .mvs button { border:0; background:transparent; color:var(--dim); font-size:12.5px; text-decoration:underline; padding:4px 0; }
   .tip { font-size:12px; color:var(--dim); margin:0 2px 8px; } .grow[data-ed] { cursor:pointer; }
+  .sess { display:flex; align-items:center; gap:10px; padding:8px 8px 8px 14px; margin-bottom:8px; border:1px solid var(--line); border-radius:12px; background:var(--panel); font-variant-numeric:tabular-nums; }
+  .sess .clk { font-size:20px; font-weight:800; } .sess .info { flex:1; font-size:13px; color:var(--dim); line-height:1.25; } .sess .info b { color:var(--ink); }
+  .sess button { height:40px; padding:0 16px; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink); font-size:14px; font-weight:700; }
+  .sess.on { border-color:#2c6b45; } .sess.on .clk { color:var(--go); }
+  .gsess { text-align:center; font-size:12px; color:var(--dim); margin:0 0 6px; font-variant-numeric:tabular-nums; } .gsess b { color:var(--ink); }
   .tog { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:8px; }
   .boost { width:100%; height:38px; border-radius:10px; border:1px solid var(--line); background:var(--panel); color:var(--dim); font-size:13px; font-weight:700; letter-spacing:.04em; }
   .boost.on { border-color:var(--gold); background:#2b2a17; color:var(--gold); }
@@ -179,6 +184,7 @@
     <div class="pend" id="pendBox"></div>
     <div id="betBox"></div>
     <button class="enter" id="enterBtn">Enter game</button>
+    <div class="sess" id="sessBox"></div>
     <button class="ghostbtn" id="newBtn" style="display:none">Start a new game instead</button>
     <button class="ghostbtn" id="stRecord" style="display:none;color:var(--ink)">Record result now</button>
     <div id="tiles"></div>
@@ -217,6 +223,7 @@
       <div class="stat"><b id="sBusts">0/3</b><span>Busts</span></div>
       <div class="stat"><b id="sStays">2</b><span>Stays left</span></div>
     </div>
+    <div class="gsess" id="gSess"></div>
     <div class="losetag" id="loseTag" style="display:none">Lose mode · aiming for 2,000–5,000</div>
     <div class="advice" id="advice">
       <div class="heard" id="heard"></div>
@@ -766,11 +773,13 @@ function newGame() { log = []; LOSE.reset(); makePolicy(); rebuild(); closeSheet
 const inLobby = () => document.body.classList.contains('inlobby');
 function enterGame(fresh) {          // from the lobby into the calculator
   if (fresh || !log.length || st.over) newGame();
+  sessStart(); actT = Date.now();
   document.body.classList.remove('inlobby'); $('lobMsg').style.display = 'none'; window.scrollTo(0, 0); render();
 }
 function undo() { if (!log.length) return false; log.pop(); rebuild(); render(); return true; }
 // Play rank r. forced = {stay, col} when the user says where it actually went.
 function playRank(r, forced) {
+  actT = Date.now();
   if (r > 9) r = 9;                                             // J, Q, K count as 10
   if (st.over || rankLeft[r] <= 0) return null;
   const t0 = performance.now(), move = forced || (REC.lose ? LOSE : policy).choose(st, VALS[r]), ms = performance.now() - t0;
@@ -1015,7 +1024,35 @@ function renderBet() {
     '<div class="tog"><button class="boost' + (REC.boost ? ' on' : '') + '" id="boostBtn">' + boostPct() + '% boost · ' + (REC.boost ? 'ON' : 'off') + '</button>' +
     '<button class="boost lose' + (REC.lose ? ' on' : '') + '" id="loseBtn">Lose mode · ' + (REC.lose ? 'ON' : 'off') + '</button></div>';
 }
+// Session timer. It starts when a game is entered and runs until Stop. If it is left running, it is closed at the last
+// activity once 45 minutes have passed with none. Hourly rate = profit from games recorded during timed sessions / timed hours.
+if (!Array.isArray(REC.sessions)) REC.sessions = [];
+let actT = 0;
+function sessStart() { if (REC.sess) return; REC.sess = Date.now(); saveRec(); renderSess(); }
+function sessStop(at) { if (!REC.sess) return; const b = at || Date.now(); if (b - REC.sess >= 30e3) REC.sessions.push({ a: REC.sess, b }); REC.sess = null; saveRec(); }
+function sessIdle() {
+  if (!REC.sess) return; const last = Math.max(REC.sess, actT, REC.act || 0, REC.games.reduce((m, g) => (g.past ? m : Math.max(m, g.t)), 0));
+  if (Date.now() - last > 45 * 60e3) sessStop(last + 60e3);
+  else if (actT > (REC.act || 0) + 60e3) { REC.act = actT; saveRec(); }
+}
+const clock = (ms) => { const x = Math.floor(ms / 1000), h = Math.floor(x / 3600), m = Math.floor(x / 60) % 60, c = x % 60; return h + ':' + (m < 10 ? '0' : '') + m + ':' + (c < 10 ? '0' : '') + c; };
+const perHour = (x) => (x.ms < 120e3 ? '–' : signed(x.profit / (x.ms / 3600e3)) + '/h');
+function hourly() {
+  const now = Date.now(), all = REC.sessions.concat(REC.sess ? [{ a: REC.sess, b: now, live: true }] : []), ev = timeline().filter((e) => !e.cash && !(e.g && e.g.past)), day = new Date().toDateString();
+  const tot = (list) => { const o = { ms: 0, profit: 0, games: 0 }; for (const x of list) { o.ms += x.b - x.a; for (const e of ev) if (e.t >= x.a && e.t <= x.b) { o.profit += e.d; if (e.g) o.games++; } } return o; };
+  return { cur: all.length ? tot(all.slice(-1)) : null, live: !!REC.sess, today: tot(all.filter((x) => new Date(x.a).toDateString() === day)), all: tot(all) };
+}
+function renderSess() {
+  sessIdle(); const h = hourly(), on = h.live, c = h.cur;
+  $('sessBox').className = 'sess' + (on ? ' on' : '');
+  $('sessBox').innerHTML = on ? '<span class="clk">' + clock(c.ms) + '</span><span class="info"><b class="' + (c.profit < 0 ? 'neg' : c.profit > 0 ? 'pos' : '') + '">' + signed(c.profit) + '</b> · <b>' + perHour(c) + '</b><br>' + c.games + ' game' + (c.games === 1 ? '' : 's') + ' this session</span><button id="sessBtn">Stop</button>'
+    : '<span class="info">' + (h.all.ms >= 120e3 ? 'Hourly <b>' + perHour(h.all) + '</b> over ' + (h.all.ms / 3600e3).toFixed(1) + ' h' : 'Timer starts when you enter a game') + '</span><button id="sessBtn">Start timer</button>';
+  $('gSess').innerHTML = on ? '<b>' + clock(c.ms) + '</b> · ' + signed(c.profit) + ' · <b>' + perHour(c) + '</b>' : '';
+}
+$('sessBox').onclick = (e) => { if (!e.target.closest('#sessBtn')) return; if (REC.sess) sessStop(); else { actT = Date.now(); sessStart(); } renderSess(); if (document.body.classList.contains('inlobby')) renderStats(); };
+setInterval(() => { if (REC.sess && !document.hidden) renderSess(); }, 1000);
 function renderStrip() {
+  renderSess();
   const s = summary();
   if (!s.n) { $('rsWL').innerHTML = '0<i>–</i>0'; $('rsMid').textContent = 'No games yet'; return; }
   $('rsWL').innerHTML = '<span class="pos">' + s.w + '</span><i>–</i><span class="neg">' + s.l + '</span>' + (s.t ? '<i>–</i><span style="color:var(--gold)">' + s.t + '</span>' : '');
@@ -1065,6 +1102,12 @@ function record(res) {
   m.textContent = (res === 'P' ? 'Saved as pending · ' + my.toLocaleString() + ' · enter the result when the opponent finishes' : (res === 'W' ? 'Win' : res === 'T' ? 'Tie' : 'Loss') + ' recorded · ' + my.toLocaleString() + (g.opp != null ? ' to ' + g.opp.toLocaleString() : '') + (fee || prize ? ' · ' + signed(delta(g)) : '') + ' · record ' + s.w + '–' + s.l);
   m.className = 'lobmsg' + (res === 'L' ? ' loss' : ''); openStats(); m.style.display = '';
 }
+function hourlyTiles(tile, B, sg) {
+  const h = hourly(), b = betAdvice(), gph = h.all.ms >= 600e3 && h.all.games >= 3 ? h.all.games / (h.all.ms / 3600e3) : null;
+  const rate = (x) => (x.ms < 120e3 ? B('–') : B(signed(x.profit / (x.ms / 3600e3)), sg(x.profit)));
+  return tile(h.live ? 'This session' : 'Last session', h.cur ? rate(h.cur) : B('–')) + tile('Today', rate(h.today)) + tile('All time', rate(h.all)) +
+    '<div class="mvs" style="grid-column:span 3"><span>' + (h.all.ms < 120e3 ? 'Dollars per hour, from games recorded while the timer runs.' : '<b>' + (h.all.ms / 3600e3).toFixed(1) + ' h</b> timed' + (gph ? ' · <b>' + gph.toFixed(1) + '</b> games/h' + (b.tier && b.p != null && !b.lose ? ' · next bet should make about <b>' + signed((b.tier[1] * b.p - b.tier[0]) * gph) + '/h</b>' : '') : '')) + '</span></div>';
+}
 function renderStats() {
   renderBet();
   const s = summary(), pct = (x) => (x == null ? '–' : x.toFixed(1) + '%'), cash = (x) => (x == null ? '–' : money(x));
@@ -1084,15 +1127,15 @@ function renderStats() {
   const groups = [
     ['Profit and loss', '<div class="tile wide"><div><span>Profit</span>' + B(signed(s.net), sg(s.net)) + '</div><span>Today <i class="' + sg(s.todayNet) + '">' + signed(s.todayNet) + '</i></span></div>' +
       tile('Balance', B(money(s.balance))) + tile('Won', B(money(s.won), 'pos')) + tile('Lost', B(money(s.lost), 'neg')), chart +
-      '<div class="mv"><button data-mv="1">Deposit</button><button data-mv="-1">Withdraw</button><button data-mv="3">Other games +/−</button><button data-mv="2">Fix balance</button></div>' +
+      '<details class="sec"><summary>Deposit · withdraw · fix balance</summary><div class="mv"><button data-mv="1">Deposit</button><button data-mv="-1">Withdraw</button><button data-mv="3">Other games +/−</button><button data-mv="2">Fix balance</button></div></details>' +
       (REC.moves.length ? '<div class="mvs"><span>' + (s.dep ? 'Deposited <b>' + money(s.dep) + '</b>' : '') + (s.dep && s.wd ? ' · ' : '') + (s.wd ? 'Withdrawn <b>' + money(s.wd) + '</b>' : '') + ((s.dep || s.wd) && s.adj ? ' · ' : '') + (s.adj ? 'Corrected <b>' + signed(s.adj) + '</b>' : '') + ((s.dep || s.wd || s.adj) && s.other ? ' · ' : '') + (s.other ? 'Other games <b>' + signed(s.other) + '</b>' : '') + '</span><button data-mv="0">Undo last</button></div>' : '')],
-    ['Record', tile('Win %', B(pct(s.winPct))) + tile('Streak', B(s.streak)) + tile('Games', B(s.n))],
-    ['Scores', tile('You', B(fmt(s.myAvg))) + tile('Opponent', B(fmt(s.oppAvg))) + tile('Margin', B(s.margin == null ? '–' : (s.margin > 0 ? '+' : '') + fmt(s.margin), sg(s.margin)))],
+    ['Hourly', hourlyTiles(tile, B, sg)],
+    ['Results', tile('Win %', B(pct(s.winPct))) + tile('Your avg', B(fmt(s.myAvg))) + tile('Opp avg', B(fmt(s.oppAvg)))],
   ];
   $('tiles').innerHTML = groups.map((g) => '<h3>' + g[0] + '</h3><div class="tiles">' + g[1] + '</div>' + (g[2] || '')).join('');
   $('more').innerHTML = tile('Avg win', B(cash(s.avgWin))) + tile('Avg loss', B(cash(s.avgLoss))) + tile('Break-even', B(pct(s.breakEven))) +
     tile('Staked', B(money(s.staked))) + tile('Return', B(s.staked ? (s.net > 0 ? '+' : '') + (100 * s.net / s.staked).toFixed(0) + '%' : '–', sg(s.net))) + tile('Opp win %', B(pct(s.oppPct))) +
-    tile('Your best', B(fmt(s.best))) + tile('Vs engine 8,800', B(s.myAvg == null ? '–' : (s.myAvg - 8800 > 0 ? '+' : '') + fmt(s.myAvg - 8800), sg(s.myAvg == null ? 0 : s.myAvg - 8800))) + tile('Opp best', B(fmt(s.oppBest))) + tile('Opp W–L', B(s.l + '–' + s.w)) +
+    tile('Streak', B(s.streak)) + tile('Games', B(s.n)) + tile('Margin', B(s.margin == null ? '–' : (s.margin > 0 ? '+' : '') + fmt(s.margin), sg(s.margin))) + tile('Your best', B(fmt(s.best))) + tile('Vs engine 8,800', B(s.myAvg == null ? '–' : (s.myAvg - 8800 > 0 ? '+' : '') + fmt(s.myAvg - 8800), sg(s.myAvg == null ? 0 : s.myAvg - 8800))) + tile('Opp best', B(fmt(s.oppBest))) + tile('Opp W–L', B(s.l + '–' + s.w)) +
     tile('Win by', B(fmt(s.winMargin))) + tile('Lose by', B(fmt(s.lossMargin))) + tile('Opp spread', B(fmt(s.oppSd))) +
     tile('Opp last 10', B(fmt(s.oppLast10))) + tile('Opp earlier', B(fmt(s.oppBefore))) + tile('Ties', B(s.t)) +
     tile('Opp after win', B(fmt(s.oppAfterW))) + tile('Opp after loss', B(fmt(s.oppAfterL))) + tile('After-loss games', B(s.nAfterL));
@@ -1164,7 +1207,7 @@ $('betBox').onclick = (e) => {
   else return;
   saveRec(); renderStats();
 };
-$('stReset').onclick = () => { if (REC.games.length && confirm('Erase all ' + REC.games.length + ' recorded games? This cannot be undone.')) { REC.games = []; saveRec(); renderStats(); renderStrip(); } };
+$('stReset').onclick = () => { if (REC.games.length && confirm('Erase all ' + REC.games.length + ' recorded games? This cannot be undone.')) { REC.games = []; REC.sessions = []; REC.sess = null; saveRec(); renderStats(); renderStrip(); } };
 $('pendBox').onclick = (e) => { const b = e.target.closest('[data-ed]'); if (b) openResult(false, +b.dataset.ed); };
 $('glist').onclick = (e) => { const b = e.target.closest('[data-ed]'); if (b) openResult(false, +b.dataset.ed); };
 $('undoGame').onclick = () => {
