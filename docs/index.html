@@ -964,7 +964,7 @@ function summary() {
     todayNet: P.filter((e) => isToday(e.t)).reduce((a, e) => a + e.d, 0),
     days: (() => { const m = new Map(); for (const e of P) { const d = new Date(e.t), k = d.toDateString(); if (!m.has(k)) m.set(k, { t: e.t, label: isToday(e.t) ? 'Today' : (d.getMonth() + 1) + '/' + d.getDate(), n: 0, w: 0, l: 0, tie: 0, net: 0 }); const x = m.get(k); x.net += e.d; if (e.g) { x.n++; if (e.g.res === 'T') x.tie++; if (e.g.res === 'W') x.w++; if (e.g.res === 'L') x.l++; } } return Array.from(m.values()).sort((a, b) => b.t - a.t); })(),
     streak: Rv.length ? Rv[Rv.length - 1].res + streak : '–', streakN: streak, streakRes: Rv.length ? Rv[Rv.length - 1].res : null,
-    bestW: run('W'), worstL: run('L'), money: REC.start !== 0 || G.some((g) => g.fee || g.prize),
+    bestW: run('W'), worstL: run('L'), bestL: run('L'), money: REC.start !== 0 || G.some((g) => g.fee || g.prize),
   };
 }
 // ------------------------------- bet calculator -------------------------------
@@ -1133,7 +1133,7 @@ function renderStats() {
       '<details class="sec"><summary>Deposit · withdraw · fix balance</summary><div class="mv"><button data-mv="1">Deposit</button><button data-mv="-1">Withdraw</button><button data-mv="3">Other games +/−</button><button data-mv="2">Fix balance</button></div></details>' +
       (REC.moves.length ? '<div class="mvs"><span>' + (s.dep ? 'Deposited <b>' + money(s.dep) + '</b>' : '') + (s.dep && s.wd ? ' · ' : '') + (s.wd ? 'Withdrawn <b>' + money(s.wd) + '</b>' : '') + ((s.dep || s.wd) && s.adj ? ' · ' : '') + (s.adj ? 'Corrected <b>' + signed(s.adj) + '</b>' : '') + ((s.dep || s.wd || s.adj) && s.other ? ' · ' : '') + (s.other ? 'Other games <b>' + signed(s.other) + '</b>' : '') + '</span><button data-mv="0">Undo last</button></div>' : '')],
     ['Hourly', hourlyTiles(tile, B, sg)],
-    ['Results', tile('Win %', B(pct(s.winPct))) + tile('Your avg', B(fmt(s.myAvg))) + tile('Opp avg', B(fmt(s.oppAvg)))],
+    ['Results', '<div class="tile wide"><div><span>' + (s.streakRes === 'L' ? 'Loss streak' : s.streakRes === 'T' ? 'Tie streak' : 'Win streak') + '</span>' + B(s.streakRes ? s.streakN : 0, s.streakRes === 'W' ? 'pos' : s.streakRes === 'L' ? 'neg' : '') + '</div><span>Best <i class="pos">' + s.bestW + '</i> wins · worst <i class="neg">' + s.bestL + '</i> losses</span></div>' + tile('Win %', B(pct(s.winPct))) + tile('Your avg', B(fmt(s.myAvg))) + tile('Opp avg', B(fmt(s.oppAvg)))],
   ];
   $('tiles').innerHTML = groups.map((g) => '<h3>' + g[0] + '</h3><div class="tiles">' + g[1] + '</div>' + (g[2] || '')).join('');
   $('more').innerHTML = tile('Avg win', B(cash(s.avgWin))) + tile('Avg loss', B(cash(s.avgLoss))) + tile('Break-even', B(pct(s.breakEven))) +
