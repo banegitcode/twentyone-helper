@@ -1,0 +1,3 @@
+Shipped                            n=4000 mean 8759 med 8850 p5 6750 p95 10450 0bust 76.8% 3bust 1.2% ms 13.783 gain 0 ± 0 208s
+Agent spec (lc23, cleared per game) n=4000 mean 8835 med 8950 p5 6900 p95 10550 0bust 77.0% 3bust 1.4% ms 16.895 gain 76 ± 10 255s
+New shipped (lc21, table kept)     n=4000 mean 8834 med 8950 p5 6900 p95 10500 0bust 77.0% 3bust 1.3% ms 17.472 gain 75 ± 10 270s

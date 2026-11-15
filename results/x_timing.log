@@ -1,0 +1,2 @@
+Shipped                            moves 4108 ms/move mean 11.2 p50 6.8 p99 39.6 p99.9 46.5 max 51.8 | >60ms 0.00%
+Shipped + budgeted exact end (<=12 left, 100k) moves 4108 ms/move mean 13.2 p50 8.2 p99 45.7 p99.9 55.4 max 56.6 | >60ms 0.00%

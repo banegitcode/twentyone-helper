@@ -279,14 +279,43 @@ Fresh shuffles from seed 2,600,000 unless noted. Logs: `results/headroom.log`, `
 
 | Player | Games | Average | Gain vs shipped |
 |---|---|---|---|
-| Shipped (13 ms/move) | 6,000 | 8,776 | – |
+| Shipped at the time (13 ms/move) | 6,000 | 8,776 | – |
 | Search one card deeper everywhere (883 ms/move) | 1,000 | 8,800 | +27 ± 56 |
 | Shipped + 100 rollouts on close calls (362 ms/move) | 800 | 8,727 | −37 ± 97 |
 | Network 4x larger (validation seeds 1,500,000+) | 4,000 | 8,773 | −16 ± 35 |
 | Whole deck known in advance (`src/clairvoyant.js`, not real play) | 60 | 12,657 | – |
 
 Shipped player over 6,000 games: best 12,950; 10,000+ in 13.9%, 11,000+ in 2.1%, 12,000+ in 0.18%, 13,000+ never.
-None of the stronger players beats the shipped one, so about 8,800 is the best measured average under these rules.
+None of these beat the player shipped at the time. The exact endgame below did, so the best measured average is now about 8,840.
+
+## Exact endgame (last 12 cards)
+
+From 12 cards left, each move first tries to solve the rest of the game exactly ([src/exact.js](src/exact.js): memoised
+expectimax over every remaining deal, true score). The solve is capped at 100,000 new positions per move; if the cap is
+hit, that move uses the normal search and the solved positions are kept for the next move. About 70% of late moves end
+up exact. The table is 24 MB (2 million positions) and is emptied when nearly full.
+
+| Check (paired, fresh shuffles) | Games | Before | After | Gain |
+|---|---|---|---|---|
+| Researcher's confirmation, seeds from 2,700,000 | 6,000 | 8,777 | 8,849 | +72 ± 8 |
+| Independent re-run of the shipped build, seeds from 2,900,000 | 4,000 | 8,759 | 8,834 | +75 ± 10 |
+
+Logs: `results/x_confirm.log`, `results/x_fresh.log`. Reproduce with `node src/x_backtest.js <specs.json> 2900000 4000 out.json`,
+where the specs file lists the policy from `results/shipped_policies.json` with and without its `exact` key (the files
+used are not committed because they repeat the network weights).
+The browser build matched Node game for game on 20 games; slowest move 81 ms on a laptop, about 18 ms average. Not timed on a phone.
+
+How far from perfect play is the rest? Measured only where an exact answer exists:
+
+- Small game (13 cards, one of each rank; exact optimum 3,540): the shipped search is 203 ± 9 points (5.7%) short.
+- Real games, before this change: 146 ± 22 points lost over the last 11 cards, 183 ± 34 over the last 13. With the
+  exact endgame the last-11 loss is 79 ± 17.
+- Nothing exact was measured with more than 13 cards left. Stretching the 5% figure to the whole game would put perfect
+  play 450-1,100 points above this engine; that is an extrapolation, not a measurement.
+
+Tried and rejected in the same round: a late-game network trained on 3.9 million exactly-solved positions (-12 ± 27),
+and removing Stays that are provably never best (+9 ± 23). A 300,000-position cap scored higher (+111 ± 37, one tuning
+sample) but its slowest move was 190 ms, so it was not shipped.
 
 ## Bet calculator: stake-trend check
 

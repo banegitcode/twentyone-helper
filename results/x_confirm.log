@@ -1,0 +1,2 @@
+Shipped                            n=6000 mean 8777 med 8900 p5 6800 p95 10500 0bust 77.6% 3bust 1.0% ms 15.061 gain 0 ± 0 342s
+Shipped + budgeted exact end (<=12 left, 100k) n=6000 mean 8849 med 9000 p5 6950 p95 10550 0bust 77.4% 3bust 0.9% ms 17.133 gain 72 ± 8 397s

@@ -1,0 +1,76 @@
+{
+ "cfg": {
+  "copiesPerRank": 1
+ },
+ "vstar": 3539.8309655326957,
+ "seedStart": 1500000,
+ "games": 3000,
+ "rows": [
+  {
+   "name": "Hand weights, 2 cards ahead",
+   "n": 3000,
+   "gap": 843.0418449978797,
+   "gapCi": 13.048763998243878,
+   "gapPct": 23.815878588739718,
+   "expectedScore": 2696.789120534816,
+   "realisedMean": 2699.7833333333333,
+   "realisedCi": 13.8990923495789,
+   "wrongMoveRate": 0.2058974358974359
+  },
+  {
+   "name": "Hand weights, 3 cards ahead",
+   "n": 3000,
+   "gap": 740.4103251642622,
+   "gapCi": 14.029953521929343,
+   "gapPct": 20.91654467045549,
+   "expectedScore": 2799.4206403684334,
+   "realisedMean": 2801.75,
+   "realisedCi": 13.885122154272885,
+   "wrongMoveRate": 0.189
+  },
+  {
+   "name": "Tuned weights + selective 4 (no exact end)",
+   "n": 3000,
+   "gap": 286.36103376803925,
+   "gapCi": 10.434037493019835,
+   "gapPct": 8.089681020261539,
+   "expectedScore": 3253.4699317646564,
+   "realisedMean": 3243.983333333333,
+   "realisedCi": 15.283969504062789,
+   "wrongMoveRate": 0.12161538461538461
+  },
+  {
+   "name": "Network 2 cards, no exact end",
+   "n": 3000,
+   "gap": 258.6408157043457,
+   "gapCi": 9.451121123688528,
+   "gapPct": 7.306586620172803,
+   "expectedScore": 3281.19014982835,
+   "realisedMean": 3282.733333333333,
+   "realisedCi": 18.108965519368883,
+   "wrongMoveRate": 0.15115384615384617
+  },
+  {
+   "name": "Shipped search, no exact end",
+   "n": 3000,
+   "gap": 202.57146897281064,
+   "gapCi": 8.463028994079488,
+   "gapPct": 5.722631135363448,
+   "expectedScore": 3337.259496559885,
+   "realisedMean": 3350.8166666666666,
+   "realisedCi": 18.712371618066257,
+   "wrongMoveRate": 0.12382051282051282
+  },
+  {
+   "name": "Shipped (exact last 4)",
+   "n": 3000,
+   "gap": 202.57146891276042,
+   "gapCi": 8.463028987453644,
+   "gapPct": 5.722631133667035,
+   "expectedScore": 3337.2594966199354,
+   "realisedMean": 3350.233333333333,
+   "realisedCi": 18.73619414529545,
+   "wrongMoveRate": 0.12382051282051282
+  }
+ ]
+}

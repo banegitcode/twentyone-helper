@@ -1,0 +1,52 @@
+{
+ "seedStart": 2900000,
+ "count": 4000,
+ "horizon": 52,
+ "rows": [
+  {
+   "name": "Shipped",
+   "gain": 0,
+   "ci": 0,
+   "n": 4000,
+   "mean": 8759.375,
+   "median": 8850,
+   "p5": 6750,
+   "p95": 10450,
+   "zeroBust": 0.76775,
+   "bustOut": 0.01175,
+   "msPerMove": 13.782929470753922,
+   "clears21": 13.86175,
+   "cards": 51.91725
+  },
+  {
+   "name": "Agent spec (lc23, cleared per game)",
+   "gain": 76.0875,
+   "ci": 9.841697538003277,
+   "n": 4000,
+   "mean": 8835.4625,
+   "median": 8950,
+   "p5": 6900,
+   "p95": 10550,
+   "zeroBust": 0.7695,
+   "bustOut": 0.0135,
+   "msPerMove": 16.895320583475034,
+   "clears21": 13.86875,
+   "cards": 51.91825
+  },
+  {
+   "name": "New shipped (lc21, table kept)",
+   "gain": 74.9125,
+   "ci": 9.819401524966835,
+   "n": 4000,
+   "mean": 8834.2875,
+   "median": 8950,
+   "p5": 6900,
+   "p95": 10500,
+   "zeroBust": 0.76975,
+   "bustOut": 0.01325,
+   "msPerMove": 17.471583860565893,
+   "clears21": 13.86925,
+   "cards": 51.91875
+  }
+ ]
+}
