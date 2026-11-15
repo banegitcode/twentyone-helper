@@ -287,3 +287,13 @@ Fresh shuffles from seed 2,600,000 unless noted. Logs: `results/headroom.log`, `
 
 Shipped player over 6,000 games: best 12,950; 10,000+ in 13.9%, 11,000+ in 2.1%, 12,000+ in 0.18%, 13,000+ never.
 None of the stronger players beats the shipped one, so about 8,800 is the best measured average under these rules.
+
+## Bet calculator: stake-trend check
+
+A separate review (harness in `scratch/calc_agent/`, checked decision-for-decision against the page's `betAdvice`: 38,754 decisions, 0 mismatches)
+ran about 45 rule variants over 14 opponent models. One change survived: if opponents at higher stakes have been scoring higher, the
+win chance for a stake assumes that trend continues (`trendAt` in `betAdvice`, damping `BK.ridge`). $50 start, 300 games, median final
+balance, current → with the check: opponents +300 points per stake step $83 → $99; coin-flip opponents from $4.80 up $98 → $124;
+fixed 70% $219 → $205; fixed 80% $8,044 → $8,038; fixed 50% $19 → $19. Chance of halving the balance was unchanged in every model.
+Rejected: faster-reacting win rates, change-point triggers, stop-losses, more shrinkage, larger or smaller Kelly fractions.
+All opponent models are invented; real matchmaking is unknown.

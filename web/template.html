@@ -533,7 +533,7 @@ function summary() {
 // ------------------------------- bet calculator -------------------------------
 // Every stake pays prize = fee / 0.6, so a win returns +2/3 of the fee and a loss costs the fee: break-even is 60% wins.
 // The rule itself is described where the stake is sized, inside betAdvice.
-const BK = { mult: 0.5, z: 0, cap: 0.15, dd: 2.5, ddFree: 0.1, ddMin: 0.25, prior: 6, minBet: 0.6 };   // chosen by bankroll simulation, see README
+const BK = { mult: 0.5, z: 0, cap: 0.15, dd: 2.5, ddFree: 0.1, ddMin: 0.25, prior: 6, minBet: 0.6, ridge: 20 };   // chosen by bankroll simulation, see README
 function betAdvice() {
   const s = summary(), G = REC.games.filter((g) => !g.thrown && g.res !== 'P' && g.res !== 'T'), nThrown = REC.games.filter((g) => g.thrown).length, notes = [], isW = (g) => g.res === 'W', T = tiersNow(), ok = (i) => !REC.boost || boosted(T[i][0]);
   if (REC.lose) return { tier: T[0], p: null, need: 100 * T[0][0] / T[0][1], lose: true, notes: [] };
@@ -550,7 +550,19 @@ function betAdvice() {
     let w = 0; for (const m of mine) for (const y of o) w += m > y ? 1 : m === y ? 0.5 : 0;
     const raw = w / (mine.length * o.length); return { raw, n: o.length, p: (raw * o.length + 0.6 * BK.prior) / (o.length + BK.prior) };
   };
-  const pUse = (i) => { const a = pAt(i).p, b = pairAt(i); return b ? Math.min(a, b.p) : a; };
+  // Third estimate, a stake trend: if opponents at higher stakes have been scoring higher, assume the trend continues at stake i.
+  // Slope of opponent score on stake step (least squares over the last 100 games, damped), then the last 30 opponent scores are
+  // shifted to stake i and paired against your recent scores as above. It can only lower the win chance.
+  const kOf = (fee) => { let k = 0; TIERS.forEach((t, j) => { if (t[0] <= fee + 1e-9) k = j; }); return k; };
+  const GO = G.filter((x) => x.opp != null).slice(-100), kk = GO.map((x) => kOf(x.fee)), mk = avg(kk), mo = avg(GO.map((x) => x.opp));
+  let sxx = 0, sxy = 0; GO.forEach((x, j) => { const dx = kk[j] - mk; sxx += dx * dx; sxy += dx * (x.opp - mo); });
+  const slope = BK.ridge > 0 && GO.length ? Math.max(0, sxy / (sxx + BK.ridge)) : 0;
+  const trendAt = (i) => {
+    if (G.length < 5 || !(slope > 0) || !mine.length) return null; const o = GO.slice(-30), off = GO.length - o.length; let w = 0;
+    o.forEach((x, q) => { const y = x.opp + slope * (i - kk[off + q]); for (const m of mine) w += m > y ? 1 : m === y ? 0.5 : 0; });
+    return (w / mine.length + 0.6 * BK.prior) / (o.length + BK.prior);
+  };
+  const pUse = (i) => { const a = pAt(i).p, b = pairAt(i), c = trendAt(i); let p = b ? Math.min(a, b.p) : a; if (c != null) p = Math.min(p, c); return p; };
   // One rule for the stake. Start from the Kelly share for a bet that pays b to 1, which is the share that grows a balance fastest
   // when the win chance is known. It is only estimated (and the estimate is already pulled toward break-even while data is thin),
   // so half of the Kelly share is staked, never more than 15% of the balance, and the share is cut while profit is more than
@@ -578,6 +590,7 @@ function betAdvice() {
   if (floored || !edge) notes.push((edge ? 'The sizing rule asks for less, so' : 'No clear edge yet, so') + ' this is ' + (t[0] < BK.minBet - 1e-9 ? 'the <b>largest stake your balance covers</b>.' : 'your <b>$' + amt(BK.minBet) + ' minimum</b>.'));
   else notes.push('<b>' + (100 * t[0] / s.balance).toFixed(1) + '%</b> of your balance. Expected profit about <b>' + signed(t[1] * e.p - t[0]) + '</b> a game.');
   if (ddMult < 1) notes.push('<span class="bad">Down ' + money(below) + ' from your high</span>: stake cut to <b>' + (100 * ddMult).toFixed(0) + '%</b> of normal until it recovers.');
+  if (slope > 50 && trendAt(idx + 1) != null && T[idx + 1]) notes.push('Opponents have scored about <b>' + fmt(slope) + '</b> more per stake step, so moving up is judged against tougher opponents.');
   if (held) notes.push('Held to one step above the highest stake you have played 3 times.');
   const nx = T[idx + 1]; if (nx && ok(idx + 1) && edge && !held && fracAt(idx + 1) > 0) notes.push('Next stake up (win $' + amt(nx[1]) + ') at a balance of about <b>' + money(nx[0] / fracAt(idx + 1)) + '</b>.');
   const day = new Date().toDateString(), today = G.filter((g) => new Date(g.t).toDateString() === day && !g.past), netT = today.reduce((a, g) => a + delta(g), 0), startT = s.balance - netT;
