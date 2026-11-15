@@ -254,10 +254,12 @@
       </div>
       <h3 style="margin-top:4px">Stake (prize · you pay)</h3>
       <div class="tiers" id="rTiers"></div>
+      <details class="sec" id="rCustom" style="margin:8px 0 12px"><summary style="padding:10px 2px">Other amount</summary>
       <div class="frow">
         <label class="field">Entry fee<input id="rFee" inputmode="decimal" autocomplete="off"></label>
         <label class="field">Prize if you win<input id="rPrize" inputmode="decimal" autocomplete="off"></label>
       </div>
+      </details>
       <div class="wlbtns">
         <button class="bwin" id="rWin">WIN</button>
         <button class="bloss" id="rLoss">LOSS</button>
@@ -1053,7 +1055,7 @@ function renderSess() {
   $('sessBox').className = 'sess' + (on ? ' on' : '');
   $('sessBox').innerHTML = on ? '<span class="clk">' + clock(c.ms) + '</span><span class="info"><b class="' + (c.profit < 0 ? 'neg' : c.profit > 0 ? 'pos' : '') + '">' + signed(c.profit) + '</b> · <b>' + perHour(c) + '</b><br>' + c.games + ' game' + (c.games === 1 ? '' : 's') + ' this session</span><button id="sessBtn">Stop</button>'
     : '<span class="info">' + (h.all.ms >= 120e3 ? 'Hourly <b>' + perHour(h.all) + '</b> over ' + (h.all.ms / 3600e3).toFixed(1) + ' h' : 'Timer starts when you enter a game') + '</span><button id="sessBtn">Start timer</button>';
-  $('gSess').innerHTML = on ? '<b>' + clock(c.ms) + '</b> · ' + signed(c.profit) + ' · <b>' + perHour(c) + '</b>' : '';
+  $('gSess').innerHTML = on ? '<b>' + clock(c.ms) + '</b>' + (c.games ? ' · ' + signed(c.profit) + (c.ms >= 120e3 ? ' · <b>' + perHour(c) + '</b>' : '') : '') : '';
 }
 $('sessBox').onclick = (e) => { if (!e.target.closest('#sessBtn')) return; if (REC.sess) sessStop(); else { actT = Date.now(); sessStart(); } renderSess(); if (document.body.classList.contains('inlobby')) renderStats(); };
 setInterval(() => { if (REC.sess && !document.hidden) renderSess(); }, 1000);
@@ -1082,7 +1084,7 @@ function openResult(past, edit) {
     $('rMy').value = eg.my; $('rOpp').value = eg.opp == null ? '' : eg.opp; $('rFee').value = eg.fee || ''; $('rPrize').value = eg.prize || '';
     $('resTitle').textContent = eg.res === 'P' ? 'Pending match' : 'Edit game'; $('resLead').textContent = eg.res === 'P' ? 'Enter the opponent’s score, then tap the result.' : 'Was a ' + (eg.res === 'W' ? 'win' : eg.res === 'T' ? 'tie' : 'loss') + '. Fix anything, then tap the right result.'; $('rSkip').textContent = 'Cancel';
   }
-  drawTiers('rTiers', 'rFee', 'rPrize'); suggest(); $('resultScrim').classList.add('open');
+  drawTiers('rTiers', 'rFee', 'rPrize'); $('rCustom').open = !$('rTiers').querySelector('.on') && !!num($('rFee').value); suggest(); $('resultScrim').classList.add('open');
   if (pastMode) $('rMy').focus();
 }
 function suggest() {
