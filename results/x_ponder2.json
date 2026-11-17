@@ -1,0 +1,67 @@
+{
+ "seedStart": 3300000,
+ "count": 2500,
+ "horizon": 52,
+ "rows": [
+  {
+   "name": "Shipped (100k cap)",
+   "gain": 0,
+   "ci": 0,
+   "n": 2500,
+   "mean": 8825.7,
+   "median": 8900,
+   "p5": 6900,
+   "p95": 10650,
+   "zeroBust": 0.7664,
+   "bustOut": 0.008,
+   "msPerMove": 31.417845734196394,
+   "clears21": 13.8336,
+   "cards": 51.9692
+  },
+  {
+   "name": "from 12 cap 2M table 2^22",
+   "gain": 71.76,
+   "ci": 31.776365920923375,
+   "n": 2500,
+   "mean": 8897.46,
+   "median": 9000,
+   "p5": 6950,
+   "p95": 10750,
+   "zeroBust": 0.7648,
+   "bustOut": 0.008,
+   "msPerMove": 92.17026485816231,
+   "clears21": 13.8468,
+   "cards": 51.9552
+  },
+  {
+   "name": "from 12 cap 4M table 2^23",
+   "gain": 81.12,
+   "ci": 33.12813376224839,
+   "n": 2500,
+   "mean": 8906.82,
+   "median": 9000,
+   "p5": 6950,
+   "p95": 10750,
+   "zeroBust": 0.7668,
+   "bustOut": 0.0088,
+   "msPerMove": 166.0454144523174,
+   "clears21": 13.8672,
+   "cards": 51.9556
+  },
+  {
+   "name": "Shipped again (repeatability)",
+   "gain": 1.22,
+   "ci": 32.7745085392443,
+   "n": 2500,
+   "mean": 8826.92,
+   "median": 8900,
+   "p5": 6950,
+   "p95": 10550,
+   "zeroBust": 0.7688,
+   "bustOut": 0.0092,
+   "msPerMove": 40.760883510509906,
+   "clears21": 13.8308,
+   "cards": 51.9528
+  }
+ ]
+}

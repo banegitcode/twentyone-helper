@@ -179,19 +179,44 @@
     {
      "n": "Two cards ahead everywhere + exact endgame",
      "g": 3000,
+     "v": "none",
+     "avg": "8,818",
+     "gain": "+4 ± 29",
+     "base": "8,815",
+     "note": "0.17 s a move. Looking further ahead on early cards does not help."
+    },
+    {
+     "n": "Simplified game solved exactly as a guide",
      "v": "run"
     },
     {
      "n": "Sampled look-ahead: 24 deals, 6 cards deep",
-     "v": "none",
      "g": 2000,
      "avg": "8,736",
      "gain": "-112 ± 57",
      "base": "8,847",
-     "note": "Clearly worse than the live engine. Other settings still running."
+     "v": "none",
+     "note": "Clearly worse."
     },
     {
-     "n": "Simplified game solved exactly as a guide",
+     "n": "Sampled look-ahead, half weight",
+     "g": 2000,
+     "avg": "8,819",
+     "gain": "-28 ± 53",
+     "base": "8,847",
+     "v": "none"
+    },
+    {
+     "n": "Sampled look-ahead: 48 deals, 4 cards deep, half weight",
+     "g": 2000,
+     "avg": "8,841",
+     "gain": "-7 ± 50",
+     "base": "8,847",
+     "v": "none"
+    },
+    {
+     "n": "Two ahead, three on close calls + exact endgame",
+     "g": 1200,
      "v": "run"
     }
    ]
@@ -219,6 +244,14 @@
      "gain": "-9 ± 30",
      "v": "none",
      "base": "8,867"
+    },
+    {
+     "n": "New inputs, trained from scratch",
+     "g": 3000,
+     "avg": "8,861",
+     "gain": "-6 ± 35",
+     "base": "8,867",
+     "v": "none"
     },
     {
      "n": "Leaving out Stays that can never be best",

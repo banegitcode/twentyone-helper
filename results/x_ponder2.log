@@ -1,0 +1,4 @@
+Shipped (100k cap)                 n=2500 mean 8826 med 8900 p5 6900 p95 10650 0bust 76.6% 3bust 0.8% ms 31.418 gain 0 ± 0 299s
+from 12 cap 2M table 2^22          n=2500 mean 8897 med 9000 p5 6950 p95 10750 0bust 76.5% 3bust 0.8% ms 92.170 gain 72 ± 32 893s
+from 12 cap 4M table 2^23          n=2500 mean 8907 med 9000 p5 6950 p95 10750 0bust 76.7% 3bust 0.9% ms 166.045 gain 81 ± 33 1749s
+Shipped again (repeatability)      n=2500 mean 8827 med 8900 p5 6950 p95 10550 0bust 76.9% 3bust 0.9% ms 40.761 gain 1 ± 33 390s
