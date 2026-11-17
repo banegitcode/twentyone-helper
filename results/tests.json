@@ -17,7 +17,8 @@
      "avg": "8,940",
      "gain": "+108 ± 38",
      "v": "live",
-     "note": "Over the fixed-cap engine. Scored as a per-move budget, not re-scored in the page."
+     "note": "Over the fixed-cap engine. Scored as a per-move budget, not re-scored in the page.",
+     "base": "8,832"
     },
     {
      "n": "Phone-sized budget, 2 million positions per move",
@@ -25,7 +26,8 @@
      "avg": "8,897",
      "gain": "+72 ± 32",
      "v": "live",
-     "note": "Over the fixed-cap engine."
+     "note": "Over the fixed-cap engine.",
+     "base": "8,826"
     }
    ]
   },
@@ -38,14 +40,16 @@
      "g": 6000,
      "avg": "8,849",
      "gain": "+72 ± 8",
-     "v": "live"
+     "v": "live",
+     "base": "8,777"
     },
     {
      "n": "Same, my own re-run of the shipped build",
      "g": 4000,
      "avg": "8,834",
      "gain": "+75 ± 10",
-     "v": "live"
+     "v": "live",
+     "base": "8,759"
     },
     {
      "n": "300,000-position cap",
@@ -59,28 +63,32 @@
      "avg": "8,922",
      "gain": "+90 ± 47",
      "v": "gain",
-     "note": "Less than solving from 12."
+     "note": "Less than solving from 12.",
+     "base": "8,832"
     },
     {
      "n": "Up to 1 million positions per move from 12 cards",
      "g": 700,
      "avg": "8,904",
      "gain": "+37 ± 50",
-     "v": "none"
+     "v": "none",
+     "base": "8,867"
     },
     {
      "n": "Up to 2 million from 13 cards",
      "g": 700,
      "avg": "8,913",
      "gain": "+47 ± 60",
-     "v": "none"
+     "v": "none",
+     "base": "8,867"
     },
     {
      "n": "Up to 4 million from 13 cards",
      "g": 700,
      "avg": "8,926",
      "gain": "+60 ± 61",
-     "v": "none"
+     "v": "none",
+     "base": "8,867"
     }
    ]
   },
@@ -93,42 +101,48 @@
      "g": 2000,
      "avg": "8,855",
      "gain": "+20 ± 30",
-     "v": "none"
+     "v": "none",
+     "base": "8,835"
     },
     {
      "n": "Streaks valued 1.5x",
      "g": 2000,
      "avg": "8,831",
      "gain": "-4 ± 36",
-     "v": "none"
+     "v": "none",
+     "base": "8,835"
     },
     {
      "n": "Streaks valued 2x",
      "g": 2000,
      "avg": "8,819",
      "gain": "-16 ± 42",
-     "v": "none"
+     "v": "none",
+     "base": "8,835"
     },
     {
      "n": "Streaks valued 1.5x, endgame too",
      "g": 2000,
      "avg": "8,854",
      "gain": "+19 ± 37",
-     "v": "none"
+     "v": "none",
+     "base": "8,835"
     },
     {
      "n": "Streaks valued 2x, endgame too",
      "g": 2000,
      "avg": "8,812",
      "gain": "-22 ± 42",
-     "v": "none"
+     "v": "none",
+     "base": "8,835"
     },
     {
      "n": "Streaks valued 0.75x",
      "g": 2000,
      "avg": "8,854",
      "gain": "+19 ± 38",
-     "v": "none"
+     "v": "none",
+     "base": "8,835"
     },
     {
      "n": "Current play: streak points per game",
@@ -147,14 +161,16 @@
      "g": 1000,
      "avg": "8,800",
      "gain": "+27 ± 56",
-     "v": "none"
+     "v": "none",
+     "base": "8,773"
     },
     {
      "n": "100 play-outs on close calls (0.36 s a move)",
      "g": 800,
      "avg": "8,727",
      "gain": "-37 ± 97",
-     "v": "none"
+     "v": "none",
+     "base": "8,764"
     },
     {
      "n": "Two cards ahead everywhere + exact endgame",
@@ -179,7 +195,8 @@
      "g": 4000,
      "avg": "8,773",
      "gain": "-16 ± 35",
-     "v": "none"
+     "v": "none",
+     "base": "8,789"
     },
     {
      "n": "Late-game network trained on 3.9 million solved positions",
@@ -191,7 +208,8 @@
      "g": 3000,
      "avg": "8,858",
      "gain": "-9 ± 30",
-     "v": "none"
+     "v": "none",
+     "base": "8,867"
     },
     {
      "n": "Leaving out Stays that can never be best",
@@ -256,7 +274,8 @@
      "avg": "8,755",
      "gain": "+1,480 ± 34",
      "v": "live",
-     "note": "Over the baseline."
+     "note": "Over the baseline.",
+     "base": "7,275"
     },
     {
      "n": "Tuned weights v1",
@@ -264,28 +283,32 @@
      "avg": "7,881",
      "gain": "+648 ± 35",
      "v": "ref",
-     "note": "Over the old-rules baseline of 7,233."
+     "note": "Over the old-rules baseline of 7,233.",
+     "base": "7,233"
     },
     {
      "n": "Tuned weights v2, more features",
      "g": 10000,
      "avg": "8,069",
      "gain": "+836 ± 35",
-     "v": "ref"
+     "v": "ref",
+     "base": "7,233"
     },
     {
      "n": "Tuned weights v4, 3 cards ahead",
      "g": 10000,
      "avg": "8,340",
      "gain": "+1,107 ± 35",
-     "v": "ref"
+     "v": "ref",
+     "base": "7,233"
     },
     {
      "n": "v4 + selective 4-card look-ahead + exact last 4",
      "g": 10000,
      "avg": "8,467",
      "gain": "+1,234 ± 35",
-     "v": "ref"
+     "v": "ref",
+     "base": "7,233"
     },
     {
      "n": "Monte Carlo play-outs, 60 per move",
@@ -293,7 +316,8 @@
      "avg": "8,464",
      "gain": "+1,151 ± 110",
      "v": "none",
-     "note": "No better than the search, 20x slower."
+     "note": "No better than the search, 20x slower.",
+     "base": "7,313"
     },
     {
      "n": "Playing for the win instead of the average",
@@ -330,5 +354,19 @@
     }
    ]
   }
+ ],
+ "headline": [
+  [
+   "8,840",
+   "Live, taps only"
+  ],
+  [
+   "8,900-8,940",
+   "With background solving"
+  ],
+  [
+   "7,275",
+   "Starting point"
+  ]
  ]
 }

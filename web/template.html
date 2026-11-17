@@ -307,11 +307,12 @@ const store = {
 // ------------------------------- test scores -------------------------------
 function renderTests() {
   const esc = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;'), lab = { live: 'In the helper', gain: 'Better', none: 'No clear gain', ref: 'Measurement', run: 'Running' };
-  let h = '<p class="tip">Every engine and calculator test so far. Gains are against the engine of the time on the same shuffles; ± is the 95% range, so a gain smaller than its ± is not a clear result. Updated ' + esc(TESTS.updated) + '.</p>';
+  let h = '<p class="tip">Every engine and calculator test so far. The big number on each row is the average score per game; under it, the gain and the average of the engine it was compared with on the same shuffles; ± is the 95% range, so a gain smaller than its ± is not a clear result. Updated ' + esc(TESTS.updated) + '.</p>';
+  h += '<div class="tiles">' + TESTS.headline.map((x) => '<div class="tile"><b>' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></div>').join('') + '</div>';
   for (const s of TESTS.sections) {
     h += '<div class="tsec">' + esc(s.t) + '</div>' + (s.note ? '<p class="tip">' + esc(s.note) + '</p>' : '');
     for (const r of s.rows) h += '<div class="trow"><div><span class="nm">' + esc(r.n) + '</span><small>' + (r.g ? esc(typeof r.g === 'number' ? r.g.toLocaleString() : r.g) + ' games' : '') + (r.g && r.note ? ' · ' : '') + (r.note ? esc(r.note) : '') + '</small></div>' +
-      '<div class="rt">' + (r.gain ? '<b>' + esc(r.gain) + '</b>' : r.avg ? '<b>' + esc(r.avg) + '</b>' : '') + (r.gain && r.avg ? '<small>avg ' + esc(r.avg) + '</small>' : '') + '<span class="chip ' + r.v + '">' + lab[r.v] + '</span></div></div>';
+      '<div class="rt">' + (r.avg ? '<b>' + esc(r.avg) + '</b>' : r.gain ? '<b>' + esc(r.gain) + '</b>' : '') + (r.avg && r.gain ? '<small>' + esc(r.gain) + '</small>' : '') + (r.base ? '<small>was ' + esc(r.base) + '</small>' : '') + '<span class="chip ' + r.v + '">' + lab[r.v] + '</span></div></div>';
   }
   $('tests').innerHTML = h;
 }
