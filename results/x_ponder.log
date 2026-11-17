@@ -1,0 +1,5 @@
+Shipped (100k cap)                 n=700 mean 8867 med 9000 p5 6950 p95 10500 0bust 76.6% 3bust 0.9% ms 29.412 gain 0 ± 0 79s
+from 12 cap 1M table 2^22          n=700 mean 8904 med 9000 p5 6850 p95 10700 0bust 74.6% 3bust 1.0% ms 65.613 gain 37 ± 50 181s
+from 12 cap 2M table 2^22          n=700 mean 8930 med 9000 p5 6950 p95 10750 0bust 74.6% 3bust 1.0% ms 85.636 gain 64 ± 55 244s
+from 13 cap 2M table 2^22          n=700 mean 8913 med 9000 p5 6950 p95 10750 0bust 74.1% 3bust 0.4% ms 136.550 gain 47 ± 60 374s
+from 13 cap 4M table 2^23          n=700 mean 8926 med 9000 p5 6950 p95 10750 0bust 74.6% 3bust 1.0% ms 231.175 gain 60 ± 61 664s

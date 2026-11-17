@@ -40,7 +40,7 @@ function createExact(rules, opts) {
   // ---- mutable search state ----
   const cols = new Int32Array(4), deck = new Int32Array(11);
   let rem = 0, busts = 0, stays = 0, prev = 0, didx = 0, budget = Infinity, fresh = 0;
-  const ABORT = { abort: true };
+  const ABORT = { abort: true }, FULL = { full: true };
 
   function V() {
     if (busts >= maxBusts) return 0;
@@ -92,7 +92,7 @@ function createExact(rules, opts) {
       sum += cnt * best;
     }
     const r = sum / rem;
-    if (count >= maxLoad) throw new Error('exact table full: ' + count);
+    if (count >= maxLoad) { if (budget !== Infinity) throw FULL; throw new Error('exact table full: ' + count); }
     if (++fresh > budget) throw ABORT;
     h = (Math.imul(k1 ^ Math.imul(k2, 0x9E3779B1), 0x85EBCA6B)); h = (h ^ (h >>> 15)) & mask;
     while (K2[h] !== 0) h = (h + 1) & mask;
@@ -134,13 +134,20 @@ function createExact(rules, opts) {
   // maxNew (optional): give up (return null) once this many new positions had to be solved; solved ones are kept
   function choose(st, v, maxNew) {
     let list;
-    if (maxNew) { if (count + maxNew + 64 > maxLoad) clear(); budget = maxNew; fresh = 0; try { list = q(st, v); } catch (e) { budget = Infinity; if (e === ABORT) return null; throw e; } budget = Infinity; }
+    if (maxNew) { budget = maxNew; fresh = 0; try { list = q(st, v); } catch (e) { budget = Infinity; if (e === FULL) { clear(); return null; } if (e === ABORT) return null; throw e; } budget = Infinity; }
     else list = q(st, v);
     let best = list[0];
     for (const a of list) if (a.value > best.value + 1e-9) best = a;
     return { stay: best.stay, col: best.col, value: best.value, scores: list, exact: true };
   }
-  return { value, q, choose, clear, states: () => count, cap: () => cap };
+  // work on the position in the background: solve up to maxNew new positions (solved ones are kept).
+  // returns 1 once the position's value is known, 0 if there is more to do, -1 if the table filled up (it is emptied)
+  function ponder(st, maxNew) {
+    budget = maxNew; fresh = 0;
+    try { load(st); V(); } catch (e) { budget = Infinity; if (e === FULL) { clear(); return -1; } if (e === ABORT) return 0; throw e; }
+    budget = Infinity; return 1;
+  }
+  return { value, q, choose, clear, ponder, states: () => count, cap: () => cap };
 }
 // Shipped wrapper: `base` policy until xK cards remain, then an exact solve of the rest of the game for each move,
 // capped at `budget` new positions; if the cap is hit that move uses `base` (solved positions are kept for later moves).

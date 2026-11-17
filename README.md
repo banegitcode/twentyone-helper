@@ -305,6 +305,22 @@ where the specs file lists the policy from `results/shipped_policies.json` with 
 used are not committed because they repeat the network weights).
 The browser build matched Node game for game on 20 games; slowest move 81 ms on a laptop, about 18 ms average. Not timed on a phone.
 
+### Background solving (while waiting for the next card)
+
+With 12 cards or fewer left (13 on a computer) the page keeps solving the current position in short slices between
+taps, so the next move is exact whatever card comes. A tap never waits for it: if the solve is not finished the tap uses
+its own cap (100,000 positions on a phone, 400,000 on a computer) and then the normal search. Phones use a 48 MB table,
+computers a 400 MB one. The line under the timer shows "Solving the endgame…" and then "Endgame solved · moves are exact".
+
+| Setting (paired with the shipped 100k cap, fresh shuffles) | Games | Gain |
+|---|---|---|
+| Complete solve from 12 cards (what a computer reaches if it gets a few seconds per card) | 700 | +108 ± 38 |
+| Up to 2 million positions per move, 48 MB table (phone-sized) | 2,500 | +72 ± 32 |
+
+Logs: `results/x_full12.log`, `results/x_ponder.log`, `results/x_ponder2.log`. These were measured in Node as per-move
+caps; the page's slice-by-slice version was checked in a desktop browser for correctness and speed, not re-scored, and
+how much of the gain you get depends on how long the app leaves between cards.
+
 How far from perfect play is the rest? Measured only where an exact answer exists:
 
 - Small game (13 cards, one of each rank; exact optimum 3,540): the shipped search is 203 ± 9 points (5.7%) short.

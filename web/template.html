@@ -225,6 +225,7 @@
       <div class="stat"><b id="sStays">2</b><span>Stays left</span></div>
     </div>
     <div class="gsess" id="gSess"></div>
+    <div class="gsess" id="gExact"></div>
     <div class="losetag" id="loseTag" style="display:none">Lose mode · aiming for 2,000–5,000</div>
     <div class="advice" id="advice">
       <div class="heard" id="heard"></div>
@@ -298,10 +299,35 @@ let exactTable = null;
 function makePolicy() {
   const spec = POLICIES[horizonN] || POLICIES[52], base = E.createSearcher(rules, spec);
   policy = base;
+  exactOpt = null;
   if (spec.exact) try {
-    exactTable = exactTable || TwentyOneExact.createExact(rules, { logCap: spec.exact.logCap });
-    policy = TwentyOneExact.withExactEnd(rules, base, spec.exact, exactTable);
-  } catch (e) { policy = base; }   // not enough memory for the table: plain search
+    // A computer gets a bigger table, starts one card earlier and may spend longer on a tap than a phone.
+    const o = exactOpt = Object.assign({}, spec.exact, BIG ? { xK: 13, logCap: 25, budget: 400000 } : { logCap: 22 });
+    if (!exactTable) try { exactTable = TwentyOneExact.createExact(rules, { logCap: o.logCap }); }
+      catch (e) { exactTable = TwentyOneExact.createExact(rules, { logCap: spec.exact.logCap }); }
+    policy = TwentyOneExact.withExactEnd(rules, base, o, exactTable);
+  } catch (e) { policy = base; exactOpt = null; }   // not enough memory for the table: plain search
+}
+// While waiting for the next card the rest of the game is solved in the background, a slice at a time, so that the
+// next move is exact whatever card comes. Solved positions stay in the table, so a tap never waits for this.
+const BIG = !/Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent) && !(navigator.maxTouchPoints > 1);
+let exactOpt = null, ponderT = 0, ponderGen = 0, ponderState = '';
+function ponderShow(x) { ponderState = x; const e = $('gExact'); if (e) e.textContent = x === 'done' ? 'Endgame solved · moves are exact' : x === 'busy' ? 'Solving the endgame…' : ''; }
+function ponderKick() {
+  clearTimeout(ponderT); const gen = ++ponderGen; ponderShow('');
+  if (!exactOpt || !exactTable || REC.lose || st.over || st.rem > exactOpt.xK || st.rem < 1 || E.cardsLeftToPlay(st) !== st.rem) return;
+  const s = st; let chunk = 40000;
+  const step = () => {
+    if (gen !== ponderGen || s !== st) return;
+    const t0 = performance.now(); let r;
+    try { r = exactTable.ponder(s, chunk); } catch (e) { r = -1; }
+    const ms = performance.now() - t0;
+    if (r === 1) return ponderShow('done');
+    if (r < 0) return ponderShow('');
+    if (ms < 25) chunk = Math.min(400000, chunk * 2); else if (ms > 60) chunk = Math.max(10000, chunk >> 1);
+    ponderShow('busy'); ponderT = setTimeout(step, 8);
+  };
+  ponderT = setTimeout(step, 60);
 }
 function replay(actions) {
   const hz = horizonN >= rules.deckSize ? Infinity : horizonN, nCards = actions.filter((a) => a.t === 'card').length;
@@ -396,6 +422,7 @@ document.addEventListener('keydown', (e) => {
   else if (k === 'n') { e.preventDefault(); askNewGame(); }
 });
 function render() {
+  ponderKick();
   $('loseTag').style.display = REC.lose ? '' : 'none';
   $('sScore').textContent = st.score.toLocaleString();
   $('sLeft').textContent = E.cardsLeftToPlay(st);
@@ -1006,7 +1033,7 @@ document.addEventListener('visibilitychange', async () => {
   try { wake = await navigator.wakeLock.request('screen'); } catch (e) {}
 });
 document.addEventListener('touchend', () => { if (voiceOn && actx && actx.state !== 'running') actx.resume().catch(() => {}); }, { passive: true });
-window.__t = { LOSE, BK, getPolicy() { return policy; }, E, rules, simLose(n, seed) { const o = []; for (let i = 0; i < n; i++) { LOSE.reset(); const r = E.playGame(rules, LOSE, seed + i); o.push(r.score); } return o; }, parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice, enterGame, openStats,
+window.__t = { LOSE, BK, ponderInfo() { return { state: ponderState, BIG, opt: exactOpt, states: exactTable && exactTable.states(), rem: st.rem }; }, getPolicy() { return policy; }, E, rules, simLose(n, seed) { const o = []; for (let i = 0; i < n; i++) { LOSE.reset(); const r = E.playGame(rules, LOSE, seed + i); o.push(r.score); } return o; }, parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice, enterGame, openStats,
   get st() { return st; }, get last() { return last; }, get log() { return log; }, get rec() { return REC; } };
 (function init() {
   const saved = store.get('twentyone.game.v1', null);
