@@ -159,6 +159,12 @@
   .mv button { height:40px; border-radius:10px; border:1px solid var(--line); background:var(--panel); color:var(--ink); font-size:14px; font-weight:700; }
   .mvs { display:flex; justify-content:space-between; align-items:center; margin-top:6px; font-size:12.5px; color:var(--dim); } .mvs b { color:var(--ink); }
   .mvs button { border:0; background:transparent; color:var(--dim); font-size:12.5px; text-decoration:underline; padding:4px 0; }
+  .tsec { margin:14px 0 6px; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); }
+  .trow { display:grid; grid-template-columns:1fr auto; gap:2px 10px; align-items:start; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:8px 10px; margin-bottom:4px; font-size:13px; font-variant-numeric:tabular-nums; }
+  .trow .nm { font-weight:600; } .trow small { color:var(--dim); display:block; font-size:11px; margin-top:2px; }
+  .trow .rt { text-align:right; white-space:nowrap; } .trow .rt b { display:block; font-size:14px; }
+  .chip { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; border-radius:6px; padding:2px 6px; margin-top:3px; }
+  .chip.live { background:#17432a; color:var(--go); } .chip.gain { background:#17432a; color:var(--go); } .chip.none { background:#45201c; color:var(--bad); } .chip.ref { background:#1f2a3a; color:#8fb8ff; } .chip.run { background:#2b2a17; color:var(--gold); }
   .tip { font-size:12px; color:var(--dim); margin:0 2px 8px; } .grow[data-ed] { cursor:pointer; }
   .sess { display:flex; align-items:center; gap:10px; padding:8px 8px 8px 14px; margin-bottom:8px; border:1px solid var(--line); border-radius:12px; background:var(--panel); font-variant-numeric:tabular-nums; }
   .sess .clk { font-size:20px; font-weight:800; } .sess .info { flex:1; font-size:13px; color:var(--dim); line-height:1.25; } .sess .info b { color:var(--ink); }
@@ -192,6 +198,7 @@
     <details class="sec"><summary>By day</summary><div class="glist" id="byDay"></div></details>
     <details class="sec"><summary>By bet</summary><div class="glist" id="byStake"></div></details>
     <details class="sec"><summary>More stats</summary><div class="tiles" id="more"></div></details>
+    <details class="sec" id="testSec"><summary>Engine test scores</summary><div id="tests"></div></details>
     <details class="sec"><summary>Games</summary>
       <button class="ghostbtn" id="undoGame" style="margin:0 0 8px;color:var(--ink)">Undo last game</button>
       <div class="tip">Tap a game to edit or delete it. The small number is your balance after it.</div>
@@ -286,6 +293,7 @@
 <script>
 'use strict';
 const POLICIES = /*POLICIES*/;
+const TESTS = /*TESTS*/;
 const CLIPS = /*CLIPS*/;
 const E = TwentyOne, rules = E.DEFAULT_RULES, cfg = rules.cfg;
 // One button per card value: 10, J, Q and K are the same card to the game, so they share the "10" button (16 copies).
@@ -295,6 +303,18 @@ const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
 };
+
+// ------------------------------- test scores -------------------------------
+function renderTests() {
+  const esc = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;'), lab = { live: 'In the helper', gain: 'Better', none: 'No clear gain', ref: 'Measurement', run: 'Running' };
+  let h = '<p class="tip">Every engine and calculator test so far. Gains are against the engine of the time on the same shuffles; ± is the 95% range, so a gain smaller than its ± is not a clear result. Updated ' + esc(TESTS.updated) + '.</p>';
+  for (const s of TESTS.sections) {
+    h += '<div class="tsec">' + esc(s.t) + '</div>' + (s.note ? '<p class="tip">' + esc(s.note) + '</p>' : '');
+    for (const r of s.rows) h += '<div class="trow"><div><span class="nm">' + esc(r.n) + '</span><small>' + (r.g ? esc(typeof r.g === 'number' ? r.g.toLocaleString() : r.g) + ' games' : '') + (r.g && r.note ? ' · ' : '') + (r.note ? esc(r.note) : '') + '</small></div>' +
+      '<div class="rt">' + (r.gain ? '<b>' + esc(r.gain) + '</b>' : r.avg ? '<b>' + esc(r.avg) + '</b>' : '') + (r.gain && r.avg ? '<small>avg ' + esc(r.avg) + '</small>' : '') + '<span class="chip ' + r.v + '">' + lab[r.v] + '</span></div></div>';
+  }
+  $('tests').innerHTML = h;
+}
 
 // ------------------------------- game -------------------------------
 // The game is kept as a list of actions and rebuilt from it, so any card can be moved after the fact.
@@ -853,6 +873,7 @@ $('undoGame').onclick = () => {
 $('rDel').onclick = () => { if (editIdx == null || !confirm('Delete this game?')) return; REC.games.splice(editIdx, 1); saveRec(); closeSheets(); renderStats(); renderStrip(); };
 for (const [id, key] of [['cStart', 'start'], ['cFee', 'fee'], ['cPrize', 'prize']]) $(id).oninput = (e) => { REC[key] = num(e.target.value) || 0; saveRec(); drawStakeTiers(); renderStats(); renderStrip(); };
 for (const id of ['resultScrim']) $(id).addEventListener('click', (e) => { if (e.target === $(id)) { closeSheets(); render(); } });
+renderTests();
 $('thinkSel').onchange = (e) => { REC.think = +e.target.value; saveRec(); };
 $('lenSel').onchange = (e) => { horizonN = +e.target.value; makePolicy(); rebuild(); render(); };
 
