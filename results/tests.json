@@ -89,6 +89,10 @@
      "gain": "+60 ± 61",
      "v": "none",
      "base": "8,867"
+    },
+    {
+     "n": "Faster exact solver, to start the endgame earlier",
+     "v": "run"
     }
    ]
   },
@@ -178,8 +182,13 @@
      "v": "run"
     },
     {
-     "n": "Sampled look-ahead 4-8 cards deep",
-     "v": "run"
+     "n": "Sampled look-ahead: 24 deals, 6 cards deep",
+     "v": "none",
+     "g": 2000,
+     "avg": "8,736",
+     "gain": "-112 ± 57",
+     "base": "8,847",
+     "note": "Clearly worse than the live engine. Other settings still running."
     },
     {
      "n": "Simplified game solved exactly as a guide",
