@@ -1332,6 +1332,46 @@ const TESTS = {
      "note": "Each lost money in at least one scenario."
     }
    ]
+  },
+  {
+   "t": "Solving the whole game (estimate)",
+   "note": "Positions counted by sampling (an upper estimate). Time and cost assume 0.3-2.7 million positions a second per core and about $0.02 per core-hour; these are assumptions, not quotes.",
+   "rows": [
+    {
+     "n": "Positions in the full game",
+     "avg": "about 215 trillion",
+     "v": "ref",
+     "note": "Decks x column layouts x busts x Stays x streak. Largest single stage: 24 cards left, 12.7 trillion."
+    },
+    {
+     "n": "Computing needed",
+     "avg": "22,000-190,000 core-hours",
+     "v": "ref",
+     "note": "About $450-$3,900 at $0.02 per core-hour."
+    },
+    {
+     "n": "One 64-core server",
+     "avg": "2 weeks to 4 months",
+     "v": "ref"
+    },
+    {
+     "n": "Ten 64-core servers",
+     "avg": "1.5 to 13 days",
+     "v": "ref"
+    },
+    {
+     "n": "Storage while solving",
+     "avg": "about 50 TB",
+     "v": "ref",
+     "note": "The two largest stages. Keeping every answer would take about 430 TB."
+    },
+    {
+     "n": "Every position with 12 cards or fewer left",
+     "avg": "6.3 trillion",
+     "v": "ref",
+     "note": "About 13 TB, so a ready-made endgame table cannot ship in the helper."
+    }
+   ]
   }
  ],
  "headline": [

@@ -342,3 +342,14 @@ balance, current → with the check: opponents +300 points per stake step $83 �
 fixed 70% $219 → $205; fixed 80% $8,044 → $8,038; fixed 50% $19 → $19. Chance of halving the balance was unchanged in every model.
 Rejected: faster-reacting win rates, change-point triggers, stop-losses, more shrinkage, larger or smaller Kelly fractions.
 All opponent models are invented; real matchmaking is unknown.
+
+## How big is the whole game? (position count)
+
+`node src/count_states.js 60000` estimates the positions an exact solve from 52 cards would need: for each number of
+cards left it samples (deck, column layout) pairs and checks that the columns can be built from cards already dealt.
+It does not check that the other dealt cards could have been cleared, so it is an upper estimate. Result:
+**about 2.1 x 10^14 positions** (81 column states; largest stage 1.3 x 10^13 at 24 cards left; 6.3 x 10^12 with 12 or
+fewer cards left). Per-stage numbers are in `results/count_states.json`. At the measured 2.7 million positions a second
+per core (this solver, in memory) that is about 22,000 core-hours; at the 0.31 million per core of the published
+1.15-trillion-position 2048 solve (disk-based) about 190,000. Two adjacent stages must be on fast storage at once
+(about 50 TB at 2 bytes a position).
