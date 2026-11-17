@@ -400,6 +400,24 @@
      "avg": "6.3 trillion",
      "v": "ref",
      "note": "About 13 TB, so a ready-made endgame table cannot ship in the helper."
+    },
+    {
+     "n": "Every position in the last 13 cards",
+     "avg": "9.7 trillion",
+     "v": "ref",
+     "note": "1,000-8,700 core-hours ($20-$175). One 64-core server: 16 hours to 6 days. 12 TB while solving, 20 TB to keep."
+    },
+    {
+     "n": "Every position in the last 26 cards",
+     "avg": "142 trillion",
+     "v": "ref",
+     "note": "14,600-127,000 core-hours ($290-$2,500). One 64-core server: 10 to 83 days. 50 TB while solving, 283 TB to keep."
+    },
+    {
+     "n": "Every position in the last 39 cards",
+     "avg": "214 trillion",
+     "v": "ref",
+     "note": "Almost the whole game: 22,000-192,000 core-hours ($440-$3,850). 50 TB while solving, 429 TB to keep."
     }
    ]
   }
