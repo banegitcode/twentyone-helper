@@ -1,0 +1,2 @@
+shipped, no time guard         n=3000 mean 8867 0bust 76.8% 3bust 0.9% ms 36.1 max 261 | clears 14.63 streakPts 1495 runs4+/game 0.141 >=1: 13.8% >=2: 0.3% | gain 0 ± 0 streakPts gain 0 ± 0 1131s
+f2 ext-finetune, no guard      n=3000 mean 8858 0bust 76.2% 3bust 0.9% ms 41.8 max 411 | clears 14.61 streakPts 1490 runs4+/game 0.139 >=1: 13.5% >=2: 0.3% | gain -9 ± 30 streakPts gain -4 ± 21 1317s

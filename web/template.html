@@ -325,7 +325,10 @@ let st, rankLeft, colCards, log = [], last, policy, horizonN = 52, flashT = 0;
 // From 12 cards left the rest of the game is solved exactly when that fits the per-move cap (see src/exact.js).
 let exactTable = null;
 function makePolicy() {
-  const spec = POLICIES[horizonN] || POLICIES[52], base = E.createSearcher(rules, spec);
+  let spec = POLICIES[horizonN] || POLICIES[52];
+  // A computer has time to spare, so the search's 60 ms guard (which skips the deeper look when the device is busy) is lifted.
+  if (BIG && spec.deepen && spec.deepen.budgetMs) spec = Object.assign({}, spec, { deepen: Object.assign({}, spec.deepen, { budgetMs: 0 }) });
+  const base = E.createSearcher(rules, spec);
   policy = basePolicy = base;
   exactOpt = null;
   if (spec.exact) try {

@@ -1,0 +1,10 @@
+decode check: max |re-featurised - stored| on the first 56 inputs = 2.84e-8
+3864922 rows, net 88-128-48-1 val mse at start 0.13686
+epoch 1 train 0.06301 val 0.05707 lr 3.0e-4 170s
+epoch 2 train 0.05599 val 0.05395 lr 2.0e-4 142s
+epoch 3 train 0.05361 val 0.05284 lr 1.3e-4 164s
+epoch 4 train 0.05233 val 0.05147 lr 8.3e-5 173s
+epoch 5 train 0.05156 val 0.05091 lr 5.4e-5 157s
+epoch 6 train 0.05109 val 0.05053 lr 3.5e-5 208s
+epoch 7 train 0.05078 val 0.05032 lr 2.3e-5 196s
+epoch 8 train 0.05059 val 0.05017 lr 1.5e-5 215s

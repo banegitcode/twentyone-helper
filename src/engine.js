@@ -171,6 +171,74 @@
   }
 
   // ---------------------------------------------------------------------------
+  // Optional richer feature set (default off; used only by a network with nn.feat === 2). The first 56 inputs are
+  // featurize() unchanged; 32 more describe what the exact remaining deck can still do for each column.
+  // PTS = rules.pts, SB = rules.sb.
+  // ---------------------------------------------------------------------------
+  const NF2 = 88;
+  const _q2 = new Float64Array(64), _q2n = new Float64Array(64), _q3 = new Float64Array(64), _q3n = new Float64Array(64);
+  const _c2 = new Float64Array(64), _c3 = new Float64Array(64), _cm = new Int32Array(11);
+  function featurize2(cols, deck, rem, H, busts, stays, prev, NC, f, PTS, SB) {
+    featurize(cols, deck, rem, H, busts, stays, prev, NC, f);   // leaves the sorted column order in _ord
+    // chance that the next 2 / 3 cards sum to exactly t (ace = 1); the *n tables count only draws with no ace
+    for (let t = 0; t <= 31; t++) { _q2[t] = 0; _q2n[t] = 0; _q3[t] = 0; _q3n[t] = 0; }
+    if (rem >= 2) {
+      const z = 1 / (rem * (rem - 1));
+      for (let a = 1; a <= 10; a++) {
+        const da = deck[a]; if (!da) continue;
+        for (let b = 1; b <= 10; b++) {
+          const db = b === a ? da - 1 : deck[b]; if (db <= 0) continue;
+          const pr = da * db * z; _q2[a + b] += pr; if (a > 1 && b > 1) _q2n[a + b] += pr;
+        }
+      }
+      if (rem >= 3) {
+        const z3 = 1 / (rem - 2);     // third card: depletion by the first two is ignored
+        for (let s = 2; s <= 20; s++) {
+          const p2 = _q2[s], p2n = _q2n[s]; if (p2 === 0) continue;
+          for (let c = 1; c <= 10; c++) { const dc = deck[c]; if (!dc) continue; _q3[s + c] += p2 * dc * z3; if (c > 1) _q3n[s + c] += p2n * dc * z3; }
+        }
+      }
+    }
+    let acc = 0, acc3 = 0;
+    for (let t = 0; t <= 21; t++) { acc += _q2[t]; _c2[t] = acc; acc3 += _q3[t]; _c3[t] = acc3; }
+    let p = 56, live = 0, empt = 0;
+    for (let v = 1; v <= 10; v++) _cm[v] = 0;
+    for (let q = 0; q < 4; q++, p += 5) {
+      const c = q < NC ? cols[_ord[q]] : -1;
+      if (c < 0) { f[p] = f[p + 1] = f[p + 2] = f[p + 3] = f[p + 4] = 0; continue; }
+      const hard = c & 31, softA = ((c >> 5) & 1) && hard <= 11 ? 1 : 0, n = (c >> 6) & 7, need = 21 - hard, alt = need - 10, slots = 5 - n;
+      if (c === 0) empt++;
+      let m2 = 0, m3 = 0, fc = 0;
+      if (slots >= 2) { m2 = (need <= 20 ? _q2[need] : 0) + (alt >= 2 ? (softA ? _q2[alt] : _q2[alt] - _q2n[alt]) : 0); }
+      if (slots >= 3) { m3 = _q3[need] + (alt >= 3 ? (softA ? _q3[alt] : _q3[alt] - _q3n[alt]) : 0); }
+      if (slots === 2) fc = _c2[need]; else if (slots === 3) fc = _c3[need];
+      let e1 = 0, any = 0;
+      if (c !== 0) for (let v = 1; v <= 10; v++) { const dv = deck[v]; if (!dv) continue; const pt = PTS[c * 11 + v]; if (pt > 0) { e1 += dv * pt; _cm[v] |= 1 << q; any = 1; if (slots === 1) fc += dv; } }
+      if (slots === 1) fc /= rem;
+      live += any;
+      f[p] = m2; f[p + 1] = m3; f[p + 2] = rem >= 2 ? 1 - _c2[need] : 0; f[p + 3] = fc; f[p + 4] = e1 / (rem * 1000);
+    }
+    // next card: best immediate points, chance it scores; next two cards: chance both score (in different columns)
+    let eBest = 0, pAny = 0, pAny2 = 0;
+    for (let v = 1; v <= 10; v++) {
+      const dv = deck[v], m = _cm[v]; if (!dv || !m) continue;
+      pAny += dv; let bp = 0;
+      for (let q = 0; q < NC; q++) if (m & (1 << q)) { const pt = PTS[cols[_ord[q]] * 11 + v]; if (pt > bp) bp = pt; }
+      eBest += dv * bp;
+      if (rem >= 2) for (let b = 1; b <= 10; b++) {
+        const mb = _cm[b]; if (!mb) continue; const db = b === v ? dv - 1 : deck[b]; if (db <= 0) continue;
+        if (m !== mb || (m & (m - 1))) pAny2 += dv * db;
+      }
+    }
+    pAny /= rem; eBest /= rem * 1000; if (rem >= 2) pAny2 /= rem * (rem - 1);
+    const mp = SB.length - 1, pv = prev > mp ? mp : prev, forced = f[19];
+    f[76] = eBest; f[77] = pAny * SB[pv] / 1000; f[78] = pAny2; f[79] = pAny2 * SB[pv < mp ? pv + 1 : mp] / 1000;
+    f[80] = live / 4; f[81] = empt / 4; f[82] = _q2[11] - _q2n[11]; f[83] = _q3[21] + _q3[11] - _q3n[11];
+    f[84] = forced * stays / 2; f[85] = busts === 0 ? forced : 0; f[86] = busts >= 2 ? forced : 0; f[87] = 1 / rem;
+    return f;
+  }
+
+  // ---------------------------------------------------------------------------
   // Search policy
   // ---------------------------------------------------------------------------
   // Leaf weights. Leaf value estimates the future of a non-terminal state.
@@ -222,10 +290,11 @@
     // points still to come are spread, and the search maximises the chance of winning instead of the average score.
     const UT = params.util ? Float64Array.from(params.util.table) : null, utStep = params.util ? params.util.step || 50 : 50;
     const DIST = params.nn && params.nn.dist ? params.nn.dist : null;
+    const FEAT2 = !!(params.nn && params.nn.feat === 2);   // optional richer inputs (featurize2); default off
     if (UT && !DIST) throw new Error('win-chance mode needs a distribution network');
     const Uat = (x) => { const k = Math.round(x / utStep); return UT[k < 0 ? 0 : k >= UT.length ? UT.length - 1 : k]; };
     function nnLeaf() {
-      featurize(S.cols, S.deck, S.rem, S.H, S.busts, S.stays, S.prev, NC, nnA);
+      if (FEAT2) featurize2(S.cols, S.deck, S.rem, S.H, S.busts, S.stays, S.prev, NC, nnA, PTS, SB); else featurize(S.cols, S.deck, S.rem, S.H, S.busts, S.stays, S.prev, NC, nnA);
       let x = nnA, y = nnB;
       for (let li = 0; li < NN.length; li++) {
         const L = NN[li], W = L.W, nIn = L.nIn, nOut = L.nOut, last = li === NN.length - 1;
@@ -434,6 +503,6 @@
 
   return {
     CONFIG, compile, DEFAULT_RULES, BASELINE_WEIGHTS, mulberry32, shuffledDeck, newGame, cloneGame, applyMove,
-    cardsLeftToPlay, createSearcher, featurize, NF, playGame, softTotal, hardOf, aceOf, nOf, mkCol,
+    cardsLeftToPlay, createSearcher, featurize, NF, featurize2, NF2, playGame, softTotal, hardOf, aceOf, nOf, mkCol,
   };
 });

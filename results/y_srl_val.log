@@ -1,0 +1,5 @@
+shipped, no time guard         n=2000 mean 8847 0bust 77.4% 3bust 1.1% ms 31.5 max 339 | clears 14.63 streakPts 1474 runs4+/game 0.141 >=1: 13.7% >=2: 0.4% | gain 0 ± 0 streakPts gain 0 ± 0 554s
+srl S24 D6 m100 w1             n=2000 mean 8736 0bust 75.1% 3bust 1.6% ms 49.9 max 389 | clears 14.49 streakPts 1407 runs4+/game 0.128 >=1: 12.3% >=2: 0.5% | gain -112 ± 57 streakPts gain -67 ± 38 883s
+srl S24 D6 m100 w0.5           n=2000 mean 8819 0bust 76.5% 3bust 0.9% ms 62.4 max 427 | clears 14.58 streakPts 1447 runs4+/game 0.133 >=1: 12.8% >=2: 0.4% | gain -28 ± 53 streakPts gain -27 ± 36 1098s
+srl S48 D4 m60 w0.5            n=2000 mean 8841 0bust 76.3% 3bust 1.1% ms 46.6 max 354 | clears 14.64 streakPts 1473 runs4+/game 0.138 >=1: 13.5% >=2: 0.3% | gain -7 ± 50 streakPts gain -2 ± 33 819s
+srl S32 D8 m100 w0.3           n=2000 mean 8847 0bust 78.3% 3bust 1.1% ms 432.7 max 6202125 | clears 14.64 streakPts 1455 runs4+/game 0.125 >=1: 12.2% >=2: 0.4% | gain -0 ± 51 streakPts gain -20 ± 33 7501s

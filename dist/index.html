@@ -1156,10 +1156,6 @@ const TESTS = {
      "note": "0.17 s a move. Looking further ahead on early cards does not help."
     },
     {
-     "n": "Simplified game solved exactly as a guide",
-     "v": "run"
-    },
-    {
      "n": "Sampled look-ahead: 24 deals, 6 cards deep",
      "g": 2000,
      "avg": "8,736",
@@ -1188,6 +1184,17 @@ const TESTS = {
      "n": "Two ahead, three on close calls + exact endgame",
      "g": 1200,
      "v": "run"
+    },
+    {
+     "n": "Sampled look-ahead: 32 deals, 8 cards deep, light weight",
+     "g": 2000,
+     "gain": "0 ± 51",
+     "v": "none"
+    },
+    {
+     "n": "Simplified game solved exactly as a guide",
+     "v": "none",
+     "note": "Not workable: 4.5 billion positions (18 GB), and its values were off by 450-890 points where they could be checked, worse than the network (255-460)."
     }
    ]
   },
@@ -1229,8 +1236,16 @@ const TESTS = {
      "v": "none"
     },
     {
-     "n": "Richer inputs, other versions",
-     "v": "run"
+     "n": "Old inputs retrained from scratch (control)",
+     "g": 3000,
+     "gain": "-45 ± 35",
+     "v": "none"
+    },
+    {
+     "n": "How well the new inputs fit solved positions",
+     "avg": "224 points off",
+     "v": "ref",
+     "note": "Was 250. A better fit, but it picks the same moves."
     }
    ]
   },
@@ -1471,7 +1486,10 @@ let st, rankLeft, colCards, log = [], last, policy, horizonN = 52, flashT = 0;
 // From 12 cards left the rest of the game is solved exactly when that fits the per-move cap (see src/exact.js).
 let exactTable = null;
 function makePolicy() {
-  const spec = POLICIES[horizonN] || POLICIES[52], base = E.createSearcher(rules, spec);
+  let spec = POLICIES[horizonN] || POLICIES[52];
+  // A computer has time to spare, so the search's 60 ms guard (which skips the deeper look when the device is busy) is lifted.
+  if (BIG && spec.deepen && spec.deepen.budgetMs) spec = Object.assign({}, spec, { deepen: Object.assign({}, spec.deepen, { budgetMs: 0 }) });
+  const base = E.createSearcher(rules, spec);
   policy = basePolicy = base;
   exactOpt = null;
   if (spec.exact) try {
