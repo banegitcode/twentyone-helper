@@ -214,6 +214,13 @@
           <option value="35">Timer: ~35 cards</option><option value="25">Timer: ~25 cards</option>
         </select></label>
     </div>
+    <div class="frow" style="grid-template-columns:1fr">
+      <label class="field">Thinking time per card (endgame)
+        <select id="thinkSel" aria-label="Thinking time per card">
+          <option value="0.3">Fast (0.3 s)</option><option value="1">1 second</option><option value="2">2 seconds</option>
+          <option value="2.5">2.5 seconds</option><option value="3">3 seconds</option>
+        </select></label>
+    </div>
     <button class="ghostbtn danger" id="stReset">Erase all games</button></details>
   </div>
 
@@ -973,7 +980,7 @@ let st, rankLeft, colCards, log = [], last, policy, horizonN = 52, flashT = 0;
 let exactTable = null;
 function makePolicy() {
   const spec = POLICIES[horizonN] || POLICIES[52], base = E.createSearcher(rules, spec);
-  policy = base;
+  policy = basePolicy = base;
   exactOpt = null;
   if (spec.exact) try {
     // A computer gets a bigger table, starts one card earlier and may spend longer on a tap than a phone.
@@ -986,7 +993,16 @@ function makePolicy() {
 // While waiting for the next card the rest of the game is solved in the background, a slice at a time, so that the
 // next move is exact whatever card comes. Solved positions stay in the table, so a tap never waits for this.
 const BIG = !/Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent) && !(navigator.maxTouchPoints > 1);
-let exactOpt = null, ponderT = 0, ponderGen = 0, ponderState = '';
+let exactOpt = null, basePolicy = null, ponderT = 0, ponderGen = 0, ponderState = '';
+// On a tap in the endgame: keep solving for up to the chosen thinking time; an unfinished solve falls back to the search.
+const thinkSecs = () => (REC.think > 0 ? REC.think : BIG ? 2.5 : 1);
+function thinkChoose(s, v) {
+  if (exactOpt && exactTable && s.rem <= exactOpt.xK && E.cardsLeftToPlay(s) === s.rem) {
+    const end = performance.now() + thinkSecs() * 1000 - 40;
+    try { do { const m = exactTable.choose(s, v, 150000); if (m) return m; } while (performance.now() < end); return basePolicy.choose(s, v); } catch (e) {}
+  }
+  return policy.choose(s, v);
+}
 function ponderShow(x) { ponderState = x; const e = $('gExact'); if (e) e.textContent = x === 'done' ? 'Endgame solved · moves are exact' : x === 'busy' ? 'Solving the endgame…' : ''; }
 function ponderKick() {
   clearTimeout(ponderT); const gen = ++ponderGen; ponderShow('');
@@ -1056,7 +1072,7 @@ function playRank(r, forced) {
   actT = Date.now();
   if (r > 9) r = 9;                                             // J, Q, K count as 10
   if (st.over || rankLeft[r] <= 0) return null;
-  const t0 = performance.now(), move = forced || (REC.lose ? LOSE : policy).choose(st, VALS[r]), ms = performance.now() - t0;
+  const t0 = performance.now(), move = forced || (REC.lose ? LOSE.choose(st, VALS[r]) : thinkChoose(st, VALS[r])), ms = performance.now() - t0;
   log.push({ t: 'card', r, move: { stay: move.stay, col: move.col }, forced: !!forced, ms });
   rebuild(); render();
   if (st.over) setTimeout(() => { if (st.over && !dragging()) openResult(); }, 900);
@@ -1463,7 +1479,7 @@ function renderStats() {
 }
 const drawStakeTiers = () => drawTiers('cTiers', 'cFee', 'cPrize', (t) => { REC.fee = t[0]; REC.prize = t[1]; saveRec(); renderStats(); renderStrip(); }, true);
 function openStats() {
-  closeSheets(); $('cStart').value = REC.start || ''; $('cFee').value = REC.fee || ''; $('cPrize').value = REC.prize || ''; $('lenSel').value = String(horizonN);
+  closeSheets(); $('cStart').value = REC.start || ''; $('cFee').value = REC.fee || ''; $('cPrize').value = REC.prize || ''; $('lenSel').value = String(horizonN); $('thinkSel').value = String(thinkSecs());
   drawStakeTiers(); renderStats(); document.body.classList.add('inlobby'); window.scrollTo(0, 0);
 }
 $('statsBtn').onclick = () => { $('lobMsg').style.display = 'none'; openStats(); }; $('enterBtn').onclick = () => enterGame();
@@ -1512,6 +1528,7 @@ $('undoGame').onclick = () => {
 $('rDel').onclick = () => { if (editIdx == null || !confirm('Delete this game?')) return; REC.games.splice(editIdx, 1); saveRec(); closeSheets(); renderStats(); renderStrip(); };
 for (const [id, key] of [['cStart', 'start'], ['cFee', 'fee'], ['cPrize', 'prize']]) $(id).oninput = (e) => { REC[key] = num(e.target.value) || 0; saveRec(); drawStakeTiers(); renderStats(); renderStrip(); };
 for (const id of ['resultScrim']) $(id).addEventListener('click', (e) => { if (e.target === $(id)) { closeSheets(); render(); } });
+$('thinkSel').onchange = (e) => { REC.think = +e.target.value; saveRec(); };
 $('lenSel').onchange = (e) => { horizonN = +e.target.value; makePolicy(); rebuild(); render(); };
 
 // ------------------------------- voice mode -------------------------------

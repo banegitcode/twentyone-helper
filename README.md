@@ -308,8 +308,8 @@ The browser build matched Node game for game on 20 games; slowest move 81 ms on 
 ### Background solving (while waiting for the next card)
 
 With 12 cards or fewer left (13 on a computer) the page keeps solving the current position in short slices between
-taps, so the next move is exact whatever card comes. A tap never waits for it: if the solve is not finished the tap uses
-its own cap (100,000 positions on a phone, 400,000 on a computer) and then the normal search. Phones use a 48 MB table,
+taps, so the next move is exact whatever card comes. If the solve is not finished when you tap, the tap continues it for the thinking time and then uses the normal search. On a tap in the endgame the page also keeps solving for up to the "Thinking time per card" setting (default 2.5 s on a
+computer, 1 s on a phone) before falling back. Phones use a 48 MB table,
 computers a 400 MB one. The line under the timer shows "Solving the endgame…" and then "Endgame solved · moves are exact".
 
 | Setting (paired with the shipped 100k cap, fresh shuffles) | Games | Gain |
