@@ -1,0 +1,13 @@
+live engine                    n=1500 mean 8841 0bust 76.5% 3bust 1.1% ms 15.9 max 111 | clears 14.64 streakPts 1473 runs4+/game 0.139 >=1: 13.5% >=2: 0.3% | gain 0 ± 0 streakPts gain 0 ± 0 115s
+pure streak chaser (no search) n=1500 mean 6029 0bust 43.1% 3bust 10.6% ms 0.0 max 1 | clears 11.59 streakPts 577 runs4+/game 0.014 >=1: 1.4% >=2: 0.0% | gain -2812 ± 89 streakPts gain -897 ± 39 0s
+early game: streaks x2 (first 26 cards) n=1500 mean 8837 0bust 77.2% 3bust 0.8% ms 16.6 max 116 | clears 14.66 streakPts 1465 runs4+/game 0.129 >=1: 12.5% >=2: 0.3% | gain -4 ± 38 streakPts gain -9 ± 26 120s
+early game: streaks x3 (first 26 cards) n=1500 mean 8828 0bust 76.9% 3bust 0.9% ms 16.5 max 110 | clears 14.66 streakPts 1465 runs4+/game 0.127 >=1: 12.3% >=2: 0.4% | gain -13 ± 49 streakPts gain -9 ± 32 120s
+two-ahead base (control)       n=1500 mean 8838 0bust 76.4% 3bust 1.1% ms 72.4 max 276 | clears 14.63 streakPts 1474 runs4+/game 0.139 >=1: 13.6% >=2: 0.3% | gain -3 ± 6 streakPts gain 0 ± 4 530s
+set up next score: ties within 50 n=1500 mean 8820 0bust 73.9% 3bust 0.9% ms 71.5 max 284 | clears 14.53 streakPts 1506 runs4+/game 0.137 >=1: 13.3% >=2: 0.5% | gain -21 ± 61 streakPts gain 32 ± 40 516s
+set up next score: ties within 150 n=1500 mean 8434 0bust 65.5% 3bust 3.0% ms 66.6 max 256 | clears 13.95 streakPts 1409 runs4+/game 0.108 >=1: 10.6% >=2: 0.2% | gain -407 ± 74 streakPts gain -64 ± 43 481s
+streak chase: weight 0.25      n=1500 mean 8849 0bust 75.6% 3bust 1.2% ms 72.0 max 281 | clears 14.62 streakPts 1494 runs4+/game 0.144 >=1: 13.9% >=2: 0.5% | gain 8 ± 41 streakPts gain 21 ± 30 522s
+streak chase: weight 0.5       n=1500 mean 8832 0bust 75.1% 3bust 1.1% ms 70.7 max 267 | clears 14.60 streakPts 1491 runs4+/game 0.133 >=1: 12.9% >=2: 0.4% | gain -9 ± 51 streakPts gain 18 ± 34 515s
+streak chase: weight 1.0       n=1500 mean 8764 0bust 72.6% 3bust 0.9% ms 71.3 max 255 | clears 14.51 streakPts 1476 runs4+/game 0.127 >=1: 12.3% >=2: 0.4% | gain -77 ± 59 streakPts gain 3 ± 39 514s
+bust on purpose: +300          n=1500 mean 8802 0bust 71.5% 3bust 1.0% ms 103.6 max 759 | clears 14.62 streakPts 1482 runs4+/game 0.139 >=1: 13.6% >=2: 0.3% | gain -39 ± 22 streakPts gain 8 ± 14 760s
+bust on purpose: +600          n=1500 mean 8633 0bust 48.3% 3bust 1.5% ms 76.1 max 879 | clears 14.55 streakPts 1552 runs4+/game 0.169 >=1: 16.7% >=2: 0.1% | gain -208 ± 43 streakPts gain 79 ± 28 557s
+streak chase 0.5 + bust +300   n=1500 mean 8826 0bust 71.2% 3bust 1.0% ms 68.7 max 250 | clears 14.61 streakPts 1514 runs4+/game 0.135 >=1: 13.1% >=2: 0.4% | gain -15 ± 52 streakPts gain 41 ± 35 504s

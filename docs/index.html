@@ -1128,6 +1128,122 @@ const TESTS = {
    ]
   },
   {
+   "t": "Streak strategies and early game",
+   "note": "Same 1,500 fresh shuffles for every row, scored under the real rules, one card visible at a time. The live engine scored 8,841 with 1,473 streak points a game.",
+   "rows": [
+    {
+     "n": "Pure streak chaser: always the move most likely to keep the streak going, no search",
+     "g": 1500,
+     "avg": "6,029",
+     "gain": "-2,812 ± 89",
+     "base": "8,841",
+     "v": "none",
+     "note": "Busts far more (zero-bust games 43% instead of 77%) and even earns fewer streak points, 577."
+    },
+    {
+     "n": "Early game (first 26 cards): streaks valued 2x",
+     "g": 1500,
+     "avg": "8,837",
+     "gain": "-4 ± 38",
+     "base": "8,841",
+     "v": "none"
+    },
+    {
+     "n": "Early game (first 26 cards): streaks valued 3x",
+     "g": 1500,
+     "avg": "8,828",
+     "gain": "-13 ± 49",
+     "base": "8,841",
+     "v": "none"
+    },
+    {
+     "n": "Set up the next score: between near-equal moves (within 50), take the one most likely to score next card",
+     "g": 1500,
+     "avg": "8,820",
+     "gain": "-21 ± 61",
+     "base": "8,841",
+     "v": "none",
+     "note": "Streak points +32, but more busts."
+    },
+    {
+     "n": "Same, moves within 150",
+     "g": 1500,
+     "avg": "8,434",
+     "gain": "-407 ± 74",
+     "base": "8,841",
+     "v": "none"
+    },
+    {
+     "n": "Streak chase bonus, light",
+     "g": 1500,
+     "avg": "8,849",
+     "gain": "+8 ± 41",
+     "base": "8,841",
+     "v": "none",
+     "note": "Streak points +21."
+    },
+    {
+     "n": "Streak chase bonus, medium",
+     "g": 1500,
+     "avg": "8,832",
+     "gain": "-9 ± 51",
+     "base": "8,841",
+     "v": "none"
+    },
+    {
+     "n": "Streak chase bonus, heavy",
+     "g": 1500,
+     "avg": "8,764",
+     "gain": "-77 ± 59",
+     "base": "8,841",
+     "v": "none"
+    },
+    {
+     "n": "Bust on purpose: first bust treated as costing 300 less",
+     "g": 1500,
+     "avg": "8,802",
+     "gain": "-39 ± 22",
+     "base": "8,841",
+     "v": "none",
+     "note": "Streak points +8, nowhere near the 1,000 given up."
+    },
+    {
+     "n": "Bust on purpose: first bust treated as costing 600 less",
+     "g": 1500,
+     "avg": "8,633",
+     "gain": "-208 ± 43",
+     "base": "8,841",
+     "v": "none",
+     "note": "Streak points +79; zero-bust games fall from 77% to 48%."
+    },
+    {
+     "n": "Streak chase medium + bust on purpose 300",
+     "g": 1500,
+     "avg": "8,826",
+     "gain": "-15 ± 52",
+     "base": "8,841",
+     "v": "none",
+     "note": "Streak points +41."
+    },
+    {
+     "n": "Whole deck known in advance: where its extra points come from",
+     "g": 40,
+     "avg": "12,280",
+     "v": "ref",
+     "note": "4,725 streak points a game (3.3 runs of 3 or more) against 1,473 for the engine. Those streaks come from knowing the card order, which real play does not have."
+    },
+    {
+     "n": "If the app showed the next card too (it does not)",
+     "g": 150,
+     "avg": "9,141",
+     "gain": "+444 ± 204",
+     "base": "8,696",
+     "v": "ref",
+     "note": "A curiosity only."
+    }
+   ]
+  },
+  {
    "t": "More thinking on early cards",
    "rows": [
     {
@@ -1183,7 +1299,11 @@ const TESTS = {
     {
      "n": "Two ahead, three on close calls + exact endgame",
      "g": 1200,
-     "v": "run"
+     "v": "run",
+     "avg": "8,883",
+     "gain": "+75 ± 59",
+     "base": "8,808",
+     "note": "1.9 s a move, which fits the MacBook budget. Not conclusive yet; being re-run on 2,400 fresh shuffles."
     },
     {
      "n": "Sampled look-ahead: 32 deals, 8 cards deep, light weight",

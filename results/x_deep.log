@@ -1,2 +1,3 @@
 Shipped                            n=3000 mean 8815 med 8900 p5 6950 p95 10550 0bust 76.3% 3bust 1.0% ms 38.933 gain 0 ± 0 441s
 Two cards ahead everywhere + exact end n=3000 mean 8818 med 8900 p5 6900 p95 10550 0bust 76.4% 3bust 0.7% ms 174.686 gain 4 ± 29 1986s
+Two ahead + three on close calls + exact end n=1200 mean 8883 med 9000 p5 6950 p95 10550 0bust 77.4% 3bust 1.0% ms 1920.781 gain 75 ± 59 8586s
