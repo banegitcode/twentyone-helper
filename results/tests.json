@@ -68,7 +68,16 @@
      "gain": "+28 ± 18",
      "base": "8,913",
      "v": "live",
-     "note": "What background solving reaches on a computer. 14 and 15 cards are still being scored."
+     "note": "What background solving reaches on a computer."
+    },
+    {
+     "n": "Complete solve from 14 cards instead of 12",
+     "g": 1000,
+     "avg": "8,966",
+     "gain": "+53 ± 23",
+     "base": "8,913",
+     "v": "live",
+     "note": "Now the starting point on a computer: the page begins solving at 14 cards and is usually finished by 13 or 12. 15 cards is still being scored."
     },
     {
      "n": "Exact solve from 12 cards, 100,000-position cap (researcher's run)",
@@ -416,6 +425,15 @@
      "n": "Simplified game solved exactly as a guide",
      "v": "none",
      "note": "Not workable: 4.5 billion positions (18 GB), and its values were off by 450-890 points where they could be checked, worse than the network (255-460)."
+    },
+    {
+     "n": "Three cards ahead on every move + exact endgame",
+     "g": 1500,
+     "avg": "8,810",
+     "gain": "-1 ± 50",
+     "base": "8,811",
+     "v": "none",
+     "note": "2.4 s a move. Looking further ahead before the endgame does not change the result."
     }
    ]
   },
@@ -667,7 +685,7 @@
    "Live, taps only"
   ],
   [
-   "8,940+",
+   "8,940-8,970",
    "With background solving"
   ],
   [

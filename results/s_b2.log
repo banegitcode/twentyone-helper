@@ -2,3 +2,5 @@ live engine                    n=1500 mean 8843 0bust 76.5% 3bust 1.2% ms 41.2 m
 search told a 4-streak pays 4,000 n=1500 mean 8838 0bust 77.0% 3bust 1.2% ms 42.8 max 366 | clears 14.63 streakPts 1462 runs4+/game 0.129 >=1: 12.7% >=2: 0.3% | gain -5 ± 40 streakPts gain -12 ± 28 562s
 search told 2- and 3-streaks pay double n=1500 mean 8824 0bust 77.1% 3bust 0.7% ms 35.1 max 321 | clears 14.72 streakPts 1462 runs4+/game 0.129 >=1: 12.7% >=2: 0.3% | gain -19 ± 45 streakPts gain -13 ± 32 465s
 search told every streak step pays 1,000 n=1500 mean 8785 0bust 78.0% 3bust 0.5% ms 279.6 max 898664 | clears 14.76 streakPts 1407 runs4+/game 0.111 >=1: 10.9% >=2: 0.3% | gain -58 ± 54 streakPts gain -67 ± 36 3719s
+search told streaks pay nothing n=1500 mean 8297 0bust 73.1% 3bust 1.1% ms 35.6 max 14413 | clears 14.35 streakPts 961 runs4+/game 0.075 >=1: 7.5% >=2: 0.1% | gain -546 ± 53 streakPts gain -513 ± 37 475s
+protect a streak: chase 1.0 only once on 2 in a row n=1500 mean 8836 0bust 76.3% 3bust 0.9% ms 125.8 max 754 | clears 14.62 streakPts 1481 runs4+/game 0.137 >=1: 13.4% >=2: 0.3% | gain -7 ± 42 streakPts gain 7 ± 29 1662s

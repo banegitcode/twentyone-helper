@@ -32,6 +32,21 @@
    "msPerMove": 193.64853661173208,
    "clears21": 13.825,
    "cards": 51.874
+  },
+  {
+   "name": "Complete solve from 14 cards (faster solver)",
+   "gain": 52.95,
+   "ci": 22.857734982375746,
+   "n": 1000,
+   "mean": 8966.2,
+   "median": 9050,
+   "p5": 7050,
+   "p95": 10750,
+   "zeroBust": 0.781,
+   "bustOut": 0.015,
+   "msPerMove": 949.5480500058987,
+   "clears21": 13.85,
+   "cards": 51.874
   }
  ]
 }

@@ -333,7 +333,7 @@ function makePolicy() {
   exactOpt = null;
   if (spec.exact) try {
     // A computer gets a bigger table, starts one card earlier and may spend longer on a tap than a phone.
-    const o = exactOpt = Object.assign({}, spec.exact, BIG ? { xK: 13, logCap: 25, budget: 400000 } : { logCap: 22 });
+    const o = exactOpt = Object.assign({}, spec.exact, BIG ? { xK: 14, logCap: 25, budget: 400000 } : { logCap: 22 });
     if (!exactTable) try { exactTable = TwentyOneExact.createExact(rules, { logCap: o.logCap }); }
       catch (e) { exactTable = TwentyOneExact.createExact(rules, { logCap: spec.exact.logCap }); }
     policy = TwentyOneExact.withExactEnd(rules, base, o, exactTable);

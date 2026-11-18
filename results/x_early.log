@@ -1,2 +1,3 @@
 Complete solve from 12 cards (faster solver) n=1000 mean 8913 med 9000 p5 7000 p95 10750 0bust 78.4% 3bust 1.7% ms 87.046 gain 0 ± 0 740s
 Complete solve from 13 cards (faster solver) n=1000 mean 8941 med 9050 p5 7000 p95 10750 0bust 78.2% 3bust 1.5% ms 193.649 gain 28 ± 18 1593s
+Complete solve from 14 cards (faster solver) n=1000 mean 8966 med 9050 p5 7050 p95 10750 0bust 78.1% 3bust 1.5% ms 949.548 gain 53 ± 23 6579s
