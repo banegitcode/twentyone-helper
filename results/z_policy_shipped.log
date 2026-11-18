@@ -1,0 +1,21 @@
+5000000 old 10400 new 10400 exact moves 7/12 10/12 
+5000001 old 8400 new 8400 exact moves 8/12 9/12 {"rem":9,"card":6,"old":{"stay":-1,"col":2,"exact":false},"new":{"stay":-1,"col":3,"exact":true},"oldMoveExactValue":3615.3273862929573,"newMoveExactValue":3649.702376120431,"bestExactValue":3649.702376120431}
+5000002 old 9200 new 9200 exact moves 7/12 9/12 
+5000003 old 10500 new 10500 exact moves 7/12 10/12 
+5000004 old 9250 new 9250 exact moves 8/12 9/12 
+5000005 old 8600 new 8600 exact moves 8/12 9/12 {"rem":9,"card":3,"old":{"stay":-1,"col":2,"exact":false},"new":{"stay":-1,"col":3,"exact":true},"oldMoveExactValue":3060.027274613153,"newMoveExactValue":3088.075407312787,"bestExactValue":3088.075407312787}
+5000006 old 8550 new 8550 exact moves 9/12 10/12 
+5000007 old 8150 new 8150 exact moves 11/12 12/12 
+5000008 old 9750 new 9750 exact moves 8/12 9/12 
+5000009 old 7650 new 7650 exact moves 10/12 10/12 {"rem":10,"card":6,"old":{"stay":-1,"col":1,"exact":true},"new":{"stay":-1,"col":0,"exact":true},"oldMoveExactValue":3116.06982421875,"newMoveExactValue":3116.0697830846066,"bestExactValue":3116.06982421875}
+5000010 old 7000 new 7000 exact moves 10/12 11/12 
+5000011 old 11700 new 10700 exact moves 8/12 9/12 {"rem":9,"card":8,"old":{"stay":-1,"col":3,"exact":false},"new":{"stay":-1,"col":1,"exact":true},"oldMoveExactValue":3514.136908249628,"newMoveExactValue":3552.2321484883623,"bestExactValue":3552.2321484883623}
+5000012 old 7950 new 7950 exact moves 10/12 12/12 
+5000013 old 9400 new 9800 exact moves 8/12 10/12 {"rem":10,"card":3,"old":{"stay":-1,"col":1,"exact":false},"new":{"stay":-1,"col":0,"exact":true},"oldMoveExactValue":3202.1197182468636,"newMoveExactValue":3271.2004071136416,"bestExactValue":3271.2004071136416}
+5000014 old 8900 new 8400 exact moves 10/12 11/12 {"rem":11,"card":10,"old":{"stay":-1,"col":3,"exact":false},"new":{"stay":-1,"col":0,"exact":true},"oldMoveExactValue":3607.8204649667887,"newMoveExactValue":3725.610131305513,"bestExactValue":3725.610131305513}
+5000015 old 9300 new 9300 exact moves 8/12 10/12 {"rem":10,"card":1,"old":{"stay":0,"col":0,"exact":false},"new":{"stay":-1,"col":2,"exact":true},"oldMoveExactValue":3370.5903291248137,"newMoveExactValue":3387.4057705470495,"bestExactValue":3387.4057705470495}
+5000016 old 9700 new 9700 exact moves 8/12 9/12 
+5000017 old 10150 new 10150 exact moves 10/12 12/12 
+5000018 old 8900 new 9300 exact moves 8/12 9/12 {"rem":9,"card":4,"old":{"stay":-1,"col":2,"exact":false},"new":{"stay":-1,"col":0,"exact":true},"oldMoveExactValue":3268.8293673318535,"newMoveExactValue":3887.5000273204982,"bestExactValue":3887.5000273204982}
+5000019 old 9900 new 9900 exact moves 8/12 10/12 
+mode shipped old average 9167.5 new average 9132.5 identical games 16/20 exact late moves old 171 new 200

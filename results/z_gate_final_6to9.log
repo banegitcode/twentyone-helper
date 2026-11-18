@@ -1,0 +1,51 @@
+15 positions failures 0 max |dV| 2.71e-6 max |dQ| 2.03e-6
+30 positions failures 0 max |dV| 1.63e-5 max |dQ| 2.44e-4
+45 positions failures 0 max |dV| 1.63e-5 max |dQ| 2.44e-4
+60 positions failures 0 max |dV| 1.63e-5 max |dQ| 2.44e-4
+75 positions failures 0 max |dV| 1.63e-5 max |dQ| 2.44e-4
+90 positions failures 0 max |dV| 1.63e-5 max |dQ| 2.44e-4
+105 positions failures 0 max |dV| 1.63e-5 max |dQ| 2.44e-4
+120 positions failures 0 max |dV| 1.63e-5 max |dQ| 2.44e-4
+135 positions failures 0 max |dV| 2.78e-5 max |dQ| 2.44e-4
+150 positions failures 0 max |dV| 2.96e-5 max |dQ| 2.44e-4
+165 positions failures 0 max |dV| 2.96e-5 max |dQ| 2.44e-4
+180 positions failures 0 max |dV| 4.42e-5 max |dQ| 2.44e-4
+{
+ "positions": 180,
+ "skippedOldSolverFailed": 0,
+ "passed": 180,
+ "tolerance": 0.01,
+ "maxAbsValueDiff": 0.00004424241387823713,
+ "maxAbsQDiff": 0.000244140625,
+ "byK": {
+  "6": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 350074,
+   "newEntries": 61914,
+   "tieMovesDiffer": 1
+  },
+  "7": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 986369,
+   "newEntries": 186034,
+   "tieMovesDiffer": 3
+  },
+  "8": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 3732434,
+   "newEntries": 682216,
+   "tieMovesDiffer": 0
+  },
+  "9": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 18544756,
+   "newEntries": 3318375,
+   "tieMovesDiffer": 2
+  }
+ },
+ "fails": 0
+}

@@ -1075,7 +1075,7 @@ document.addEventListener('visibilitychange', async () => {
   try { wake = await navigator.wakeLock.request('screen'); } catch (e) {}
 });
 document.addEventListener('touchend', () => { if (voiceOn && actx && actx.state !== 'running') actx.resume().catch(() => {}); }, { passive: true });
-window.__t = { LOSE, BK, ponderInfo() { return { state: ponderState, BIG, opt: exactOpt, states: exactTable && exactTable.states(), rem: st.rem }; }, getPolicy() { return policy; }, E, rules, simLose(n, seed) { const o = []; for (let i = 0; i < n; i++) { LOSE.reset(); const r = E.playGame(rules, LOSE, seed + i); o.push(r.score); } return o; }, parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice, enterGame, openStats,
+window.__t = { LOSE, BK, ponderInfo() { return { state: ponderState, BIG, opt: exactOpt, states: exactTable && exactTable.states(), kernel: exactTable && exactTable.kernel && exactTable.kernel(), rem: st.rem }; }, getPolicy() { return policy; }, E, rules, simLose(n, seed) { const o = []; for (let i = 0; i < n; i++) { LOSE.reset(); const r = E.playGame(rules, LOSE, seed + i); o.push(r.score); } return o; }, parse, reconcile, resetRan() { ran = []; }, setEcho(x) { echoGuard = x; }, playRank, undo, newGame, moveCard, manualStay, speakMove, loadClips, openResult, record, summary, betAdvice, enterGame, openStats,
   get st() { return st; }, get last() { return last; }, get log() { return log; }, get rec() { return REC; } };
 (function init() {
   const saved = store.get('twentyone.game.v1', null);

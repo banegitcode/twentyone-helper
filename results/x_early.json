@@ -1,0 +1,37 @@
+{
+ "seedStart": 3900000,
+ "count": 1000,
+ "horizon": 52,
+ "rows": [
+  {
+   "name": "Complete solve from 12 cards (faster solver)",
+   "gain": 0,
+   "ci": 0,
+   "n": 1000,
+   "mean": 8913.25,
+   "median": 9000,
+   "p5": 7000,
+   "p95": 10750,
+   "zeroBust": 0.784,
+   "bustOut": 0.017,
+   "msPerMove": 87.04555324213455,
+   "clears21": 13.812,
+   "cards": 51.872
+  },
+  {
+   "name": "Complete solve from 13 cards (faster solver)",
+   "gain": 28.2,
+   "ci": 18.238149799914485,
+   "n": 1000,
+   "mean": 8941.45,
+   "median": 9050,
+   "p5": 7000,
+   "p95": 10750,
+   "zeroBust": 0.782,
+   "bustOut": 0.015,
+   "msPerMove": 193.64853661173208,
+   "clears21": 13.825,
+   "cards": 51.874
+  }
+ ]
+}

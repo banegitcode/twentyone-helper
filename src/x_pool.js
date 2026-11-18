@@ -16,7 +16,7 @@ if (!isMainThread) {
     parentPort.postMessage({ id, out });
   });
 } else {
-  const N = Math.max(1, Math.min(os.cpus().length - 1, 14));
+  const N = +process.env.POOL || Math.max(1, Math.min(os.cpus().length - 1, 14));
   let workers = null, nextId = 0; const pending = new Map();
   function start() {
     workers = Array.from({ length: N }, () => {

@@ -32,9 +32,44 @@
    ]
   },
   {
-   "t": "Exact endgame (last 12 cards)",
+   "t": "Exact endgame (last 13 cards)",
    "note": "Compared with the engine before it, same shuffles.",
    "rows": [
+    {
+     "n": "Faster solver, same answers, same per-tap cap, from 12 cards",
+     "g": 3000,
+     "avg": "8,895",
+     "gain": "+58 ± 11",
+     "base": "8,836",
+     "v": "live",
+     "note": "About 5x faster and 4x fewer positions, so far more endgame moves get solved exactly. Checked against the old solver position by position: no mismatches."
+    },
+    {
+     "n": "Faster solver from 13 cards (now live)",
+     "g": 3000,
+     "avg": "8,901",
+     "gain": "+64 ± 11",
+     "base": "8,836",
+     "v": "live"
+    },
+    {
+     "n": "Faster solver from 14 cards, same cap",
+     "g": 3000,
+     "avg": "8,902",
+     "gain": "+66 ± 12",
+     "base": "8,836",
+     "v": "none",
+     "note": "No better than 13 at this cap, and 3x slower."
+    },
+    {
+     "n": "Complete solve from 13 cards instead of 12",
+     "g": 1000,
+     "avg": "8,941",
+     "gain": "+28 ± 18",
+     "base": "8,913",
+     "v": "live",
+     "note": "What background solving reaches on a computer. 14 and 15 cards are still being scored."
+    },
     {
      "n": "Exact solve from 12 cards, 100,000-position cap (researcher's run)",
      "g": 6000,
@@ -89,10 +124,6 @@
      "gain": "+60 ± 61",
      "v": "none",
      "base": "8,867"
-    },
-    {
-     "n": "Faster exact solver, to start the endgame earlier",
-     "v": "run"
     }
    ]
   },
@@ -256,6 +287,46 @@
      "note": "Streak points +41."
     },
     {
+     "n": "Light streak chase, only when no next card can force a bust",
+     "g": 1500,
+     "avg": "8,807",
+     "gain": "-27 ± 54",
+     "base": "8,834",
+     "v": "none"
+    },
+    {
+     "n": "Medium streak chase, same safety rule (5% and 10% versions scored the same)",
+     "g": 1500,
+     "avg": "8,715",
+     "gain": "-119 ± 62",
+     "base": "8,834",
+     "v": "none"
+    },
+    {
+     "n": "Strong streak chase, same safety rule",
+     "g": 1500,
+     "avg": "8,420",
+     "gain": "-413 ± 70",
+     "base": "8,834",
+     "v": "none"
+    },
+    {
+     "n": "Set up the next score within 100, same safety rule",
+     "g": 1500,
+     "avg": "8,666",
+     "gain": "-167 ± 69",
+     "base": "8,834",
+     "v": "none"
+    },
+    {
+     "n": "Set up the next score within 200, same safety rule",
+     "g": 1500,
+     "avg": "8,264",
+     "gain": "-569 ± 77",
+     "base": "8,834",
+     "v": "none"
+    },
+    {
      "n": "Whole deck known in advance: where its extra points come from",
      "g": 40,
      "avg": "12,280",
@@ -329,11 +400,11 @@
     {
      "n": "Two ahead, three on close calls + exact endgame",
      "g": 1200,
-     "v": "run",
+     "v": "none",
      "avg": "8,883",
      "gain": "+75 ± 59",
      "base": "8,808",
-     "note": "1.9 s a move, which fits the MacBook budget. Not conclusive yet; being re-run on 2,400 fresh shuffles."
+     "note": "First run showed +75 ± 59; the re-run on 1,200 fresh shuffles showed -4 ± 56. No gain."
     },
     {
      "n": "Sampled look-ahead: 32 deals, 8 cards deep, light weight",
@@ -592,11 +663,11 @@
  ],
  "headline": [
   [
-   "8,840",
+   "8,900",
    "Live, taps only"
   ],
   [
-   "8,900-8,940",
+   "8,940+",
    "With background solving"
   ],
   [

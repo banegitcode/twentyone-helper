@@ -1,0 +1,31 @@
+{
+ "K": 12,
+ "n": 30,
+ "res": {
+  "all": {
+   "entries": 52907726,
+   "checksum": 109229.02301762988,
+   "tableFull": 0
+  },
+  "no column classes": {
+   "entries": 199862889,
+   "checksum": 109229.02301692129,
+   "tableFull": 0
+  },
+  "no stay cap": {
+   "entries": 53040828,
+   "checksum": 109229.02301939737,
+   "tableFull": 0
+  },
+  "no streak drop": {
+   "entries": 57122114,
+   "checksum": 109229.02300927852,
+   "tableFull": 0
+  },
+  "none": {
+   "entries": 219273914,
+   "checksum": 109229.02300456085,
+   "tableFull": 0
+  }
+ }
+}

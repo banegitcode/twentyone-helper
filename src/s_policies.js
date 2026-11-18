@@ -15,6 +15,29 @@ function nextScoreChance(rules, st) {              // chance that the next card 
   for (let v = 1; v <= 10; v++) { const c = st.deck[v]; if (!c) continue; for (let j = 0; j < rules.cfg.numCols; j++) if (rules.pts[st.cols[j] * 11 + v] > 0) { hit += c; break; } }
   return st.rem ? hit / st.rem : 0;
 }
+function forcedBustChance(rules, st) {            // chance that the next card busts whichever column it goes on
+  let bad = 0;
+  for (let v = 1; v <= 10; v++) { const c = st.deck[v]; if (!c) continue; let ok = false; for (let j = 0; j < rules.cfg.numCols; j++) if (rules.pts[st.cols[j] * 11 + v] >= 0) { ok = true; break; } if (!ok) bad += c; }
+  return st.rem ? bad / st.rem : 0;
+}
+function readyRanks(rules, st) {                  // how many different card values would score next turn
+  let n = 0;
+  for (let v = 1; v <= 10; v++) { if (!st.deck[v]) continue; for (let j = 0; j < rules.cfg.numCols; j++) if (rules.pts[st.cols[j] * 11 + v] > 0) { n++; break; } }
+  return n;
+}
+function twoCardChance(rules, st) {               // expected scoring turns over the next two cards, placing the first greedily
+  if (!st.rem) return 0; let tot = 0;
+  for (let v = 1; v <= 10; v++) {
+    const c = st.deck[v]; if (!c) continue; let best = 0;
+    for (let j = 0; j < rules.cfg.numCols; j++) {
+      const k = rules.pts[st.cols[j] * 11 + v]; if (k < 0) continue;
+      const g = E.cloneGame(st); E.applyMove(rules, g, v, { stay: -1, col: j });
+      const x = (k > 0 ? 1 : 0) + (g.over ? 0 : nextScoreChance(rules, g)); if (x > best) best = x;
+    }
+    tot += c * best;
+  }
+  return tot / st.rem;
+}
 function after(rules, st, v, m) { const g = E.cloneGame(st); const ev = E.applyMove(rules, g, v, m); return { g, ev }; }
 function createS(rules, spec) {
   if (spec.exactEnd) { const b = Object.assign({}, spec); delete b.exactEnd; return require('./exact.js').withExactEnd(rules, createS(rules, b), spec.exactEnd); }
@@ -27,12 +50,18 @@ function createS(rules, spec) {
         let best = null, bestV = -Infinity; const top = m.value;
         for (const s of m.scores) {
           if (!Number.isFinite(s.value)) continue;
-          const { g } = after(rules, st, v, s), p = g.over ? 0 : nextScoreChance(rules, g);
+          const { g, ev } = after(rules, st, v, s); let p = g.over ? 0 : spec.two ? twoCardChance(rules, g) / 2 : nextScoreChance(rules, g);
+          if ((spec.minPrev && g.prev < spec.minPrev) || (spec.late && st.rem > spec.late) || (spec.tens && st.deck[10] / st.rem < spec.tens)) p = 0;
+          const risky = spec.safe != null && (g.over || g.busts > st.busts || forcedBustChance(rules, g) > spec.safe);   // 'safe': chase only when bust risk is low
           let val;
+          if (risky) p = 0;
           if (spec.tie) { if (s.value < top - spec.tie) continue; val = p * 1e6 + s.value; }
           else {
             val = s.value + (spec.b || 0) * p * (400 + SB[Math.min(g.prev, mx)]);
             if (spec.a && st.busts === 0 && g.busts === 1) val += spec.a;
+            if (spec.ranks && !g.over) val += spec.ranks * readyRanks(rules, g);
+            if (spec.eleven && !g.over) for (let j = 0; j < rules.cfg.numCols; j++) if (rules.pts[g.cols[j] * 11 + 10] > 0) val += spec.eleven;
+            if (spec.stayStreak && s.stay >= 0 && ev.pts > 0 && st.prev >= 2) val += spec.stayStreak;
           }
           if (val > bestV) { bestV = val; best = s; }
         }

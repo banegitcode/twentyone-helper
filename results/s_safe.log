@@ -1,0 +1,8 @@
+live engine                    n=1500 mean 8834 0bust 76.5% 3bust 1.0% ms 26.6 max 191 | clears 14.62 streakPts 1473 runs4+/game 0.143 >=1: 13.7% >=2: 0.6% | gain 0 ± 0 streakPts gain 0 ± 0 193s
+chase 0.5, only when no card can force a bust n=1500 mean 8807 0bust 73.8% 3bust 1.5% ms 122.9 max 460 | clears 14.56 streakPts 1482 runs4+/game 0.129 >=1: 12.5% >=2: 0.4% | gain -27 ± 54 streakPts gain 9 ± 36 894s
+chase 1.0, only when no card can force a bust n=1500 mean 8715 0bust 70.3% 3bust 1.4% ms 117.9 max 447 | clears 14.44 streakPts 1471 runs4+/game 0.137 >=1: 13.3% >=2: 0.4% | gain -119 ± 62 streakPts gain -2 ± 40 853s
+chase 2.0, only when no card can force a bust n=1500 mean 8420 0bust 63.4% 3bust 2.3% ms 113.4 max 443 | clears 14.17 streakPts 1368 runs4+/game 0.124 >=1: 12.1% >=2: 0.3% | gain -413 ± 70 streakPts gain -105 ± 43 818s
+chase 1.0, forced-bust chance up to 5% n=1500 mean 8715 0bust 70.3% 3bust 1.4% ms 143.6 max 758 | clears 14.44 streakPts 1471 runs4+/game 0.137 >=1: 13.3% >=2: 0.4% | gain -119 ± 62 streakPts gain -2 ± 40 1050s
+chase 1.0, forced-bust chance up to 10% n=1500 mean 8715 0bust 70.3% 3bust 1.4% ms 162.9 max 705 | clears 14.44 streakPts 1472 runs4+/game 0.137 >=1: 13.3% >=2: 0.4% | gain -119 ± 62 streakPts gain -1 ± 40 1183s
+set up next score within 100, only when no card can force a bust n=1500 mean 8666 0bust 69.1% 3bust 1.2% ms 171.4 max 681 | clears 14.28 streakPts 1468 runs4+/game 0.128 >=1: 12.3% >=2: 0.5% | gain -167 ± 69 streakPts gain -5 ± 44 1237s
+set up next score within 200, only when no card can force a bust n=1500 mean 8264 0bust 57.4% 3bust 2.7% ms 184.8 max 877 | clears 13.66 streakPts 1394 runs4+/game 0.121 >=1: 11.9% >=2: 0.2% | gain -569 ± 77 streakPts gain -79 ± 46 1348s

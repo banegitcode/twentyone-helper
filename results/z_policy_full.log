@@ -1,0 +1,21 @@
+5000000 old 10400 new 10400 exact moves 12/12 12/12 
+5000001 old 8400 new 8400 exact moves 12/12 12/12 
+5000002 old 9200 new 9200 exact moves 12/12 12/12 
+5000003 old 9700 new 9700 exact moves 12/12 12/12 
+5000004 old 9250 new 9250 exact moves 12/12 12/12 
+5000005 old 8600 new 8600 exact moves 12/12 12/12 
+5000006 old 8550 new 8550 exact moves 12/12 12/12 
+5000007 old 8150 new 8150 exact moves 12/12 12/12 
+5000008 old 9750 new 9750 exact moves 12/12 12/12 {"rem":12,"card":3,"old":{"stay":-1,"col":3,"exact":true},"new":{"stay":-1,"col":0,"exact":true},"oldMoveExactValue":4069.912841796875,"newMoveExactValue":4069.912822615571,"bestExactValue":4069.912841796875}
+5000009 old 8450 new 8450 exact moves 12/12 12/12 
+5000010 old 7000 new 7000 exact moves 12/12 12/12 
+5000011 old 10700 new 10700 exact moves 12/12 12/12 {"rem":12,"card":10,"old":{"stay":1,"col":0,"exact":true},"new":{"stay":-1,"col":0,"exact":true},"oldMoveExactValue":3818.3357810280536,"newMoveExactValue":3818.3357656973385,"bestExactValue":3818.3357810280536}
+5000012 old 7950 new 7950 exact moves 12/12 12/12 {"rem":12,"card":9,"old":{"stay":-1,"col":3,"exact":true},"new":{"stay":-1,"col":1,"exact":true},"oldMoveExactValue":2111.536376953125,"newMoveExactValue":2111.5363747760134,"bestExactValue":2111.536376953125}
+5000013 old 9800 new 9800 exact moves 12/12 12/12 
+5000014 old 8400 new 8400 exact moves 12/12 12/12 
+5000015 old 10550 new 10550 exact moves 12/12 12/12 
+5000016 old 9400 new 9400 exact moves 12/12 12/12 
+5000017 old 10150 new 10150 exact moves 12/12 12/12 
+5000018 old 10300 new 10300 exact moves 12/12 12/12 
+5000019 old 9900 new 9900 exact moves 12/12 12/12 
+mode full old average 9230 new average 9230 identical games 20/20 exact late moves old 240 new 240

@@ -1,0 +1,67 @@
+{
+ "positions": 356,
+ "skippedOldSolverFailed": 4,
+ "passed": 356,
+ "tolerance": 0.01,
+ "maxAbsValueDiff": 0.00004424241387823713,
+ "maxAbsQDiff": 0.000244140625,
+ "byK": {
+  "6": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 350074,
+   "newEntries": 61914,
+   "tieMovesDiffer": 1
+  },
+  "7": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 986369,
+   "newEntries": 186034,
+   "tieMovesDiffer": 3
+  },
+  "8": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 3732434,
+   "newEntries": 682216,
+   "tieMovesDiffer": 0
+  },
+  "9": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 18544756,
+   "newEntries": 3318375,
+   "tieMovesDiffer": 2
+  },
+  "10": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 52300669,
+   "newEntries": 10184892,
+   "tieMovesDiffer": 0
+  },
+  "11": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 144962346,
+   "newEntries": 28627621,
+   "tieMovesDiffer": 0
+  },
+  "12": {
+   "n": 45,
+   "ok": 45,
+   "oldEntries": 319271244,
+   "newEntries": 66001664,
+   "tieMovesDiffer": 1
+  },
+  "13": {
+   "n": 41,
+   "ok": 41,
+   "oldEntries": 421812536,
+   "newEntries": 99925849,
+   "tieMovesDiffer": 0
+  }
+ },
+ "fails": []
+}

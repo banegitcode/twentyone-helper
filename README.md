@@ -288,7 +288,7 @@ Fresh shuffles from seed 2,600,000 unless noted. Logs: `results/headroom.log`, `
 Shipped player over 6,000 games: best 12,950; 10,000+ in 13.9%, 11,000+ in 2.1%, 12,000+ in 0.18%, 13,000+ never.
 None of these beat the player shipped at the time. The exact endgame below did, so the best measured average is now about 8,840.
 
-## Exact endgame (last 12 cards)
+## Exact endgame (last 13 cards)
 
 From 12 cards left, each move first tries to solve the rest of the game exactly ([src/exact.js](src/exact.js): memoised
 expectimax over every remaining deal, true score). The solve is capped at 100,000 new positions per move; if the cap is

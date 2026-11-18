@@ -6,7 +6,7 @@
 const E = require('./engine.js'); const X = require('./x_policies.js'); const { withExactEnd } = require('./exact.js');
 function createY(rules, spec) {
   if (spec.type === 'srules') {
-    const sb = rules.sb.slice(1).map((x) => x * spec.sbScale);
+    const sb = spec.sbList || rules.sb.slice(1).map((x) => x * spec.sbScale);
     const br = E.compile(Object.assign({}, rules.cfg, { streakBonus: sb }));
     if (spec.exactTrue && spec.base.exact) {
       const b = Object.assign({}, spec.base); delete b.exact;

@@ -1,0 +1,29 @@
+standard, 13 cards                           V 3539.83 entries old 16114425 new 3108937 x5.2 checked 4416 max diff 2.44e-4 ok
+3 columns                                    V 2921.75 entries old 7729264 new 2264745 x3.4 checked 3306 max diff 2.44e-4 ok
+2 columns                                    V 2301.92 entries old 2033399 new 902219 x2.3 checked 2148 max diff 2.44e-4 ok
+1 column                                     V 556.13 entries old 261917 new 176893 x1.5 checked 1006 max diff 6.10e-5 ok
+Stay breaks streak                           V 3539.83 entries old 16114425 new 3108937 x5.2 checked 4416 max diff 2.44e-4 ok
+no Stays                                     V 3123.00 entries old 3449725 new 899377 x3.8 checked 3088 max diff 2.44e-4 ok
+one Stay                                     V 3538.69 entries old 10312395 new 2210873 x4.7 checked 3744 max diff 2.44e-4 ok
+three Stays                                  V 3539.97 entries old 19538283 new 3462785 x5.6 checked 5096 max diff 2.44e-4 ok
+flat streak bonus 300                        V 3237.34 entries old 16036967 new 3102440 x5.2 checked 4416 max diff 2.44e-4 ok
+two busts end the game                       V 3539.83 entries old 15700324 new 3062063 x5.1 checked 4560 max diff 2.44e-4 ok
+six cards per column                         V 3539.82 entries old 16160407 new 2563287 x6.3 checked 4416 max diff 2.44e-4 ok
+3 columns, Stay breaks streak, perfect 500   V 2422.35 entries old 7729264 new 2264745 x3.4 checked 3306 max diff 2.44e-4 ok
+/Users/landon/twentyone-solver/src/exact.js:95
+    if (count >= maxLoad) { if (budget !== Infinity) throw FULL; throw new Error('exact table full: ' + count); }
+                                                                 ^
+
+Error: exact table full: 107374182
+    at V (/Users/landon/twentyone-solver/src/exact.js:95:72)
+    at V (/Users/landon/twentyone-solver/src/exact.js:67:60)
+    at V (/Users/landon/twentyone-solver/src/exact.js:69:50)
+    at V (/Users/landon/twentyone-solver/src/exact.js:85:48)
+    at V (/Users/landon/twentyone-solver/src/exact.js:69:50)
+    at V (/Users/landon/twentyone-solver/src/exact.js:67:60)
+    at V (/Users/landon/twentyone-solver/src/exact.js:69:50)
+    at V (/Users/landon/twentyone-solver/src/exact.js:69:50)
+    at V (/Users/landon/twentyone-solver/src/exact.js:69:50)
+    at V (/Users/landon/twentyone-solver/src/exact.js:68:94)
+
+Node.js v22.23.4

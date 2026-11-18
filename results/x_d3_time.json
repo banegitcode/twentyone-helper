@@ -1,0 +1,37 @@
+{
+ "seedStart": 3800000,
+ "count": 15,
+ "horizon": 52,
+ "rows": [
+  {
+   "name": "Shipped",
+   "gain": 0,
+   "ci": 0,
+   "n": 15,
+   "mean": 8846.666666666666,
+   "median": 8950,
+   "p5": 6700,
+   "p95": 11300,
+   "zeroBust": 0.6,
+   "bustOut": 0,
+   "msPerMove": 13.377755593589747,
+   "clears21": 13.533333333333333,
+   "cards": 52
+  },
+  {
+   "name": "Three cards ahead on every move + exact end",
+   "gain": -76.66666666666667,
+   "ci": 556.419330281678,
+   "n": 15,
+   "mean": 8770,
+   "median": 8850,
+   "p5": 6850,
+   "p95": 11300,
+   "zeroBust": 0.6666666666666666,
+   "bustOut": 0.06666666666666667,
+   "msPerMove": 693.7875534115385,
+   "clears21": 13.333333333333334,
+   "cards": 52
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+0 7112000 old 897508 563ms | choose 647857 339ms || wasm 231770 121ms | choose 145042 63ms || js 231770 189ms | choose 145042 104ms dV 1.1e-5
+1 7112001 old 742333 364ms | choose 675428 329ms || wasm 205377 88ms | choose 184302 77ms || js 205377 133ms | choose 184302 120ms dV 7.2e-7
+2 7112002 old 15019103 13642ms | choose 12138242 10521ms || wasm 3258690 2411ms | choose 2582538 1870ms || js 3258690 3894ms | choose 2582538 3011ms dV 3.5e-6
+3 7112003 old 3630220 2262ms | choose 3037979 1804ms || wasm 652800 329ms | choose 511747 258ms || js 652800 517ms | choose 511747 403ms dV 3.6e-6
+4 7112004 old 1713984 1026ms | choose 1631897 968ms || wasm 350235 164ms | choose 323201 154ms || js 350235 264ms | choose 323201 243ms dV 7.6e-6
+5 7112005 old 3238948 1711ms | choose 2676064 1394ms || wasm 613837 303ms | choose 521477 249ms || js 613837 474ms | choose 521477 390ms dV 1.3e-5
+6 7112006 old 2887257 1747ms | choose 1952780 1058ms || wasm 778522 390ms | choose 460554 216ms || js 778522 609ms | choose 460554 334ms dV 7.2e-6
+7 7112007 old 20907715 18104ms | choose 13409411 9890ms || wasm 5479060 4403ms | choose 2974500 2083ms || js 5479060 7118ms | choose 2974500 3319ms dV 5.2e-6
+8 7112008 old 19335988 15661ms | choose 18083275 14436ms || wasm 3912368 2876ms | choose 3627836 2706ms || js 3912368 4722ms | choose 3627836 4361ms dV 1.6e-6
+9 7112009 old 25862848 25288ms | choose 20054132 18132ms || wasm 5686707 5082ms | choose 4075143 3443ms || js 5686707 8098ms | choose 4075143 5423ms dV 7.3e-7
+10 7112010 old 7125832 5757ms | choose 6256299 4883ms || wasm 1345014 852ms | choose 1047980 688ms || js 1345014 1417ms | choose 1047980 1116ms dV 3.1e-6
+11 7112011 old 4211649 2636ms | choose 3123083 1865ms || wasm 1149126 621ms | choose 832167 441ms || js 1149126 1034ms | choose 832167 679ms dV 1.0e-5
+12 7112012 old 786717 447ms | choose 594080 307ms || wasm 258288 119ms | choose 161676 69ms || js 258288 184ms | choose 161676 107ms dV 7.8e-6
+13 7112013 old 14898890 13047ms | choose 11773556 9544ms || wasm 3390147 2513ms | choose 2487208 1734ms || js 3390147 4092ms | choose 2487208 2801ms dV 1.8e-7
+14 7112014 old 4106574 2948ms | choose 2591901 1565ms || wasm 793693 464ms | choose 389624 198ms || js 793693 737ms | choose 389624 318ms dV 5.2e-6
+15 7112015 old 2451247 1467ms | choose 1340095 752ms || wasm 545529 245ms | choose 344304 154ms || js 545529 386ms | choose 344304 242ms dV 7.6e-6
+16 7112016 old 11509449 8669ms | choose 10548364 7740ms || wasm 1794391 1179ms | choose 1500476 974ms || js 1794391 1922ms | choose 1500476 1575ms dV 4.9e-7
+17 7112017 old 13595254 11403ms | choose 9997482 7423ms || wasm 2052593 1408ms | choose 1047974 663ms || js 2052593 2303ms | choose 1047974 1082ms dV 1.6e-6
+18 7112018 old 3979139 2431ms | choose 3429887 2044ms || wasm 1206154 613ms | choose 972899 507ms || js 1206154 973ms | choose 972899 782ms dV 8.2e-7
+19 7112019 old 7369816 5036ms | choose 4803329 3118ms || wasm 1853525 1090ms | choose 1171158 654ms || js 1853525 1686ms | choose 1171158 1009ms dV 2.6e-6
+20 7112020 old 965309 486ms | choose 587757 281ms || wasm 223931 89ms | choose 141094 55ms || js 223931 142ms | choose 141094 88ms dV 7.4e-7
+21 7112021 old 983281 445ms | choose 687214 258ms || wasm 198671 84ms | choose 118419 46ms || js 198671 137ms | choose 118419 71ms dV 1.1e-6
+22 7112022 old 1998849 1147ms | choose 1491961 776ms || wasm 398135 198ms | choose 238746 106ms || js 398135 297ms | choose 238746 176ms dV 6.0e-6
+23 7112023 old 11463256 8375ms | choose 5506004 3440ms || wasm 2477575 1551ms | choose 973478 523ms || js 2477575 2420ms | choose 973478 814ms dV 5.4e-6
+24 7112024 old 2737929 1687ms | choose 2556456 1565ms || wasm 594172 303ms | choose 535452 271ms || js 594172 467ms | choose 535452 415ms dV 4.1e-6
+25 7112025 old 1501804 725ms | choose 1390387 651ms || wasm 310489 140ms | choose 286546 124ms || js 310489 219ms | choose 286546 195ms dV 1.8e-6
+26 7112026 old 30264159 27327ms | choose 18490192 13583ms || wasm 6989813 5736ms | choose 3397180 2401ms || js 6989813 8921ms | choose 3397180 3686ms dV 3.0e-6
+27 7112027 old 21890572 19704ms | choose 15119041 11033ms || wasm 5110595 3332ms | choose 3059865 1878ms || js 5110595 5046ms | choose 3059865 2693ms dV 1.1e-6
+28 7112028 old 1473681 556ms | choose 620971 199ms || wasm 253341 85ms | choose 112293 34ms || js 253341 131ms | choose 112293 52ms dV 1.4e-5
+29 7112029 old 3633127 1652ms | choose 3212754 1444ms || wasm 793178 327ms | choose 652480 269ms || js 793178 478ms | choose 652480 392ms dV 2.7e-6
+{
+ "K": 12,
+ "positionsNew": 30,
+ "positionsOldTried": 30,
+ "oldDidNotFinish": 0,
+ "new": {
+  "solveEntriesMedian": 793178,
+  "solveEntriesWorst": 6989813,
+  "chooseEntriesMedian": 535452,
+  "chooseEntriesWorst": 4075143,
+  "solveCpuMsMedianWasm": 390.398,
+  "solveCpuMsWorstWasm": 5735.568,
+  "chooseCpuMsMedianWasm": 268.891,
+  "chooseCpuMsWorstWasm": 3443.389,
+  "solveCpuMsMedianJs": 608.892,
+  "chooseCpuMsMedianJs": 402.711
+ },
+ "onPositionsOldFinished": {
+  "n": 30,
+  "oldSolveEntriesMedian": 3633127,
+  "oldSolveEntriesWorst": 30264159,
+  "newSolveEntriesMedian": 793178,
+  "newSolveEntriesWorst": 6989813,
+  "oldChooseEntriesMedian": 3037979,
+  "oldChooseEntriesWorst": 20054132,
+  "newChooseEntriesMedian": 535452,
+  "newChooseEntriesWorst": 4075143,
+  "solveEntriesRatioTotal": 4.55854855678356,
+  "solveEntriesRatioMedian": 4.580468696812065,
+  "chooseEntriesRatioTotal": 5.115865510344404,
+  "chooseEntriesRatioMedian": 4.921086695607983,
+  "solveTimeRatioWasmTotal": 5.2891275795520745,
+  "solveTimeRatioWasmMedian": 5.3989323572716,
+  "solveTimeRatioJsTotal": 3.326804988447746,
+  "solveTimeRatioJsMedian": 3.4247325854422126,
+  "chooseTimeRatioWasmTotal": 5.732921871663624,
+  "chooseTimeRatioWasmMedian": 5.503588721605505,
+  "chooseTimeRatioJsTotal": 3.6484091691726506,
+  "chooseTimeRatioJsMedian": 3.493998069260225,
+  "maxValueDiff": 0.000013669790860149078,
+  "maxChooseValueDiff": 0.00009916877070281771
+ }
+}

@@ -1,0 +1,1125 @@
+{
+ "summary": {
+  "K": 14,
+  "positionsNew": 30,
+  "newDidNotFinish": 0,
+  "newTableBytes": 1610612736,
+  "oldTableEntriesMax": 107374182,
+  "positionsOldTried": 8,
+  "oldDidNotFinish": 1,
+  "new": {
+   "solveEntriesMedian": 6902629,
+   "solveEntriesWorst": 40623843,
+   "chooseEntriesMedian": 5327401,
+   "chooseEntriesWorst": 25076834,
+   "solveCpuMsMedianWasm": 5018.215,
+   "solveCpuMsWorstWasm": 44284.232,
+   "chooseCpuMsMedianWasm": 3788.65,
+   "chooseCpuMsWorstWasm": 24482.413,
+   "solveCpuMsMedianJs": 7876.55,
+   "chooseCpuMsMedianJs": 5912.957
+  },
+  "onPositionsOldFinished": {
+   "n": 7,
+   "oldSolveEntriesMedian": 36113912,
+   "oldSolveEntriesWorst": 104592318,
+   "newSolveEntriesMedian": 10688790,
+   "newSolveEntriesWorst": 27904356,
+   "oldChooseEntriesMedian": 27805464,
+   "oldChooseEntriesWorst": 78207063,
+   "newChooseEntriesMedian": 7688703,
+   "newChooseEntriesWorst": 17548412,
+   "solveEntriesRatioTotal": 4.034998154085895,
+   "solveEntriesRatioMedian": 4.0362285134346765,
+   "chooseEntriesRatioTotal": 4.696508576234371,
+   "chooseEntriesRatioMedian": 4.896670282222991,
+   "solveTimeRatioWasmTotal": 5.409009444395205,
+   "solveTimeRatioWasmMedian": 5.625940545169777,
+   "solveTimeRatioJsTotal": 3.3411961849572287,
+   "solveTimeRatioJsMedian": 3.432384094575084,
+   "chooseTimeRatioWasmTotal": 5.77714051755476,
+   "chooseTimeRatioWasmMedian": 5.939100755172308,
+   "chooseTimeRatioJsTotal": 3.5845416130292835,
+   "chooseTimeRatioJsMedian": 3.625638096736361,
+   "maxValueDiff": 0.000028251561161596328,
+   "maxChooseValueDiff": 0.000011448365512478631
+  }
+ },
+ "rows": [
+  {
+   "seed": 7114000,
+   "card": 1,
+   "old": {
+    "value": 4907.776202519,
+    "solveEntries": 103631925,
+    "solveCpu": 152325.601,
+    "solveWall": 153848.47833399998,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 4788.530326122976
+    },
+    "chooseEntries": 72480536,
+    "chooseCpu": 82322.321,
+    "chooseWall": 82984.505833
+   },
+   "wasm": {
+    "value": 4907.776230770562,
+    "solveEntries": 27904356,
+    "solveCpu": 29367.353,
+    "solveWall": 29557.273624999973,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 4788.530327704954
+    },
+    "chooseEntries": 14629609,
+    "chooseCpu": 13861.075,
+    "chooseWall": 13926.720499999996
+   },
+   "js": {
+    "value": 4907.776230770562,
+    "solveEntries": 27904356,
+    "solveCpu": 47768.567,
+    "solveWall": 48175.69283299998,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 4788.530327704954
+    },
+    "chooseEntries": 14629609,
+    "chooseCpu": 22705.609,
+    "chooseWall": 22905.642792000028
+   },
+   "valueDiff": 0.000028251561161596328,
+   "chooseValueDiff": 0.0000015819787222426385
+  },
+  {
+   "seed": 7114001,
+   "card": 3,
+   "old": {
+    "value": 4917.73657690044,
+    "solveEntries": 104592318,
+    "solveCpu": 159643.699,
+    "solveWall": 160848.57670800004,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 5094.086863912952
+    },
+    "chooseEntries": 77127828,
+    "chooseCpu": 99380.357,
+    "chooseWall": 100186.92716700002
+   },
+   "wasm": {
+    "value": 4917.73658073671,
+    "solveEntries": 26293979,
+    "solveCpu": 27449.906,
+    "solveWall": 27601.87045799999,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 5094.086852464587
+    },
+    "chooseEntries": 15058226,
+    "chooseCpu": 15026.646,
+    "chooseWall": 15159.728665999952
+   },
+   "js": {
+    "value": 4917.73658073671,
+    "solveEntries": 26293979,
+    "solveCpu": 46511.024,
+    "solveWall": 46884.94999999995,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 5094.086852464587
+    },
+    "chooseEntries": 15058226,
+    "chooseCpu": 25061.338,
+    "chooseWall": 25252.696750000003
+   },
+   "valueDiff": 0.000003836269570456352,
+   "chooseValueDiff": 0.000011448365512478631
+  },
+  {
+   "seed": 7114002,
+   "card": 4,
+   "old": {
+    "failed": "exact table full: 107374182"
+   },
+   "wasm": {
+    "value": 4644.68487860264,
+    "solveEntries": 33740210,
+    "solveCpu": 33396.466,
+    "solveWall": 33622.817583999946,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 4775.130700138392
+    },
+    "chooseEntries": 17609105,
+    "chooseCpu": 16151.474,
+    "chooseWall": 16349.64066699997
+   },
+   "js": {
+    "value": 4644.68487860264,
+    "solveEntries": 33740210,
+    "solveCpu": 48531.301,
+    "solveWall": 48745.72262499994,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 4775.130700138392
+    },
+    "chooseEntries": 17609105,
+    "chooseCpu": 25300.264,
+    "chooseWall": 25431.885624999995
+   }
+  },
+  {
+   "seed": 7114003,
+   "card": 3,
+   "old": {
+    "value": 3437.9601867173437,
+    "solveEntries": 36113912,
+    "solveCpu": 29971.975,
+    "solveWall": 30145.981458000024,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3469.6044154805672
+    },
+    "chooseEntries": 27805464,
+    "chooseCpu": 22032.524,
+    "chooseWall": 22149.09354199993
+   },
+   "wasm": {
+    "value": 3437.9601877971218,
+    "solveEntries": 10688790,
+    "solveCpu": 8065.545,
+    "solveWall": 8099.010333999991,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3469.6044125921258
+    },
+    "chooseEntries": 7688703,
+    "chooseCpu": 5585.094,
+    "chooseWall": 5602.755624999874
+   },
+   "js": {
+    "value": 3437.9601877971218,
+    "solveEntries": 10688790,
+    "solveCpu": 12642.144,
+    "solveWall": 12710.205624999944,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3469.6044125921258
+    },
+    "chooseEntries": 7688703,
+    "chooseCpu": 8802.816,
+    "chooseWall": 8844.515292000026
+   },
+   "valueDiff": 0.000001079778030543821,
+   "chooseValueDiff": 0.0000028884414859930985
+  },
+  {
+   "seed": 7114004,
+   "card": 10,
+   "old": {
+    "value": 4269.385061155865,
+    "solveEntries": 25190308,
+    "solveCpu": 22874.803,
+    "solveWall": 23031.592707999982,
+    "move": {
+     "stay": 1,
+     "col": 1,
+     "value": 4168.910335365696
+    },
+    "chooseEntries": 20557855,
+    "chooseCpu": 17832.128,
+    "chooseWall": 17978.80829099985
+   },
+   "wasm": {
+    "value": 4269.385064564946,
+    "solveEntries": 6241051,
+    "solveCpu": 4696.759,
+    "solveWall": 4719.743917000014,
+    "move": {
+     "stay": 1,
+     "col": 1,
+     "value": 4168.910331615432
+    },
+    "chooseEntries": 5091169,
+    "chooseCpu": 3650.434,
+    "chooseWall": 3664.820874999976
+   },
+   "js": {
+    "value": 4269.385064564946,
+    "solveEntries": 6241051,
+    "solveCpu": 7531.481,
+    "solveWall": 7586.166542000137,
+    "move": {
+     "stay": 1,
+     "col": 1,
+     "value": 4168.910331615432
+    },
+    "chooseEntries": 5091169,
+    "chooseCpu": 5875.11,
+    "chooseWall": 5916.20616699988
+   },
+   "valueDiff": 0.0000034090817280230112,
+   "chooseValueDiff": 0.000003750263203983195
+  },
+  {
+   "seed": 7114005,
+   "card": 10,
+   "old": {
+    "value": 3997.1791088789323,
+    "solveEntries": 83042096,
+    "solveCpu": 109377.567,
+    "solveWall": 110041.12758299988,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 3972.8674883474214
+    },
+    "chooseEntries": 78207063,
+    "chooseCpu": 97779.146,
+    "chooseWall": 98256.02300000004
+   },
+   "wasm": {
+    "value": 3997.179114338335,
+    "solveEntries": 18721746,
+    "solveCpu": 19441.65,
+    "solveWall": 19529.51599999983,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 3972.8674910275154
+    },
+    "chooseEntries": 17548412,
+    "chooseCpu": 17975.058,
+    "chooseWall": 18071.148000000045
+   },
+   "js": {
+    "value": 3997.179114338335,
+    "solveEntries": 18721746,
+    "solveCpu": 29634.597,
+    "solveWall": 29790.059499999974,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 3972.8674910275154
+    },
+    "chooseEntries": 17548412,
+    "chooseCpu": 27916.77,
+    "chooseWall": 28039.64637500001
+   },
+   "valueDiff": 0.000005459402473206865,
+   "chooseValueDiff": 0.000002680093984963605
+  },
+  {
+   "seed": 7114006,
+   "card": 7,
+   "old": {
+    "value": 2831.717578047974,
+    "solveEntries": 23345548,
+    "solveCpu": 22030.926,
+    "solveWall": 22130.30554199987,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 2827.6970147327966
+    },
+    "chooseEntries": 20752458,
+    "chooseCpu": 18923.26,
+    "chooseWall": 19004.014624999836
+   },
+   "wasm": {
+    "value": 2831.7175663202293,
+    "solveEntries": 4073776,
+    "solveCpu": 3061.095,
+    "solveWall": 3092.25950000016,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 2827.697006982174
+    },
+    "chooseEntries": 3370370,
+    "chooseCpu": 2582.685,
+    "chooseWall": 2598.363833000185
+   },
+   "js": {
+    "value": 2831.7175663202293,
+    "solveEntries": 4073776,
+    "solveCpu": 5003.478,
+    "solveWall": 5051.6110000000335,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 2827.697006982174
+    },
+    "chooseEntries": 3370370,
+    "chooseCpu": 4167.855,
+    "chooseWall": 4209.1407079999335
+   },
+   "valueDiff": 0.00001172774454971659,
+   "chooseValueDiff": 0.000007750622444291366
+  },
+  {
+   "seed": 7114007,
+   "card": 10,
+   "old": {
+    "value": 3210.855022797555,
+    "solveEntries": 19733216,
+    "solveCpu": 17950.593,
+    "solveWall": 18076.759958000155,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 3117.9386060581164
+    },
+    "chooseEntries": 18689807,
+    "chooseCpu": 16857.666,
+    "chooseWall": 16938.00241700001
+   },
+   "wasm": {
+    "value": 3210.8550118545018,
+    "solveEntries": 4130702,
+    "solveCpu": 2976.717,
+    "solveWall": 2988.486375000095,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 3117.938604755049
+    },
+    "chooseEntries": 3816840,
+    "chooseCpu": 2790.146,
+    "chooseWall": 2797.6645410000347
+   },
+   "js": {
+    "value": 3210.8550118545018,
+    "solveEntries": 4130702,
+    "solveCpu": 4798.255,
+    "solveWall": 4819.624374999898,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 3117.938604755049
+    },
+    "chooseEntries": 3816840,
+    "chooseCpu": 4542.417,
+    "chooseWall": 4564.437291000038
+   },
+   "valueDiff": 0.000010943053439405048,
+   "chooseValueDiff": 0.0000013030676200287417
+  },
+  {
+   "seed": 7114008,
+   "card": 10,
+   "wasm": {
+    "value": 3370.998427425395,
+    "solveEntries": 1512915,
+    "solveCpu": 900.349,
+    "solveWall": 903.2446249998175,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 3200.8196639490156
+    },
+    "chooseEntries": 1461871,
+    "chooseCpu": 899.635,
+    "chooseWall": 901.9574170000851
+   },
+   "js": {
+    "value": 3370.998427425395,
+    "solveEntries": 1512915,
+    "solveCpu": 1459.682,
+    "solveWall": 1467.0112919998355,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 3200.8196639490156
+    },
+    "chooseEntries": 1461871,
+    "chooseCpu": 1443.428,
+    "chooseWall": 1449.6256669999566
+   }
+  },
+  {
+   "seed": 7114009,
+   "card": 10,
+   "wasm": {
+    "value": 3878.582345722501,
+    "solveEntries": 10096867,
+    "solveCpu": 7906.31,
+    "solveWall": 7933.521541999886,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3805.5067043336767
+    },
+    "chooseEntries": 9036868,
+    "chooseCpu": 6926.478,
+    "chooseWall": 6951.879707999993
+   },
+   "js": {
+    "value": 3878.582345722501,
+    "solveEntries": 10096867,
+    "solveCpu": 12500.026,
+    "solveWall": 12567.851499999873,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3805.5067043336767
+    },
+    "chooseEntries": 9036868,
+    "chooseCpu": 10930.185,
+    "chooseWall": 10987.120333000086
+   }
+  },
+  {
+   "seed": 7114010,
+   "card": 2,
+   "wasm": {
+    "value": 4197.452420102568,
+    "solveEntries": 27007300,
+    "solveCpu": 24925.083,
+    "solveWall": 25022.40179100004,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 4241.349981506499
+    },
+    "chooseEntries": 17077023,
+    "chooseCpu": 15008.624,
+    "chooseWall": 15092.351334000006
+   },
+   "js": {
+    "value": 4197.452420102568,
+    "solveEntries": 27007300,
+    "solveCpu": 38153.288,
+    "solveWall": 38448.778208999895,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 4241.349981506499
+    },
+    "chooseEntries": 17077023,
+    "chooseCpu": 23375.748,
+    "chooseWall": 23482.1167919999
+   }
+  },
+  {
+   "seed": 7114011,
+   "card": 6,
+   "wasm": {
+    "value": 4788.40292332573,
+    "solveEntries": 15311230,
+    "solveCpu": 14245.833,
+    "solveWall": 14292.633208999876,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 4778.781766928772
+    },
+    "chooseEntries": 10805396,
+    "chooseCpu": 9634.324,
+    "chooseWall": 9669.07504200004
+   },
+   "js": {
+    "value": 4788.40292332573,
+    "solveEntries": 15311230,
+    "solveCpu": 23082.969,
+    "solveWall": 23198.956874999916,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 4778.781766928772
+    },
+    "chooseEntries": 10805396,
+    "chooseCpu": 15313.054,
+    "chooseWall": 15374.464500000002
+   }
+  },
+  {
+   "seed": 7114012,
+   "card": 9,
+   "wasm": {
+    "value": 3865.5685934523767,
+    "solveEntries": 2430803,
+    "solveCpu": 1519.26,
+    "solveWall": 1524.9308329999913,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 3771.2784156709827
+    },
+    "chooseEntries": 1587282,
+    "chooseCpu": 942.354,
+    "chooseWall": 944.7659160001203
+   },
+   "js": {
+    "value": 3865.5685934523767,
+    "solveEntries": 2430803,
+    "solveCpu": 2369.441,
+    "solveWall": 2383.405250000069,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 3771.2784156709827
+    },
+    "chooseEntries": 1587282,
+    "chooseCpu": 1474.542,
+    "chooseWall": 1482.3610419998877
+   }
+  },
+  {
+   "seed": 7114013,
+   "card": 10,
+   "wasm": {
+    "value": 2225.8927663965947,
+    "solveEntries": 572547,
+    "solveCpu": 280.729,
+    "solveWall": 281.9050419998821,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 2196.8864945345845
+    },
+    "chooseEntries": 536684,
+    "chooseCpu": 263.455,
+    "chooseWall": 265.2107090000063
+   },
+   "js": {
+    "value": 2225.8927663965947,
+    "solveEntries": 572547,
+    "solveCpu": 439.786,
+    "solveWall": 443.19424999994226,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 2196.8864945345845
+    },
+    "chooseEntries": 536684,
+    "chooseCpu": 405.182,
+    "chooseWall": 407.1290410000365
+   }
+  },
+  {
+   "seed": 7114014,
+   "card": 8,
+   "wasm": {
+    "value": 4295.782067811706,
+    "solveEntries": 17132819,
+    "solveCpu": 14557.44,
+    "solveWall": 14653.824999999953,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 4301.408457009926
+    },
+    "chooseEntries": 7533096,
+    "chooseCpu": 5634.397,
+    "chooseWall": 5682.884707999881
+   },
+   "js": {
+    "value": 4295.782067811706,
+    "solveEntries": 17132819,
+    "solveCpu": 22950.362,
+    "solveWall": 23124.721708000172,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 4301.408457009926
+    },
+    "chooseEntries": 7533096,
+    "chooseCpu": 8719.725,
+    "chooseWall": 8795.272583000129
+   }
+  },
+  {
+   "seed": 7114015,
+   "card": 8,
+   "wasm": {
+    "value": 4867.46221099785,
+    "solveEntries": 6902629,
+    "solveCpu": 5018.215,
+    "solveWall": 5062.46416600002,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 4926.658020995728
+    },
+    "chooseEntries": 5327401,
+    "chooseCpu": 3788.65,
+    "chooseWall": 3810.8637500000186
+   },
+   "js": {
+    "value": 4867.46221099785,
+    "solveEntries": 6902629,
+    "solveCpu": 7876.55,
+    "solveWall": 7920.230666999938,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 4926.658020995728
+    },
+    "chooseEntries": 5327401,
+    "chooseCpu": 5912.957,
+    "chooseWall": 5942.16495799995
+   }
+  },
+  {
+   "seed": 7114016,
+   "card": 7,
+   "wasm": {
+    "value": 3238.8896309177558,
+    "solveEntries": 1280318,
+    "solveCpu": 651.289,
+    "solveWall": 653.3922500000335,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 3268.859775498216
+    },
+    "chooseEntries": 1032310,
+    "chooseCpu": 519.594,
+    "chooseWall": 520.7019170001149
+   },
+   "js": {
+    "value": 3238.8896309177558,
+    "solveEntries": 1280318,
+    "solveCpu": 1032.449,
+    "solveWall": 1036.5820420000236,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 3268.859775498216
+    },
+    "chooseEntries": 1032310,
+    "chooseCpu": 828.341,
+    "chooseWall": 831.4960420001298
+   }
+  },
+  {
+   "seed": 7114017,
+   "card": 6,
+   "wasm": {
+    "value": 2866.8914218980995,
+    "solveEntries": 2601458,
+    "solveCpu": 1494.541,
+    "solveWall": 1499.7760830000043,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 2879.6209430277254
+    },
+    "chooseEntries": 2136486,
+    "chooseCpu": 1239.515,
+    "chooseWall": 1243.4142499999143
+   },
+   "js": {
+    "value": 2866.8914218980995,
+    "solveEntries": 2601458,
+    "solveCpu": 2365.475,
+    "solveWall": 2376.4445829999167,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 2879.6209430277254
+    },
+    "chooseEntries": 2136486,
+    "chooseCpu": 1950.034,
+    "chooseWall": 1958.0759999998845
+   }
+  },
+  {
+   "seed": 7114018,
+   "card": 1,
+   "wasm": {
+    "value": 3395.6774633852406,
+    "solveEntries": 832061,
+    "solveCpu": 441.234,
+    "solveWall": 442.2762919999659,
+    "move": {
+     "stay": 3,
+     "col": 3,
+     "value": 3279.915784560062
+    },
+    "chooseEntries": 354317,
+    "chooseCpu": 163.479,
+    "chooseWall": 163.77220900007524
+   },
+   "js": {
+    "value": 3395.6774633852406,
+    "solveEntries": 832061,
+    "solveCpu": 708.207,
+    "solveWall": 710.5405419999734,
+    "move": {
+     "stay": 3,
+     "col": 3,
+     "value": 3279.915784560062
+    },
+    "chooseEntries": 354317,
+    "chooseCpu": 259.218,
+    "chooseWall": 260.11737500014715
+   }
+  },
+  {
+   "seed": 7114019,
+   "card": 8,
+   "wasm": {
+    "value": 4523.434425307157,
+    "solveEntries": 5968883,
+    "solveCpu": 4461.411,
+    "solveWall": 4477.99383299984,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3792.197164231285
+    },
+    "chooseEntries": 2476331,
+    "chooseCpu": 1591.206,
+    "chooseWall": 1597.582541000098
+   },
+   "js": {
+    "value": 4523.434425307157,
+    "solveEntries": 5968883,
+    "solveCpu": 7020.963,
+    "solveWall": 7052.042916000122,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3792.197164231285
+    },
+    "chooseEntries": 2476331,
+    "chooseCpu": 2483.877,
+    "chooseWall": 2493.8567079999484
+   }
+  },
+  {
+   "seed": 7114020,
+   "card": 10,
+   "wasm": {
+    "value": 3483.7769559330127,
+    "solveEntries": 2737365,
+    "solveCpu": 1734.025,
+    "solveWall": 1738.9268340000417,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3431.4912023409624
+    },
+    "chooseEntries": 2508437,
+    "chooseCpu": 1617,
+    "chooseWall": 1623.9968750001863
+   },
+   "js": {
+    "value": 3483.7769559330127,
+    "solveEntries": 2737365,
+    "solveCpu": 2713.302,
+    "solveWall": 2725.588584000012,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3431.4912023409624
+    },
+    "chooseEntries": 2508437,
+    "chooseCpu": 2488.068,
+    "chooseWall": 2498.545040999772
+   }
+  },
+  {
+   "seed": 7114021,
+   "card": 1,
+   "wasm": {
+    "value": 4206.884253639832,
+    "solveEntries": 15382377,
+    "solveCpu": 12882.432,
+    "solveWall": 12924.039084000047,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 4482.453598665212
+    },
+    "chooseEntries": 14265700,
+    "chooseCpu": 12109.874,
+    "chooseWall": 12152.350749999983
+   },
+   "js": {
+    "value": 4206.884253639832,
+    "solveEntries": 15382377,
+    "solveCpu": 20257.787,
+    "solveWall": 20362.182082999963,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 4482.453598665212
+    },
+    "chooseEntries": 14265700,
+    "chooseCpu": 16734.124,
+    "chooseWall": 16810.25179200014
+   }
+  },
+  {
+   "seed": 7114022,
+   "card": 5,
+   "wasm": {
+    "value": 4581.842388552735,
+    "solveEntries": 34443551,
+    "solveCpu": 32977.48,
+    "solveWall": 33202.955250000115,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 4514.327136068895
+    },
+    "chooseEntries": 25076834,
+    "chooseCpu": 23405,
+    "chooseWall": 23485.535374999978
+   },
+   "js": {
+    "value": 4581.842388552735,
+    "solveEntries": 34443551,
+    "solveCpu": 56473.371,
+    "solveWall": 56870.919792000204,
+    "move": {
+     "stay": -1,
+     "col": 1,
+     "value": 4514.327136068895
+    },
+    "chooseEntries": 25076834,
+    "chooseCpu": 38967.536,
+    "chooseWall": 39136.288458999945
+   }
+  },
+  {
+   "seed": 7114023,
+   "card": 3,
+   "wasm": {
+    "value": 4744.473993547362,
+    "solveEntries": 5148845,
+    "solveCpu": 4147.895,
+    "solveWall": 4182.104125000071,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 4720.215667701112
+    },
+    "chooseEntries": 2746925,
+    "chooseCpu": 2038.186,
+    "chooseWall": 2050.3090409999713
+   },
+   "js": {
+    "value": 4744.473993547362,
+    "solveEntries": 5148845,
+    "solveCpu": 6661.037,
+    "solveWall": 6690.341041999869,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 4720.215667701112
+    },
+    "chooseEntries": 2746925,
+    "chooseCpu": 3268.55,
+    "chooseWall": 3283.42433300009
+   }
+  },
+  {
+   "seed": 7114024,
+   "card": 3,
+   "wasm": {
+    "value": 4106.937338810157,
+    "solveEntries": 31673853,
+    "solveCpu": 32820.242,
+    "solveWall": 32967.200291999616,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 4028.689970849139
+    },
+    "chooseEntries": 18759905,
+    "chooseCpu": 18667.419,
+    "chooseWall": 18787.004666999914
+   },
+   "js": {
+    "value": 4106.937338810157,
+    "solveEntries": 31673853,
+    "solveCpu": 55140.25,
+    "solveWall": 55396.699208999984,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 4028.689970849139
+    },
+    "chooseEntries": 18759905,
+    "chooseCpu": 30834.393,
+    "chooseWall": 30992.675208
+   }
+  },
+  {
+   "seed": 7114025,
+   "card": 9,
+   "wasm": {
+    "value": 4869.345519449869,
+    "solveEntries": 20490120,
+    "solveCpu": 19091.253,
+    "solveWall": 19173.934167,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 4815.9465880591115
+    },
+    "chooseEntries": 10571897,
+    "chooseCpu": 8814.021,
+    "chooseWall": 8846.955833000131
+   },
+   "js": {
+    "value": 4869.345519449869,
+    "solveEntries": 20490120,
+    "solveCpu": 30997.953,
+    "solveWall": 31162.978916999884,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 4815.9465880591115
+    },
+    "chooseEntries": 10571897,
+    "chooseCpu": 14119.855,
+    "chooseWall": 14228.851541999727
+   }
+  },
+  {
+   "seed": 7114026,
+   "card": 10,
+   "wasm": {
+    "value": 3091.0813653689643,
+    "solveEntries": 1790712,
+    "solveCpu": 1060.12,
+    "solveWall": 1070.1983330002986,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3049.5106828217004
+    },
+    "chooseEntries": 1638218,
+    "chooseCpu": 990.395,
+    "chooseWall": 993.8484589997679
+   },
+   "js": {
+    "value": 3091.0813653689643,
+    "solveEntries": 1790712,
+    "solveCpu": 1639.544,
+    "solveWall": 1643.956375000067,
+    "move": {
+     "stay": -1,
+     "col": 3,
+     "value": 3049.5106828217004
+    },
+    "chooseEntries": 1638218,
+    "chooseCpu": 1514.823,
+    "chooseWall": 1519.8173329997808
+   }
+  },
+  {
+   "seed": 7114027,
+   "card": 6,
+   "wasm": {
+    "value": 4378.976709441682,
+    "solveEntries": 12895990,
+    "solveCpu": 11311.872,
+    "solveWall": 11352.35754199978,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 4520.198947241418
+    },
+    "chooseEntries": 9272470,
+    "chooseCpu": 7950.526,
+    "chooseWall": 7990.9492919999175
+   },
+   "js": {
+    "value": 4378.976709441682,
+    "solveEntries": 12895990,
+    "solveCpu": 18170.894,
+    "solveWall": 18254.300042000134,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 4520.198947241418
+    },
+    "chooseEntries": 9272470,
+    "chooseCpu": 12478.363,
+    "chooseWall": 12530.219124999829
+   }
+  },
+  {
+   "seed": 7114028,
+   "card": 1,
+   "wasm": {
+    "value": 4468.522425489664,
+    "solveEntries": 40623843,
+    "solveCpu": 44284.232,
+    "solveWall": 44457.11070899991,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 4645.448221905359
+    },
+    "chooseEntries": 24409678,
+    "chooseCpu": 24482.413,
+    "chooseWall": 24621.13595899986
+   },
+   "js": {
+    "value": 4468.522425489664,
+    "solveEntries": 40623843,
+    "solveCpu": 68305.4,
+    "solveWall": 68673.32916600024,
+    "move": {
+     "stay": -1,
+     "col": 2,
+     "value": 4645.448221905359
+    },
+    "chooseEntries": 24409678,
+    "chooseCpu": 41976.44,
+    "chooseWall": 42176.286791999824
+   }
+  },
+  {
+   "seed": 7114029,
+   "card": 10,
+   "wasm": {
+    "value": 2814.6692761991603,
+    "solveEntries": 1453789,
+    "solveCpu": 814.633,
+    "solveWall": 816.3783750003204,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 2711.5938519474284
+    },
+    "chooseEntries": 1332385,
+    "chooseCpu": 766.798,
+    "chooseWall": 769.3427089997567
+   },
+   "js": {
+    "value": 2814.6692761991603,
+    "solveEntries": 1453789,
+    "solveCpu": 1279.258,
+    "solveWall": 1287.4680420001969,
+    "move": {
+     "stay": -1,
+     "col": 0,
+     "value": 2711.5938519474284
+    },
+    "chooseEntries": 1332385,
+    "chooseCpu": 1205.203,
+    "chooseWall": 1211.6081659998745
+   }
+  }
+ ]
+}
