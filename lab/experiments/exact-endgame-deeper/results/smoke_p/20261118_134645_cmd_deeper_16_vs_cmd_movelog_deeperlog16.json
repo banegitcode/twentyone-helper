@@ -1,0 +1,43 @@
+{
+  "set": "set1000",
+  "set_sha256": "b7cf79437960cc597286a00c9cea411aaed8f2e9d2eb4dbf5582d1958b5a93ae",
+  "n": 5,
+  "a": "cmd:node ../experiments/exact-endgame-deeper/adapter.js --config deeper:16",
+  "b": "cmd:node ../experiments/exact-endgame-deeper/adapter2.js --config deeperlog:16 --movelog ../experiments/exact-endgame-deeper/results/movelog_deeperlog16.jsonl",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 5,
+    "mean": 9470.0,
+    "se": 587.9200625935468,
+    "sd": 1314.629225295102,
+    "busts_per_game": 0.4,
+    "bust_game_rate": 0.4,
+    "three_bust_rate": 0.0,
+    "perfect_rate": 0.6,
+    "games_per_sec_wall": 0.13152716867422767,
+    "games_per_sec_per_core": 0.0681407535559877,
+    "wall_s": 38.01495957374573,
+    "cpu_s": 73.37752723693848
+  },
+  "B": {
+    "n": 5,
+    "mean": 9470.0,
+    "se": 587.9200625935468,
+    "sd": 1314.629225295102,
+    "busts_per_game": 0.4,
+    "bust_game_rate": 0.4,
+    "three_bust_rate": 0.0,
+    "perfect_rate": 0.6,
+    "games_per_sec_wall": 0.14715197092235202,
+    "games_per_sec_per_core": 0.07861390541255445,
+    "wall_s": 33.9784779548645,
+    "cpu_s": 63.60197949409485
+  },
+  "paired_diff_B_minus_A": 0.0,
+  "paired_se": 0.0,
+  "z": NaN,
+  "sd_diff": 0.0,
+  "verdict": "REJECTED (n < 1000)",
+  "timestamp": "20261118_134645"
+}

@@ -1,0 +1,9 @@
+set dev200 (sha256 90b10dfc15dd..) n=40  workers=2
+A = cmd:node frozen/exact-endgame-deeper@90c2d73f938b/experiments/exact-endgame-deeper/adapter.js --config deeper:16
+    mean    8808.8 +- 138.5 (SE)  sd    876 | busts/game 0.350  games>=1 bust  20.0%  3-bust   0.0%  perfect 80.00% | 0 games/s wall, 0 games/s/core
+B = cmd:node ../experiments/midgame-search/adapter.js --config midsearch:xd=3,xk=3,xm=150,cap=100000,pool=3000000 --timelog ../experiments/midgame-search/results/dev40/think_mid3.jsonl
+    mean    8886.2 +- 135.6 (SE)  sd    857 | busts/game 0.250  games>=1 bust  17.5%  3-bust   0.0%  perfect 82.50% | 0 games/s wall, 0 games/s/core
+paired diff (B-A) = +77.5 +- 138.8 (SE = sd_diff 878 / sqrt(40))   z = +0.56
+VERDICT: DEV SET - NOT ELIGIBLE FOR ACCEPTANCE   (rule: n>=1000 and diff > 2 SE)
+NOTE: ACCEPTED also requires a clean future-order audit (python3 audit.py ...) before the champion changes.
+saved ../experiments/midgame-search/results/dev40/20261118_161356_cmd_deeper_16_vs_cmd_think_mid3.csv/.json

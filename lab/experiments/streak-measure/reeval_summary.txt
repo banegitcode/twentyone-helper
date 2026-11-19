@@ -1,0 +1,10 @@
+pool: 71 decisions (of 71 flagged, rem>=17, no-empty-column or Stay types; dev200, shipped52)
+  all pool                                     n= 71 | ref A fresh  18.41 +- 2.78 /game | STRONG  10.58 +- 3.51 /game (0.6x  6.35, GUESS) | decisions >0: 44, z>2: 8
+  no empty column                              n= 68 | ref A fresh  18.18 +- 2.76 /game | STRONG  10.02 +- 3.49 /game (0.6x  6.01, GUESS) | decisions >0: 41, z>2: 8
+  Stay involved                                n= 24 | ref A fresh  10.75 +- 1.57 /game | STRONG   7.99 +- 2.14 /game (0.6x  4.79, GUESS) | decisions >0: 20, z>2: 5
+  champion Stays, alt no Stay                  n= 18 | ref A fresh   8.22 +- 1.18 /game | STRONG   6.33 +- 1.43 /game (0.6x  3.80, GUESS) | decisions >0: 16, z>2: 4
+  no Stay involved (no-empty-col only)         n= 47 | ref A fresh   7.66 +- 2.30 /game | STRONG   2.59 +- 2.78 /game (0.6x  1.55, GUESS) | decisions >0: 24, z>2: 3
+  rem >=33                                     n= 45 | ref A fresh   9.79 +- 2.21 /game | STRONG   3.13 +- 2.89 /game (0.6x  1.88, GUESS) | decisions >0: 27, z>2: 2
+  rem 17-32                                    n= 26 | ref A fresh   8.62 +- 1.70 /game | STRONG   7.45 +- 2.00 /game (0.6x  4.47, GUESS) | decisions >0: 17, z>2: 6
+  mean per decision: ref A 50.6, STRONG 29.1; difference -21.5 +- 12.3 (measurement SE, rollouts only)
+  cost of the strong label (64 pairs, champion tail, box loaded): mean 30.0 s, median 32.8 s, max 44.6 s per decision

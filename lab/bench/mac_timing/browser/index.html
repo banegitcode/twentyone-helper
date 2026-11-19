@@ -1,0 +1,32 @@
+<!doctype html><meta charset="utf-8"><title>21 timing kit (browser)</title>
+<body style="font:14px/1.4 system-ui;max-width:900px;margin:2em auto">
+<h2>21 timing kit &mdash; browser (wall time only)</h2>
+<p>Plays the 3 fixed dev200 games with <b>shipped52</b> and <b>pooled:16:26</b> (pooled uses the <i>wall</i> clock here, like a real game). The adapters run unmodified in a Web Worker.
+Serve this folder over http (browsers block <code>fetch</code> on file://): <code>cd mac_timing &amp;&amp; python3 -m http.server 8000</code>, then open <code>http://localhost:8000/browser/</code>.</p>
+<p><label><input type="checkbox" id="s52" checked> shipped52</label> <label><input type="checkbox" id="p16" checked> pooled:16:26</label>
+ games <select id="ng"><option>1</option><option>2</option><option selected>3</option></select> <button id="go">Run</button> <span id="st"></span></p>
+<pre id="out"></pre>
+<script>
+const out = document.getElementById('out'), st = document.getElementById('st'); const rows = [];
+const log = (s) => { out.textContent += s + '\n'; };
+function runOne(engine, games) {
+  return new Promise((resolve) => {
+    const w = new Worker('worker.js'); log('== ' + engine);
+    w.onmessage = (e) => { const m = e.data;
+      if (m.type === 'status') st.textContent = engine + ': ' + m.text;
+      else if (m.type === 'game') { rows.push(m); log(`  game ${m.game} (dev200 line ${m.dev200_line}): score ${m.score} busts ${m.busts} think WALL ${m.think_wall_s.toFixed(1)} s  max decision ${m.max_decision_wall_s.toFixed(1)} s (${m.decisions} decisions)`);
+        if (m.solver) log(`     exact solver: new table positions ${(m.solver.new_positions / 1e6).toFixed(2)} M (peak table ${(m.solver.peak_table_positions / 1e6).toFixed(2)} M), exact phase wall ${m.exact_phase_wall_s.toFixed(1)} s => ${(m.solver.new_positions / m.exact_phase_wall_s / 1e6).toFixed(2)} M positions/wall-s (solver's own clock = wall: ${(m.solver.new_positions / (m.solver.solve_ms_solver_clock / 1000) / 1e6).toFixed(2)} M/s); give-ups clock ${m.solver.give_up_clock}, memory ${m.solver.give_up_memory}`); st.textContent = engine + ' game ' + m.game + ' done'; }
+      else if (m.type === 'done') { w.terminate(); resolve(); }
+      else if (m.type === 'error') { log('ERROR ' + m.text); w.terminate(); resolve(); } };
+    w.postMessage({ engine, games });
+  });
+}
+document.getElementById('go').onclick = async () => {
+  out.textContent = ''; rows.length = 0; const n = +document.getElementById('ng').value;
+  log(navigator.userAgent + ' | cores ' + navigator.hardwareConcurrency + ' | deviceMemory ' + (navigator.deviceMemory || '?') + ' GB\n');
+  if (document.getElementById('s52').checked) await runOne('shipped52', n);
+  if (document.getElementById('p16').checked) await runOne('pooled16', n);
+  const ps = rows.filter((r) => r.solver); if (ps.length) { const P = ps.reduce((a, r) => a + r.solver.new_positions, 0), W = ps.reduce((a, r) => a + r.exact_phase_wall_s, 0); log(`\npooled:16:26 overall: ${(P / 1e6).toFixed(2)} M new table positions in ${W.toFixed(1)} s exact-phase wall = ${(P / W / 1e6).toFixed(2)} M positions/wall-s (CPU rate is not measurable in a browser)`); }
+  log('\nJSON:\n' + JSON.stringify(rows)); st.textContent = 'finished';
+};
+</script>

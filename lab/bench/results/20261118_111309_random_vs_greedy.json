@@ -1,0 +1,43 @@
+{
+  "set": "set1000",
+  "set_sha256": "b7cf79437960cc597286a00c9cea411aaed8f2e9d2eb4dbf5582d1958b5a93ae",
+  "n": 1000,
+  "a": "native:random",
+  "b": "native:greedy",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 1000,
+    "mean": 397.9,
+    "se": 15.368043687039894,
+    "sd": 485.9802123201795,
+    "busts_per_game": 3.0,
+    "bust_game_rate": 1.0,
+    "three_bust_rate": 1.0,
+    "perfect_rate": 0.0,
+    "games_per_sec_wall": 10902.876809541016,
+    "games_per_sec_per_core": 1253132.8320802005,
+    "wall_s": 0.09171891212463379,
+    "cpu_s": 0.000798
+  },
+  "B": {
+    "n": 1000,
+    "mean": 4977.0,
+    "se": 54.75677404946629,
+    "sd": 1731.5612331951488,
+    "busts_per_game": 1.729,
+    "bust_game_rate": 0.828,
+    "three_bust_rate": 0.319,
+    "perfect_rate": 0.172,
+    "games_per_sec_wall": 12922.011423782911,
+    "games_per_sec_per_core": 304878.0487804878,
+    "wall_s": 0.07738733291625977,
+    "cpu_s": 0.00328
+  },
+  "paired_diff_B_minus_A": 4579.1,
+  "paired_se": 56.62737721146769,
+  "z": 80.86371337489176,
+  "sd_diff": 1790.7148990975224,
+  "verdict": "ACCEPTED",
+  "timestamp": "20261118_111309"
+}

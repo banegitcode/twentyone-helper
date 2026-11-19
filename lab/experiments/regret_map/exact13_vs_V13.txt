@@ -1,0 +1,5 @@
+n 976
+exact13 realized final - (score13 + best13): mean -65.3 +- 17.8
+exact13 realized final - best13 (if best already total): mean 5122.4 +- 32.8
+champ realized - (score13 + value of its 13-card move): -78.6 +- 17.2
+mean score13 5188, mean best13 3782

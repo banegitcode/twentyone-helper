@@ -1,0 +1,6 @@
+== hazard calibration shipped52: 1000 games, non-exact decisions with >=13 cards left
+  has empty col or Stay left               n= 36349 mean hazard 0.000  excess dev     1.3 +-  27.6
+  no empty, no Stay: hazard (0,5%]         n=     1 mean hazard 0.042  excess dev   715.4 +-   0.0
+  no empty, no Stay: hazard (5,15%]        n=    21 mean hazard 0.124  excess dev   220.3 +- 314.4
+  no empty, no Stay: hazard 0              n=  3149 mean hazard 0.000  excess dev   -21.1 +-  47.7
+  no empty, no Stay: hazard >15%           n=   434 mean hazard 0.331  excess dev    32.3 +- 106.1

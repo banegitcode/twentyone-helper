@@ -1,0 +1,65 @@
+game 0 score 8100 busts 1 elapsed 7.2s
+game 1 score 9000 busts 0 elapsed 15.7s
+game 2 score 11650 busts 0 elapsed 52.1s
+game 3 score 9350 busts 1 elapsed 64.6s
+game 4 score 9250 busts 0 elapsed 77.2s
+game 5 score 8750 busts 1 elapsed 87.6s
+game 6 score 7400 busts 2 elapsed 93.8s
+game 7 score 9350 busts 0 elapsed 108.2s
+game 8 score 8650 busts 2 elapsed 114.6s
+game 9 score 8800 busts 0 elapsed 130.1s
+game 10 score 8900 busts 0 elapsed 149.5s
+game 11 score 9900 busts 0 elapsed 169.2s
+game 12 score 9050 busts 0 elapsed 178.8s
+game 13 score 9150 busts 1 elapsed 189.2s
+game 14 score 6350 busts 2 elapsed 192.1s
+game 15 score 9500 busts 0 elapsed 196.1s
+game 16 score 9300 busts 0 elapsed 201.8s
+game 17 score 5950 busts 2 elapsed 203.9s
+game 18 score 9100 busts 0 elapsed 210.8s
+game 19 score 8850 busts 0 elapsed 215.5s
+game 20 score 7600 busts 2 elapsed 217.8s
+game 21 score 10050 busts 0 elapsed 235.0s
+game 22 score 9000 busts 0 elapsed 244.9s
+game 23 score 8600 busts 0 elapsed 258.0s
+game 24 score 9550 busts 0 elapsed 271.1s
+game 25 score 10200 busts 0 elapsed 316.4s
+game 26 score 9650 busts 0 elapsed 325.5s
+game 27 score 8600 busts 1 elapsed 330.6s
+game 28 score 11450 busts 0 elapsed 359.3s
+game 29 score 9050 busts 0 elapsed 382.7s
+game 30 score 10150 busts 0 elapsed 386.2s
+game 31 score 9350 busts 0 elapsed 396.1s
+game 32 score 9000 busts 0 elapsed 407.1s
+game 33 score 7200 busts 1 elapsed 412.1s
+game 34 score 7200 busts 2 elapsed 417.8s
+game 35 score 8850 busts 0 elapsed 429.4s
+game 36 score 9900 busts 0 elapsed 440.7s
+game 37 score 8550 busts 0 elapsed 444.1s
+game 38 score 9500 busts 0 elapsed 456.3s
+game 39 score 8750 busts 0 elapsed 469.4s
+game 40 score 9250 busts 0 elapsed 480.2s
+game 41 score 10500 busts 0 elapsed 489.6s
+game 42 score 9550 busts 0 elapsed 500.9s
+game 43 score 8800 busts 0 elapsed 504.8s
+game 44 score 8600 busts 0 elapsed 508.5s
+game 45 score 9300 busts 0 elapsed 512.7s
+game 46 score 9050 busts 1 elapsed 516.7s
+game 47 score 3450 busts 3 elapsed 520.7s
+game 48 score 9250 busts 0 elapsed 535.0s
+game 49 score 8550 busts 0 elapsed 545.8s
+game 50 score 7500 busts 0 elapsed 552.2s
+game 51 score 9200 busts 0 elapsed 558.2s
+game 52 score 9050 busts 0 elapsed 562.9s
+game 53 score 7700 busts 2 elapsed 564.6s
+game 54 score 9700 busts 0 elapsed 568.1s
+game 55 score 9500 busts 0 elapsed 572.2s
+game 56 score 9950 busts 0 elapsed 584.4s
+game 57 score 12050 busts 0 elapsed 594.6s
+game 58 score 9900 busts 0 elapsed 608.7s
+game 59 score 9050 busts 0 elapsed 614.9s
+---
+n=60 box CPU s: mean 8.7 median 8.6 p95 19.5 max 26.3
+longest decision 5.1s; >60s 0, >90s 0, >150s 0
+Mac estimate box/1.5 (Node kit only): mean 5.8 median 5.7 p95 13.0 max 17.6; longest decision 3.4s
+wrote /workspace/21lab/bench/results/deeper16_timing/timing60.json

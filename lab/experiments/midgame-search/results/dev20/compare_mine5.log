@@ -1,0 +1,10 @@
+per-game progress: ../experiments/midgame-search/results/dev20/progress/20261118_170026_cmd_deeper_16_vs_cmd_think_mine5.{a,b}.csv (game,score,busts,perfect,ncards; append-only, unordered)
+set dev200 (sha256 90b10dfc15dd..) n=20  workers=2
+A = cmd:node frozen/exact-endgame-deeper@90c2d73f938b/experiments/exact-endgame-deeper/adapter.js --config deeper:16
+    mean    9027.5 +- 206.8 (SE)  sd    925 | busts/game 0.250  games>=1 bust  15.0%  3-bust   0.0%  perfect 85.00% | 0 games/s wall, 0 games/s/core
+B = cmd:node ../experiments/midgame-search/adapter.js --config midsearch:xd=5,xk=3,xm=150,bm=2,cap=1500000,pool=3000000 --timelog ../experiments/midgame-search/results/dev20/think_mine5.jsonl
+    mean    9027.5 +- 206.8 (SE)  sd    925 | busts/game 0.250  games>=1 bust  15.0%  3-bust   0.0%  perfect 85.00% | 0 games/s wall, 0 games/s/core
+paired diff (B-A) = +0.0 +- 0.0 (SE = sd_diff 0 / sqrt(20))   z = +nan
+VERDICT: DEV SET - NOT ELIGIBLE FOR ACCEPTANCE   (rule: n>=1000 and diff > 2 SE)
+NOTE: ACCEPTED also requires a clean future-order audit (python3 audit.py ...) before the champion changes.
+saved ../experiments/midgame-search/results/dev20/20261118_170435_cmd_deeper_16_vs_cmd_think_mine5.csv/.json

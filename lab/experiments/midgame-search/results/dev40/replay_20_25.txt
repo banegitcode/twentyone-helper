@@ -1,0 +1,8 @@
+  game 20 card 37 rem 15 move 3163 ms cpu (3163 wall)
+  game 20 card 38 rem 14 move 3453 ms cpu (3451 wall)
+  game 20 card 39 rem 13 move 3590 ms cpu (3576 wall)
+game 20 score 8800+bonus cpu 18.3 s
+game 21 score 9650+bonus cpu 13.2 s
+game 22 score 7100+bonus cpu 9.4 s
+game 23 score 8100+bonus cpu 8.9 s
+game 24 score 9850+bonus cpu 9.5 s

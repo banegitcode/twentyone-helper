@@ -1,0 +1,37 @@
+{"g":100,"step":0,"rem":52,"single":true,"nCls":1}
+{"g":100,"step":1,"rem":51,"single":true,"nCls":2}
+{"g":100,"step":2,"rem":50,"notSampled":true,"nCand":3}
+{"g":100,"step":3,"rem":49,"single":true,"nCls":13}
+{"g":100,"step":4,"rem":48,"notSampled":true,"nCand":2}
+{"g":100,"step":5,"rem":47,"single":true,"nCls":20}
+{"g":100,"step":6,"rem":46,"single":true,"nCls":13}
+{"g":100,"step":7,"rem":45,"single":true,"nCls":3}
+{"g":100,"step":8,"rem":44,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":8018.650411716845,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":14490,"champ":{"kind":"build","stay":false,"n":2,"hard":16,"soft":16,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":16,"soft":16,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h4 1c/h6 - 1c/h3","nBustCols":0,"nScoreCols":0,"tens":0.3181818181818182,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":1,"cv":7808.212222452439,"m":0,"se":0,"abs":8018.650411716845},{"stay":-1,"col":0,"cv":7803.222909572304,"m":-202.23881425920607,"se":163.9647661528413,"abs":7816.411597457638},{"stay":-1,"col":3,"cv":7800.125531210226,"m":-297.10958056311125,"se":142.18489475552673,"abs":7721.540831153733}]}
+{"g":100,"step":9,"rem":43,"notSampled":true,"nCand":3}
+{"g":100,"step":10,"rem":42,"notSampled":true,"nCand":2}
+{"g":100,"step":11,"rem":41,"single":true,"nCls":13}
+{"g":100,"step":12,"rem":40,"notSampled":true,"nCand":3}
+{"g":100,"step":13,"rem":39,"notSampled":true,"nCand":3}
+{"g":100,"step":14,"rem":38,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":7833.977044398128,"best":0,"naive":0,"naiveSe":0,"ss":-51.47988450237053,"ssSe":62.51511325847658,"ms":20651,"champ":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h14 1c/h2 2c/h11 1c/h3","nBustCols":1,"nScoreCols":1,"tens":0.3157894736842105,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":3,"cv":7741.176997263847,"m":0,"se":0,"abs":7833.977044398128},{"stay":-1,"col":2,"cv":7713.5964864847265,"m":-16.576061730977813,"se":90.48386214870966,"abs":7817.40098266715},{"stay":-1,"col":1,"cv":7688.52370521598,"m":-11.096327579494565,"se":107.57476911386944,"abs":7822.880716818635}]}
+{"g":100,"step":15,"rem":37,"single":true,"nCls":20}
+{"g":100,"step":16,"rem":36,"single":true,"nCls":2}
+{"g":100,"step":17,"rem":35,"single":true,"nCls":13}
+{"g":100,"step":18,"rem":34,"notSampled":true,"nCand":2}
+{"g":100,"step":19,"rem":33,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":6965.068413584196,"best":1,"naive":67.23762287661522,"naiveSe":90.92492945302321,"ss":67.23762287661522,"ssSe":91.89800237580592,"ms":10269,"champ":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":4,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":0,"maxN":3,"n4":0,"n3":1,"cols":"2c/h14 3c/h7 - -","nBustCols":1,"nScoreCols":0,"tens":0.30303030303030304,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":2,"cv":6939.968978610672,"m":0,"se":0,"abs":6965.068413584196},{"stay":-1,"col":1,"cv":6927.599375065087,"m":67.23762287661522,"se":90.92492945302321,"abs":7032.30603646081}]}
+{"g":100,"step":20,"rem":32,"notSampled":true,"nCand":3}
+{"g":100,"step":21,"rem":31,"notSampled":true,"nCand":2}
+{"g":100,"step":22,"rem":30,"single":true,"nCls":13}
+{"g":100,"step":23,"rem":29,"single":true,"nCls":17}
+{"g":100,"step":24,"rem":28,"single":true,"nCls":17}
+{"g":100,"step":25,"rem":27,"single":true,"nCls":13}
+{"g":100,"step":26,"rem":26,"single":true,"nCls":7}
+{"g":100,"step":27,"rem":25,"single":true,"nCls":3}
+{"g":100,"step":28,"rem":24,"single":true,"nCls":1}
+{"g":100,"step":29,"rem":23,"w":2.857142857142857,"n":32,"nCand":2,"nCls":2,"champIdx":0,"champMean":5125.680961061281,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":9468,"champ":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":3,"nSoft":1,"maxN":1,"n4":0,"n3":0,"cols":"1c/s11 - - -","nBustCols":0,"nScoreCols":1,"tens":0.30434782608695654,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":1,"cv":4843.871786695938,"m":0,"se":0,"abs":5125.680961061281},{"stay":-1,"col":0,"cv":4782.4720764888625,"m":-132.38654353486186,"se":87.87596402327028,"abs":4993.294417526418}]}
+{"g":100,"step":30,"rem":22,"notSampled":true,"nCand":2}
+{"g":100,"step":31,"rem":21,"single":true,"nCls":3}
+{"g":100,"step":32,"rem":20,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":4432.447738743965,"best":0,"naive":0,"naiveSe":0,"ss":-67.49168662419393,"ssSe":37.57145467614841,"ms":24145,"champ":{"kind":"build","stay":false,"n":2,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":1,"maxN":1,"n4":0,"n3":0,"cols":"1c/s11 1c/h7 - -","nBustCols":0,"nScoreCols":1,"tens":0.3,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":1,"cv":4383.147439841986,"m":0,"se":0,"abs":4432.447738743965},{"stay":-1,"col":2,"cv":4379.846399827327,"m":-5.442227736604214,"se":54.75154643994643,"abs":4427.005511007359},{"stay":-1,"col":0,"cv":4333.203335256963,"m":-30.905977450855186,"se":56.3890919965401,"abs":4401.54176129311}]}
+{"g":100,"step":33,"rem":19,"single":true,"nCls":7}
+{"g":100,"step":34,"rem":18,"single":true,"nCls":2}
+{"g":100,"step":35,"rem":17,"single":true,"nCls":7}
+{"g":100,"step":36,"rem":16,"notSampled":true,"nCand":3}

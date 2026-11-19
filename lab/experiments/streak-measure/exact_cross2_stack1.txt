@@ -1,0 +1,10 @@
+shipped52 set1000, exact labels at <=13 cards, 986 games: exact regret (points/game, mean +- SE) in decisions where the champion stacks onto a 1-card column
+  ALL decisions                                                   71.20 +-  4.30 /game   decisions 12800
+  champion stacks onto a 1-card column                            28.17 +-  2.61 /game   decisions 3312
+    ... no streak live                                            24.62 +-  2.45 /game   decisions 2832
+    ... no column scores now                                      21.25 +-  2.35 /game   decisions 2534
+    ... streak live (prev>0)                                       3.55 +-  0.94 /game   decisions 480
+    ... a column scores with the current card (nScoreCols>=1)      6.91 +-  1.22 /game   decisions 778
+    [regret>0.01 only]                                            28.17 +-  2.61 /game   decisions 304
+    ... a bust follows within 5 decisions                          1.16 +-  0.48 /game   decisions 208
+    ... inside a hindsight lost 3/4-streak window                  0.10 +-  0.08 /game   decisions 76

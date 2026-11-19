@@ -1,0 +1,3 @@
+{"cfg":"xd=3,xk=3,scope=mine","positions":216,"inScope":21,"extraPassPositions":9,"aborted":0,"changedMove":3,"evalsMean":660,"evalsP95":0,"evalsMax":27784,"msMean":24.9,"msP95":41.7,"msMax":400,"champMsMean":18.2,"perGameMsMean":895}
+{"cfg":"xd=4,xk=3,bm=2,scope=mine","positions":216,"inScope":21,"extraPassPositions":9,"aborted":0,"changedMove":3,"evalsMean":4143,"evalsP95":0,"evalsMax":182224,"msMean":74.7,"msP95":46.6,"msMax":2683,"champMsMean":18.1,"perGameMsMean":2688}
+{"cfg":"xd=3,xk=3,scope=all","positions":216,"inScope":216,"extraPassPositions":128,"aborted":0,"changedMove":17,"evalsMean":12436,"evalsP95":33994,"evalsMax":48465,"msMean":179.4,"msP95":485.5,"msMax":672,"champMsMean":17.9,"perGameMsMean":6459}

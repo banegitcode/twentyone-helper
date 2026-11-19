@@ -1,0 +1,12 @@
+games in log 1000, complete 393, missing (solver failed/not yet done) 607
+mean expected regret 62.1 +- 6.1 | mean realized diff 42.9 +- 19.5 | diff-regret -19.3 +- 18.2
+slope 1.17 corr 0.37
+zero-regret games: 211, their realized diffs: nonzero count 0
+| group | games | expected | realized | SE |
+| zero regret | 211 | 0.0 | 0.0 | 0.0 |
+| positive quartile 1 | 45 | 15.4 | -134.4 | 57.0 |
+| positive quartile 2 | 46 | 52.0 | -64.1 | 60.0 |
+| positive quartile 3 | 45 | 116.4 | 176.7 | 92.9 |
+| positive quartile 4 | 46 | 349.9 | 389.1 | 96.2 |
+missing games realized diff mean 29.3 (n=607)
+all games in log, realized diff mean 34.6 +- 13.7

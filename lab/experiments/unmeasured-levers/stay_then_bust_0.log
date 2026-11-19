@@ -1,0 +1,26 @@
+targets 50 H=16 KX=8 NF=48
+wk0 0/50 g=70 rem=27 gap=3 d=247.8 se=121.0 ms=133
+wk0 2/50 g=112 rem=18 gap=4 d=126.8 se=77.8 ms=885
+wk0 4/50 g=211 rem=26 gap=4 d=49.1 se=107.4 ms=123
+wk0 6/50 g=295 rem=34 gap=8 d=-8.1 se=39.1 ms=120
+wk0 8/50 g=326 rem=37 gap=3 d=37.8 se=35.9 ms=93
+wk0 10/50 g=331 rem=40 gap=8 d=-441.2 se=207.9 ms=100
+wk0 12/50 g=343 rem=23 gap=4 d=-88.7 se=128.1 ms=575
+wk0 14/50 g=347 rem=22 gap=8 d=-199.9 se=111.3 ms=568
+wk0 16/50 g=350 rem=32 gap=6 d=-435.5 se=116.3 ms=187
+wk0 18/50 g=370 rem=40 gap=7 d=44.9 se=164.8 ms=105
+wk0 20/50 g=390 rem=24 gap=3 d=-276.8 se=118.0 ms=716
+wk0 22/50 g=395 rem=27 gap=3 d=-214.6 se=136.3 ms=105
+wk0 24/50 g=459 rem=35 gap=5 d=-419.2 se=142.6 ms=130
+wk0 26/50 g=544 rem=37 gap=4 d=123.7 se=105.5 ms=123
+wk0 28/50 g=559 rem=17 gap=3 d=-352.5 se=91.5 ms=295
+wk0 30/50 g=595 rem=37 gap=3 d=-362.1 se=124.1 ms=175
+wk0 32/50 g=667 rem=42 gap=3 d=-161.1 se=133.4 ms=136
+wk0 34/50 g=689 rem=40 gap=4 d=115.5 se=125.6 ms=131
+wk0 36/50 g=755 rem=21 gap=4 d=1.0 se=50.2 ms=515
+wk0 38/50 g=768 rem=18 gap=3 d=-1158.5 se=111.2 ms=286
+wk0 40/50 g=789 rem=26 gap=3 d=-152.5 se=111.8 ms=183
+wk0 42/50 g=800 rem=25 gap=5 d=24.5 se=13.3 ms=411
+wk0 44/50 g=869 rem=35 gap=7 d=62.7 se=58.1 ms=88
+wk0 46/50 g=931 rem=34 gap=3 d=47.0 se=94.5 ms=91
+wk0 48/50 g=956 rem=27 gap=3 d=-27.5 se=120.4 ms=169

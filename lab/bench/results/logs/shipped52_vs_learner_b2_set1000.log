@@ -1,0 +1,9 @@
+set set1000 (sha256 b7cf79437960..) n=1000  workers=2
+A = cmd:node champion/champion_adapter.js --config shipped52
+    mean    8871.6 +-  38.0 (SE)  sd   1202 | busts/game 0.363  games>=1 bust  23.7%  3-bust   1.5%  perfect 76.30% | 1 games/s wall, 0 games/s/core
+B = cmd:node ../experiments/learner-e1/adapter.js --config shipped52 --corr b2
+    mean    8881.2 +-  36.8 (SE)  sd   1164 | busts/game 0.366  games>=1 bust  23.7%  3-bust   1.4%  perfect 76.30% | 1 games/s wall, 0 games/s/core
+paired diff (B-A) = +9.6 +- 8.2 (SE = sd_diff 259 / sqrt(1000))   z = +1.16
+VERDICT: NOISE   (rule: n>=1000 and diff > 2 SE)
+NOTE: ACCEPTED also requires a clean future-order audit (python3 audit.py ...) before the champion changes.
+saved /workspace/21lab/bench/results/20261118_130201_cmd_shipped52_vs_cmd_b2.csv/.json

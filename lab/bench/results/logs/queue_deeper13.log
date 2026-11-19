@@ -1,0 +1,4 @@
+2026-11-18 13:38:01 PST queue_deeper13 started; waiting for exact13 result and exit
+2026-11-18 14:05:01 PST exact13 done, MemAvailable 9728868 kB
+2026-11-18 14:05:01 PST launching deeper:13 from frozen/exact-endgame-deeper@90c2d73f938b
+2026-11-18 14:05:01 PST launched pid 371549

@@ -1,0 +1,2 @@
+cmd:node champion/champion_adapter.js --config shipped52 on set5000: n=5000
+  mean    8885.4 +-  16.8 (SE)  sd   1189 | busts/game 0.376  games>=1 bust  23.8%  3-bust   0.9%  perfect 76.18% | 1 games/s wall, 0 games/s/core

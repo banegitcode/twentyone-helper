@@ -1,0 +1,43 @@
+{
+  "set": "set1000",
+  "set_sha256": "b7cf79437960cc597286a00c9cea411aaed8f2e9d2eb4dbf5582d1958b5a93ae",
+  "n": 1000,
+  "a": "native:greedy",
+  "b": "cmd:/workspace/21lab/experiments/theory_sim/target/release/adapter greedy:500,0",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 1000,
+    "mean": 4977.0,
+    "se": 54.75677404946629,
+    "sd": 1731.5612331951488,
+    "busts_per_game": 1.729,
+    "bust_game_rate": 0.828,
+    "three_bust_rate": 0.319,
+    "perfect_rate": 0.172,
+    "games_per_sec_wall": 1649.7614430629687,
+    "games_per_sec_per_core": 9768.200599767517,
+    "wall_s": 0.6061482429504395,
+    "cpu_s": 0.102373
+  },
+  "B": {
+    "n": 1000,
+    "mean": 6206.25,
+    "se": 48.46134479602727,
+    "sd": 1532.4822803019417,
+    "busts_per_game": 1.111,
+    "bust_game_rate": 0.663,
+    "three_bust_rate": 0.11,
+    "perfect_rate": 0.337,
+    "games_per_sec_wall": 80.21554653953622,
+    "games_per_sec_per_core": 45.65912177332662,
+    "wall_s": 12.466411352157593,
+    "cpu_s": 21.901428699493408
+  },
+  "paired_diff_B_minus_A": 1229.25,
+  "paired_se": 66.23589760569136,
+  "z": 18.55866749655667,
+  "sd_diff": 2094.5629929967804,
+  "verdict": "ACCEPTED",
+  "timestamp": "20261118_113516"
+}

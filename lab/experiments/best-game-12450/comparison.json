@@ -1,0 +1,63 @@
+{
+  "same_move_sequence": false,
+  "n_move_diffs": 4,
+  "diffs": [
+    {
+      "card_index": 42,
+      "card": "AC",
+      "d16": {
+        "stay": null,
+        "place": 1,
+        "event": "21"
+      },
+      "shipped52": {
+        "stay": 1,
+        "place": 1,
+        "event": "keep"
+      }
+    },
+    {
+      "card_index": 43,
+      "card": "6C",
+      "d16": {
+        "stay": null,
+        "place": 1,
+        "event": "keep"
+      },
+      "shipped52": {
+        "stay": null,
+        "place": 2,
+        "event": "keep"
+      }
+    },
+    {
+      "card_index": 44,
+      "card": "5C",
+      "d16": {
+        "stay": null,
+        "place": 1,
+        "event": "keep"
+      },
+      "shipped52": {
+        "stay": null,
+        "place": 2,
+        "event": "21"
+      }
+    },
+    {
+      "card_index": 45,
+      "card": "3S",
+      "d16": {
+        "stay": 2,
+        "place": 2,
+        "event": "keep"
+      },
+      "shipped52": {
+        "stay": null,
+        "place": 2,
+        "event": "keep"
+      }
+    }
+  ],
+  "same_score": true
+}

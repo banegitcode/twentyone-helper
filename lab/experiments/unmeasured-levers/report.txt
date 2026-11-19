@@ -1,0 +1,304 @@
+loading logs...
+== shipped52 set1000  n=1000 games, bad_base_decode=0 ==
+  final: 8871.6 ± 38.0  (n=1000)
+  base: 6623.4 ± 16.5  (n=1000)
+  bonus: 1485.2 ± 22.3  (n=1000)
+  perfect: 0.763 ± 0.013  (n=1000)
+  busts: 0.363 ± 0.023  (n=1000)
+  c21: 13.048 ± 0.060  (n=1000)
+  c777: 0.043 ± 0.006  (n=1000)
+  c5: 0.763 ± 0.021  (n=1000)
+  c521: 0.768 ± 0.024  (n=1000)
+  stays_used: 1.796 ± 0.015  (n=1000)
+  leftover: 0.204 ± 0.015  (n=1000)
+  forced_busts: 0.195 ± 0.014  (n=1000)
+  vol_busts: 0.168 ± 0.015  (n=1000)
+  stay_at_16: 0.688 ± 0.023  (n=1000)
+  stay_at_13: 0.586 ± 0.022  (n=1000)
+  vol_bust_b0_late: 0.038 ± 0.006  (n=1000)
+  five-card clears (c5+c521): 1.531 ± 0.020
+  three-7s premium vs plain 21 (200*count): 8.60 ± 1.28 pts/game
+  share games leftover Stay>0: 17.7%  leftover>=2: 2.7%
+  leftover Stay AND busts>0: 0 games []
+  end reasons: {'deck': 985, 'busts': 15}
+== exact13 set1000 prefix  n=200 games, bad_base_decode=0 ==
+  final: 8960.5 ± 80.4  (n=200)
+  base: 6658.0 ± 34.3  (n=200)
+  bonus: 1527.5 ± 52.6  (n=200)
+  perfect: 0.775 ± 0.030  (n=200)
+  busts: 0.385 ± 0.054  (n=200)
+  c21: 13.170 ± 0.133  (n=200)
+  c777: 0.045 ± 0.015  (n=200)
+  c5: 0.685 ± 0.047  (n=200)
+  c521: 0.815 ± 0.052  (n=200)
+  stays_used: 1.830 ± 0.030  (n=200)
+  leftover: 0.170 ± 0.030  (n=200)
+  forced_busts: 0.155 ± 0.028  (n=200)
+  vol_busts: 0.230 ± 0.040  (n=200)
+  stay_at_16: 0.740 ± 0.052  (n=200)
+  stay_at_13: 0.635 ± 0.050  (n=200)
+  vol_bust_b0_late: 0.060 ± 0.017  (n=200)
+  five-card clears (c5+c521): 1.500 ± 0.044
+  three-7s premium vs plain 21 (200*count): 9.00 ± 2.94 pts/game
+  share games leftover Stay>0: 15.0%  leftover>=2: 2.0%
+  leftover Stay AND busts>0: 0 games []
+  end reasons: {'deck': 197, 'busts': 3}
+== deeper:16 train150  n=150 games, bad_base_decode=677 ==
+  final: 8813.7 ± 111.8  (n=150)
+  base: 5083.7 ± 64.0  (n=150)
+  bonus: 1501.7 ± 59.2  (n=150)
+  perfect: 0.727 ± 0.037  (n=150)
+  busts: 0.453 ± 0.065  (n=150)
+  c21: 9.140 ± 0.135  (n=150)
+  c777: 0.013 ± 0.009  (n=150)
+  c5: 0.440 ± 0.048  (n=150)
+  c521: 0.487 ± 0.051  (n=150)
+  stays_used: 1.867 ± 0.032  (n=150)
+  leftover: 0.133 ± 0.032  (n=150)
+  forced_busts: 0.200 ± 0.039  (n=150)
+  vol_busts: 0.253 ± 0.048  (n=150)
+  stay_at_16: 0.613 ± 0.060  (n=150)
+  stay_at_13: 0.513 ± 0.056  (n=150)
+  vol_bust_b0_late: 0.073 ± 0.021  (n=150)
+  five-card clears (c5+c521): 0.927 ± 0.058
+  three-7s premium vs plain 21 (200*count): 2.67 ± 1.88 pts/game
+  share games leftover Stay>0: 11.3%  leftover>=2: 2.0%
+  leftover Stay AND busts>0: 0 games []
+  end reasons: {'deck': 148, 'busts': 2}
+== exact13 dev200  n=200 games, bad_base_decode=0 ==
+  final: 8838.2 ± 89.6  (n=200)
+  base: 6607.0 ± 41.0  (n=200)
+  bonus: 1501.2 ± 51.9  (n=200)
+  perfect: 0.730 ± 0.031  (n=200)
+  busts: 0.430 ± 0.054  (n=200)
+  c21: 13.010 ± 0.140  (n=200)
+  c777: 0.050 ± 0.015  (n=200)
+  c5: 0.735 ± 0.045  (n=200)
+  c521: 0.785 ± 0.054  (n=200)
+  stays_used: 1.840 ± 0.030  (n=200)
+  leftover: 0.160 ± 0.030  (n=200)
+  forced_busts: 0.210 ± 0.031  (n=200)
+  vol_busts: 0.220 ± 0.037  (n=200)
+  stay_at_16: 0.590 ± 0.050  (n=200)
+  stay_at_13: 0.520 ± 0.049  (n=200)
+  vol_bust_b0_late: 0.020 ± 0.010  (n=200)
+  five-card clears (c5+c521): 1.520 ± 0.045
+  three-7s premium vs plain 21 (200*count): 10.00 ± 3.09 pts/game
+  share games leftover Stay>0: 14.0%  leftover>=2: 2.0%
+  leftover Stay AND busts>0: 0 games []
+  end reasons: {'deck': 199, 'busts': 1}
+== shipped52 dev200  n=200 games, bad_base_decode=0 ==
+  final: 8738.8 ± 90.9  (n=200)
+  base: 6575.0 ± 40.5  (n=200)
+  bonus: 1443.8 ± 50.4  (n=200)
+  perfect: 0.720 ± 0.032  (n=200)
+  busts: 0.430 ± 0.053  (n=200)
+  c21: 13.000 ± 0.142  (n=200)
+  c777: 0.045 ± 0.015  (n=200)
+  c5: 0.735 ± 0.045  (n=200)
+  c521: 0.760 ± 0.051  (n=200)
+  stays_used: 1.830 ± 0.031  (n=200)
+  leftover: 0.170 ± 0.031  (n=200)
+  forced_busts: 0.230 ± 0.032  (n=200)
+  vol_busts: 0.200 ± 0.036  (n=200)
+  stay_at_16: 0.590 ± 0.050  (n=200)
+  stay_at_13: 0.500 ± 0.048  (n=200)
+  vol_bust_b0_late: 0.020 ± 0.010  (n=200)
+  five-card clears (c5+c521): 1.495 ± 0.046
+  three-7s premium vs plain 21 (200*count): 9.00 ± 2.94 pts/game
+  share games leftover Stay>0: 14.5%  leftover>=2: 2.5%
+  leftover Stay AND busts>0: 0 games []
+  end reasons: {'deck': 198, 'busts': 2}
+== paired exact13 vs shipped52, same set1000 games  n=200 ==
+  Δ final (B-A): 52.25 ± 28.66  (n=200)
+  Δ base (B-A): 1.000 ± 9.457  (n=200)
+  Δ bonus (B-A): 61.25 ± 25.77  (n=200)
+  Δ perfect (B-A): -0.010 ± 0.007  (n=200)
+  Δ busts (B-A): 0.035 ± 0.015  (n=200)
+  Δ c21 (B-A): 0.040 ± 0.045  (n=200)
+  Δ c777 (B-A): 0.000 ± 0.000  (n=200)
+  Δ c5 (B-A): -0.025 ± 0.022  (n=200)
+  Δ c521 (B-A): 0.005 ± 0.027  (n=200)
+  Δ stays_used (B-A): 0.065 ± 0.026  (n=200)
+  Δ leftover (B-A): -0.065 ± 0.026  (n=200)
+  Δ forced_busts (B-A): 0.000 ± 0.007  (n=200)
+  Δ vol_busts (B-A): 0.035 ± 0.013  (n=200)
+  Δ vol_bust_b0_late (B-A): 0.010 ± 0.007  (n=200)
+  leftover stays (A,B) counts: {(0, 0): 154, (1, 0): 14, (0, 1): 5, (2, 2): 4, (1, 1): 21, (2, 0): 2}
+== paired exact13 vs shipped52, same dev200 games  n=200 ==
+  Δ final (B-A): 99.50 ± 35.16  (n=200)
+  Δ base (B-A): 32.00 ± 11.38  (n=200)
+  Δ bonus (B-A): 57.50 ± 28.78  (n=200)
+  Δ perfect (B-A): 0.010 ± 0.014  (n=200)
+  Δ busts (B-A): 0.000 ± 0.025  (n=200)
+  Δ c21 (B-A): 0.010 ± 0.054  (n=200)
+  Δ c777 (B-A): 0.005 ± 0.005  (n=200)
+  Δ c5 (B-A): 0.000 ± 0.026  (n=200)
+  Δ c521 (B-A): 0.025 ± 0.035  (n=200)
+  Δ stays_used (B-A): 0.010 ± 0.021  (n=200)
+  Δ leftover (B-A): -0.010 ± 0.021  (n=200)
+  Δ forced_busts (B-A): -0.020 ± 0.012  (n=200)
+  Δ vol_busts (B-A): 0.020 ± 0.020  (n=200)
+  Δ vol_bust_b0_late (B-A): 0.000 ± 0.010  (n=200)
+  leftover stays (A,B) counts: {(0, 0): 165, (1, 1): 17, (0, 1): 6, (1, 2): 1, (2, 0): 1, (1, 0): 6, (2, 1): 1, (2, 2): 3}
+
+== official bench CSVs (set1000) ==
+  deeper:16 vs shipped52 score: A 8871.6 ± 38.0  B 8926.4 ± 37.8  Δ 54.70 ± 14.91  n=1000
+  deeper:16 vs shipped52 busts: A 0.363 ± 0.023  B 0.379 ± 0.023  Δ 0.016 ± 0.010  n=1000
+  deeper:16 vs shipped52 perfect: A 0.763 ± 0.013  B 0.757 ± 0.014  Δ -0.006 ± 0.006  n=1000
+    3-bust rate A 1.50% B 1.20%
+  exact13 vs shipped52 score: A 8871.6 ± 38.0  B 8906.3 ± 37.9  Δ 34.65 ± 13.74  n=1000
+  exact13 vs shipped52 busts: A 0.363 ± 0.023  B 0.371 ± 0.023  Δ 0.008 ± 0.008  n=1000
+  exact13 vs shipped52 perfect: A 0.763 ± 0.013  B 0.760 ± 0.014  Δ -0.003 ± 0.005  n=1000
+    3-bust rate A 1.50% B 1.10%
+  exact14 vs shipped52 score: A 8871.6 ± 38.0  B 8924.6 ± 38.1  Δ 53.00 ± 15.19  n=1000
+  exact14 vs shipped52 busts: A 0.363 ± 0.023  B 0.377 ± 0.023  Δ 0.014 ± 0.009  n=1000
+  exact14 vs shipped52 perfect: A 0.763 ± 0.013  B 0.760 ± 0.014  Δ -0.003 ± 0.006  n=1000
+    3-bust rate A 1.50% B 1.20%
+  deeper:13 vs shipped52 score: A 8871.6 ± 38.0  B 8905.0 ± 37.8  Δ 33.35 ± 12.94  n=1000
+  deeper:13 vs shipped52 busts: A 0.363 ± 0.023  B 0.370 ± 0.023  Δ 0.007 ± 0.008  n=1000
+  deeper:13 vs shipped52 perfect: A 0.763 ± 0.013  B 0.761 ± 0.013  Δ -0.002 ± 0.005  n=1000
+    3-bust rate A 1.50% B 1.10%
+
+== leftover Stay anatomy, shipped52 set1000 ==
+  busts=0 n=763  leftover 0.267 ± 0.019  stays_used 1.733 ± 0.019  leftover>0 23.2%
+  busts=1 n=126  leftover 0.000 ± 0.000  stays_used 2.000 ± 0.000  leftover>0 0.0%
+  busts=2 n=96  leftover 0.000 ± 0.000  stays_used 2.000 ± 0.000  leftover>0 0.0%
+  busts=3 n=15  leftover 0.000 ± 0.000  stays_used 2.000 ± 0.000  leftover>0 0.0%
+
+== Stay use in last 13 cards, paired set1000 prefix ==
+  entry-stays mismatch at rem=13: 0 / 200 (expect 0 if mid-game identical)
+  Stays used at rem<=13: shipped52 0.435 ± 0.042  exact13 0.500 ± 0.046  Δ 0.065 ± 0.026
+  games exact13 used more late Stays: 16; shipped52 used more: 5
+
+== Stay use rem<=16, deeper:16 train150 (unpaired) ==
+  stays entering rem<=16: 0.647 ± 0.061
+  stays used rem<=16: 0.513 ± 0.057
+  leftover at end: 0.133 ± 0.032  share>0 11.3%
+
+== forced-bust lookback, shipped52 set1000 ==
+  bust events 363  forced 195  voluntary 168
+  busts with stays_before>0: 0  (expect 0 per streak audit)
+  forced busts with no Stay ever used: 0 / 195
+  cards between last Stay and forced bust: mean 10.06 ± 0.61  median 7
+    last Stay within 2 cards: 26 / 195 forced
+    last Stay within 4 cards: 69 / 195 forced
+    last Stay within 8 cards: 109 / 195 forced
+    last Stay within 16 cards: 151 / 195 forced
+  voluntary busts with Perfect still available (busts_before=0): 71  (0.071/game)
+    of which rem<=16: 38  rem<=12: 29  rem>16: 33
+  voluntary busts at busts_before=1: 89  rem<=16 71
+  shipped52: 0-bust at rem=16: 873/1000 games, of which later bust: 110
+  shipped52: 0-bust at rem=13: 846/1000 games, of which later bust: 83
+  shipped52: 0-bust at rem=8: 799/1000 games, of which later bust: 36
+  shipped52: 0-bust at rem=4: 768/1000 games, of which later bust: 5
+  shipped52: 0-bust at rem=2: 763/1000 games, of which later bust: 0
+
+== clairvoyant residual, set1000 games 0-299 ==
+  shipped52 n=300 score 8882.7 ± 66.3 base 6649.3 ± 26.8 bonus 1453.3 ± 41.4 perfect 0.780 ± 0.024
+  c21 13.080 ± 0.104 c777 0.047 ± 0.012 c5 0.737 ± 0.040 c521 0.800 ± 0.045
+  gap score 4311.0  base 229.4  bonus 3878.4  perfect_pts 203.3
+  measured legal remaining pools (given, not re-derived): 13-16 fallback 28.6 + above16 12.5 = 41.1 raw
+  leftover gap after those pools (NOT a legal bound; mostly order info): 4269.9
+
+== (b) reference A vs strong, overlapping decisions ==
+  conf 253  strong 71
+  conf rem hist [(14, 16), (49, 14), (15, 13)] min 13 max 51
+  conf fresh all conf: 48.08 ± 8.09 /game  decisions=253
+  conf fresh rem>16: 20.16 ± 4.95 /game  decisions=203
+  conf fresh rem>=16: 24.33 ± 5.66 /game  decisions=213
+  conf fresh stay over-use (champ stay, alt not): 8.01 ± 2.38 /game  decisions=18
+  conf fresh stay under-use (champ not, alt stay): 0.29 ± 0.45 /game  decisions=3
+  conf fresh both stay: 2.18 ± 1.54 /game  decisions=3
+  conf fresh neither stay: 9.68 ± 4.09 /game  decisions=179
+  strong all strong (already rem 17-48): strong-ref 10.31 ± 4.43  refA-on-same 17.95 ± 3.90  dec=71
+  strong stay over-use: strong-ref 6.17 ± 2.38  refA-on-same 8.01 ± 2.38  dec=18
+  strong stay under-use: strong-ref -0.17 ± 0.50  refA-on-same 0.29 ± 0.45  dec=3
+  strong both stay: strong-ref 1.79 ± 1.67  refA-on-same 2.18 ± 1.54  dec=3
+  strong neither stay: strong-ref 2.52 ± 2.97  refA-on-same 7.46 ± 2.76  dec=47
+  conf∩strong decisions: 71
+  on overlap, per game: refA(fresh) 17.95 ± 3.90  strong 10.31 ± 4.43  refA-strong 7.63 ± 3.50
+  sign: both>0 37  A>0≥S 15  A<=0<S 7  of 71
+  overlap Stay over (n_dec=18): refA 8.01 ± 2.38  strong 6.17 ± 2.38
+  overlap Stay under (n_dec=3): refA 0.29 ± 0.45  strong -0.17 ± 0.50
+
+== (a) consecutive confirmed flips, rem>16, dev200 ==
+  games with a rem>16 conf flip: 99 / 200
+  games with 2+ such flips: 20
+  sum of rem>16 conf fresh/game: 37.91 ± 4.30
+  of which in a consecutive-pair (Δstep<=2): 0.03 ± 0.03
+  max single flip/game: 34.39 ± 3.85
+  gaps between flips in same game: n=24 mean 10.50 ± 1.42  share<=2 4.2%
+
+== (d) scoring types at rem<=16 / <=13, paired ==
+  -- rem<=13  exact13 vs shipped52 n=200 --
+    c21: shipped52 3.990 ± 0.084  exact13 4.030 ± 0.084  Δ 0.040 ± 0.045
+    c777: shipped52 0.030 ± 0.012  exact13 0.030 ± 0.012  Δ 0.000 ± 0.000
+    c5: shipped52 0.265 ± 0.034  exact13 0.240 ± 0.031  Δ -0.025 ± 0.022
+    c521: shipped52 0.385 ± 0.042  exact13 0.390 ± 0.042  Δ 0.005 ± 0.027
+    bust: shipped52 0.155 ± 0.033  exact13 0.190 ± 0.034  Δ 0.035 ± 0.015
+    _base: shipped52 2211.000 ± 37.112  exact13 2212.000 ± 38.165  Δ 1.000 ± 9.457
+    _bonus: shipped52 668.750 ± 33.341  exact13 730.000 ± 37.526  Δ 61.250 ± 25.773
+  -- rem<=16  exact13 vs shipped52 n=200 --
+    c21: shipped52 4.785 ± 0.090  exact13 4.825 ± 0.089  Δ 0.040 ± 0.045
+    c777: shipped52 0.035 ± 0.013  exact13 0.035 ± 0.013  Δ 0.000 ± 0.000
+    c5: shipped52 0.325 ± 0.036  exact13 0.300 ± 0.034  Δ -0.025 ± 0.022
+    c521: shipped52 0.430 ± 0.043  exact13 0.435 ± 0.044  Δ 0.005 ± 0.027
+    bust: shipped52 0.195 ± 0.037  exact13 0.230 ± 0.039  Δ 0.035 ± 0.015
+    _base: shipped52 2625.000 ± 34.024  exact13 2626.000 ± 34.650  Δ 1.000 ± 9.457
+    _bonus: shipped52 763.750 ± 35.937  exact13 825.000 ± 40.022  Δ 61.250 ± 25.773
+  -- rem<=13  exact13-dev vs shipped52-dev n=200 --
+    c21: shipped52-dev 4.050 ± 0.081  exact13-dev 4.060 ± 0.079  Δ 0.010 ± 0.054
+    c777: shipped52-dev 0.015 ± 0.009  exact13-dev 0.020 ± 0.010  Δ 0.005 ± 0.005
+    c5: shipped52-dev 0.230 ± 0.031  exact13-dev 0.230 ± 0.030  Δ 0.000 ± 0.026
+    c521: shipped52-dev 0.385 ± 0.041  exact13-dev 0.410 ± 0.041  Δ 0.025 ± 0.035
+    bust: shipped52-dev 0.195 ± 0.031  exact13-dev 0.195 ± 0.031  Δ 0.000 ± 0.025
+    _base: shipped52-dev 2198.000 ± 37.376  exact13-dev 2230.000 ± 37.611  Δ 32.000 ± 11.381
+    _bonus: shipped52-dev 685.000 ± 34.146  exact13-dev 742.500 ± 36.315  Δ 57.500 ± 28.779
+  -- rem<=16  exact13-dev vs shipped52-dev n=200 --
+    c21: shipped52-dev 4.890 ± 0.086  exact13-dev 4.900 ± 0.084  Δ 0.010 ± 0.054
+    c777: shipped52-dev 0.020 ± 0.010  exact13-dev 0.025 ± 0.011  Δ 0.005 ± 0.005
+    c5: shipped52-dev 0.285 ± 0.034  exact13-dev 0.285 ± 0.033  Δ 0.000 ± 0.026
+    c521: shipped52-dev 0.400 ± 0.041  exact13-dev 0.425 ± 0.042  Δ 0.025 ± 0.035
+    bust: shipped52-dev 0.245 ± 0.036  exact13-dev 0.245 ± 0.036  Δ 0.000 ± 0.025
+    _base: shipped52-dev 2596.000 ± 34.319  exact13-dev 2628.000 ± 34.263  Δ 32.000 ± 11.381
+    _bonus: shipped52-dev 781.250 ± 37.340  exact13-dev 838.750 ± 38.904  Δ 57.500 ± 28.779
+  -- deeper:16 train150 rem<=16 (unpaired) --
+    c21: 3.073 ± 0.080
+    c777: 0.013 ± 0.009
+    c5: 0.167 ± 0.032
+    c521: 0.187 ± 0.033
+  -- shipped52 set1000 rem<=16 --
+    c21: 4.832 ± 0.039
+    c777: 0.030 ± 0.005
+    c5: 0.294 ± 0.015
+    c521: 0.418 ± 0.018
+
+== end-of-deck anatomy, shipped52 set1000 ==
+  at rem=1: n=989  stays left 0.206 ± 0.015  4-card columns standing 0.118 ± 0.010
+    share with >=1 four-card column at rem=1: 11.8%
+    scored the last card: 0.714 ± 0.014
+    leftover Stay at rem=1: share>0 17.9%
+  rem=1 available 5-card not taken: 0 games
+  rem=1 five-card available: 115/games, taken 115
+  rem=1 five-card, exact13 set1000 prefix: (197, 23, 23, 0, 0.116751269035533, 0.17258883248730963)
+  rem=1 five-card, shipped52 same games: (197, 26, 26, 0, 0.1319796954314721, 0.23857868020304568)
+  rem=1 five-card, deeper:16 train150: (149, 22, 22, 0, 0.15436241610738255, 0.1342281879194631)
+
+== three-7s opportunities (columns already two 7s, current is 7) ==
+  shipped52 set1000: opp/game 0.044 ± 0.007  taken 0.043 ± 0.006  declined 0.001 ± 0.001
+    rem<=13: opp 0.026 ± 0.005 taken 0.025 ± 0.005 declined 0.001 ± 0.001
+  exact13 prefix: opp/game 0.045 ± 0.015  taken 0.045 ± 0.015  declined 0.000 ± 0.000
+    rem<=13: opp 0.030 ± 0.012 taken 0.030 ± 0.012 declined 0.000 ± 0.000
+  deeper16-150: opp/game 0.013 ± 0.009  taken 0.013 ± 0.009  declined 0.000 ± 0.000
+    rem<=13: opp 0.013 ± 0.009 taken 0.013 ± 0.009 declined 0.000 ± 0.000
+
+== exact13 vs shipped52 when leftover Stay differs (last 13 only) ==
+  leftover (shipped, exact13)=(0, 0) n=154  Δscore 31.17 ± 30.89
+  leftover (shipped, exact13)=(0, 1) n=5  Δscore 370.00 ± 361.11
+  leftover (shipped, exact13)=(1, 0) n=14  Δscore 310.71 ± 139.48
+  leftover (shipped, exact13)=(1, 1) n=21  Δscore 4.76 ± 72.53
+  leftover (shipped, exact13)=(2, 0) n=2  Δscore -200.00 ± 200.00
+  leftover (shipped, exact13)=(2, 2) n=4  Δscore -62.50 ± 62.50
+
+Wrote summary.json

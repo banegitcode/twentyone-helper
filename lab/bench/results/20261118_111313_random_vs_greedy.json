@@ -1,0 +1,43 @@
+{
+  "set": "set5000",
+  "set_sha256": "860962f3c096c4fba92264f07fdae8be3c928cce42a951dc092f884fd27b2316",
+  "n": 5000,
+  "a": "native:random",
+  "b": "native:greedy",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 5000,
+    "mean": 394.69,
+    "se": 7.0593928765551155,
+    "sd": 499.1744574072131,
+    "busts_per_game": 3.0,
+    "bust_game_rate": 1.0,
+    "three_bust_rate": 1.0,
+    "perfect_rate": 0.0,
+    "games_per_sec_wall": 31436.42193404676,
+    "games_per_sec_per_core": 615081.8058801822,
+    "wall_s": 0.15905117988586426,
+    "cpu_s": 0.008128999999999999
+  },
+  "B": {
+    "n": 5000,
+    "mean": 4912.65,
+    "se": 25.59037062869123,
+    "sd": 1809.5124604624623,
+    "busts_per_game": 1.7396,
+    "bust_game_rate": 0.826,
+    "three_bust_rate": 0.332,
+    "perfect_rate": 0.174,
+    "games_per_sec_wall": 35022.69546658472,
+    "games_per_sec_per_core": 188950.1927291966,
+    "wall_s": 0.14276456832885742,
+    "cpu_s": 0.026462
+  },
+  "paired_diff_B_minus_A": 4517.96,
+  "paired_se": 26.468861097553106,
+  "z": 170.68962594758787,
+  "sd_diff": 1871.6311172364606,
+  "verdict": "ACCEPTED",
+  "timestamp": "20261118_111313"
+}

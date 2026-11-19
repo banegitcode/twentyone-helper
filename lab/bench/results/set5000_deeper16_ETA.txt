@@ -1,0 +1,6 @@
+deeper:16 vs shipped52 set5000 (frozen exact-endgame-deeper@90c2d73f938b vs champion@76a84987c25c, A from verified cache)
+started 2026-11-18 15:11:12 PST; 3 workers at nice 10
+estimated at 2026-11-18 15:21:42 PST from 215 games in 10.5 min (20.48 games/min)
+remaining 4785 games, about 3.9 h
+ETA about 2026-11-18 19:15 PST (assumes current box load; Learner label workers at nice 0 keep priority)
+early CPU/game mean 8.2s max 22.3s (n=215)

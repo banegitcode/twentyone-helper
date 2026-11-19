@@ -1,0 +1,10 @@
+== Stay stats shipped52 (1000 games): stays/game 1.796 +- 0.015
+  live_decisions: 13916  (13.916/game)
+  live_with_empty_col: 13916  (13.916/game)
+  stay_16-1: 514  (0.514/game)
+  stay_32-17: 654  (0.654/game)
+  stay_52-33: 628  (0.628/game)
+  stay_then_scored: 35  (0.035/game)
+  stay_total: 1796  (1.796/game)
+  stay_while_live: 38  (0.038/game)
+  stay_with_empty_col_available: 143  (0.143/game)

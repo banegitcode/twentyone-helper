@@ -1,0 +1,127 @@
+{
+  "numCols": 4,
+  "stayBreaksStreak": false,
+  "maxStays": 2,
+  "streakBonus": [
+    0,
+    250,
+    500,
+    1000,
+    2000
+  ],
+  "perfectBonus": 1000,
+  "columnIndexInScoring": false,
+  "deckIsValueCounts": true,
+  "notes": [
+    "MEASURED: swapping any two columns and remapping the move leaves score, busts, stays, streak, and the column-content vector identical. Stay does not break the streak (stayBreaksStreak=false); streak and busts are global, not per-column. Columns are interchangeable.",
+    "MEASURED: exact3g.choose on a column-swapped state returns the same value and the same visit count. Unique best is remapped; ties may keep a different index (iteration order). Column sorting / class keys are already in the solver."
+  ],
+  "columnSwapTrials": 80,
+  "columnSwapIdentical": 80,
+  "deckLength": 11,
+  "deckSlots": "counts at indices 1..10 (0 unused); no per-card ids",
+  "fullDeckCounts": [
+    0,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    16
+  ],
+  "exactSwap": {
+    "move1": {
+      "stay": -1,
+      "col": 0,
+      "value": 2000
+    },
+    "move2": {
+      "stay": -1,
+      "col": 0,
+      "value": 2000
+    },
+    "visits1": 41318,
+    "visits2": 41318,
+    "aborted1": false,
+    "aborted2": false,
+    "scores1": [
+      {
+        "stay": -1,
+        "col": 0,
+        "value": 2000
+      },
+      {
+        "stay": -1,
+        "col": 1,
+        "value": 2000
+      },
+      {
+        "stay": -1,
+        "col": 2,
+        "value": 2000
+      },
+      {
+        "stay": -1,
+        "col": 3,
+        "value": 2000
+      }
+    ],
+    "scores2": [
+      {
+        "stay": -1,
+        "col": 0,
+        "value": 2000,
+        "remapped": {
+          "stay": -1,
+          "col": 2
+        }
+      },
+      {
+        "stay": -1,
+        "col": 1,
+        "value": 2000,
+        "remapped": {
+          "stay": -1,
+          "col": 1
+        }
+      },
+      {
+        "stay": -1,
+        "col": 2,
+        "value": 2000,
+        "remapped": {
+          "stay": -1,
+          "col": 0
+        }
+      },
+      {
+        "stay": -1,
+        "col": 3,
+        "value": 2000,
+        "remapped": {
+          "stay": -1,
+          "col": 3
+        }
+      }
+    ],
+    "remapped": {
+      "stay": -1,
+      "col": 2
+    },
+    "nTop": 4
+  },
+  "alreadyInExact3g": {
+    "columnSortBeforeHash": true,
+    "deckAsValueCounts": true,
+    "deckAwareColumnClasses": true,
+    "stayOnlyClearAndPlaceOnSameCol": true,
+    "stayDroppedWhenEmptyExists": true,
+    "stayCapByEmptiesAndCardsLeft": true,
+    "streakDroppedWhenNoScorePossible": true,
+    "lastCardInPlace": true
+  }
+}

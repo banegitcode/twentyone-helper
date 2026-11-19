@@ -1,0 +1,6761 @@
+{
+  "final_score": 12450,
+  "score_without_perfect": 11450,
+  "busts": 0,
+  "perfect": 1,
+  "ncards": 52,
+  "ended_by_bust": false,
+  "clears": 17,
+  "log": [
+    {
+      "card_index": 1,
+      "cards_left_incl": 52,
+      "cards_left_excl": 51,
+      "code": 18,
+      "card": "6D",
+      "value": 6,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          6
+        ],
+        "n": 1,
+        "hard": 6,
+        "total": 6,
+        "soft": false,
+        "text": "6  total 6"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            6
+          ],
+          "n": 1,
+          "hard": 6,
+          "total": 6,
+          "soft": false,
+          "text": "6  total 6"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 0,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 52,
+        "cards_left_excl_current": 51,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 2,
+      "cards_left_incl": 51,
+      "cards_left_excl": 50,
+      "code": 7,
+      "card": "8C",
+      "value": 8,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          8
+        ],
+        "n": 1,
+        "hard": 8,
+        "total": 8,
+        "soft": false,
+        "text": "8  total 8"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            6
+          ],
+          "n": 1,
+          "hard": 6,
+          "total": 6,
+          "soft": false,
+          "text": "6  total 6"
+        },
+        {
+          "cards": [
+            8
+          ],
+          "n": 1,
+          "hard": 8,
+          "total": 8,
+          "soft": false,
+          "text": "8  total 8"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 0,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 51,
+        "cards_left_excl_current": 50,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 3,
+      "cards_left_incl": 50,
+      "cards_left_excl": 49,
+      "code": 1,
+      "card": "2C",
+      "value": 2,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          2
+        ],
+        "n": 1,
+        "hard": 2,
+        "total": 2,
+        "soft": false,
+        "text": "2  total 2"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            6
+          ],
+          "n": 1,
+          "hard": 6,
+          "total": 6,
+          "soft": false,
+          "text": "6  total 6"
+        },
+        {
+          "cards": [
+            8
+          ],
+          "n": 1,
+          "hard": 8,
+          "total": 8,
+          "soft": false,
+          "text": "8  total 8"
+        },
+        {
+          "cards": [
+            2
+          ],
+          "n": 1,
+          "hard": 2,
+          "total": 2,
+          "soft": false,
+          "text": "2  total 2"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 0,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 50,
+        "cards_left_excl_current": 49,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 4,
+      "cards_left_incl": 49,
+      "cards_left_excl": 48,
+      "code": 46,
+      "card": "8S",
+      "value": 8,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          6
+        ],
+        "n": 1,
+        "hard": 6,
+        "total": 6,
+        "soft": false,
+        "text": "6  total 6"
+      },
+      "column_after": {
+        "cards": [
+          6,
+          8
+        ],
+        "n": 2,
+        "hard": 14,
+        "total": 14,
+        "soft": false,
+        "text": "6 8  total 14"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            6,
+            8
+          ],
+          "n": 2,
+          "hard": 14,
+          "total": 14,
+          "soft": false,
+          "text": "6 8  total 14"
+        },
+        {
+          "cards": [
+            8
+          ],
+          "n": 1,
+          "hard": 8,
+          "total": 8,
+          "soft": false,
+          "text": "8  total 8"
+        },
+        {
+          "cards": [
+            2
+          ],
+          "n": 1,
+          "hard": 2,
+          "total": 2,
+          "soft": false,
+          "text": "2  total 2"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 0,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 49,
+        "cards_left_excl_current": 48,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 5,
+      "cards_left_incl": 48,
+      "cards_left_excl": 47,
+      "code": 39,
+      "card": "AS",
+      "value": 1,
+      "stay": null,
+      "emptied": null,
+      "place": 3,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          1
+        ],
+        "n": 1,
+        "hard": 1,
+        "total": 11,
+        "soft": true,
+        "text": "A  total 11 (soft, hard 1)"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            6,
+            8
+          ],
+          "n": 2,
+          "hard": 14,
+          "total": 14,
+          "soft": false,
+          "text": "6 8  total 14"
+        },
+        {
+          "cards": [
+            8
+          ],
+          "n": 1,
+          "hard": 8,
+          "total": 8,
+          "soft": false,
+          "text": "8  total 8"
+        },
+        {
+          "cards": [
+            2
+          ],
+          "n": 1,
+          "hard": 2,
+          "total": 2,
+          "soft": false,
+          "text": "2  total 2"
+        },
+        {
+          "cards": [
+            1
+          ],
+          "n": 1,
+          "hard": 1,
+          "total": 11,
+          "soft": true,
+          "text": "A  total 11 (soft, hard 1)"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 0,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 48,
+        "cards_left_excl_current": 47,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 3
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 6,
+      "cards_left_incl": 47,
+      "cards_left_excl": 46,
+      "code": 47,
+      "card": "9S",
+      "value": 9,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [
+          2
+        ],
+        "n": 1,
+        "hard": 2,
+        "total": 2,
+        "soft": false,
+        "text": "2  total 2"
+      },
+      "column_after": {
+        "cards": [
+          2,
+          9
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "2 9  total 11"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            6,
+            8
+          ],
+          "n": 2,
+          "hard": 14,
+          "total": 14,
+          "soft": false,
+          "text": "6 8  total 14"
+        },
+        {
+          "cards": [
+            8
+          ],
+          "n": 1,
+          "hard": 8,
+          "total": 8,
+          "soft": false,
+          "text": "8  total 8"
+        },
+        {
+          "cards": [
+            2,
+            9
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "2 9  total 11"
+        },
+        {
+          "cards": [
+            1
+          ],
+          "n": 1,
+          "hard": 1,
+          "total": 11,
+          "soft": true,
+          "text": "A  total 11 (soft, hard 1)"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 0,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 47,
+        "cards_left_excl_current": 46,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 7,
+      "cards_left_incl": 46,
+      "cards_left_excl": 45,
+      "code": 9,
+      "card": "10C",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [
+          2,
+          9
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "2 9  total 11"
+      },
+      "column_after": {
+        "cards": [
+          2,
+          9,
+          10
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "2 9 10  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            6,
+            8
+          ],
+          "n": 2,
+          "hard": 14,
+          "total": 14,
+          "soft": false,
+          "text": "6 8  total 14"
+        },
+        {
+          "cards": [
+            8
+          ],
+          "n": 1,
+          "hard": 8,
+          "total": 8,
+          "soft": false,
+          "text": "8  total 8"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            1
+          ],
+          "n": 1,
+          "hard": 1,
+          "total": 11,
+          "soft": true,
+          "text": "A  total 11 (soft, hard 1)"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 1,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 400,
+      "running_score": 400,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 46,
+        "cards_left_excl_current": 45,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 0,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 3,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 1,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 2,
+          "place": 3,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 3,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 24,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 24,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 24,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 24,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 8,
+      "cards_left_incl": 45,
+      "cards_left_excl": 44,
+      "code": 19,
+      "card": "7D",
+      "value": 7,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          6,
+          8
+        ],
+        "n": 2,
+        "hard": 14,
+        "total": 14,
+        "soft": false,
+        "text": "6 8  total 14"
+      },
+      "column_after": {
+        "cards": [
+          6,
+          8,
+          7
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "6 8 7  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            8
+          ],
+          "n": 1,
+          "hard": 8,
+          "total": 8,
+          "soft": false,
+          "text": "8  total 8"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            1
+          ],
+          "n": 1,
+          "hard": 1,
+          "total": 11,
+          "soft": true,
+          "text": "A  total 11 (soft, hard 1)"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 2,
+      "streak_before": 1,
+      "streak_bonus": 250,
+      "points_this_card": 650,
+      "running_score": 1050,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 45,
+        "cards_left_excl_current": 44,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 9,
+      "cards_left_incl": 44,
+      "cards_left_excl": 43,
+      "code": 37,
+      "card": "QH",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 3,
+      "column_before": {
+        "cards": [
+          1
+        ],
+        "n": 1,
+        "hard": 1,
+        "total": 11,
+        "soft": true,
+        "text": "A  total 11 (soft, hard 1)"
+      },
+      "column_after": {
+        "cards": [
+          1,
+          10
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 21,
+        "soft": true,
+        "text": "A 10  total 21 (soft, hard 11)"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            8
+          ],
+          "n": 1,
+          "hard": 8,
+          "total": 8,
+          "soft": false,
+          "text": "8  total 8"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 3,
+      "streak_before": 2,
+      "streak_bonus": 500,
+      "points_this_card": 900,
+      "running_score": 1950,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 44,
+        "cards_left_excl_current": 43,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 3
+      },
+      "alts_scoring": [
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 10,
+      "cards_left_incl": 43,
+      "cards_left_excl": 42,
+      "code": 15,
+      "card": "3D",
+      "value": 3,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [
+          8
+        ],
+        "n": 1,
+        "hard": 8,
+        "total": 8,
+        "soft": false,
+        "text": "8  total 8"
+      },
+      "column_after": {
+        "cards": [
+          8,
+          3
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "8 3  total 11"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            8,
+            3
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "8 3  total 11"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 3,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 1950,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 43,
+        "cards_left_excl_current": 42,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 11,
+      "cards_left_incl": 42,
+      "cards_left_excl": 41,
+      "code": 24,
+      "card": "QD",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            8,
+            3
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "8 3  total 11"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 1950,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 42,
+        "cards_left_excl_current": 41,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": true
+    },
+    {
+      "card_index": 12,
+      "cards_left_incl": 41,
+      "cards_left_excl": 40,
+      "code": 21,
+      "card": "9D",
+      "value": 9,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          9
+        ],
+        "n": 1,
+        "hard": 9,
+        "total": 9,
+        "soft": false,
+        "text": "9  total 9"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            8,
+            3
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "8 3  total 11"
+        },
+        {
+          "cards": [
+            9
+          ],
+          "n": 1,
+          "hard": 9,
+          "total": 9,
+          "soft": false,
+          "text": "9  total 9"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 1950,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 41,
+        "cards_left_excl_current": 40,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 13,
+      "cards_left_incl": 40,
+      "cards_left_excl": 39,
+      "code": 49,
+      "card": "JS",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 3,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            8,
+            3
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "8 3  total 11"
+        },
+        {
+          "cards": [
+            9
+          ],
+          "n": 1,
+          "hard": 9,
+          "total": 9,
+          "soft": false,
+          "text": "9  total 9"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 1950,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 40,
+        "cards_left_excl_current": 39,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 3
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": true
+    },
+    {
+      "card_index": 14,
+      "cards_left_incl": 39,
+      "cards_left_excl": 38,
+      "code": 35,
+      "card": "10H",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [
+          9
+        ],
+        "n": 1,
+        "hard": 9,
+        "total": 9,
+        "soft": false,
+        "text": "9  total 9"
+      },
+      "column_after": {
+        "cards": [
+          9,
+          10
+        ],
+        "n": 2,
+        "hard": 19,
+        "total": 19,
+        "soft": false,
+        "text": "9 10  total 19"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            8,
+            3
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "8 3  total 11"
+        },
+        {
+          "cards": [
+            9,
+            10
+          ],
+          "n": 2,
+          "hard": 19,
+          "total": 19,
+          "soft": false,
+          "text": "9 10  total 19"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 1950,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 39,
+        "cards_left_excl_current": 38,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": true
+    },
+    {
+      "card_index": 15,
+      "cards_left_incl": 38,
+      "cards_left_excl": 37,
+      "code": 33,
+      "card": "8H",
+      "value": 8,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "column_after": {
+        "cards": [
+          10,
+          8
+        ],
+        "n": 2,
+        "hard": 18,
+        "total": 18,
+        "soft": false,
+        "text": "10 8  total 18"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            8
+          ],
+          "n": 2,
+          "hard": 18,
+          "total": 18,
+          "soft": false,
+          "text": "10 8  total 18"
+        },
+        {
+          "cards": [
+            8,
+            3
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "8 3  total 11"
+        },
+        {
+          "cards": [
+            9,
+            10
+          ],
+          "n": 2,
+          "hard": 19,
+          "total": 19,
+          "soft": false,
+          "text": "9 10  total 19"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 1950,
+      "busts": 0,
+      "stays_left": 2,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 38,
+        "cards_left_excl_current": 37,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 16,
+      "cards_left_incl": 37,
+      "cards_left_excl": 36,
+      "code": 45,
+      "card": "7S",
+      "value": 7,
+      "stay": 2,
+      "emptied": {
+        "column": 2,
+        "before": {
+          "cards": [
+            9,
+            10
+          ],
+          "n": 2,
+          "hard": 19,
+          "total": 19,
+          "soft": false,
+          "text": "9 10  total 19"
+        }
+      },
+      "place": 3,
+      "column_before": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "column_after": {
+        "cards": [
+          10,
+          7
+        ],
+        "n": 2,
+        "hard": 17,
+        "total": 17,
+        "soft": false,
+        "text": "10 7  total 17"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            8
+          ],
+          "n": 2,
+          "hard": 18,
+          "total": 18,
+          "soft": false,
+          "text": "10 8  total 18"
+        },
+        {
+          "cards": [
+            8,
+            3
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "8 3  total 11"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 1950,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 37,
+        "cards_left_excl_current": 36,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": 2,
+        "place": 3
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": null,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 17,
+      "cards_left_incl": 36,
+      "cards_left_excl": 35,
+      "code": 36,
+      "card": "JH",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [
+          8,
+          3
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "8 3  total 11"
+      },
+      "column_after": {
+        "cards": [
+          8,
+          3,
+          10
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "8 3 10  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            8
+          ],
+          "n": 2,
+          "hard": 18,
+          "total": 18,
+          "soft": false,
+          "text": "10 8  total 18"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 1,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 400,
+      "running_score": 2350,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 36,
+        "cards_left_excl_current": 35,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [
+        {
+          "stay": 0,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 28,
+          "n": 3
+        },
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 28,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 28,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 18,
+      "cards_left_incl": 35,
+      "cards_left_excl": 34,
+      "code": 30,
+      "card": "5H",
+      "value": 5,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          5
+        ],
+        "n": 1,
+        "hard": 5,
+        "total": 5,
+        "soft": false,
+        "text": "5  total 5"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            8
+          ],
+          "n": 2,
+          "hard": 18,
+          "total": 18,
+          "soft": false,
+          "text": "10 8  total 18"
+        },
+        {
+          "cards": [
+            5
+          ],
+          "n": 1,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "5  total 5"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 1,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 2350,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 35,
+        "cards_left_excl_current": 34,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 19,
+      "cards_left_incl": 34,
+      "cards_left_excl": 33,
+      "code": 8,
+      "card": "9C",
+      "value": 9,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          9
+        ],
+        "n": 1,
+        "hard": 9,
+        "total": 9,
+        "soft": false,
+        "text": "9  total 9"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            8
+          ],
+          "n": 2,
+          "hard": 18,
+          "total": 18,
+          "soft": false,
+          "text": "10 8  total 18"
+        },
+        {
+          "cards": [
+            5
+          ],
+          "n": 1,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "5  total 5"
+        },
+        {
+          "cards": [
+            9
+          ],
+          "n": 1,
+          "hard": 9,
+          "total": 9,
+          "soft": false,
+          "text": "9  total 9"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 2350,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 34,
+        "cards_left_excl_current": 33,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 20,
+      "cards_left_incl": 33,
+      "cards_left_excl": 32,
+      "code": 32,
+      "card": "7H",
+      "value": 7,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [
+          9
+        ],
+        "n": 1,
+        "hard": 9,
+        "total": 9,
+        "soft": false,
+        "text": "9  total 9"
+      },
+      "column_after": {
+        "cards": [
+          9,
+          7
+        ],
+        "n": 2,
+        "hard": 16,
+        "total": 16,
+        "soft": false,
+        "text": "9 7  total 16"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            8
+          ],
+          "n": 2,
+          "hard": 18,
+          "total": 18,
+          "soft": false,
+          "text": "10 8  total 18"
+        },
+        {
+          "cards": [
+            5
+          ],
+          "n": 1,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "5  total 5"
+        },
+        {
+          "cards": [
+            9,
+            7
+          ],
+          "n": 2,
+          "hard": 16,
+          "total": 16,
+          "soft": false,
+          "text": "9 7  total 16"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 2350,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 33,
+        "cards_left_excl_current": 32,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 24,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 24,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 24,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 24,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 21,
+      "cards_left_incl": 32,
+      "cards_left_excl": 31,
+      "code": 28,
+      "card": "3H",
+      "value": 3,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          10,
+          8
+        ],
+        "n": 2,
+        "hard": 18,
+        "total": 18,
+        "soft": false,
+        "text": "10 8  total 18"
+      },
+      "column_after": {
+        "cards": [
+          10,
+          8,
+          3
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "10 8 3  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            5
+          ],
+          "n": 1,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "5  total 5"
+        },
+        {
+          "cards": [
+            9,
+            7
+          ],
+          "n": 2,
+          "hard": 16,
+          "total": 16,
+          "soft": false,
+          "text": "9 7  total 16"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 1,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 400,
+      "running_score": 2750,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 32,
+        "cards_left_excl_current": 31,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 22,
+      "cards_left_incl": 31,
+      "cards_left_excl": 30,
+      "code": 38,
+      "card": "KH",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [
+          5
+        ],
+        "n": 1,
+        "hard": 5,
+        "total": 5,
+        "soft": false,
+        "text": "5  total 5"
+      },
+      "column_after": {
+        "cards": [
+          5,
+          10
+        ],
+        "n": 2,
+        "hard": 15,
+        "total": 15,
+        "soft": false,
+        "text": "5 10  total 15"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            5,
+            10
+          ],
+          "n": 2,
+          "hard": 15,
+          "total": 15,
+          "soft": false,
+          "text": "5 10  total 15"
+        },
+        {
+          "cards": [
+            9,
+            7
+          ],
+          "n": 2,
+          "hard": 16,
+          "total": 16,
+          "soft": false,
+          "text": "9 7  total 16"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 1,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 2750,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 31,
+        "cards_left_excl_current": 30,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        },
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 2,
+          "kind": "bust",
+          "base": 0,
+          "total": 26,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 23,
+      "cards_left_incl": 30,
+      "cards_left_excl": 29,
+      "code": 17,
+      "card": "5D",
+      "value": 5,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [
+          9,
+          7
+        ],
+        "n": 2,
+        "hard": 16,
+        "total": 16,
+        "soft": false,
+        "text": "9 7  total 16"
+      },
+      "column_after": {
+        "cards": [
+          9,
+          7,
+          5
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "9 7 5  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            5,
+            10
+          ],
+          "n": 2,
+          "hard": 15,
+          "total": 15,
+          "soft": false,
+          "text": "5 10  total 15"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 1,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 400,
+      "running_score": 3150,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 30,
+        "cards_left_excl_current": 29,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [
+        {
+          "stay": 1,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 24,
+      "cards_left_incl": 29,
+      "cards_left_excl": 28,
+      "code": 43,
+      "card": "5S",
+      "value": 5,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          5
+        ],
+        "n": 1,
+        "hard": 5,
+        "total": 5,
+        "soft": false,
+        "text": "5  total 5"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            5
+          ],
+          "n": 1,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "5  total 5"
+        },
+        {
+          "cards": [
+            5,
+            10
+          ],
+          "n": 2,
+          "hard": 15,
+          "total": 15,
+          "soft": false,
+          "text": "5 10  total 15"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 1,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 3150,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 29,
+        "cards_left_excl_current": 28,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 25,
+      "cards_left_incl": 28,
+      "cards_left_excl": 27,
+      "code": 25,
+      "card": "KD",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            5
+          ],
+          "n": 1,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "5  total 5"
+        },
+        {
+          "cards": [
+            5,
+            10
+          ],
+          "n": 2,
+          "hard": 15,
+          "total": 15,
+          "soft": false,
+          "text": "5 10  total 15"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 3150,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 28,
+        "cards_left_excl_current": 27,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 1,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 1,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 1,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 26,
+      "cards_left_incl": 27,
+      "cards_left_excl": 26,
+      "code": 31,
+      "card": "6H",
+      "value": 6,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          5
+        ],
+        "n": 1,
+        "hard": 5,
+        "total": 5,
+        "soft": false,
+        "text": "5  total 5"
+      },
+      "column_after": {
+        "cards": [
+          5,
+          6
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "5 6  total 11"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            5,
+            6
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "5 6  total 11"
+        },
+        {
+          "cards": [
+            5,
+            10
+          ],
+          "n": 2,
+          "hard": 15,
+          "total": 15,
+          "soft": false,
+          "text": "5 10  total 15"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 3150,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 27,
+        "cards_left_excl_current": 26,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        }
+      ],
+      "declined_scoring": true
+    },
+    {
+      "card_index": 27,
+      "cards_left_incl": 26,
+      "cards_left_excl": 25,
+      "code": 23,
+      "card": "JD",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          5,
+          6
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "5 6  total 11"
+      },
+      "column_after": {
+        "cards": [
+          5,
+          6,
+          10
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "5 6 10  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            5,
+            10
+          ],
+          "n": 2,
+          "hard": 15,
+          "total": 15,
+          "soft": false,
+          "text": "5 10  total 15"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 1,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 400,
+      "running_score": 3550,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 26,
+        "cards_left_excl_current": 25,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 1,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 1,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": 0,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 1,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 1,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 28,
+      "cards_left_incl": 25,
+      "cards_left_excl": 24,
+      "code": 44,
+      "card": "6S",
+      "value": 6,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [
+          5,
+          10
+        ],
+        "n": 2,
+        "hard": 15,
+        "total": 15,
+        "soft": false,
+        "text": "5 10  total 15"
+      },
+      "column_after": {
+        "cards": [
+          5,
+          10,
+          6
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "5 10 6  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 2,
+      "streak_before": 1,
+      "streak_bonus": 250,
+      "points_this_card": 650,
+      "running_score": 4200,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 25,
+        "cards_left_excl_current": 24,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [
+        {
+          "stay": 2,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 29,
+      "cards_left_incl": 24,
+      "cards_left_excl": 23,
+      "code": 26,
+      "card": "AH",
+      "value": 1,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "column_after": {
+        "cards": [
+          10,
+          1
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 21,
+        "soft": true,
+        "text": "10 A  total 21 (soft, hard 11)"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 3,
+      "streak_before": 2,
+      "streak_bonus": 500,
+      "points_this_card": 900,
+      "running_score": 5100,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 24,
+        "cards_left_excl_current": 23,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [
+        {
+          "stay": 3,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 30,
+      "cards_left_incl": 23,
+      "cards_left_excl": 22,
+      "code": 42,
+      "card": "4S",
+      "value": 4,
+      "stay": null,
+      "emptied": null,
+      "place": 3,
+      "column_before": {
+        "cards": [
+          10,
+          7
+        ],
+        "n": 2,
+        "hard": 17,
+        "total": 17,
+        "soft": false,
+        "text": "10 7  total 17"
+      },
+      "column_after": {
+        "cards": [
+          10,
+          7,
+          4
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "10 7 4  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 4,
+      "streak_before": 3,
+      "streak_bonus": 1000,
+      "points_this_card": 1400,
+      "running_score": 6500,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 23,
+        "cards_left_excl_current": 22,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 3
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 31,
+      "cards_left_incl": 22,
+      "cards_left_excl": 21,
+      "code": 14,
+      "card": "2D",
+      "value": 2,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          2
+        ],
+        "n": 1,
+        "hard": 2,
+        "total": 2,
+        "soft": false,
+        "text": "2  total 2"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            2
+          ],
+          "n": 1,
+          "hard": 2,
+          "total": 2,
+          "soft": false,
+          "text": "2  total 2"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 4,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 6500,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 22,
+        "cards_left_excl_current": 21,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 32,
+      "cards_left_incl": 21,
+      "cards_left_excl": 20,
+      "code": 11,
+      "card": "QC",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            2
+          ],
+          "n": 1,
+          "hard": 2,
+          "total": 2,
+          "soft": false,
+          "text": "2  total 2"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 6500,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 21,
+        "cards_left_excl_current": 20,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 33,
+      "cards_left_incl": 20,
+      "cards_left_excl": 19,
+      "code": 48,
+      "card": "10S",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          2
+        ],
+        "n": 1,
+        "hard": 2,
+        "total": 2,
+        "soft": false,
+        "text": "2  total 2"
+      },
+      "column_after": {
+        "cards": [
+          2,
+          10
+        ],
+        "n": 2,
+        "hard": 12,
+        "total": 12,
+        "soft": false,
+        "text": "2 10  total 12"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            2,
+            10
+          ],
+          "n": 2,
+          "hard": 12,
+          "total": 12,
+          "soft": false,
+          "text": "2 10  total 12"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 6500,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 20,
+        "cards_left_excl_current": 19,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 34,
+      "cards_left_incl": 19,
+      "cards_left_excl": 18,
+      "code": 34,
+      "card": "9H",
+      "value": 9,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          2,
+          10
+        ],
+        "n": 2,
+        "hard": 12,
+        "total": 12,
+        "soft": false,
+        "text": "2 10  total 12"
+      },
+      "column_after": {
+        "cards": [
+          2,
+          10,
+          9
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "2 10 9  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 1,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 400,
+      "running_score": 6900,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 19,
+        "cards_left_excl_current": 18,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 35,
+      "cards_left_incl": 18,
+      "cards_left_excl": 17,
+      "code": 12,
+      "card": "KC",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 1,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 6900,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 18,
+        "cards_left_excl_current": 17,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 36,
+      "cards_left_incl": 17,
+      "cards_left_excl": 16,
+      "code": 22,
+      "card": "10D",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 6900,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 17,
+        "cards_left_excl_current": 16,
+        "attempted": false,
+        "exact": false,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 37,
+      "cards_left_incl": 16,
+      "cards_left_excl": 15,
+      "code": 27,
+      "card": "2H",
+      "value": 2,
+      "stay": null,
+      "emptied": null,
+      "place": 3,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          2
+        ],
+        "n": 1,
+        "hard": 2,
+        "total": 2,
+        "soft": false,
+        "text": "2  total 2"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            2
+          ],
+          "n": 1,
+          "hard": 2,
+          "total": 2,
+          "soft": false,
+          "text": "2  total 2"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 6900,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 16,
+        "cards_left_excl_current": 15,
+        "attempted": true,
+        "exact": false,
+        "giveup": true,
+        "fallbackBase": true,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 3
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 38,
+      "cards_left_incl": 15,
+      "cards_left_excl": 14,
+      "code": 2,
+      "card": "3C",
+      "value": 3,
+      "stay": null,
+      "emptied": null,
+      "place": 3,
+      "column_before": {
+        "cards": [
+          2
+        ],
+        "n": 1,
+        "hard": 2,
+        "total": 2,
+        "soft": false,
+        "text": "2  total 2"
+      },
+      "column_after": {
+        "cards": [
+          2,
+          3
+        ],
+        "n": 2,
+        "hard": 5,
+        "total": 5,
+        "soft": false,
+        "text": "2 3  total 5"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            2,
+            3
+          ],
+          "n": 2,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "2 3  total 5"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 6900,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 15,
+        "cards_left_excl_current": 14,
+        "attempted": true,
+        "exact": false,
+        "giveup": true,
+        "fallbackBase": true,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 3
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 39,
+      "cards_left_incl": 14,
+      "cards_left_excl": 13,
+      "code": 6,
+      "card": "7C",
+      "value": 7,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "column_after": {
+        "cards": [
+          10,
+          7
+        ],
+        "n": 2,
+        "hard": 17,
+        "total": 17,
+        "soft": false,
+        "text": "10 7  total 17"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            2,
+            3
+          ],
+          "n": 2,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "2 3  total 5"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 6900,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 14,
+        "cards_left_excl_current": 13,
+        "attempted": true,
+        "exact": false,
+        "giveup": true,
+        "fallbackBase": true,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 40,
+      "cards_left_incl": 13,
+      "cards_left_excl": 12,
+      "code": 13,
+      "card": "AD",
+      "value": 1,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "column_after": {
+        "cards": [
+          10,
+          1
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 21,
+        "soft": true,
+        "text": "10 A  total 21 (soft, hard 11)"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            2,
+            3
+          ],
+          "n": 2,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "2 3  total 5"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 1,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 400,
+      "running_score": 7300,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 13,
+        "cards_left_excl_current": 12,
+        "attempted": true,
+        "exact": false,
+        "giveup": true,
+        "fallbackBase": true,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 0,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 0,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 1,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 2,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 3,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 3,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 41,
+      "cards_left_incl": 12,
+      "cards_left_excl": 11,
+      "code": 51,
+      "card": "KS",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            2,
+            3
+          ],
+          "n": 2,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "2 3  total 5"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 1,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 7300,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 12,
+        "cards_left_excl_current": 11,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 42,
+      "cards_left_incl": 11,
+      "cards_left_excl": 10,
+      "code": 0,
+      "card": "AC",
+      "value": 1,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [
+          10
+        ],
+        "n": 1,
+        "hard": 10,
+        "total": 10,
+        "soft": false,
+        "text": "10  total 10"
+      },
+      "column_after": {
+        "cards": [
+          10,
+          1
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 21,
+        "soft": true,
+        "text": "10 A  total 21 (soft, hard 11)"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            2,
+            3
+          ],
+          "n": 2,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "2 3  total 5"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 1,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 400,
+      "running_score": 7700,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 11,
+        "cards_left_excl_current": 10,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 0,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 0,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 1,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 2,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 3,
+          "place": 1,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        },
+        {
+          "stay": 3,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 2
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 43,
+      "cards_left_incl": 10,
+      "cards_left_excl": 9,
+      "code": 5,
+      "card": "6C",
+      "value": 6,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          6
+        ],
+        "n": 1,
+        "hard": 6,
+        "total": 6,
+        "soft": false,
+        "text": "6  total 6"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [
+            6
+          ],
+          "n": 1,
+          "hard": 6,
+          "total": 6,
+          "soft": false,
+          "text": "6  total 6"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            2,
+            3
+          ],
+          "n": 2,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "2 3  total 5"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 1,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 7700,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 10,
+        "cards_left_excl_current": 9,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 44,
+      "cards_left_incl": 9,
+      "cards_left_excl": 8,
+      "code": 4,
+      "card": "5C",
+      "value": 5,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [
+          6
+        ],
+        "n": 1,
+        "hard": 6,
+        "total": 6,
+        "soft": false,
+        "text": "6  total 6"
+      },
+      "column_after": {
+        "cards": [
+          6,
+          5
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "6 5  total 11"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [
+            6,
+            5
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "6 5  total 11"
+        },
+        {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        },
+        {
+          "cards": [
+            2,
+            3
+          ],
+          "n": 2,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "2 3  total 5"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 7700,
+      "busts": 0,
+      "stays_left": 1,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 9,
+        "cards_left_excl_current": 8,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        },
+        {
+          "stay": 1,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        },
+        {
+          "stay": 2,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        },
+        {
+          "stay": 3,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 22,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 45,
+      "cards_left_incl": 8,
+      "cards_left_excl": 7,
+      "code": 41,
+      "card": "3S",
+      "value": 3,
+      "stay": 2,
+      "emptied": {
+        "column": 2,
+        "before": {
+          "cards": [
+            10
+          ],
+          "n": 1,
+          "hard": 10,
+          "total": 10,
+          "soft": false,
+          "text": "10  total 10"
+        }
+      },
+      "place": 2,
+      "column_before": {
+        "cards": [],
+        "n": 0,
+        "hard": 0,
+        "total": 0,
+        "soft": false,
+        "text": "empty"
+      },
+      "column_after": {
+        "cards": [
+          3
+        ],
+        "n": 1,
+        "hard": 3,
+        "total": 3,
+        "soft": false,
+        "text": "3  total 3"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [
+            6,
+            5
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "6 5  total 11"
+        },
+        {
+          "cards": [
+            3
+          ],
+          "n": 1,
+          "hard": 3,
+          "total": 3,
+          "soft": false,
+          "text": "3  total 3"
+        },
+        {
+          "cards": [
+            2,
+            3
+          ],
+          "n": 2,
+          "hard": 5,
+          "total": 5,
+          "soft": false,
+          "text": "2 3  total 5"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 7700,
+      "busts": 0,
+      "stays_left": 0,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 8,
+        "cards_left_excl_current": 7,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": 2,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 46,
+      "cards_left_incl": 7,
+      "cards_left_excl": 6,
+      "code": 3,
+      "card": "4C",
+      "value": 4,
+      "stay": null,
+      "emptied": null,
+      "place": 3,
+      "column_before": {
+        "cards": [
+          2,
+          3
+        ],
+        "n": 2,
+        "hard": 5,
+        "total": 5,
+        "soft": false,
+        "text": "2 3  total 5"
+      },
+      "column_after": {
+        "cards": [
+          2,
+          3,
+          4
+        ],
+        "n": 3,
+        "hard": 9,
+        "total": 9,
+        "soft": false,
+        "text": "2 3 4  total 9"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [
+            6,
+            5
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "6 5  total 11"
+        },
+        {
+          "cards": [
+            3
+          ],
+          "n": 1,
+          "hard": 3,
+          "total": 3,
+          "soft": false,
+          "text": "3  total 3"
+        },
+        {
+          "cards": [
+            2,
+            3,
+            4
+          ],
+          "n": 3,
+          "hard": 9,
+          "total": 9,
+          "soft": false,
+          "text": "2 3 4  total 9"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 7700,
+      "busts": 0,
+      "stays_left": 0,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 7,
+        "cards_left_excl_current": 6,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 3
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": true
+    },
+    {
+      "card_index": 47,
+      "cards_left_incl": 6,
+      "cards_left_excl": 5,
+      "code": 20,
+      "card": "8D",
+      "value": 8,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [
+          3
+        ],
+        "n": 1,
+        "hard": 3,
+        "total": 3,
+        "soft": false,
+        "text": "3  total 3"
+      },
+      "column_after": {
+        "cards": [
+          3,
+          8
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "3 8  total 11"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [
+            6,
+            5
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "6 5  total 11"
+        },
+        {
+          "cards": [
+            3,
+            8
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "3 8  total 11"
+        },
+        {
+          "cards": [
+            2,
+            3,
+            4
+          ],
+          "n": 3,
+          "hard": 9,
+          "total": 9,
+          "soft": false,
+          "text": "2 3 4  total 9"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 7700,
+      "busts": 0,
+      "stays_left": 0,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 6,
+        "cards_left_excl_current": 5,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 25,
+          "n": 3
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 48,
+      "cards_left_incl": 5,
+      "cards_left_excl": 4,
+      "code": 16,
+      "card": "4D",
+      "value": 4,
+      "stay": null,
+      "emptied": null,
+      "place": 3,
+      "column_before": {
+        "cards": [
+          2,
+          3,
+          4
+        ],
+        "n": 3,
+        "hard": 9,
+        "total": 9,
+        "soft": false,
+        "text": "2 3 4  total 9"
+      },
+      "column_after": {
+        "cards": [
+          2,
+          3,
+          4,
+          4
+        ],
+        "n": 4,
+        "hard": 13,
+        "total": 13,
+        "soft": false,
+        "text": "2 3 4 4  total 13"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [
+            6,
+            5
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "6 5  total 11"
+        },
+        {
+          "cards": [
+            3,
+            8
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "3 8  total 11"
+        },
+        {
+          "cards": [
+            2,
+            3,
+            4,
+            4
+          ],
+          "n": 4,
+          "hard": 13,
+          "total": 13,
+          "soft": false,
+          "text": "2 3 4 4  total 13"
+        }
+      ],
+      "event": "keep",
+      "event_label": "keep (no score)",
+      "base_points": 0,
+      "streak_after": 0,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 0,
+      "running_score": 7700,
+      "busts": 0,
+      "stays_left": 0,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 5,
+        "cards_left_excl_current": 4,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 3
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [],
+      "declined_scoring": true
+    },
+    {
+      "card_index": 49,
+      "cards_left_incl": 4,
+      "cards_left_excl": 3,
+      "code": 10,
+      "card": "JC",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 1,
+      "column_before": {
+        "cards": [
+          6,
+          5
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "6 5  total 11"
+      },
+      "column_after": {
+        "cards": [
+          6,
+          5,
+          10
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "6 5 10  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            3,
+            8
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "3 8  total 11"
+        },
+        {
+          "cards": [
+            2,
+            3,
+            4,
+            4
+          ],
+          "n": 4,
+          "hard": 13,
+          "total": 13,
+          "soft": false,
+          "text": "2 3 4 4  total 13"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 1,
+      "streak_before": 0,
+      "streak_bonus": 0,
+      "points_this_card": 400,
+      "running_score": 8100,
+      "busts": 0,
+      "stays_left": 0,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 4,
+        "cards_left_excl_current": 3,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 1
+      },
+      "alts_scoring": [
+        {
+          "stay": null,
+          "place": 2,
+          "kind": "21",
+          "base": 400,
+          "total": 21,
+          "n": 3
+        }
+      ],
+      "alts_bust": [
+        {
+          "stay": null,
+          "place": 0,
+          "kind": "bust",
+          "base": 0,
+          "total": 27,
+          "n": 3
+        },
+        {
+          "stay": null,
+          "place": 3,
+          "kind": "bust",
+          "base": 0,
+          "total": 23,
+          "n": 5
+        }
+      ],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 50,
+      "cards_left_incl": 3,
+      "cards_left_excl": 2,
+      "code": 40,
+      "card": "2S",
+      "value": 2,
+      "stay": null,
+      "emptied": null,
+      "place": 3,
+      "column_before": {
+        "cards": [
+          2,
+          3,
+          4,
+          4
+        ],
+        "n": 4,
+        "hard": 13,
+        "total": 13,
+        "soft": false,
+        "text": "2 3 4 4  total 13"
+      },
+      "column_after": {
+        "cards": [
+          2,
+          3,
+          4,
+          4,
+          2
+        ],
+        "n": 5,
+        "hard": 15,
+        "total": 15,
+        "soft": false,
+        "text": "2 3 4 4 2  total 15"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [
+            10,
+            7
+          ],
+          "n": 2,
+          "hard": 17,
+          "total": 17,
+          "soft": false,
+          "text": "10 7  total 17"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            3,
+            8
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "3 8  total 11"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "5card",
+      "event_label": "5-card = 800",
+      "base_points": 800,
+      "streak_after": 2,
+      "streak_before": 1,
+      "streak_bonus": 250,
+      "points_this_card": 1050,
+      "running_score": 9150,
+      "busts": 0,
+      "stays_left": 0,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 3,
+        "cards_left_excl_current": 2,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 3
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 51,
+      "cards_left_incl": 2,
+      "cards_left_excl": 1,
+      "code": 29,
+      "card": "4H",
+      "value": 4,
+      "stay": null,
+      "emptied": null,
+      "place": 0,
+      "column_before": {
+        "cards": [
+          10,
+          7
+        ],
+        "n": 2,
+        "hard": 17,
+        "total": 17,
+        "soft": false,
+        "text": "10 7  total 17"
+      },
+      "column_after": {
+        "cards": [
+          10,
+          7,
+          4
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "10 7 4  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [
+            3,
+            8
+          ],
+          "n": 2,
+          "hard": 11,
+          "total": 11,
+          "soft": false,
+          "text": "3 8  total 11"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 3,
+      "streak_before": 2,
+      "streak_bonus": 500,
+      "points_this_card": 900,
+      "running_score": 10050,
+      "busts": 0,
+      "stays_left": 0,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 2,
+        "cards_left_excl_current": 1,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 0
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    },
+    {
+      "card_index": 52,
+      "cards_left_incl": 1,
+      "cards_left_excl": 0,
+      "code": 50,
+      "card": "QS",
+      "value": 10,
+      "stay": null,
+      "emptied": null,
+      "place": 2,
+      "column_before": {
+        "cards": [
+          3,
+          8
+        ],
+        "n": 2,
+        "hard": 11,
+        "total": 11,
+        "soft": false,
+        "text": "3 8  total 11"
+      },
+      "column_after": {
+        "cards": [
+          3,
+          8,
+          10
+        ],
+        "n": 3,
+        "hard": 21,
+        "total": 21,
+        "soft": false,
+        "text": "3 8 10  total 21"
+      },
+      "columns_after_turn": [
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        },
+        {
+          "cards": [],
+          "n": 0,
+          "hard": 0,
+          "total": 0,
+          "soft": false,
+          "text": "empty"
+        }
+      ],
+      "event": "21",
+      "event_label": "21 = 400",
+      "base_points": 400,
+      "streak_after": 4,
+      "streak_before": 3,
+      "streak_bonus": 1000,
+      "points_this_card": 1400,
+      "running_score": 11450,
+      "busts": 0,
+      "stays_left": 0,
+      "trace": {
+        "type": "decision",
+        "game": 0,
+        "seed": 1000946,
+        "rem": 1,
+        "cards_left_excl_current": 0,
+        "attempted": true,
+        "exact": true,
+        "giveup": false,
+        "fallbackBase": false,
+        "fallbackEval": false,
+        "stay": null,
+        "place": 2
+      },
+      "alts_scoring": [],
+      "alts_bust": [],
+      "declined_scoring": false
+    }
+  ],
+  "wall_s": 18.114707469940186,
+  "summary": {
+    "final_score": 12450,
+    "base_clears": 7200,
+    "streak_bonus_total": 4250,
+    "perfect_bonus": 1000,
+    "by_event": {
+      "keep": {
+        "n": 35,
+        "base": 0,
+        "bonus": 0
+      },
+      "21": {
+        "n": 16,
+        "base": 6400,
+        "bonus": 4000
+      },
+      "5card": {
+        "n": 1,
+        "base": 800,
+        "bonus": 250
+      }
+    },
+    "n_clears": 17,
+    "n_busts": 0,
+    "runs": [
+      3,
+      1,
+      1,
+      1,
+      4,
+      1,
+      1,
+      1,
+      4
+    ],
+    "max_streak": 4,
+    "n_2streaks": 0,
+    "n_3streaks": 1,
+    "n_4streaks": 2,
+    "n_runs_ge2": 3,
+    "n_runs_ge3": 3,
+    "bonus_by_len": {
+      "2": 750,
+      "3": 1500,
+      "4": 2000
+    },
+    "stays": [
+      {
+        "card_index": 16,
+        "card": "7S",
+        "column": 2,
+        "emptied": {
+          "column": 2,
+          "before": {
+            "cards": [
+              9,
+              10
+            ],
+            "n": 2,
+            "hard": 19,
+            "total": 19,
+            "soft": false,
+            "text": "9 10  total 19"
+          }
+        },
+        "cards_left_incl": 37,
+        "placed_on": 3,
+        "event": "keep"
+      },
+      {
+        "card_index": 45,
+        "card": "3S",
+        "column": 2,
+        "emptied": {
+          "column": 2,
+          "before": {
+            "cards": [
+              10
+            ],
+            "n": 1,
+            "hard": 10,
+            "total": 10,
+            "soft": false,
+            "text": "10  total 10"
+          }
+        },
+        "cards_left_incl": 8,
+        "placed_on": 2,
+        "event": "keep"
+      }
+    ],
+    "n_stays_used": 2,
+    "declined_scoring_cards": [
+      {
+        "card_index": 11,
+        "card": "QD",
+        "chosen": "keep",
+        "place": 0,
+        "alts": [
+          {
+            "stay": null,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          }
+        ]
+      },
+      {
+        "card_index": 13,
+        "card": "JS",
+        "chosen": "keep",
+        "place": 3,
+        "alts": [
+          {
+            "stay": null,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          },
+          {
+            "stay": 0,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          },
+          {
+            "stay": 2,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          }
+        ]
+      },
+      {
+        "card_index": 14,
+        "card": "10H",
+        "chosen": "keep",
+        "place": 2,
+        "alts": [
+          {
+            "stay": null,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          },
+          {
+            "stay": 0,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          },
+          {
+            "stay": 2,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          },
+          {
+            "stay": 3,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          }
+        ]
+      },
+      {
+        "card_index": 26,
+        "card": "6H",
+        "chosen": "keep",
+        "place": 0,
+        "alts": [
+          {
+            "stay": null,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          },
+          {
+            "stay": 0,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          },
+          {
+            "stay": 2,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          },
+          {
+            "stay": 3,
+            "place": 1,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          }
+        ]
+      },
+      {
+        "card_index": 46,
+        "card": "4C",
+        "chosen": "keep",
+        "place": 3,
+        "alts": [
+          {
+            "stay": null,
+            "place": 0,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          }
+        ]
+      },
+      {
+        "card_index": 48,
+        "card": "4D",
+        "chosen": "keep",
+        "place": 3,
+        "alts": [
+          {
+            "stay": null,
+            "place": 0,
+            "kind": "21",
+            "base": 400,
+            "total": 21,
+            "n": 3
+          }
+        ]
+      }
+    ]
+  },
+  "engine": "deeper:16 frozen exact-endgame-deeper@90c2d73f938b",
+  "trace_game": [
+    {
+      "type": "game",
+      "game": 0,
+      "seed": 1000946,
+      "score": 12450,
+      "n_decisions": 52,
+      "stats": {
+        "exact": 12,
+        "fallbackBase": 4,
+        "fallbackEval": 0
+      },
+      "n_exact": 12,
+      "n_giveup": 4
+    }
+  ],
+  "exact_tally": {
+    "attempted": 16,
+    "exact": 12,
+    "giveup": 4,
+    "by_rem": {
+      "16": {
+        "exact": 0,
+        "giveup": 1,
+        "no_attempt": 0
+      },
+      "15": {
+        "exact": 0,
+        "giveup": 1,
+        "no_attempt": 0
+      },
+      "14": {
+        "exact": 0,
+        "giveup": 1,
+        "no_attempt": 0
+      },
+      "13": {
+        "exact": 0,
+        "giveup": 1,
+        "no_attempt": 0
+      },
+      "12": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "11": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "10": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "9": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "8": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "7": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "6": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "5": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "4": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "3": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "2": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      },
+      "1": {
+        "exact": 1,
+        "giveup": 0,
+        "no_attempt": 0
+      }
+    }
+  }
+}

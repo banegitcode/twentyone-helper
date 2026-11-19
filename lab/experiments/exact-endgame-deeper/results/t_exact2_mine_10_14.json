@@ -1,0 +1,1331 @@
+{
+ "solver": "exact2",
+ "kernel": "wasm",
+ "set": "mine",
+ "logCap": 27,
+ "cap": 50000000,
+ "summary": {
+  "10": {
+   "n": 12,
+   "dnf": 0,
+   "solveStates": {
+    "med": 47939,
+    "p90": 70121,
+    "max": 105981
+   },
+   "solveMs": {
+    "med": 23.632000000000005,
+    "p90": 48.536,
+    "max": 59.14999999999998
+   },
+   "chooseStates": {
+    "med": 38667,
+    "p90": 57353,
+    "max": 91704
+   },
+   "chooseMs": {
+    "med": 18.230000000000018,
+    "p90": 28.328000000000003,
+    "max": 52.12899999999996
+   }
+  },
+  "11": {
+   "n": 12,
+   "dnf": 0,
+   "solveStates": {
+    "med": 91407,
+    "p90": 216115,
+    "max": 422466
+   },
+   "solveMs": {
+    "med": 46.059999999999945,
+    "p90": 111.01199999999994,
+    "max": 296.02699999999993
+   },
+   "chooseStates": {
+    "med": 76270,
+    "p90": 167885,
+    "max": 250550
+   },
+   "chooseMs": {
+    "med": 36.452999999999975,
+    "p90": 85.41300000000001,
+    "max": 141.846
+   }
+  },
+  "12": {
+   "n": 12,
+   "dnf": 0,
+   "solveStates": {
+    "med": 126943,
+    "p90": 666033,
+    "max": 752986
+   },
+   "solveMs": {
+    "med": 61.98199999999997,
+    "p90": 432.2560000000003,
+    "max": 558.9970000000003
+   },
+   "chooseStates": {
+    "med": 104978,
+    "p90": 432183,
+    "max": 517867
+   },
+   "chooseMs": {
+    "med": 51.6880000000001,
+    "p90": 262.10499999999956,
+    "max": 332.63099999999986
+   }
+  },
+  "13": {
+   "n": 12,
+   "dnf": 0,
+   "solveStates": {
+    "med": 373629,
+    "p90": 1355739,
+    "max": 3776191
+   },
+   "solveMs": {
+    "med": 199.692,
+    "p90": 932.5859999999993,
+    "max": 3999.749999999999
+   },
+   "chooseStates": {
+    "med": 275977,
+    "p90": 1034740,
+    "max": 2097725
+   },
+   "chooseMs": {
+    "med": 148.0590000000011,
+    "p90": 747.1700000000001,
+    "max": 1964.9979999999996
+   }
+  },
+  "14": {
+   "n": 12,
+   "dnf": 0,
+   "solveStates": {
+    "med": 982995,
+    "p90": 3135525,
+    "max": 11877175
+   },
+   "solveMs": {
+    "med": 602.9069999999992,
+    "p90": 2814.019999999997,
+    "max": 14902.647
+   },
+   "chooseStates": {
+    "med": 578826,
+    "p90": 1622327,
+    "max": 9397107
+   },
+   "chooseMs": {
+    "med": 323.9370000000017,
+    "p90": 1239.565999999999,
+    "max": 11935.39
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": 0,
+   "N": 10,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 48.536,
+   "solveWallMs": 180.59228300000004,
+   "solveStates": 65443,
+   "solveDNF": false,
+   "value": 2177.290283203125,
+   "chooseMs": 28.328000000000003,
+   "chooseWallMs": 94.88909699999999,
+   "chooseStates": 57353,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    2173.8734735182775
+   ]
+  },
+  {
+   "id": 1,
+   "N": 10,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 2.680000000000007,
+   "solveWallMs": 7.631159000000025,
+   "solveStates": 5463,
+   "solveDNF": false,
+   "value": 1400,
+   "chooseMs": 2.292999999999978,
+   "chooseWallMs": 2.299201999999923,
+   "chooseStates": 4434,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1400
+   ]
+  },
+  {
+   "id": 2,
+   "N": 10,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 4.447999999999979,
+   "solveWallMs": 20.375032999999917,
+   "solveStates": 10309,
+   "solveDNF": false,
+   "value": 1325.1728515625,
+   "chooseMs": 3.9180000000000064,
+   "chooseWallMs": 15.945374000000015,
+   "chooseStates": 8763,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    2419.6781229009075
+   ]
+  },
+  {
+   "id": 3,
+   "N": 10,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 1.2229999999999848,
+   "solveWallMs": 1.2223060000000032,
+   "solveStates": 2095,
+   "solveDNF": false,
+   "value": 833.5099487304688,
+   "chooseMs": 1.1610000000000014,
+   "chooseWallMs": 14.232968000000028,
+   "chooseStates": 1380,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    630.8311279411249
+   ]
+  },
+  {
+   "id": 4,
+   "N": 10,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 29.064999999999998,
+   "solveWallMs": 120.75472200000002,
+   "solveStates": 51949,
+   "solveDNF": false,
+   "value": 2585.36767578125,
+   "chooseMs": 20.78800000000001,
+   "chooseWallMs": 78.91601000000003,
+   "chooseStates": 38667,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    1,
+    2683.3333562618836
+   ]
+  },
+  {
+   "id": 7,
+   "N": 10,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 59.14999999999998,
+   "solveWallMs": 193.324073,
+   "solveStates": 105981,
+   "solveDNF": false,
+   "value": 2722.685302734375,
+   "chooseMs": 52.12899999999996,
+   "chooseWallMs": 176.6274360000001,
+   "chooseStates": 91704,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    2605.0584245752407
+   ]
+  },
+  {
+   "id": 8,
+   "N": 10,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 49.589,
+   "solveWallMs": 184.0159860000001,
+   "solveStates": 80506,
+   "solveDNF": false,
+   "value": 2419.85009765625,
+   "chooseMs": 38.938000000000045,
+   "chooseWallMs": 131.84979900000008,
+   "chooseStates": 67411,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    2542.6642391413393
+   ]
+  },
+  {
+   "id": 9,
+   "N": 10,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 32.460000000000036,
+   "solveWallMs": 103.12291100000016,
+   "solveStates": 65273,
+   "solveDNF": false,
+   "value": 3108.681884765625,
+   "chooseMs": 19.616999999999962,
+   "chooseWallMs": 64.51645800000006,
+   "chooseStates": 39264,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    3218.4854558066713
+   ]
+  },
+  {
+   "id": 10,
+   "N": 10,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 23.632000000000005,
+   "solveWallMs": 73.1708470000001,
+   "solveStates": 47939,
+   "solveDNF": false,
+   "value": 2729.14453125,
+   "chooseMs": 21.45599999999996,
+   "chooseWallMs": 70.46050600000012,
+   "chooseStates": 40354,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    1,
+    2840.664667496858
+   ]
+  },
+  {
+   "id": 11,
+   "N": 10,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 32.968999999999994,
+   "solveWallMs": 95.699701,
+   "solveStates": 70121,
+   "solveDNF": false,
+   "value": 1421.76171875,
+   "chooseMs": 18.230000000000018,
+   "chooseWallMs": 54.295941000000084,
+   "chooseStates": 39533,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1448.6899244449755
+   ]
+  },
+  {
+   "id": 12,
+   "N": 10,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 9.448999999999955,
+   "solveWallMs": 33.89514200000008,
+   "solveStates": 23646,
+   "solveDNF": false,
+   "value": 1712.6405029296875,
+   "chooseMs": 3.2670000000000528,
+   "chooseWallMs": 11.462412000000086,
+   "chooseStates": 6160,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1636.967594707832
+   ]
+  },
+  {
+   "id": 14,
+   "N": 10,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 1.94500000000005,
+   "solveWallMs": 1.9527000000000498,
+   "solveStates": 4818,
+   "solveDNF": false,
+   "value": 1231.1044921875,
+   "chooseMs": 1.4250000000000682,
+   "chooseWallMs": 9.974137000000155,
+   "chooseStates": 3826,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    1170.5026435650213
+   ]
+  },
+  {
+   "id": 0,
+   "N": 11,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 46.059999999999945,
+   "solveWallMs": 137.19461600000022,
+   "solveStates": 91407,
+   "solveDNF": false,
+   "value": 2241.459228515625,
+   "chooseMs": 44.11900000000003,
+   "chooseWallMs": 136.39205700000002,
+   "chooseStates": 86590,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    2242.019874818186
+   ]
+  },
+  {
+   "id": 1,
+   "N": 11,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 2.6310000000000855,
+   "solveWallMs": 9.286783000000014,
+   "solveStates": 5576,
+   "solveDNF": false,
+   "value": 1400,
+   "chooseMs": 2.5159999999999627,
+   "chooseWallMs": 2.5157819999999447,
+   "chooseStates": 5463,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1400
+   ]
+  },
+  {
+   "id": 2,
+   "N": 11,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 23.950999999999908,
+   "solveWallMs": 81.56781000000001,
+   "solveStates": 49967,
+   "solveDNF": false,
+   "value": 1994.8975830078125,
+   "chooseMs": 5.072999999999979,
+   "chooseWallMs": 11.483192000000145,
+   "chooseStates": 10309,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1325.1728383110355
+   ]
+  },
+  {
+   "id": 3,
+   "N": 11,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 3.731999999999971,
+   "solveWallMs": 18.317966999999953,
+   "solveStates": 9482,
+   "solveDNF": false,
+   "value": 943.8770751953125,
+   "chooseMs": 1.8940000000000055,
+   "chooseWallMs": 5.895546999999624,
+   "chooseStates": 3852,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    833.5099219464498
+   ]
+  },
+  {
+   "id": 4,
+   "N": 11,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 296.02699999999993,
+   "solveWallMs": 940.7939430000001,
+   "solveStates": 422466,
+   "solveDNF": false,
+   "value": 3588.23095703125,
+   "chooseMs": 112.30899999999997,
+   "chooseWallMs": 374.496987,
+   "chooseStates": 193859,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    3585.3677132387515
+   ]
+  },
+  {
+   "id": 7,
+   "N": 11,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 243.067,
+   "solveWallMs": 853.3179100000002,
+   "solveStates": 414839,
+   "solveDNF": false,
+   "value": 2947.591796875,
+   "chooseMs": 141.846,
+   "chooseWallMs": 434.14001499999995,
+   "chooseStates": 250550,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    3122.685367683128
+   ]
+  },
+  {
+   "id": 8,
+   "N": 11,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 107.57799999999997,
+   "solveWallMs": 327.619651,
+   "solveStates": 195871,
+   "solveDNF": false,
+   "value": 2347.516357421875,
+   "chooseMs": 81.01599999999985,
+   "chooseWallMs": 245.63812000000053,
+   "chooseStates": 155406,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    2419.85005086364
+   ]
+  },
+  {
+   "id": 9,
+   "N": 11,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 100.11799999999994,
+   "solveWallMs": 342.73277899999994,
+   "solveStates": 181632,
+   "solveDNF": false,
+   "value": 3091.79345703125,
+   "chooseMs": 59.72000000000003,
+   "chooseWallMs": 251.97594500000014,
+   "chooseStates": 113392,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    3142.217569082755
+   ]
+  },
+  {
+   "id": 10,
+   "N": 11,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 53.53200000000015,
+   "solveWallMs": 208.859469,
+   "solveStates": 107041,
+   "solveDNF": false,
+   "value": 2788.444091796875,
+   "chooseMs": 36.452999999999975,
+   "chooseWallMs": 151.18583500000022,
+   "chooseStates": 76270,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    3129.144456465988
+   ]
+  },
+  {
+   "id": 11,
+   "N": 11,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 111.01199999999994,
+   "solveWallMs": 448.3952879999997,
+   "solveStates": 216115,
+   "solveDNF": false,
+   "value": 2030.682861328125,
+   "chooseMs": 85.41300000000001,
+   "chooseWallMs": 295.5531090000004,
+   "chooseStates": 167885,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    2011.5940921936842
+   ]
+  },
+  {
+   "id": 12,
+   "N": 11,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 18.37400000000025,
+   "solveWallMs": 58.38927100000001,
+   "solveStates": 41834,
+   "solveDNF": false,
+   "value": 1757.73681640625,
+   "chooseMs": 12.558999999999742,
+   "chooseWallMs": 38.605829000000085,
+   "chooseStates": 29017,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1712.64054452775
+   ]
+  },
+  {
+   "id": 13,
+   "N": 11,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 3.8840000000000146,
+   "solveWallMs": 12.370065999999497,
+   "solveStates": 7946,
+   "solveDNF": false,
+   "value": 832.666259765625,
+   "chooseMs": 1.3919999999998254,
+   "chooseWallMs": 1.390110999999706,
+   "chooseStates": 0,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    0
+   ]
+  },
+  {
+   "id": 0,
+   "N": 12,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 61.98199999999997,
+   "solveWallMs": 212.664264,
+   "solveStates": 126943,
+   "solveDNF": false,
+   "value": 2334.680419921875,
+   "chooseMs": 51.6880000000001,
+   "chooseWallMs": 204.413724,
+   "chooseStates": 104978,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    2288.087254295184
+   ]
+  },
+  {
+   "id": 1,
+   "N": 12,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 10.505999999999858,
+   "solveWallMs": 47.16074799999933,
+   "solveStates": 22585,
+   "solveDNF": false,
+   "value": 2013.0997314453125,
+   "chooseMs": 10.277000000000044,
+   "chooseWallMs": 34.293038999999226,
+   "chooseStates": 22245,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    1,
+    2050
+   ]
+  },
+  {
+   "id": 2,
+   "N": 12,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 34.89399999999978,
+   "solveWallMs": 153.7019449999998,
+   "solveStates": 75342,
+   "solveDNF": false,
+   "value": 2169.10791015625,
+   "chooseMs": 23.717999999999847,
+   "chooseWallMs": 91.69125799999983,
+   "chooseStates": 49967,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1994.8975233290053
+   ]
+  },
+  {
+   "id": 3,
+   "N": 12,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 17.14300000000003,
+   "solveWallMs": 65.16111999999885,
+   "solveStates": 39896,
+   "solveDNF": false,
+   "value": 1291.3707275390625,
+   "chooseMs": 5.735000000000127,
+   "chooseWallMs": 30.579752999999982,
+   "chooseStates": 12864,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    1027.4654287185044
+   ]
+  },
+  {
+   "id": 4,
+   "N": 12,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 558.9970000000003,
+   "solveWallMs": 1977.6091109999998,
+   "solveStates": 752986,
+   "solveDNF": false,
+   "value": 3540.96240234375,
+   "chooseMs": 304.9849999999997,
+   "chooseWallMs": 1219.1302210000013,
+   "chooseStates": 449955,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    3588.2310069691052
+   ]
+  },
+  {
+   "id": 6,
+   "N": 12,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 1.9269999999996799,
+   "solveWallMs": 11.618918000000122,
+   "solveStates": 2951,
+   "solveDNF": false,
+   "value": 721.4542846679688,
+   "chooseMs": 1.2089999999998327,
+   "chooseWallMs": 1.2092109999994136,
+   "chooseStates": 0,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    0
+   ]
+  },
+  {
+   "id": 7,
+   "N": 12,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 390.3890000000001,
+   "solveWallMs": 1312.666405,
+   "solveStates": 605349,
+   "solveDNF": false,
+   "value": 2986.526611328125,
+   "chooseMs": 332.63099999999986,
+   "chooseWallMs": 1257.5363859999998,
+   "chooseStates": 517867,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    2947.591683703373
+   ]
+  },
+  {
+   "id": 8,
+   "N": 12,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 151.53200000000015,
+   "solveWallMs": 608.3346439999987,
+   "solveStates": 266779,
+   "solveDNF": false,
+   "value": 2373.4755859375,
+   "chooseMs": 119.67000000000007,
+   "chooseWallMs": 422.6438699999999,
+   "chooseStates": 211460,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    2391.514733438753
+   ]
+  },
+  {
+   "id": 9,
+   "N": 12,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 434.72699999999986,
+   "solveWallMs": 1708.4018370000013,
+   "solveStates": 666033,
+   "solveDNF": false,
+   "value": 3937.92431640625,
+   "chooseMs": 262.10499999999956,
+   "chooseWallMs": 1049.5794300000016,
+   "chooseStates": 432183,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    4091.7935610433474
+   ]
+  },
+  {
+   "id": 10,
+   "N": 12,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 432.2560000000003,
+   "solveWallMs": 1730.2445210000005,
+   "solveStates": 723303,
+   "solveDNF": false,
+   "value": 2860.889404296875,
+   "chooseMs": 128.16799999999967,
+   "chooseWallMs": 519.6875819999987,
+   "chooseStates": 231341,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    2788.443991763684
+   ]
+  },
+  {
+   "id": 11,
+   "N": 12,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 157.7490000000007,
+   "solveWallMs": 631.4610529999991,
+   "solveStates": 284174,
+   "solveDNF": false,
+   "value": 2058.769775390625,
+   "chooseMs": 129.73400000000038,
+   "chooseWallMs": 514.3492259999985,
+   "chooseStates": 226874,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    2030.6828460484796
+   ]
+  },
+  {
+   "id": 12,
+   "N": 12,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 21.8779999999997,
+   "solveWallMs": 78.54326699999729,
+   "solveStates": 50374,
+   "solveDNF": false,
+   "value": 1770.734130859375,
+   "chooseMs": 19.639999999999418,
+   "chooseWallMs": 85.44801999999981,
+   "chooseStates": 43846,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1757.7367839093965
+   ]
+  },
+  {
+   "id": 0,
+   "N": 13,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 217.20600000000013,
+   "solveWallMs": 911.2406499999997,
+   "solveStates": 399226,
+   "solveDNF": false,
+   "value": 2851.153564453125,
+   "chooseMs": 179.57400000000052,
+   "chooseWallMs": 724.3474249999999,
+   "chooseStates": 330403,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    1,
+    2984.6804184376847
+   ]
+  },
+  {
+   "id": 1,
+   "N": 13,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 58.33899999999994,
+   "solveWallMs": 230.80053899999984,
+   "solveStates": 108593,
+   "solveDNF": false,
+   "value": 3052.05126953125,
+   "chooseMs": 51.69599999999991,
+   "chooseWallMs": 207.89451499999996,
+   "chooseStates": 96977,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    3049.703278458721
+   ]
+  },
+  {
+   "id": 2,
+   "N": 13,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 199.692,
+   "solveWallMs": 794.2763270000032,
+   "solveStates": 373629,
+   "solveDNF": false,
+   "value": 2227.1416015625,
+   "chooseMs": 67.27399999999943,
+   "chooseWallMs": 272.01180899999963,
+   "chooseStates": 133784,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    2169.1078188470683
+   ]
+  },
+  {
+   "id": 3,
+   "N": 13,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 23.423999999999978,
+   "solveWallMs": 91.66801100000157,
+   "solveStates": 52860,
+   "solveDNF": false,
+   "value": 1620.666015625,
+   "chooseMs": 19.444000000000415,
+   "chooseWallMs": 83.91684199999872,
+   "chooseStates": 42927,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    1457.2704428043278
+   ]
+  },
+  {
+   "id": 4,
+   "N": 13,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 3999.749999999999,
+   "solveWallMs": 16020.284034,
+   "solveStates": 3776191,
+   "solveDNF": false,
+   "value": 3489.740966796875,
+   "chooseMs": 1964.9979999999996,
+   "chooseWallMs": 7674.615724999996,
+   "chooseStates": 2097725,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    3540.962424433361
+   ]
+  },
+  {
+   "id": 6,
+   "N": 13,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 4.632999999999811,
+   "solveWallMs": 20.12453700000333,
+   "solveStates": 8151,
+   "solveDNF": false,
+   "value": 1120.5609130859375,
+   "chooseMs": 3.2119999999995343,
+   "chooseWallMs": 11.835333999995783,
+   "chooseStates": 2951,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    721.4542762935613
+   ]
+  },
+  {
+   "id": 7,
+   "N": 13,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 801.9589999999989,
+   "solveWallMs": 3067.827053999994,
+   "solveStates": 1124542,
+   "solveDNF": false,
+   "value": 3087.0400390625,
+   "chooseMs": 747.1700000000001,
+   "chooseWallMs": 3007.8506190000044,
+   "chooseStates": 1034740,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    3055.616524848956
+   ]
+  },
+  {
+   "id": 8,
+   "N": 13,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 190.11099999999897,
+   "solveWallMs": 694.9450610000058,
+   "solveStates": 342300,
+   "solveDNF": false,
+   "value": 2341.15869140625,
+   "chooseMs": 148.0590000000011,
+   "chooseWallMs": 492.8556119999994,
+   "chooseStates": 275977,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    2373.4754898614287
+   ]
+  },
+  {
+   "id": 9,
+   "N": 13,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 932.5859999999993,
+   "solveWallMs": 3657.6356229999947,
+   "solveStates": 1355739,
+   "solveDNF": false,
+   "value": 4049.18408203125,
+   "chooseMs": 860.773000000001,
+   "chooseWallMs": 3455.712594000004,
+   "chooseStates": 1205496,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    3951.4667780389827
+   ]
+  },
+  {
+   "id": 10,
+   "N": 13,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 1186.6550000000007,
+   "solveWallMs": 4793.386531000004,
+   "solveStates": 1723333,
+   "solveDNF": false,
+   "value": 3032.532958984375,
+   "chooseMs": 612.3500000000022,
+   "chooseWallMs": 2469.979811000012,
+   "chooseStates": 998303,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    2860.8893944551423
+   ]
+  },
+  {
+   "id": 11,
+   "N": 13,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 265.77700000000186,
+   "solveWallMs": 988.9420319999917,
+   "solveStates": 516449,
+   "solveDNF": false,
+   "value": 2353.7568359375,
+   "chooseMs": 226.79999999999927,
+   "chooseWallMs": 809.2756989999907,
+   "chooseStates": 436600,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    2458.7698790282616
+   ]
+  },
+  {
+   "id": 12,
+   "N": 13,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 43.0669999999991,
+   "solveWallMs": 151.71800999999687,
+   "solveStates": 95484,
+   "solveDNF": false,
+   "value": 1758.464111328125,
+   "chooseMs": 30.141999999999825,
+   "chooseWallMs": 99.61237699999765,
+   "chooseStates": 72642,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1770.734135377929
+   ]
+  },
+  {
+   "id": 0,
+   "N": 14,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 1584.2020000000011,
+   "solveWallMs": 5830.866334999999,
+   "solveStates": 2281364,
+   "solveDNF": false,
+   "value": 3858.603759765625,
+   "chooseMs": 530.9890000000014,
+   "chooseWallMs": 1833.7252150000131,
+   "chooseStates": 904952,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    3837.482940730743
+   ]
+  },
+  {
+   "id": 1,
+   "N": 14,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 260.6959999999999,
+   "solveWallMs": 951.1046659999993,
+   "solveStates": 427730,
+   "solveDNF": false,
+   "value": 2915.36572265625,
+   "chooseMs": 145.9310000000005,
+   "chooseWallMs": 500.8696120000095,
+   "chooseStates": 246332,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    3052.0512868049814
+   ]
+  },
+  {
+   "id": 2,
+   "N": 14,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 602.9069999999992,
+   "solveWallMs": 2344.3779230000073,
+   "solveStates": 982995,
+   "solveDNF": false,
+   "value": 2411.092041015625,
+   "chooseMs": 323.9370000000017,
+   "chooseWallMs": 1312.020319000003,
+   "chooseStates": 569645,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    2288.385215709605
+   ]
+  },
+  {
+   "id": 3,
+   "N": 14,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 39.51599999999962,
+   "solveWallMs": 160.27148699999088,
+   "solveStates": 91303,
+   "solveDNF": false,
+   "value": 1571.9862060546875,
+   "chooseMs": 24.760000000002037,
+   "chooseWallMs": 102.94529299999704,
+   "chooseStates": 58378,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    1,
+    2020.6659569219073
+   ]
+  },
+  {
+   "id": 4,
+   "N": 14,
+   "busts": 0,
+   "stays": 1,
+   "solveMs": 14902.647,
+   "solveWallMs": 59365.94234099999,
+   "solveStates": 11877175,
+   "solveDNF": false,
+   "value": 3455.516357421875,
+   "chooseMs": 11935.39,
+   "chooseWallMs": 45302.561277,
+   "chooseStates": 9397107,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    2,
+    3489.740996006081
+   ]
+  },
+  {
+   "id": 6,
+   "N": 14,
+   "busts": 2,
+   "stays": 0,
+   "solveMs": 8.244999999995343,
+   "solveWallMs": 22.498899999976857,
+   "solveStates": 14639,
+   "solveDNF": false,
+   "value": 1305.399169921875,
+   "chooseMs": 5.582999999998719,
+   "chooseWallMs": 25.595380000013392,
+   "chooseStates": 8151,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1120.5609353462944
+   ]
+  },
+  {
+   "id": 7,
+   "N": 14,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 2814.019999999997,
+   "solveWallMs": 10620.834203000006,
+   "solveStates": 3135525,
+   "solveDNF": false,
+   "value": 3060.847900390625,
+   "chooseMs": 1126.701000000001,
+   "chooseWallMs": 4163.956409000006,
+   "chooseStates": 1492499,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    1,
+    3098.0171238245343
+   ]
+  },
+  {
+   "id": 8,
+   "N": 14,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 422.46199999999953,
+   "solveWallMs": 1742.1828600000008,
+   "solveStates": 671778,
+   "solveDNF": false,
+   "value": 2438.32568359375,
+   "chooseMs": 389.29699999999866,
+   "chooseWallMs": 1559.0421769999957,
+   "chooseStates": 595160,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    2426.5712582745514
+   ]
+  },
+  {
+   "id": 9,
+   "N": 14,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 1281.6569999999992,
+   "solveWallMs": 4980.862550999998,
+   "solveStates": 1718882,
+   "solveDNF": false,
+   "value": 4123.64453125,
+   "chooseMs": 1239.565999999999,
+   "chooseWallMs": 4364.032638000004,
+   "chooseStates": 1622327,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    3,
+    4065.696032287742
+   ]
+  },
+  {
+   "id": 10,
+   "N": 14,
+   "busts": 1,
+   "stays": 0,
+   "solveMs": 4633.654000000002,
+   "solveWallMs": 16094.419653999998,
+   "solveStates": 5119329,
+   "solveDNF": false,
+   "value": 3145.114501953125,
+   "chooseMs": 2195.758999999998,
+   "chooseWallMs": 8515.94987099999,
+   "chooseStates": 2784054,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    3032.5329110045545
+   ]
+  },
+  {
+   "id": 11,
+   "N": 14,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 648.0180000000037,
+   "solveWallMs": 2280.0238030000182,
+   "solveStates": 1061267,
+   "solveDNF": false,
+   "value": 2381.89208984375,
+   "chooseMs": 313.74900000000343,
+   "chooseWallMs": 986.6234790000017,
+   "chooseStates": 578826,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    2353.7569420466743
+   ]
+  },
+  {
+   "id": 12,
+   "N": 14,
+   "busts": 0,
+   "stays": 0,
+   "solveMs": 146.55299999999988,
+   "solveWallMs": 445.2939689999912,
+   "solveStates": 270607,
+   "solveDNF": false,
+   "value": 1812.515869140625,
+   "chooseMs": 74.57800000000134,
+   "chooseWallMs": 231.98791599998367,
+   "chooseStates": 148487,
+   "chooseDNF": false,
+   "move": [
+    -1,
+    0,
+    1758.464140870688
+   ]
+  }
+ ]
+}

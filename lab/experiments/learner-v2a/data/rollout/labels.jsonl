@@ -1,0 +1,7 @@
+{"id":"3500000000:0:31","v":null,"ok":false,"ms":86172.596,"n":20,"err":"depth-limited target exceeded the budget (positions)","cpu_ms":82362.316}
+{"id":"3500000000:0:32","v":null,"ok":false,"ms":71373.498,"n":19,"err":"depth-limited target exceeded the budget (positions)","cpu_ms":71352.835}
+{"id":"3500000000:0:33","v":null,"ok":false,"ms":86603.269,"n":18,"err":"depth-limited target exceeded the budget (positions)","cpu_ms":85086.617}
+{"id":"3500000000:0:34","v":null,"ok":false,"ms":71734.826,"n":17,"err":"depth-limited target exceeded the budget (positions)","cpu_ms":69985.432}
+{"id":"3500000000:1:31","v":null,"ok":false,"ms":64068.987,"n":20,"err":"depth-limited target exceeded the budget (positions)","cpu_ms":63298.771}
+{"id":"3500000000:1:32","v":5402.69091796875,"ok":true,"ms":59094.196,"n":19,"exact":false,"mode":"rollout","depth":3,"frontier":16,"paths":1,"se":0,"bias":"lower bound (champion policy above the frontier)","n16":1,"pos":51722337,"cpu_ms":58837.26}
+{"id":"3500000000:1:33","v":null,"ok":false,"ms":68077.044,"n":18,"err":"depth-limited target exceeded the budget (positions)","cpu_ms":68034.255}

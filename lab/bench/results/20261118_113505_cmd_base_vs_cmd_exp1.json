@@ -1,0 +1,43 @@
+{
+  "set": "set1000",
+  "set_sha256": "b7cf79437960cc597286a00c9cea411aaed8f2e9d2eb4dbf5582d1958b5a93ae",
+  "n": 1000,
+  "a": "cmd:/workspace/21sol/rollcmd /workspace/21sol/m1.bin base",
+  "b": "cmd:/workspace/21sol/rollcmd /workspace/21sol/m1.bin exp1",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 1000,
+    "mean": 7549.15,
+    "se": 39.893775088236396,
+    "sd": 1261.5519374131177,
+    "busts_per_game": 0.635,
+    "bust_game_rate": 0.376,
+    "three_bust_rate": 0.05,
+    "perfect_rate": 0.624,
+    "games_per_sec_wall": 798.1517105259903,
+    "games_per_sec_per_core": 440.7225434467448,
+    "wall_s": 1.252894639968872,
+    "cpu_s": 2.2690012454986572
+  },
+  "B": {
+    "n": 1000,
+    "mean": 7971.5,
+    "se": 38.253968632236266,
+    "sd": 1209.6967041850266,
+    "busts_per_game": 0.448,
+    "bust_game_rate": 0.279,
+    "three_bust_rate": 0.03,
+    "perfect_rate": 0.721,
+    "games_per_sec_wall": 415.1065258943269,
+    "games_per_sec_per_core": 225.86518161470053,
+    "wall_s": 2.409020185470581,
+    "cpu_s": 4.427419900894165
+  },
+  "paired_diff_B_minus_A": 422.35,
+  "paired_se": 40.821126170671015,
+  "z": 10.346358359496907,
+  "sd_diff": 1290.8773535242772,
+  "verdict": "ACCEPTED",
+  "timestamp": "20261118_113505"
+}

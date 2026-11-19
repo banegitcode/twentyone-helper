@@ -1,0 +1,24 @@
+Timing kit on grok-bot-vm-478306472 | Intel(R) Xeon(R) Processor x8 | node v24.22.1 | load 27.4 28.8 29.4 | free mem 2.7 GB
+
+== shipped52
+  shipped52  game 1 (dev200 line 1): score 9050  busts 0  think CPU 1.2 s  wall 2.9 s  max decision CPU 0.1 s  (52 decisions)
+  shipped52  game 2 (dev200 line 2): score 10350  busts 0  think CPU 0.8 s  wall 1.8 s  max decision CPU 0.1 s  (52 decisions)
+  shipped52  game 3 (dev200 line 3): score 8150  busts 0  think CPU 0.7 s  wall 1.6 s  max decision CPU 0.1 s  (52 decisions)
+
+== pooled:16:26 (cpu clock)
+  pooled:16:26 (cpu clock)  game 1 (dev200 line 1): score 10050  busts 0  think CPU 29.6 s  wall 67.5 s  max decision CPU 28.7 s  (52 decisions)
+  pooled:16:26 (cpu clock)  game 2 (dev200 line 2): score 10100  busts 0  think CPU 8.8 s  wall 11.3 s  max decision CPU 8.1 s  (52 decisions)
+  pooled:16:26 (cpu clock)  game 3 (dev200 line 3): score 8150  busts 0  think CPU 12.9 s  wall 31.4 s  max decision CPU 12.4 s  (52 decisions)
+
+Summary (think time per game, seconds; CPU = process CPU of the engine, wall = elapsed incl. time-slicing)
+engine                      game  score  think_cpu  think_wall  max_dec_cpu
+shipped52                   1     9050   1.2        2.9         0.1
+shipped52                   2     10350  0.8        1.8         0.1
+shipped52                   3     8150   0.7        1.6         0.1
+pooled:16:26 (cpu clock)    1     10050  29.6       67.5        28.7
+pooled:16:26 (cpu clock)    2     10100  8.8        11.3        8.1
+pooled:16:26 (cpu clock)    3     8150   12.9       31.4        12.4
+shipped52: mean think CPU 0.9 s, max 1.2 s (budget for a real game: 150 s target, 180 s limit)
+pooled:16:26 (cpu clock): mean think CPU 17.1 s, max 29.6 s (budget for a real game: 150 s target, 180 s limit)
+
+wrote results/box_run1.json

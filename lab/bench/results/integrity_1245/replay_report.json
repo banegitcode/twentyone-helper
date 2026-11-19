@@ -1,0 +1,2001 @@
+{
+  "frozen": "/workspace/21lab/bench/frozen/exact-endgame-deeper@90c2d73f938b",
+  "shortsha": "90c2d73f938b",
+  "note": "Logs had no move sequences; compared score, busts, perfect, ncards. Games replayed as official chunk prefixes (fresh process at chunk start) so exact-table carry matches the bench.",
+  "wall_s": 580.3250887393951,
+  "deeper:16": {
+    "pre-12:45": {
+      "n": 10,
+      "matched": 10,
+      "mismatched": []
+    },
+    "post-12:45": {
+      "n": 30,
+      "matched": 30,
+      "mismatched": []
+    },
+    "giveups_by_rem": {
+      "buckets": [
+        {
+          "rem": 16,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 3,
+          "giveup": 37,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.925,
+          "giveup_rate_of_decisions": 0.925
+        },
+        {
+          "rem": 15,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 11,
+          "giveup": 29,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.725,
+          "giveup_rate_of_decisions": 0.725
+        },
+        {
+          "rem": 14,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 26,
+          "giveup": 14,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.35,
+          "giveup_rate_of_decisions": 0.35
+        },
+        {
+          "rem": 13,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 34,
+          "giveup": 6,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.15,
+          "giveup_rate_of_decisions": 0.15
+        },
+        {
+          "rem": 12,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 39,
+          "giveup": 1,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.025,
+          "giveup_rate_of_decisions": 0.025
+        },
+        {
+          "rem": 11,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 39,
+          "giveup": 1,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.025,
+          "giveup_rate_of_decisions": 0.025
+        },
+        {
+          "rem": 10,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        },
+        {
+          "rem": 9,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        },
+        {
+          "rem": 8,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        },
+        {
+          "rem": 7,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        },
+        {
+          "rem": 6,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        },
+        {
+          "rem": 5,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        },
+        {
+          "rem": 4,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        },
+        {
+          "rem": 3,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        },
+        {
+          "rem": 2,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        },
+        {
+          "rem": 1,
+          "decisions": 40,
+          "attempted": 40,
+          "exact": 40,
+          "giveup": 0,
+          "no_attempt": 0,
+          "giveup_rate_of_attempts": 0.0,
+          "giveup_rate_of_decisions": 0.0
+        }
+      ],
+      "totals": {
+        "decisions_rem_1_to_16": 640,
+        "attempts": 640,
+        "exact": 552,
+        "giveup": 88,
+        "giveup_rate_of_attempts": 0.1375,
+        "giveup_rate_of_decisions": 0.1375
+      },
+      "band_9_to_13": {
+        "decisions": 200,
+        "attempts": 200,
+        "exact": 192,
+        "giveup": 8,
+        "giveup_rate_of_attempts": 0.04
+      }
+    },
+    "n_traced_decisions": 2080
+  },
+  "deeper:15": {
+    "pre-12:45": {
+      "n": 10,
+      "matched": 10,
+      "mismatched": []
+    },
+    "post-12:45": {
+      "n": 20,
+      "matched": 20,
+      "mismatched": []
+    },
+    "n_traced_decisions": 1560
+  },
+  "jobs": [
+    {
+      "config": "deeper:16",
+      "start": 0,
+      "count": 10,
+      "trace": "/workspace/21lab/bench/results/integrity_1245/traces/d16_pre_0_9.jsonl",
+      "rows": [
+        [
+          0,
+          8100,
+          1,
+          0,
+          52
+        ],
+        [
+          1,
+          9000,
+          0,
+          1,
+          52
+        ],
+        [
+          2,
+          11650,
+          0,
+          1,
+          52
+        ],
+        [
+          3,
+          9350,
+          1,
+          0,
+          52
+        ],
+        [
+          4,
+          9250,
+          0,
+          1,
+          52
+        ],
+        [
+          5,
+          8750,
+          1,
+          0,
+          52
+        ],
+        [
+          6,
+          7400,
+          2,
+          0,
+          52
+        ],
+        [
+          7,
+          9350,
+          0,
+          1,
+          52
+        ],
+        [
+          8,
+          8650,
+          2,
+          0,
+          52
+        ],
+        [
+          9,
+          8800,
+          0,
+          1,
+          52
+        ]
+      ],
+      "wall": 197.18426203727722
+    },
+    {
+      "config": "deeper:16",
+      "start": 750,
+      "count": 30,
+      "trace": "/workspace/21lab/bench/results/integrity_1245/traces/d16_post_750_779.jsonl",
+      "rows": [
+        [
+          750,
+          9700,
+          0,
+          1,
+          52
+        ],
+        [
+          751,
+          9200,
+          0,
+          1,
+          52
+        ],
+        [
+          752,
+          9300,
+          0,
+          1,
+          52
+        ],
+        [
+          753,
+          9300,
+          0,
+          1,
+          52
+        ],
+        [
+          754,
+          8500,
+          0,
+          1,
+          52
+        ],
+        [
+          755,
+          8350,
+          1,
+          0,
+          52
+        ],
+        [
+          756,
+          6700,
+          2,
+          0,
+          52
+        ],
+        [
+          757,
+          9550,
+          0,
+          1,
+          52
+        ],
+        [
+          758,
+          9550,
+          0,
+          1,
+          52
+        ],
+        [
+          759,
+          9950,
+          0,
+          1,
+          52
+        ],
+        [
+          760,
+          8800,
+          0,
+          1,
+          52
+        ],
+        [
+          761,
+          9250,
+          0,
+          1,
+          52
+        ],
+        [
+          762,
+          8050,
+          1,
+          0,
+          52
+        ],
+        [
+          763,
+          7150,
+          2,
+          0,
+          52
+        ],
+        [
+          764,
+          8800,
+          0,
+          1,
+          52
+        ],
+        [
+          765,
+          9100,
+          0,
+          1,
+          52
+        ],
+        [
+          766,
+          7700,
+          1,
+          0,
+          52
+        ],
+        [
+          767,
+          9250,
+          0,
+          1,
+          52
+        ],
+        [
+          768,
+          6850,
+          2,
+          0,
+          52
+        ],
+        [
+          769,
+          9300,
+          0,
+          1,
+          52
+        ],
+        [
+          770,
+          7850,
+          0,
+          1,
+          52
+        ],
+        [
+          771,
+          9000,
+          0,
+          1,
+          52
+        ],
+        [
+          772,
+          8000,
+          0,
+          1,
+          52
+        ],
+        [
+          773,
+          11050,
+          0,
+          1,
+          52
+        ],
+        [
+          774,
+          9000,
+          0,
+          1,
+          52
+        ],
+        [
+          775,
+          9500,
+          0,
+          1,
+          52
+        ],
+        [
+          776,
+          6350,
+          2,
+          0,
+          52
+        ],
+        [
+          777,
+          9800,
+          0,
+          1,
+          52
+        ],
+        [
+          778,
+          8850,
+          0,
+          1,
+          52
+        ],
+        [
+          779,
+          10750,
+          0,
+          1,
+          52
+        ]
+      ],
+      "wall": 502.786404132843
+    },
+    {
+      "config": "deeper:15",
+      "start": 0,
+      "count": 10,
+      "trace": "/workspace/21lab/bench/results/integrity_1245/traces/d15_pre_0_9.jsonl",
+      "rows": [
+        [
+          0,
+          8100,
+          1,
+          0,
+          52
+        ],
+        [
+          1,
+          9000,
+          0,
+          1,
+          52
+        ],
+        [
+          2,
+          11650,
+          0,
+          1,
+          52
+        ],
+        [
+          3,
+          9350,
+          1,
+          0,
+          52
+        ],
+        [
+          4,
+          9250,
+          0,
+          1,
+          52
+        ],
+        [
+          5,
+          8750,
+          1,
+          0,
+          52
+        ],
+        [
+          6,
+          7400,
+          2,
+          0,
+          52
+        ],
+        [
+          7,
+          9350,
+          0,
+          1,
+          52
+        ],
+        [
+          8,
+          8650,
+          2,
+          0,
+          52
+        ],
+        [
+          9,
+          8800,
+          0,
+          1,
+          52
+        ]
+      ],
+      "wall": 230.55015659332275
+    },
+    {
+      "config": "deeper:15",
+      "start": 500,
+      "count": 20,
+      "trace": "/workspace/21lab/bench/results/integrity_1245/traces/d15_post_500_519.jsonl",
+      "rows": [
+        [
+          500,
+          8600,
+          0,
+          1,
+          52
+        ],
+        [
+          501,
+          8550,
+          0,
+          1,
+          52
+        ],
+        [
+          502,
+          9800,
+          0,
+          1,
+          52
+        ],
+        [
+          503,
+          10950,
+          0,
+          1,
+          52
+        ],
+        [
+          504,
+          5900,
+          2,
+          0,
+          52
+        ],
+        [
+          505,
+          9950,
+          0,
+          1,
+          52
+        ],
+        [
+          506,
+          8650,
+          0,
+          1,
+          52
+        ],
+        [
+          507,
+          8700,
+          0,
+          1,
+          52
+        ],
+        [
+          508,
+          9450,
+          0,
+          1,
+          52
+        ],
+        [
+          509,
+          7600,
+          2,
+          0,
+          52
+        ],
+        [
+          510,
+          7950,
+          1,
+          0,
+          52
+        ],
+        [
+          511,
+          7750,
+          1,
+          0,
+          52
+        ],
+        [
+          512,
+          8800,
+          0,
+          1,
+          52
+        ],
+        [
+          513,
+          8800,
+          0,
+          1,
+          52
+        ],
+        [
+          514,
+          9500,
+          0,
+          1,
+          52
+        ],
+        [
+          515,
+          9250,
+          0,
+          1,
+          52
+        ],
+        [
+          516,
+          11450,
+          0,
+          1,
+          52
+        ],
+        [
+          517,
+          8800,
+          0,
+          1,
+          52
+        ],
+        [
+          518,
+          8850,
+          0,
+          1,
+          52
+        ],
+        [
+          519,
+          9000,
+          0,
+          1,
+          52
+        ]
+      ],
+      "wall": 152.29714512825012
+    }
+  ],
+  "comparisons": [
+    {
+      "config": "deeper:16",
+      "game": 0,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 8100,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8100,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 1,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 2,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 11650,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 11650,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 3,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 9350,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9350,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 4,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 5,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 8750,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8750,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 6,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 7400,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 7400,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 7,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 9350,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9350,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 8,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 8650,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8650,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 9,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 750,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9700,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9700,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 751,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9200,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9200,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 752,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9300,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9300,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 753,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9300,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9300,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 754,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8500,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8500,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 755,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8350,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8350,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 756,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 6700,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 6700,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 757,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9550,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9550,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 758,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9550,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9550,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 759,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9950,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9950,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 760,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 761,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 762,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8050,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8050,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 763,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 7150,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 7150,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 764,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 765,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9100,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9100,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 766,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 7700,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 7700,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 767,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 768,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 6850,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 6850,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 769,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9300,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9300,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 770,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 7850,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 7850,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 771,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 772,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 773,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 11050,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 11050,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 774,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 775,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9500,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9500,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 776,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 6350,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 6350,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 777,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 778,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8850,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8850,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:16",
+      "game": 779,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 10750,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 10750,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 0,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 8100,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8100,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 1,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 2,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 11650,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 11650,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 3,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 9350,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9350,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 4,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 5,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 8750,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8750,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 6,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 7400,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 7400,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 7,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 9350,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9350,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 8,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 8650,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8650,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 9,
+      "wave": "pre-12:45",
+      "match": true,
+      "replay": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 500,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8600,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8600,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 501,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8550,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8550,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 502,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 503,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 10950,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 10950,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 504,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 5900,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 5900,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 505,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9950,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9950,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 506,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8650,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8650,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 507,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8700,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8700,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 508,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9450,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9450,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 509,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 7600,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 7600,
+        "busts": 2,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 510,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 7950,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 7950,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 511,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 7750,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      },
+      "official": {
+        "score": 7750,
+        "busts": 1,
+        "perfect": 0,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 512,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 513,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 514,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9500,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9500,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 515,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9250,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 516,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 11450,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 11450,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 517,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8800,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 518,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 8850,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 8850,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    },
+    {
+      "config": "deeper:15",
+      "game": 519,
+      "wave": "post-12:45",
+      "match": true,
+      "replay": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      },
+      "official": {
+        "score": 9000,
+        "busts": 0,
+        "perfect": 1,
+        "ncards": 52
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+games 20 positions 80
+games 40 positions 160
+games 60 positions 240
+games 80 positions 320
+games 100 positions 400
+games 120 positions 480
+games 140 positions 560
+{"games":150,"skippedBenchCollisions":0,"positions":600,"zeroBustGames":119,"seedBase":3500000000,"bustEps":0,"bustSeek":0,"withExact":false}

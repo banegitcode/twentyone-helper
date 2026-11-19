@@ -1,0 +1,21 @@
+{
+  "deeper:15": {
+    "verify": "post-12:45 chunks verified identical on 20 games",
+    "pre": "pre-12:45 chunks identical on 10 games",
+    "fields": "score,busts,perfect,ncards",
+    "frozen": "exact-endgame-deeper@90c2d73f938b",
+    "keep": true
+  },
+  "deeper:16": {
+    "verify": "post-12:45 chunks verified identical on 30 games",
+    "pre": "pre-12:45 chunks identical on 10 games",
+    "fields": "score,busts,perfect,ncards",
+    "frozen": "exact-endgame-deeper@90c2d73f938b",
+    "keep": true,
+    "giveups": "see deeper16_giveups.txt; 88/640 (13.8%) overall, 8/200 (4.0%) at rem 9-13, concentrated at rem 14-16"
+  },
+  "pooled:16:26": {
+    "voided": true,
+    "path": "bench/results/void/"
+  }
+}

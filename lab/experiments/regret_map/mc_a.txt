@@ -1,0 +1,2 @@
+{"rem":10,"states":299,"playouts":23920,"meanResidual":-1.47,"se":2.72,"sd":420,"noBustShare":0.785}
+{"rem":12,"states":148,"playouts":22200,"meanResidual":-1.57,"se":3.38,"sd":503,"noBustShare":0.775}

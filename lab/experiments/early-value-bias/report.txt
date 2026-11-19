@@ -1,0 +1,303 @@
+ends: 1000 games, mean final 8871.6
+chosen rows 39984 games 1000 dec rem>16 35994 rem>=16 36993
+
+======== 1. ABSOLUTE BIAS (chosen move; shipped52 set1000; cluster by game) ========
+
+-- leaf p vs points-after (G-p) --
+  all rem>=13: 312.9 ± 28.2 (n=1000)
+  rem>16 (first ~36 cards): 325.4 ± 29.5 (n=1000)
+  rem>=17 and dealt first half (~rem>=27): 352.2 ± 32.7 (n=1000)
+  by rem bin:
+    52-41: 390.6 ± 37.0 (n=1000)
+    40-33: 329.9 ± 32.8 (n=1000)
+    32-25: 299.3 ± 28.5 (n=1000)
+    24-17: 251.8 ± 23.3 (n=1000)
+    16-13: 208.7 ± 19.6 (n=999)
+
+-- search q vs points-from-here (Gb-q) --
+  all rem>=13: 304.1 ± 28.1 (n=1000)
+  rem>16 (first ~36 cards): 317.2 ± 29.5 (n=1000)
+  rem>=17 and dealt first half (~rem>=27): 344.5 ± 32.8 (n=1000)
+  by rem bin:
+    52-41: 385.1 ± 37.0 (n=1000)
+    40-33: 320.2 ± 32.9 (n=1000)
+    32-25: 289.8 ± 28.5 (n=1000)
+    24-17: 243.4 ± 23.1 (n=1000)
+    16-13: 199.6 ± 18.7 (n=999)
+
+======== 1b. PHASE-RESIDUAL (bias minus same-rem mean) by AFTER-STATE features, rem>16 ========
+These are the only terms that can differ across candidate moves of one decision.
+
+--- leaf residual rem>16 ---
+  residual res_p by staysA:
+    staysA=0: -0.6 ± 41.4 (n=459)
+    staysA=1: -87.3 ± 34.9 (n=823)
+    staysA=2: -110.7 ± 34.7 (n=1000)
+  residual res_p by bustsA:
+    bustsA=0: -47.5 ± 31.3 (n=1000)
+    bustsA=1: 58.0 ± 97.1 (n=127)
+    bustsA=2: -299.9 ± 290.5 (n=27)
+  residual res_p by nEmptyA:
+    nEmptyA=0: 81.2 ± 30.0 (n=999)
+    nEmptyA=1: -22.8 ± 29.7 (n=1000)
+    nEmptyA=2: -130.8 ± 30.6 (n=1000)
+    nEmptyA=3: -157.2 ± 33.9 (n=1000)
+    nEmptyA=4: 38.9 ± 80.0 (n=98)
+  residual res_p by prevA:
+    prevA=0: 23.4 ± 29.8 (n=1000)
+    prevA=1: -17.9 ± 30.1 (n=1000)
+    prevA=2: -66.7 ± 28.7 (n=928)
+    prevA=3: -66.8 ± 46.7 (n=338)
+    prevA=4: 118.7 ± 142.1 (n=40)
+  residual res_p by maxN:
+    maxN=0: 38.9 ± 80.0 (n=98)
+    maxN=1: -96.9 ± 34.8 (n=1000)
+    maxN=2: -30.5 ± 30.7 (n=1000)
+    maxN=3: 65.8 ± 31.4 (n=953)
+    maxN=4: 46.1 ± 33.0 (n=825)
+  residual res_p by stay:
+    stay=0: -8.2 ± 29.5 (n=1000)
+    stay=1: 120.8 ± 37.2 (n=823)
+  residual res_p by cleared:
+    cleared=0: 17.7 ± 30.0 (n=1000)
+    cleared=1: -48.6 ± 28.4 (n=1000)
+  residual res_p by bust:
+    bust=0: -5.6 ± 29.7 (n=1000)
+    bust=1: 260.6 ± 102.6 (n=127)
+  residual res_p by maxSoft bucket:
+    maxSoft <=10: -99.6 ± 34.6 (n=980)
+    maxSoft 11-16: -33.9 ± 30.3 (n=987)
+    maxSoft 17-19: 39.8 ± 31.2 (n=948)
+    maxSoft 20-21: 48.3 ± 36.5 (n=717)
+  residual res_p by n2 (number of 2-card columns after):
+    n2=0: -113.6 ± 33.7 (n=1000)
+    n2=1: -57.7 ± 29.5 (n=1000)
+    n2=2: 36.0 ± 29.9 (n=1000)
+    n2=3: 96.7 ± 31.0 (n=996)
+    n2=4: 96.7 ± 41.7 (n=673)
+
+--- search residual rem>16 ---
+  residual res_q by staysA:
+    staysA=0: -3.1 ± 41.3 (n=459)
+    staysA=1: -85.3 ± 34.9 (n=823)
+    staysA=2: -109.1 ± 34.7 (n=1000)
+  residual res_q by bustsA:
+    bustsA=0: -47.3 ± 31.3 (n=1000)
+    bustsA=1: 51.4 ± 97.0 (n=127)
+    bustsA=2: -321.0 ± 290.2 (n=27)
+  residual res_q by nEmptyA:
+    nEmptyA=0: 82.3 ± 30.0 (n=999)
+    nEmptyA=1: -24.5 ± 29.6 (n=1000)
+    nEmptyA=2: -129.0 ± 30.6 (n=1000)
+    nEmptyA=3: -155.5 ± 34.0 (n=1000)
+    nEmptyA=4: 40.4 ± 79.2 (n=98)
+  residual res_q by prevA:
+    prevA=0: 24.0 ± 29.8 (n=1000)
+    prevA=1: -21.1 ± 30.1 (n=1000)
+    prevA=2: -63.9 ± 28.6 (n=928)
+    prevA=3: -58.7 ± 46.8 (n=338)
+    prevA=4: 112.4 ± 138.8 (n=40)
+  residual res_q by maxN:
+    maxN=0: 40.4 ± 79.2 (n=98)
+    maxN=1: -95.8 ± 34.8 (n=1000)
+    maxN=2: -29.3 ± 30.7 (n=1000)
+    maxN=3: 57.1 ± 31.4 (n=953)
+    maxN=4: 46.4 ± 33.0 (n=825)
+  residual res_q by stay:
+    stay=0: -7.9 ± 29.4 (n=1000)
+    stay=1: 115.2 ± 37.1 (n=823)
+  residual res_q by cleared:
+    cleared=0: 18.1 ± 30.0 (n=1000)
+    cleared=1: -49.2 ± 28.3 (n=1000)
+  residual res_q by bust:
+    bust=0: -5.8 ± 29.7 (n=1000)
+    bust=1: 272.7 ± 98.5 (n=127)
+  residual res_q by maxSoft bucket:
+    maxSoft <=10: -97.7 ± 34.5 (n=980)
+    maxSoft 11-16: -36.5 ± 30.3 (n=987)
+    maxSoft 17-19: 40.3 ± 31.2 (n=948)
+    maxSoft 20-21: 60.7 ± 36.5 (n=717)
+  residual res_q by n2 (number of 2-card columns after):
+    n2=0: -113.3 ± 33.7 (n=1000)
+    n2=1: -59.7 ± 29.5 (n=1000)
+    n2=2: 33.0 ± 29.9 (n=1000)
+    n2=3: 102.5 ± 31.0 (n=996)
+    n2=4: 119.5 ± 41.7 (n=673)
+
+--- Within-game contrasts of leaf residual (rem>16), games that have both levels ---
+ res_p:
+  res_p staysA=2 minus staysA=1: -113.0 ± 13.9 (n=823)
+  res_p staysA=1 minus staysA=0: -303.0 ± 23.7 (n=459)
+  res_p stay=1 minus stay=0: 196.4 ± 11.8 (n=823)
+  res_p nEmptyA=0 minus nEmptyA=1: 105.2 ± 4.9 (n=999)
+  res_p nEmptyA=1 minus nEmptyA=2: 108.1 ± 5.7 (n=1000)
+  res_p prevA=1 minus prevA=0: -41.3 ± 4.3 (n=1000)
+  res_p prevA=2 minus prevA=0: -161.1 ± 9.3 (n=928)
+  res_p cleared=1 minus cleared=0: -66.3 ± 5.2 (n=1000)
+  res_p bustsA=1 minus bustsA=0: 1146.7 ± 34.6 (n=127)
+  res_p maxN=2 minus maxN=1: 66.4 ± 11.4 (n=1000)
+  res_p maxN=3 minus maxN=2: 121.7 ± 12.3 (n=953)
+ res_q:
+  res_q staysA=2 minus staysA=1: -113.2 ± 13.9 (n=823)
+  res_q staysA=1 minus staysA=0: -295.4 ± 23.7 (n=459)
+  res_q stay=1 minus stay=0: 190.7 ± 11.7 (n=823)
+  res_q nEmptyA=0 minus nEmptyA=1: 108.0 ± 4.9 (n=999)
+  res_q nEmptyA=1 minus nEmptyA=2: 104.5 ± 5.8 (n=1000)
+  res_q prevA=1 minus prevA=0: -45.1 ± 4.4 (n=1000)
+  res_q prevA=2 minus prevA=0: -158.6 ± 9.2 (n=928)
+  res_q cleared=1 minus cleared=0: -67.3 ± 5.4 (n=1000)
+  res_q bustsA=1 minus bustsA=0: 1139.9 ± 33.9 (n=127)
+  res_q maxN=2 minus maxN=1: 66.4 ± 11.4 (n=1000)
+  res_q maxN=3 minus maxN=2: 111.8 ± 12.3 (n=953)
+
+======== 2. ADDITIVE RESIDUAL MODEL and within-decision SPREAD (rem>16) ========
+OLS additive model for leaf residual (rem>16), 5-fold OOF by game:
+  n=35994 positions, 1000 games
+  OOF RMSE 1021.3, OOF R^2 (vs 0 residual) -0.0050
+  OOF residual mean 0.98, sd 1021.3
+  OOF predicted residual: mean -0.98, sd 51.8, p10/p50/p90 -51.1/-8.7/48.9
+  actual residual:        mean 0.00, sd 1018.8, p10/p50/p90 -1200.8/22.3/1178.4
+  full-fit coefficients (relative to staysA=0,bustsA=0,nEmptyA=0,prevA=0,maxN=0,maxSoft<=10, no stay/bust/clear):
+    intercept -24.3
+    staysA=1               +61.7
+    staysA=2               +25.7
+    bustsA=1              +207.2
+    bustsA=2               -73.0
+    nEmptyA=1               -1.8
+    nEmptyA=2               -6.4
+    nEmptyA=3               -0.1
+    nEmptyA=4              +14.7
+    prevA=1                -20.7
+    prevA=2                 +8.0
+    prevA=3                -44.2
+    prevA=4                +84.7
+    maxN=1                  -2.7
+    maxN=2                 -15.2
+    maxN=3                 +13.9
+    maxN=4                 -34.9
+    maxSoft=11-16           -5.7
+    maxSoft=17-19          +30.9
+    maxSoft=20-21          -23.1
+    usedStay               +24.9
+    justBust               -30.0
+    justCleared             -2.3
+
+[rem>16] n_dec=35994 n_multi=34893 n_games=1000
+  within-decision bhat range: mean 170.8, median 128.3, p90 317.2, p99 414.0
+  within-decision bhat std:   mean 58.5, median 40.7
+  per-game mean bhat range: 170.7 ± 1.7 (n=1000)
+  decisions with Stay and no-Stay both legal among scored cands: 29447/34893
+  model-implied gain applying bhat to q (OOF, calculated under the model): 145.5 ± 3.6 (n=1000)
+  flips/game (q-correction): 4.8 ± 0.1 (n=1000)
+  model-implied gain applying bhat to pts+p (OOF): 334.4 ± 14.5 (n=1000)
+  flips/game (p-correction): 6.4 ± 0.1 (n=1000)
+  champ q-gap to 2nd (multi): mean 169.4, median 101.6, p10 4.2
+
+[rem>=16] n_dec=36993 n_multi=35889 n_games=1000
+  within-decision bhat range: mean 170.6, median 128.2, p90 317.2, p99 414.1
+  within-decision bhat std:   mean 58.5, median 40.7
+  per-game mean bhat range: 170.5 ± 1.7 (n=1000)
+  decisions with Stay and no-Stay both legal among scored cands: 29985/35889
+  model-implied gain applying bhat to q (OOF, calculated under the model): 150.8 ± 3.7 (n=1000)
+  flips/game (q-correction): 4.9 ± 0.1 (n=1000)
+  model-implied gain applying bhat to pts+p (OOF): 346.1 ± 14.6 (n=1000)
+  flips/game (p-correction): 6.5 ± 0.1 (n=1000)
+  champ q-gap to 2nd (multi): mean 170.4, median 102.1, p10 4.2
+
+-- How different are after-states of candidates at the same decision? (rem>16, multi) --
+  multi=34893: same staysA 5446 (15.6%), staysA differs 29447
+    nEmptyA differs 34290 (98.3%)
+    prevA (streak) differs 11321 (32.4%)
+    bustsA differs 17046 (48.9%)
+    maxN differs 32585 (93.4%)
+
+======== 3. REFERENCE-A / STRONG / CONF  (dev200; existing labels) ========
+loaded samp 7988 conf 253 strong 71
+samp games 200 min 0 max 199
+conf games 147
+conf rem>=16 n=213 rem>16 n=203
+
+Reference A net flip gain (conf fresh, unbiased), denominator = 200 samp games:
+  rem>=16: 24.3 ± 5.7 (n=200)  from 213 conf decisions
+  rem>16: 20.2 ± 5.0 (n=200)  from 203 conf decisions
+  rem==16: 4.2 ± 2.2 (n=200)  from 10 conf decisions
+  13<=rem<=16: 27.9 ± 6.1 (n=200)  from 50 conf decisions
+  13<=rem<=15: 23.7 ± 5.8 (n=200)  from 40 conf decisions
+
+-- Within-decision spread of (reference-A abs - network cv), samp multi --
+rem>16:
+  n_dec=3379 games=200
+  within-dec error range: mean 72.0, median 56.2, p90 149.6
+  within-dec error std:   mean 34.0, median 26.5
+  per-game mean range: 72.2 ± 1.3 (n=200)
+  |err_i - err_champ| mean 34.5, median 8.9
+rem>=16:
+  n_dec=3455 games=200
+  within-dec error range: mean 73.3, median 56.9, p90 153.4
+  within-dec error std:   mean 34.6, median 26.7
+  per-game mean range: 73.4 ± 1.3 (n=200)
+  |err_i - err_champ| mean 35.1, median 8.9
+13<=rem<=16:
+  n_dec=353 games=168
+  within-dec error range: mean 117.5, median 84.2, p90 266.2
+  within-dec error std:   mean 55.5, median 40.1
+  per-game mean range: 114.3 ± 7.4 (n=168)
+  |err_i - err_champ| mean 57.6, median 12.6
+
+-- Within-decision (abs-cv) Stay vs no-Stay (samp multi rem>16) --
+  mixed Stay/no-Stay decisions: 490
+  err(Stay cands)-err(no-Stay), per decision mean -27.4, per-game -33.3 ± 5.3 (n=177)
+
+-- champ vs alt residual (abs_alt-cv_alt)-(abs_champ-cv_champ) by feature contrast, samp rem>16 --
+  all multi rem>16: n_dec=3379 -2.7 ± 1.5 (n=200)
+  champ Stay, alt no-Stay: n_dec=66 91.5 ± 6.4 (n=58)
+  champ no-Stay, alt Stay: n_dec=49 78.7 ± 7.2 (n=42)
+  different after-count n: n_dec=951 65.3 ± 1.8 (n=198)
+  intoEmpty differs: n_dec=815 60.7 ± 1.8 (n=196)
+  champ scores, alt doesn't: n_dec=117 80.3 ± 4.0 (n=94)
+  alt scores, champ doesn't: n_dec=47 63.4 ± 6.9 (n=40)
+
+-- Strong reeval vs reference A (theoristFresh) on 71 decisions --
+  strong games touched 60, n=71
+  all 71 (rem>16 by construction?): refA/theoristFresh 17.9 ± 3.9 (n=200)  STRONG 10.3 ± 4.4 (n=200)  n_dec=71
+  rem>16: refA/theoristFresh 17.9 ± 3.9 (n=200)  STRONG 10.3 ± 4.4 (n=200)  n_dec=71
+  17-32: refA/theoristFresh 8.4 ± 2.9 (n=200)  STRONG 7.3 ± 3.0 (n=200)  n_dec=26
+  >=33: refA/theoristFresh 9.5 ± 2.7 (n=200)  STRONG 3.1 ± 2.9 (n=200)  n_dec=45
+  Stay over-use (champ Stay, alt not): refA 8.0 ± 2.4 (n=200)  STRONG 6.2 ± 2.4 (n=200)  n_dec=18
+  no-empty, neither Stay: refA 7.5 ± 2.8 (n=200)  STRONG 2.5 ± 3.0 (n=200)  n_dec=47
+
+-- Conf pool split: in strong-recheck vs not (rem>16 and rem>=16) --
+  rem>16 TOTAL 20.2 ± 5.0 (n=200) n=203
+    of which in strong-recheck set: 17.9 ± 3.9 (n=200) n=71
+    of which NOT rechecked:         2.2 ± 3.5 (n=200) n=132
+  rem>=16 TOTAL 24.3 ± 5.7 (n=200) n=213
+    of which in strong-recheck set: 17.9 ± 3.9 (n=200) n=71
+    of which NOT rechecked:         6.4 ± 4.4 (n=200) n=142
+
+-- Composite pool: strong values on rechecked + refA on the rest --
+  shrinkage ratio on 71 (sum strong / sum theoristFresh) = 0.575  (sums 2062.6/3589.2)
+  rem>16 strong-on-rechecked + raw refA on rest: 12.5 ± 5.5 (n=200)  (n_in=71, n_out=132)
+  rem>16 strong-on-rechecked + ratio-shrunk rest (GUESS): 11.6 ± 4.8 (n=200)
+  rem>=16 strong-on-rechecked + raw refA on rest: 16.7 ± 6.1 (n=200)  (n_in=71, n_out=142)
+  rem>=16 strong-on-rechecked + ratio-shrunk rest (GUESS): 14.0 ± 5.0 (n=200)
+
+======== 4. UNEVALUATED DECISIONS (possible missed regret) ========
+samp rem>16: 7192 decisions, single-class 3813 (53.0%), evaluated multi 3379
+  evaluated multi: mean cv window 42.4, median 38.1
+
+-- s1k shipped52 rem>16: distribution of q-gap (champ/best minus 2nd) --
+  [rem>16] n_dec=35994 single 1101 (3.1%) multi 34893
+    q-gap best-to-2nd: mean 171.6, median 101.7, p10 9.6, p25 29.7
+    share gap<=50: 35.0%  <=100: 49.6%  <=200: 66.7%
+    per-game count gap<=100: 17.3 ± 0.1 (n=1000)
+    per-game count 100<gap<=200: 6.0 ± 0.1 (n=1000)
+    per-game count 200<gap<=400: 8.0 ± 0.1 (n=1000)
+
+======== 5. SCALE COMPARISON ========
+absolute leaf bias rem>16: 325.4 ± 29.5 (n=1000)
+absolute search bias rem>16: 317.2 ± 29.5 (n=1000)
+absolute leaf bias rem>=27 (first half-ish): 352.2 ± 32.7 (n=1000)
+sd of absolute bias rem>16: 1020.2
+sd of phase-residual rem>16: 1018.8
+
+DONE

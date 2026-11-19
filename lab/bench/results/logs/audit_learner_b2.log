@@ -1,0 +1,2 @@
+dynamic audit of cmd:node ../experiments/learner-e1/adapter.js --config shipped52 --corr b2: 2 games, 36 (decision, reshuffle) pairs checked, 0 future-dependent, 0 nondeterministic games
+AUDIT PASSED

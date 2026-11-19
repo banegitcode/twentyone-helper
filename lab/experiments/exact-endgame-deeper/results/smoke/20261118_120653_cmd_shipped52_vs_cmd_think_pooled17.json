@@ -1,0 +1,43 @@
+{
+  "set": "set1000",
+  "set_sha256": "b7cf79437960cc597286a00c9cea411aaed8f2e9d2eb4dbf5582d1958b5a93ae",
+  "n": 4,
+  "a": "cmd:node champion/champion_adapter.js --config shipped52",
+  "b": "cmd:node ../experiments/exact-endgame-deeper/adapter.js --config pooled:17:26 --timelog /workspace/21lab/experiments/exact-endgame-deeper/results/think_pooled17.jsonl",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 4,
+    "mean": 9212.5,
+    "se": 542.8992386560634,
+    "sd": 1085.7984773121268,
+    "busts_per_game": 0.5,
+    "bust_game_rate": 0.5,
+    "three_bust_rate": 0.0,
+    "perfect_rate": 0.5,
+    "games_per_sec_wall": 0.3566131913893509,
+    "games_per_sec_per_core": 0.35765520116209903,
+    "wall_s": 11.21663498878479,
+    "cpu_s": 11.183955907821655
+  },
+  "B": {
+    "n": 4,
+    "mean": 9575.0,
+    "se": 236.7312118556965,
+    "sd": 473.462423711393,
+    "busts_per_game": 0.75,
+    "bust_game_rate": 0.5,
+    "three_bust_rate": 0.0,
+    "perfect_rate": 0.5,
+    "games_per_sec_wall": 0.006466817945473146,
+    "games_per_sec_per_core": 0.00646716140607257,
+    "wall_s": 618.5422310829163,
+    "cpu_s": 618.5093812942505
+  },
+  "paired_diff_B_minus_A": 362.5,
+  "paired_se": 352.0031960082181,
+  "z": 1.0298201951312307,
+  "sd_diff": 704.0063920164362,
+  "verdict": "REJECTED (n < 1000)",
+  "timestamp": "20261118_120653"
+}

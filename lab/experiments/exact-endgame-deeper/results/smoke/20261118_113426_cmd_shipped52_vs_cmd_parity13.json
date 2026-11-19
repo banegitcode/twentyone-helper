@@ -1,0 +1,43 @@
+{
+  "set": "set1000",
+  "set_sha256": "b7cf79437960cc597286a00c9cea411aaed8f2e9d2eb4dbf5582d1958b5a93ae",
+  "n": 4,
+  "a": "cmd:node champion/champion_adapter.js --config shipped52",
+  "b": "cmd:node ../experiments/exact-endgame-deeper/adapter.js --config parity13",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 4,
+    "mean": 9212.5,
+    "se": 542.8992386560634,
+    "sd": 1085.7984773121268,
+    "busts_per_game": 0.5,
+    "bust_game_rate": 0.5,
+    "three_bust_rate": 0.0,
+    "perfect_rate": 0.5,
+    "games_per_sec_wall": 0.6043584936238784,
+    "games_per_sec_per_core": 0.3298673296461757,
+    "wall_s": 6.618588209152222,
+    "cpu_s": 12.126087188720703
+  },
+  "B": {
+    "n": 4,
+    "mean": 9212.5,
+    "se": 542.8992386560634,
+    "sd": 1085.7984773121268,
+    "busts_per_game": 0.5,
+    "bust_game_rate": 0.5,
+    "three_bust_rate": 0.0,
+    "perfect_rate": 0.5,
+    "games_per_sec_wall": 0.5591184964028518,
+    "games_per_sec_per_core": 0.31315162398486945,
+    "wall_s": 7.154118537902832,
+    "cpu_s": 12.773365020751953
+  },
+  "paired_diff_B_minus_A": 0.0,
+  "paired_se": 0.0,
+  "z": NaN,
+  "sd_diff": 0.0,
+  "verdict": "REJECTED (n < 1000)",
+  "timestamp": "20261118_113426"
+}

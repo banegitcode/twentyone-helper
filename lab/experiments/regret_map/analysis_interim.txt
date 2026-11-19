@@ -1,0 +1,208 @@
+# games (exact) 200 | games with completed sampled pass 52 | exact decisions 2380 (failed solves 7) | sampled decisions 1005 | not-sampled flagged 0 | single-class 1075 | mean rollouts/decision 54.8
+EXACT total regret/game (rem<=11): 57.2 +- 8.9
+SAMPLED split-sample regret/game (rem>=12, HT-weighted): 15.9 +- 34.2
+SAMPLED naive-max regret/game (upward biased): 359.2 +- 30.0
+
+## by phase (cards left incl. current)
+| cards left | source | decisions evaluated | decisions with regret>0 | regret/game | SE | share of source total |
+| 52-41 | sampled | 353 | 75 | -16.1 | 15.7 | -101% |
+| 40-31 | sampled | 233 | 48 | 4.8 | 16.3 | 30% |
+| 30-21 | sampled | 219 | 31 | -31.8 | 10.3 | -200% |
+| 20-16 | sampled | 120 | 21 | -1.0 | 12.6 | -7% |
+| 15-12 | exact | 194 | 48 | 18.8 | 3.4 | 33% |
+| 15-12 | sampled | 80 | 27 | 60.0 | 17.5 | 378% |
+| 11 | exact | 196 | 35 | 22.3 | 6.2 | 39% |
+| 10 | exact | 199 | 15 | 10.6 | 3.5 | 19% |
+| 9-1 | exact | 1791 | 6 | 5.6 | 2.8 | 10% |
+
+## by decision type - EXACT
+| category (champion move -> best alternative) | decisions in category | regret/game | SE | share |
+| Build: which live column (other) | 1250 | 17.0 | 6.1 | 30% |
+| Build: empty column vs stacking on a live column | 32 | 10.1 | 2.9 | 18% |
+| Stay used, best move uses no Stay (over-use) | 12 | 8.8 | 3.2 | 15% |
+| Stay not used, best move uses a Stay (under-use) | 17 | 6.6 | 3.8 | 12% |
+| Build: 4-card column (5-card chase) involved | 83 | 4.4 | 2.7 | 8% |
+| Champion clears, best move builds instead | 8 | 3.4 | 1.6 | 6% |
+| Champion declines a clear, best move clears | 10 | 3.4 | 1.6 | 6% |
+| Stay used, but different Stay/placement is better | 53 | 2.4 | 1.7 | 4% |
+| Champion avoids bust, best move busts a column (sacrifice) | 2 | 0.6 | 0.5 | 1% |
+| other | 38 | 0.6 | 0.6 | 1% |
+| Both clear: different column/clear type | 875 | 0.0 | 0.0 | 0% |
+
+## by decision type - SAMPLED (split-sample)
+| category (champion move -> best alternative) | decisions in category | regret/game | SE | share |
+| Build: empty column vs stacking on a live column | 187 | 86.3 | 16.0 | 544% |
+| Champion clears, best move builds instead | 36 | 32.0 | 7.5 | 202% |
+| Stay used, best move uses no Stay (over-use) | 18 | 14.6 | 7.5 | 92% |
+| Stay not used, best move uses a Stay (under-use) | 8 | 5.6 | 4.0 | 35% |
+| Champion busts on purpose, best move avoids bust | 2 | 3.3 | 4.0 | 21% |
+| Champion declines a clear, best move clears | 20 | 3.1 | 3.1 | 19% |
+| Champion avoids bust, best move busts a column (sacrifice) | 1 | -0.1 | 0.1 | -0% |
+| other | 5 | -2.1 | 2.5 | -13% |
+| Build: 4-card column (5-card chase) involved | 34 | -3.4 | 5.6 | -22% |
+| Stay used, but different Stay/placement is better | 32 | -8.2 | 5.4 | -51% |
+| Both clear: different column/clear type | 81 | -17.0 | 4.3 | -107% |
+| Build: which live column (other) | 581 | -98.4 | 23.3 | -620% |
+
+## by busts so far - exact
+| busts so far | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 1807 | 76% | 47.7 | 8.7 | 83% |
+| 1 | 375 | 16% | 7.9 | 2.5 | 14% |
+| 2 | 198 | 8% | 1.6 | 1.4 | 3% |
+
+## by busts so far - sampled
+| busts so far | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 963 | 96% | 12.9 | 33.3 | 81% |
+| 1 | 41 | 4% | 3.0 | 6.5 | 19% |
+| 2 | 1 | 0% | 0.0 | 0.0 | 0% |
+
+## by Stays left - exact
+| Stays left | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 1807 | 76% | 18.0 | 4.0 | 31% |
+| 1 | 440 | 18% | 29.3 | 7.4 | 51% |
+| 2 | 133 | 6% | 9.9 | 4.3 | 17% |
+
+## by Stays left - sampled
+| Stays left | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 153 | 15% | 17.4 | 13.5 | 110% |
+| 1 | 223 | 22% | 17.8 | 22.7 | 113% |
+| 2 | 629 | 63% | -19.4 | 19.2 | -122% |
+
+## by streak counter - exact
+| streak counter | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 1589 | 67% | 52.8 | 8.8 | 92% |
+| 1 | 499 | 21% | 4.2 | 1.5 | 7% |
+| 2 | 222 | 9% | 0.2 | 0.2 | 0% |
+| 3 | 70 | 3% | 0.0 | 0.0 | 0% |
+
+## by streak counter - sampled
+| streak counter | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 770 | 77% | 10.6 | 29.9 | 67% |
+| 1 | 194 | 19% | -2.8 | 12.5 | -17% |
+| 2 | 36 | 4% | 7.7 | 7.1 | 49% |
+| 3 | 5 | 0% | 0.3 | 0.5 | 2% |
+
+## by empty columns - exact
+| empty columns | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 897 | 38% | 36.8 | 8.0 | 64% |
+| 1 | 876 | 37% | 18.1 | 4.2 | 32% |
+| 2 | 607 | 26% | 2.4 | 1.0 | 4% |
+
+## by empty columns - sampled
+| empty columns | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 328 | 33% | 38.3 | 24.7 | 241% |
+| 1 | 456 | 45% | -28.8 | 18.5 | -181% |
+| 2 | 221 | 22% | 6.4 | 13.2 | 40% |
+
+## by soft-ace columns - exact
+| soft-ace columns | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 1981 | 83% | 38.9 | 5.8 | 68% |
+| 1 | 377 | 16% | 18.2 | 7.2 | 32% |
+| 2 | 22 | 1% | 0.1 | 0.1 | 0% |
+
+## by soft-ace columns - sampled
+| soft-ace columns | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 879 | 87% | 6.5 | 32.3 | 41% |
+| 1 | 121 | 12% | 8.1 | 11.0 | 51% |
+| 2 | 5 | 0% | 1.3 | 2.5 | 8% |
+
+## by 4-card columns - exact
+| 4-card columns | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 1955 | 82% | 54.0 | 8.9 | 94% |
+| 1 | 412 | 17% | 3.2 | 1.6 | 6% |
+| 2 | 13 | 1% | 0.0 | 0.0 | 0% |
+
+## by 4-card columns - sampled
+| 4-card columns | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 917 | 91% | 20.6 | 34.3 | 130% |
+| 1 | 88 | 9% | -4.7 | 7.4 | -30% |
+
+## by columns that would bust - exact
+| columns that would bust | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 1049 | 44% | 33.1 | 7.8 | 58% |
+| 1 | 744 | 31% | 10.0 | 3.2 | 18% |
+| 2 | 441 | 19% | 11.0 | 3.4 | 19% |
+| 3 | 124 | 5% | 1.5 | 1.1 | 3% |
+| 4 | 22 | 1% | 1.6 | 1.1 | 3% |
+
+## by columns that would bust - sampled
+| columns that would bust | decisions | share of decisions | regret/game | SE | share of total |
+| 0 | 487 | 48% | 16.8 | 24.3 | 106% |
+| 1 | 308 | 31% | 1.2 | 20.8 | 7% |
+| 2 | 164 | 16% | 1.8 | 12.0 | 11% |
+| 3 | 38 | 4% | -0.8 | 6.6 | -5% |
+| 4 | 8 | 1% | -3.0 | 2.5 | -19% |
+
+## by card value - exact
+| card value | decisions | share of decisions | regret/game | SE | share of total |
+| 1 | 182 | 8% | 4.7 | 2.5 | 8% |
+| 10 | 687 | 29% | 19.4 | 4.3 | 34% |
+| 2 | 169 | 7% | 7.5 | 4.2 | 13% |
+| 3 | 185 | 8% | 1.2 | 0.6 | 2% |
+| 4 | 199 | 8% | 1.4 | 0.8 | 2% |
+| 5 | 196 | 8% | 3.5 | 1.7 | 6% |
+| 6 | 195 | 8% | 7.9 | 3.6 | 14% |
+| 7 | 184 | 8% | 6.1 | 3.0 | 11% |
+| 8 | 186 | 8% | 2.0 | 1.1 | 3% |
+| 9 | 197 | 8% | 3.7 | 1.8 | 7% |
+
+## by card value - sampled
+| card value | decisions | share of decisions | regret/game | SE | share of total |
+| 1 | 42 | 4% | 8.7 | 6.4 | 55% |
+| 10 | 416 | 41% | 5.1 | 15.1 | 32% |
+| 2 | 87 | 9% | 9.6 | 10.2 | 60% |
+| 3 | 76 | 8% | 9.7 | 11.6 | 61% |
+| 4 | 72 | 7% | -1.0 | 11.8 | -7% |
+| 5 | 55 | 5% | -1.0 | 8.0 | -7% |
+| 6 | 59 | 6% | -4.1 | 8.1 | -26% |
+| 7 | 67 | 7% | -6.9 | 7.4 | -44% |
+| 8 | 68 | 7% | 0.4 | 7.7 | 3% |
+| 9 | 63 | 6% | -4.4 | 9.6 | -28% |
+
+### examples (exact): Build: which live column (other)
+- dev200 game 6, move 41, 11 cards left | busts 0, Stays 1, streak 0 | columns [1c/h7 1c/h10 1c/s11 2c/h13] (n cards / h=hard, s=soft total) | card **2** | champion: place col3 | better: place col2 | exact regret 723
+- dev200 game 25, move 42, 10 cards left | busts 0, Stays 1, streak 0 | columns [2c/h17 1c/h10 3c/h14 1c/h7] (n cards / h=hard, s=soft total) | card **10** | champion: place col3 | better: place col1 | exact regret 296
+- dev200 game 6, move 40, 12 cards left | busts 0, Stays 1, streak 0 | columns [1c/h7 1c/h10 1c/s11 1c/h3] (n cards / h=hard, s=soft total) | card **10** | champion: place col3 | better: place col0 | exact regret 286
+- dev200 game 83, move 43, 9 cards left | busts 0, Stays 1, streak 0 | columns [1c/h5 1c/h8 2c/h13 1c/s11] (n cards / h=hard, s=soft total) | card **7** | champion: place col0 | better: place col1 | exact regret 239
+
+### examples (exact): Build: empty column vs stacking on a live column
+- dev200 game 78, move 41, 11 cards left | busts 0, Stays 1, streak 0 | columns [1c/h10 1c/h7 1c/h9 -] (n cards / h=hard, s=soft total) | card **10** | champion: place col1 | better: place col3 | exact regret 466
+- dev200 game 17, move 40, 12 cards left | busts 0, Stays 1, streak 0 | columns [1c/h8 - - 1c/h10] (n cards / h=hard, s=soft total) | card **10** | champion: place col0 | better: place col1 | exact regret 151
+- dev200 game 38, move 40, 12 cards left | busts 0, Stays 1, streak 0 | columns [1c/h10 2c/h14 - 1c/h10] (n cards / h=hard, s=soft total) | card **6** | champion: place col0 | better: place col2 | exact regret 128
+- dev200 game 193, move 41, 11 cards left | busts 0, Stays 2, streak 0 | columns [2c/h16 1c/h10 1c/h10 -] (n cards / h=hard, s=soft total) | card **4** | champion: place col3 | better: place col0 | exact regret 123
+
+### examples (exact): Stay used, best move uses no Stay (over-use)
+- dev200 game 42, move 43, 9 cards left | busts 0, Stays 1, streak 0 | columns [2c/h13 2c/h19 2c/h10 1c/h9] (n cards / h=hard, s=soft total) | card **1** | champion: Stay col3 + place col3 | better: place col2 | exact regret 411
+- dev200 game 31, move 41, 11 cards left | busts 0, Stays 1, streak 0 | columns [2c/h15 2c/h19 2c/h8 1c/h10] (n cards / h=hard, s=soft total) | card **10** | champion: Stay col3 + place col3 | better: place col3 | exact regret 313
+- dev200 game 95, move 43, 9 cards left | busts 0, Stays 1, streak 0 | columns [2c/h19 1c/h10 2c/h17 1c/h10] (n cards / h=hard, s=soft total) | card **5** | champion: Stay col1 + place col1 | better: place col1 | exact regret 230
+- dev200 game 151, move 40, 12 cards left | busts 0, Stays 1, streak 0 | columns [1c/s11 2c/h11 2c/h18 2c/h10] (n cards / h=hard, s=soft total) | card **8** | champion: Stay col2 + place col2 | better: place col3 | exact regret 198
+
+### examples (exact): Stay not used, best move uses a Stay (under-use)
+- dev200 game 59, move 41, 11 cards left | busts 0, Stays 2, streak 0 | columns [2c/h15 1c/h7 1c/h10 2c/s19] (n cards / h=hard, s=soft total) | card **6** | champion: place col0 | better: Stay col0 + place col0 | exact regret 650
+- dev200 game 60, move 41, 11 cards left | busts 0, Stays 2, streak 0 | columns [1c/h4 2c/h12 1c/h3 2c/h15] (n cards / h=hard, s=soft total) | card **2** | champion: place col2 | better: Stay col1 + place col1 | exact regret 371
+- dev200 game 189, move 42, 10 cards left | busts 0, Stays 2, streak 0 | columns [1c/h10 1c/s11 1c/h10 2c/h7] (n cards / h=hard, s=soft total) | card **10** | champion: place col1 | better: Stay col0 + place col0 | exact regret 136
+- dev200 game 122, move 40, 12 cards left | busts 0, Stays 2, streak 0 | columns [1c/h9 1c/h8 3c/h11 2c/h15] (n cards / h=hard, s=soft total) | card **10** | champion: place col0 | better: Stay col3 + place col3 | exact regret 119
+
+### examples (sampled): Build: empty column vs stacking on a live column
+- dev200 game 28, move 38, 14 cards left | busts 0, Stays 1, streak 0 | columns [2c/h17 2c/h20 - 1c/h9] (n cards / h=hard, s=soft total) | card **3** | champion: place col3 | better: place col2 | sampled: best-alt advantage 413 +- 82 (n=64; split-sample 413 +- 83)
+- dev200 game 11, move 23, 29 cards left | busts 0, Stays 1, streak 1 | columns [1c/h5 - 2c/h12 2c/h14] (n cards / h=hard, s=soft total) | card **3** | champion: place col1 | better: place col0 | sampled: best-alt advantage 167 +- 78 (n=64; split-sample 167 +- 78)
+- dev200 game 38, move 37, 15 cards left | busts 0, Stays 1, streak 2 | columns [- - - 1c/h10] (n cards / h=hard, s=soft total) | card **10** | champion: place col0 | better: place col3 | sampled: best-alt advantage 152 +- 49 (n=64; split-sample 152 +- 49)
+- dev200 game 39, move 27, 25 cards left | busts 0, Stays 2, streak 0 | columns [2c/h14 1c/h2 1c/h8 -] (n cards / h=hard, s=soft total) | card **2** | champion: place col3 | better: place col1 | sampled: best-alt advantage 142 +- 59 (n=64; split-sample 142 +- 60)
+
+### examples (sampled): Build: which live column (other)
+- dev200 game 1, move 38, 14 cards left | busts 0, Stays 1, streak 0 | columns [2c/h11 1c/h3 2c/h11 1c/h5] (n cards / h=hard, s=soft total) | card **4** | champion: place col3 | better: place col1 | sampled: best-alt advantage 449 +- 55 (n=64; split-sample 449 +- 55)
+- dev200 game 7, move 39, 13 cards left | busts 0, Stays 1, streak 0 | columns [2c/h7 1c/h6 2c/h13 1c/h7] (n cards / h=hard, s=soft total) | card **10** | champion: place col3 | better: place col1 | sampled: best-alt advantage 322 +- 46 (n=64; split-sample 322 +- 45)
+- dev200 game 21, move 39, 13 cards left | busts 0, Stays 0, streak 0 | columns [2c/h12 1c/h4 2c/h13 2c/h12] (n cards / h=hard, s=soft total) | card **5** | champion: place col0 | better: place col1 | sampled: best-alt advantage 257 +- 114 (n=64; split-sample 257 +- 115)
+- dev200 game 34, move 35, 17 cards left | busts 0, Stays 0, streak 0 | columns [1c/h8 2c/h15 2c/h12 1c/h10] (n cards / h=hard, s=soft total) | card **7** | champion: place col0 | better: place col2 | sampled: best-alt advantage 239 +- 119 (n=64; split-sample 239 +- 120)
+
+### examples (sampled): Champion clears, best move builds instead
+- dev200 game 36, move 17, 35 cards left | busts 0, Stays 2, streak 0 | columns [2c/h11 2c/h18 2c/s13 2c/h12] (n cards / h=hard, s=soft total) | card **10** | champion: place col0 | better: place col2 | sampled: best-alt advantage 201 +- 66 (n=64; split-sample 201 +- 66)
+- dev200 game 37, move 37, 15 cards left | busts 1, Stays 0, streak 1 | columns [2c/h18 4c/h14 - 1c/h10] (n cards / h=hard, s=soft total) | card **2** | champion: place col1 | better: place col2 | sampled: best-alt advantage 175 +- 57 (n=64; split-sample 175 +- 58)
+- dev200 game 9, move 38, 14 cards left | busts 0, Stays 0, streak 0 | columns [1c/h7 1c/h10 4c/h15 2c/h11] (n cards / h=hard, s=soft total) | card **10** | champion: place col3 | better: place col1 | sampled: best-alt advantage 134 +- 74 (n=64; split-sample 134 +- 75)
+- dev200 game 12, move 7, 45 cards left | busts 0, Stays 2, streak 0 | columns [1c/s11 1c/h4 2c/h11 3c/s18] (n cards / h=hard, s=soft total) | card **10** | champion: place col2 | better: place col1 | sampled: best-alt advantage 119 +- 69 (n=64; split-sample 119 +- 69)
+
+### examples (sampled): Stay used, best move uses no Stay (over-use)
+- dev200 game 36, move 36, 16 cards left | busts 0, Stays 1, streak 0 | columns [1c/h10 2c/h12 1c/h10 2c/h17] (n cards / h=hard, s=soft total) | card **10** | champion: Stay col0 + place col0 | better: place col0 | sampled: best-alt advantage 267 +- 61 (n=64; split-sample 267 +- 61)
+- dev200 game 35, move 12, 40 cards left | busts 0, Stays 1, streak 0 | columns [2c/h18 2c/h17 2c/h20 1c/h5] (n cards / h=hard, s=soft total) | card **6** | champion: Stay col2 + place col3 | better: place col3 | sampled: best-alt advantage 154 +- 43 (n=64; split-sample 154 +- 43)
+- dev200 game 0, move 21, 31 cards left | busts 0, Stays 1, streak 0 | columns [2c/h16 1c/h6 2c/h20 2c/h18] (n cards / h=hard, s=soft total) | card **4** | champion: Stay col2 + place col1 | better: place col1 | sampled: best-alt advantage 122 +- 41 (n=64; split-sample 46 +- 60)
+- dev200 game 30, move 9, 43 cards left | busts 0, Stays 2, streak 0 | columns [2c/h20 2c/h16 1c/h10 1c/h6] (n cards / h=hard, s=soft total) | card **3** | champion: Stay col0 + place col0 | better: place col2 | sampled: best-alt advantage 121 +- 51 (n=64; split-sample 121 +- 51)

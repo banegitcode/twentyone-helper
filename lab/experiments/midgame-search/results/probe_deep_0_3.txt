@@ -1,0 +1,2 @@
+{"cfg":"xd=4,xk=3","positions":108,"extraPassPositions":59,"aborted":0,"changedMove":8,"evalsMean":121340,"evalsP95":364775,"evalsMax":479432,"msMean":1847.9,"msP95":5456.7,"msMax":7498,"champMsMean":18.9,"perGameMsMean":66523}
+{"cfg":"xd=4,xk=3,bm=2","positions":108,"extraPassPositions":59,"aborted":0,"changedMove":8,"evalsMean":86712,"evalsP95":251657,"evalsMax":313851,"msMean":1256.2,"msP95":3592.2,"msMax":4588,"champMsMean":19,"perGameMsMean":45223}

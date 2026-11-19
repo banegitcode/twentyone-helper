@@ -1,0 +1,13 @@
+  game 25 card 37 rem 15 move 3201 ms cpu (3200 wall)
+  game 25 card 38 rem 14 move 3721 ms cpu (3720 wall)
+game 25 score 9050+bonus cpu 15.2 s
+game 26 score 7900+bonus cpu 10.9 s
+game 27 score 8250+bonus cpu 10.1 s
+  game 28 card 37 rem 15 move 3221 ms cpu (3221 wall)
+  game 28 card 38 rem 14 move 3376 ms cpu (3373 wall)
+game 28 score 9450+bonus cpu 16.2 s
+  game 29 card 37 rem 15 move 3443 ms cpu (3427 wall)
+  game 29 card 38 rem 14 move 3651 ms cpu (3643 wall)
+  game 29 card 39 rem 13 move 4078 ms cpu (4078 wall)
+  game 29 card 40 rem 12 move 4096 ms cpu (4097 wall)
+game 29 score 9800+bonus cpu 27.8 s

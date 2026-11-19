@@ -1,0 +1,170 @@
+{
+ "8": {
+  "full": {
+   "positions": 25,
+   "states": 197991,
+   "statesVsFull": 1,
+   "msVsFull": 1,
+   "meanLossPoints": 0,
+   "maxLossPoints": 0,
+   "positionsWithLoss": 0
+  },
+  "noBust": {
+   "positions": 25,
+   "states": 97566,
+   "statesVsFull": 0.493,
+   "msVsFull": 0.573,
+   "meanLossPoints": 76.057,
+   "maxLossPoints": 426.21,
+   "positionsWithLoss": 13
+  },
+  "greedyScore": {
+   "positions": 25,
+   "states": 127860,
+   "statesVsFull": 0.646,
+   "msVsFull": 0.595,
+   "meanLossPoints": 105.318,
+   "maxLossPoints": 396.39,
+   "positionsWithLoss": 22
+  },
+  "stayForced": {
+   "positions": 25,
+   "states": 196179,
+   "statesVsFull": 0.991,
+   "msVsFull": 0.965,
+   "meanLossPoints": 2.498,
+   "maxLossPoints": 62.44,
+   "positionsWithLoss": 1
+  },
+  "noBust+stayForced": {
+   "positions": 25,
+   "states": 96396,
+   "statesVsFull": 0.487,
+   "msVsFull": 0.425,
+   "meanLossPoints": 78.555,
+   "maxLossPoints": 426.21,
+   "positionsWithLoss": 14
+  },
+  "all three": {
+   "positions": 25,
+   "states": 58107,
+   "statesVsFull": 0.293,
+   "msVsFull": 0.246,
+   "meanLossPoints": 155.418,
+   "maxLossPoints": 543.31,
+   "positionsWithLoss": 22
+  }
+ },
+ "10": {
+  "full": {
+   "positions": 25,
+   "states": 1059944,
+   "statesVsFull": 1,
+   "msVsFull": 1,
+   "meanLossPoints": 0,
+   "maxLossPoints": 0,
+   "positionsWithLoss": 0
+  },
+  "noBust": {
+   "positions": 25,
+   "states": 486953,
+   "statesVsFull": 0.459,
+   "msVsFull": 0.457,
+   "meanLossPoints": 89.884,
+   "maxLossPoints": 487.03,
+   "positionsWithLoss": 16
+  },
+  "greedyScore": {
+   "positions": 25,
+   "states": 751493,
+   "statesVsFull": 0.709,
+   "msVsFull": 0.698,
+   "meanLossPoints": 122.998,
+   "maxLossPoints": 500.3,
+   "positionsWithLoss": 23
+  },
+  "stayForced": {
+   "positions": 25,
+   "states": 1031594,
+   "statesVsFull": 0.973,
+   "msVsFull": 1.094,
+   "meanLossPoints": 3.325,
+   "maxLossPoints": 83.13,
+   "positionsWithLoss": 1
+  },
+  "noBust+stayForced": {
+   "positions": 25,
+   "states": 472514,
+   "statesVsFull": 0.446,
+   "msVsFull": 0.396,
+   "meanLossPoints": 93.201,
+   "maxLossPoints": 487.03,
+   "positionsWithLoss": 16
+  },
+  "all three": {
+   "positions": 25,
+   "states": 286060,
+   "statesVsFull": 0.27,
+   "msVsFull": 0.22,
+   "meanLossPoints": 178.979,
+   "maxLossPoints": 567.49,
+   "positionsWithLoss": 23
+  }
+ },
+ "12": {
+  "full": {
+   "positions": 25,
+   "states": 5675019,
+   "statesVsFull": 1,
+   "msVsFull": 1,
+   "meanLossPoints": 0,
+   "maxLossPoints": 0,
+   "positionsWithLoss": 0
+  },
+  "noBust": {
+   "positions": 25,
+   "states": 2801014,
+   "statesVsFull": 0.494,
+   "msVsFull": 0.477,
+   "meanLossPoints": 117.052,
+   "maxLossPoints": 584.47,
+   "positionsWithLoss": 17
+  },
+  "greedyScore": {
+   "positions": 25,
+   "states": 3908905,
+   "statesVsFull": 0.689,
+   "msVsFull": 0.728,
+   "meanLossPoints": 123.248,
+   "maxLossPoints": 441.44,
+   "positionsWithLoss": 25
+  },
+  "stayForced": {
+   "positions": 25,
+   "states": 5374225,
+   "statesVsFull": 0.947,
+   "msVsFull": 1.105,
+   "meanLossPoints": 5.027,
+   "maxLossPoints": 108.97,
+   "positionsWithLoss": 2
+  },
+  "noBust+stayForced": {
+   "positions": 25,
+   "states": 2640852,
+   "statesVsFull": 0.465,
+   "msVsFull": 0.459,
+   "meanLossPoints": 122.073,
+   "maxLossPoints": 584.47,
+   "positionsWithLoss": 18
+  },
+  "all three": {
+   "positions": 25,
+   "states": 1590013,
+   "statesVsFull": 0.28,
+   "msVsFull": 0.245,
+   "meanLossPoints": 201.579,
+   "maxLossPoints": 636.41,
+   "positionsWithLoss": 25
+  }
+ }
+}

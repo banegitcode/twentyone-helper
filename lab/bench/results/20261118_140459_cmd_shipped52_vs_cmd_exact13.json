@@ -1,0 +1,43 @@
+{
+  "set": "set1000",
+  "set_sha256": "b7cf79437960cc597286a00c9cea411aaed8f2e9d2eb4dbf5582d1958b5a93ae",
+  "n": 1000,
+  "a": "cmd:node champion/champion_adapter.js --config shipped52",
+  "b": "cmd:env TIMELOG=/workspace/21lab/bench/results/think_exact13.jsonl node -r /workspace/21lab/bench/cpu_timelog_hook.js champion/champion_adapter.js --config exact13",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 1000,
+    "mean": 8871.65,
+    "se": 38.02617213534998,
+    "sd": 1202.4931464533456,
+    "busts_per_game": 0.363,
+    "bust_game_rate": 0.237,
+    "three_bust_rate": 0.015,
+    "perfect_rate": 0.763,
+    "games_per_sec_wall": 0.8840250579940108,
+    "games_per_sec_per_core": 0.29850004692171017,
+    "wall_s": 1131.1896545886993,
+    "cpu_s": 3350.0832254886627
+  },
+  "B": {
+    "n": 1000,
+    "mean": 8906.3,
+    "se": 37.942059905992316,
+    "sd": 1199.8332842148986,
+    "busts_per_game": 0.371,
+    "bust_game_rate": 0.24,
+    "three_bust_rate": 0.011,
+    "perfect_rate": 0.76,
+    "games_per_sec_wall": 0.4759487600632867,
+    "games_per_sec_per_core": 0.17287897394499893,
+    "wall_s": 2101.0665094852448,
+    "cpu_s": 5784.3934237957
+  },
+  "paired_diff_B_minus_A": 34.65,
+  "paired_se": 13.738472372251698,
+  "z": 2.5221144724929094,
+  "sd_diff": 434.4486426761202,
+  "verdict": "ACCEPTED",
+  "timestamp": "20261118_140459"
+}

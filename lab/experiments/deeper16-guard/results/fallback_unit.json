@@ -1,0 +1,38 @@
+{
+  "visit": {
+    "tag": "visitCap=100",
+    "score": 9050,
+    "busts": 0,
+    "reason": "deck",
+    "cards": 52,
+    "visitTrips": 13,
+    "cpuTrips": 0,
+    "budgetAborts": 0,
+    "exactSolved": 2,
+    "kernel": "wasm"
+  },
+  "cpu": {
+    "tag": "cpuMs=1",
+    "score": 9050,
+    "busts": 0,
+    "reason": "deck",
+    "cards": 52,
+    "visitTrips": 0,
+    "cpuTrips": 9,
+    "budgetAborts": 0,
+    "exactSolved": 6,
+    "kernel": "wasm"
+  },
+  "visitJs": {
+    "tag": "visitCap=100,js",
+    "score": 9050,
+    "busts": 0,
+    "reason": "deck",
+    "cards": 52,
+    "visitTrips": 13,
+    "cpuTrips": 0,
+    "budgetAborts": 0,
+    "exactSolved": 2,
+    "kernel": "js"
+  }
+}

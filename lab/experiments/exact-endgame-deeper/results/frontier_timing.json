@@ -1,0 +1,56 @@
+{
+ "16/depth0": {
+  "positions": 40,
+  "medianMs": 0.01,
+  "maxMs": 0.78,
+  "medianLeafEvals": 4
+ },
+ "16/depth1": {
+  "positions": 40,
+  "medianMs": 0.07,
+  "maxMs": 8.52,
+  "medianLeafEvals": 128
+ },
+ "16/depth2": {
+  "positions": 40,
+  "medianMs": 1.7,
+  "maxMs": 50.83,
+  "medianLeafEvals": 3654
+ },
+ "20/depth0": {
+  "positions": 40,
+  "medianMs": 0,
+  "maxMs": 0.01,
+  "medianLeafEvals": 4
+ },
+ "20/depth1": {
+  "positions": 40,
+  "medianMs": 0.05,
+  "maxMs": 7.37,
+  "medianLeafEvals": 144
+ },
+ "20/depth2": {
+  "positions": 40,
+  "medianMs": 3.13,
+  "maxMs": 330.82,
+  "medianLeafEvals": 4850
+ },
+ "24/depth0": {
+  "positions": 40,
+  "medianMs": 0,
+  "maxMs": 0.01,
+  "medianLeafEvals": 4
+ },
+ "24/depth1": {
+  "positions": 40,
+  "medianMs": 0.05,
+  "maxMs": 8.08,
+  "medianLeafEvals": 144
+ },
+ "24/depth2": {
+  "positions": 40,
+  "medianMs": 6.47,
+  "maxMs": 304.67,
+  "medianLeafEvals": 5056
+ }
+}

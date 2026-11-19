@@ -1,0 +1,28 @@
+{
+  "n": 1000,
+  "d16_mean": 8926.35,
+  "d16_sd": 1196.8231126875278,
+  "d16_min": 800,
+  "d16_max": 12450,
+  "d16_p50": 9000,
+  "d16_p90": 10300,
+  "d16_p99": 11500,
+  "d16_ge11000": 36,
+  "d16_ge12450": 1,
+  "d16_perfect": 757,
+  "d16_busts_sum": 379,
+  "d16_zero_bust": 757,
+  "shipped_mean": 8871.65,
+  "shipped_same_score_count": 619,
+  "this_game": {
+    "game": 943,
+    "a_score": 12450,
+    "b_score": 12450,
+    "diff": 0,
+    "a_busts": 0,
+    "b_busts": 0,
+    "a_perfect": 1,
+    "b_perfect": 1
+  },
+  "rank_of_12450": 1000
+}

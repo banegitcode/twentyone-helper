@@ -1,0 +1,329 @@
+{"g":2,"step":0,"rem":52,"single":true,"nCls":1}
+{"g":2,"step":1,"rem":51,"notSampled":true,"nCand":2}
+{"g":2,"step":2,"rem":50,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":8512.321328746706,"best":2,"naive":247.78340178280266,"naiveSe":134.99525639671634,"ss":247.78340178280263,"ssSe":136.2236632748216,"ms":24374,"champ":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":20,"soft":20,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h10 1c/h4 - -","nBustCols":0,"nScoreCols":0,"tens":0.3,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":2,"cv":8463.656405689526,"m":0,"se":0,"abs":8512.321328746706},{"stay":-1,"col":1,"cv":8461.410940882195,"m":90.3984819861946,"se":132.30677677411742,"abs":8602.719810732897},{"stay":-1,"col":0,"cv":8442.912299065969,"m":247.78340178280266,"se":134.99525639671634,"abs":8760.104730529505}]}
+{"g":2,"step":3,"rem":49,"notSampled":true,"nCand":3}
+{"g":2,"step":4,"rem":48,"notSampled":true,"nCand":2}
+{"g":2,"step":5,"rem":47,"w":2.857142857142857,"n":48,"nCand":2,"nCls":3,"champIdx":0,"champMean":8154.616613394307,"best":1,"naive":191.37948441000853,"naiveSe":206.8697109731969,"ss":191.3794844100085,"ssSe":208.42084951846795,"ms":13105,"champ":{"kind":"build","stay":false,"n":2,"hard":12,"soft":12,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":8,"soft":8,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h20 1c/h4 2c/h14 -","nBustCols":2,"nScoreCols":0,"tens":0.2765957446808511,"busts":0,"stays":2,"prev":0,"v":8},"cands":[{"stay":-1,"col":1,"cv":8280.99444122693,"m":0,"se":0,"abs":8154.616613394307},{"stay":-1,"col":3,"cv":8262.827906218148,"m":191.37948441000853,"se":206.8697109731969,"abs":8345.996097804315}]}
+{"g":2,"step":6,"rem":46,"notSampled":true,"nCand":2}
+{"g":2,"step":7,"rem":45,"notSampled":true,"nCand":2}
+{"g":2,"step":8,"rem":44,"single":true,"nCls":13}
+{"g":2,"step":9,"rem":43,"single":true,"nCls":7}
+{"g":2,"step":10,"rem":42,"single":true,"nCls":2}
+{"g":2,"step":11,"rem":41,"single":true,"nCls":7}
+{"g":2,"step":12,"rem":40,"single":true,"nCls":3}
+{"g":2,"step":13,"rem":39,"w":2.857142857142857,"n":48,"nCand":2,"nCls":3,"champIdx":0,"champMean":7238.06046597926,"best":1,"naive":30.14958184935419,"naiveSe":157.38771825563137,"ss":-98.95507898838433,"ssSe":115.1417176243507,"ms":17805,"champ":{"kind":"build","stay":false,"n":1,"hard":5,"soft":5,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h5 1c/h8 - -","nBustCols":0,"nScoreCols":0,"tens":0.28205128205128205,"busts":0,"stays":1,"prev":0,"v":5},"cands":[{"stay":-1,"col":2,"cv":7306.730360268984,"m":0,"se":0,"abs":7238.06046597926},{"stay":-1,"col":1,"cv":7223.179271682649,"m":30.14958184935419,"se":157.38771825563137,"abs":7268.210047828615}]}
+{"g":2,"step":14,"rem":38,"single":true,"nCls":8}
+{"g":2,"step":15,"rem":37,"single":true,"nCls":3}
+{"g":2,"step":16,"rem":36,"notSampled":true,"nCand":2}
+{"g":2,"step":17,"rem":35,"single":true,"nCls":2}
+{"g":2,"step":18,"rem":34,"single":true,"nCls":4}
+{"g":2,"step":19,"rem":33,"notSampled":true,"nCand":2}
+{"g":2,"step":20,"rem":32,"notSampled":true,"nCand":2}
+{"g":2,"step":21,"rem":31,"single":true,"nCls":2}
+{"g":2,"step":22,"rem":30,"single":true,"nCls":13}
+{"g":2,"step":23,"rem":29,"single":true,"nCls":13}
+{"g":2,"step":24,"rem":28,"single":true,"nCls":13}
+{"g":2,"step":25,"rem":27,"single":true,"nCls":3}
+{"g":2,"step":26,"rem":26,"single":true,"nCls":3}
+{"g":2,"step":27,"rem":25,"single":true,"nCls":3}
+{"g":2,"step":28,"rem":24,"single":true,"nCls":4}
+{"g":2,"step":29,"rem":23,"notSampled":true,"nCand":2}
+{"g":2,"step":30,"rem":22,"single":true,"nCls":2}
+{"g":2,"step":31,"rem":21,"single":true,"nCls":3}
+{"g":2,"step":32,"rem":20,"single":true,"nCls":3}
+{"g":2,"step":33,"rem":19,"notSampled":true,"nCand":2}
+{"g":2,"step":34,"rem":18,"single":true,"nCls":4}
+{"g":2,"step":35,"rem":17,"single":true,"nCls":4}
+{"g":2,"step":36,"rem":16,"single":true,"nCls":4}
+{"g":2,"step":37,"rem":15,"single":true,"nCls":4}
+{"g":2,"step":38,"rem":14,"single":true,"nCls":4}
+{"g":2,"step":39,"rem":13,"w":2.857142857142857,"n":32,"nCand":2,"nCls":2,"champIdx":0,"champMean":3329.5028911065488,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":4142,"champ":{"kind":"build","stay":false,"n":2,"hard":20,"soft":20,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":20,"soft":20,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":4,"n4":1,"n3":0,"cols":"2c/h20 2c/h12 1c/h10 4c/h20","nBustCols":3,"nScoreCols":0,"tens":0.23076923076923078,"busts":0,"stays":0,"prev":0,"v":10},"cands":[{"stay":-1,"col":2,"cv":3216.8097821083993,"m":0,"se":0,"abs":3329.5028911065488},{"stay":-1,"col":0,"cv":3190.2401187331798,"m":-98.1399603166277,"se":65.32395619215413,"abs":3231.362930789921}]}
+{"g":2,"step":40,"rem":12,"single":true,"nCls":3}
+{"g":7,"step":0,"rem":52,"single":true,"nCls":1}
+{"g":7,"step":1,"rem":51,"notSampled":true,"nCand":2}
+{"g":7,"step":2,"rem":50,"single":true,"nCls":3}
+{"g":7,"step":3,"rem":49,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":8396.161544560438,"best":2,"naive":139.16557684764643,"naiveSe":167.26123926424742,"ss":-75.53773898362492,"ssSe":139.03276609448133,"ms":21084,"champ":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":12,"soft":12,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h6 1c/h7 1c/h2 -","nBustCols":0,"nScoreCols":0,"tens":0.32653061224489793,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":3,"cv":8443.175720904377,"m":0,"se":0,"abs":8396.161544560438},{"stay":-1,"col":1,"cv":8440.816566244537,"m":-39.911909808116114,"se":119.5271372795935,"abs":8356.249634752327},{"stay":-1,"col":2,"cv":8433.028956367523,"m":139.16557684764643,"se":167.26123926424742,"abs":8535.327121408087}]}
+{"g":7,"step":4,"rem":48,"notSampled":true,"nCand":2}
+{"g":7,"step":5,"rem":47,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":8188.33628117849,"best":1,"naive":69.06508095832096,"naiveSe":173.17633252136554,"ss":-162.84293401370599,"ssSe":87.05618151724984,"ms":11765,"champ":{"kind":"build","stay":false,"n":2,"hard":16,"soft":16,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":8,"soft":8,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h13 1c/h7 1c/h2 1c/h10","nBustCols":0,"nScoreCols":0,"tens":0.3191489361702128,"busts":0,"stays":2,"prev":0,"v":6},"cands":[{"stay":-1,"col":3,"cv":8252.80408890793,"m":0,"se":0,"abs":8188.33628117849},{"stay":-1,"col":2,"cv":8157.717850103351,"m":69.06508095832096,"se":173.17633252136554,"abs":8257.401362136812}]}
+{"g":7,"step":6,"rem":46,"single":true,"nCls":2}
+{"g":7,"step":7,"rem":45,"single":true,"nCls":19}
+{"g":7,"step":8,"rem":44,"single":true,"nCls":20}
+{"g":7,"step":9,"rem":43,"single":true,"nCls":20}
+{"g":7,"step":10,"rem":42,"single":true,"nCls":20}
+{"g":7,"step":11,"rem":41,"single":true,"nCls":13}
+{"g":7,"step":12,"rem":40,"single":true,"nCls":7}
+{"g":7,"step":13,"rem":39,"single":true,"nCls":3}
+{"g":7,"step":14,"rem":38,"notSampled":true,"nCand":2}
+{"g":7,"step":15,"rem":37,"notSampled":true,"nCand":3}
+{"g":7,"step":16,"rem":36,"single":true,"nCls":13}
+{"g":7,"step":17,"rem":35,"notSampled":true,"nCand":2}
+{"g":7,"step":18,"rem":34,"notSampled":true,"nCand":2}
+{"g":7,"step":19,"rem":33,"notSampled":true,"nCand":3}
+{"g":7,"step":20,"rem":32,"single":true,"nCls":2}
+{"g":7,"step":21,"rem":31,"single":true,"nCls":8}
+{"g":7,"step":22,"rem":30,"notSampled":true,"nCand":2}
+{"g":7,"step":23,"rem":29,"single":true,"nCls":8}
+{"g":7,"step":24,"rem":28,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":5672.156813890434,"best":1,"naive":120.33380213442938,"naiveSe":142.13737818091778,"ss":96.54003216204822,"ssSe":122.97118632167737,"ms":20261,"champ":{"kind":"build","stay":false,"n":2,"hard":16,"soft":16,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":18,"soft":18,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":1,"maxN":1,"n4":0,"n3":0,"cols":"1c/h6 1c/h8 1c/h8 1c/s11","nBustCols":0,"nScoreCols":1,"tens":0.39285714285714285,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":0,"cv":5672.018893262779,"m":0,"se":0,"abs":5672.156813890434},{"stay":-1,"col":1,"cv":5638.579497537286,"m":120.33380213442938,"se":142.13737818091778,"abs":5792.490616024866},{"stay":-1,"col":3,"cv":5635.932769864319,"m":100.01816441363128,"se":102.03683054307041,"abs":5772.174978304066}]}
+{"g":7,"step":25,"rem":27,"notSampled":true,"nCand":2}
+{"g":7,"step":26,"rem":26,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":5131.3543786699165,"best":1,"naive":90.48992860456008,"naiveSe":73.63907725861539,"ss":90.48992860456009,"ssSe":74.16706745328821,"ms":14526,"champ":{"kind":"build","stay":false,"n":2,"hard":18,"soft":18,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h16 1c/h8 1c/h8 -","nBustCols":1,"nScoreCols":0,"tens":0.34615384615384615,"busts":0,"stays":2,"prev":1,"v":10},"cands":[{"stay":-1,"col":1,"cv":5260.124125546249,"m":0,"se":0,"abs":5131.3543786699165},{"stay":-1,"col":3,"cv":5253.056076479564,"m":90.48992860456008,"se":73.63907725861539,"abs":5221.844307274478}]}
+{"g":7,"step":27,"rem":25,"single":true,"nCls":2}
+{"g":7,"step":28,"rem":24,"single":true,"nCls":2}
+{"g":7,"step":29,"rem":23,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":4961.332212927984,"best":1,"naive":108.58331129658158,"naiveSe":72.64621360272403,"ss":108.5833112965816,"ssSe":73.34622994329871,"ms":20363,"champ":{"kind":"build","stay":false,"n":2,"hard":14,"soft":14,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":4,"soft":4,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"- 2c/h18 1c/h8 1c/h10","nBustCols":1,"nScoreCols":0,"tens":0.30434782608695654,"busts":0,"stays":2,"prev":1,"v":4},"cands":[{"stay":-1,"col":3,"cv":4914.048521985784,"m":0,"se":0,"abs":4961.332212927984},{"stay":-1,"col":0,"cv":4909.295638810917,"m":108.58331129658158,"se":72.64621360272403,"abs":5069.915524224566},{"stay":-1,"col":2,"cv":4866.936357288133,"m":-36.55893956826481,"se":93.78653631791416,"abs":4924.77327335972}]}
+{"g":7,"step":30,"rem":22,"notSampled":true,"nCand":3}
+{"g":7,"step":31,"rem":21,"notSampled":true,"nCand":3}
+{"g":7,"step":32,"rem":20,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":4504.778855242238,"best":2,"naive":121.3489473472826,"naiveSe":97.65836579026308,"ss":34.38517803300617,"ssSe":105.77270356201959,"ms":15362,"champ":{"kind":"build","stay":false,"n":2,"hard":7,"soft":7,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":3,"hard":18,"soft":18,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"1c/h2 2c/h18 2c/h13 2c/h14","nBustCols":1,"nScoreCols":0,"tens":0.35,"busts":0,"stays":2,"prev":0,"v":5},"cands":[{"stay":-1,"col":0,"cv":4537.702591525082,"m":0,"se":0,"abs":4504.778855242238},{"stay":1,"col":1,"cv":4515.4538211575655,"m":114.34777153068113,"se":111.75470787706173,"abs":4619.126626772918},{"stay":-1,"col":2,"cv":4501.799692872082,"m":121.3489473472826,"se":97.65836579026308,"abs":4626.127802589519}]}
+{"g":7,"step":33,"rem":19,"single":true,"nCls":20}
+{"g":7,"step":34,"rem":18,"w":2.857142857142857,"n":32,"nCand":2,"nCls":2,"champIdx":0,"champMean":4441.555606597472,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":8309,"champ":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h7 - 2c/h13 2c/h14","nBustCols":2,"nScoreCols":0,"tens":0.3888888888888889,"busts":0,"stays":2,"prev":1,"v":10},"cands":[{"stay":-1,"col":1,"cv":4344.94858391401,"m":0,"se":0,"abs":4441.555606597472},{"stay":-1,"col":0,"cv":4270.656789537719,"m":-285.29777461640407,"se":99.63489658593151,"abs":4156.257831981069}]}
+{"g":7,"step":35,"rem":17,"notSampled":true,"nCand":2}
+{"g":7,"step":36,"rem":16,"notSampled":true,"nCand":3}
+{"g":7,"step":37,"rem":15,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":3898.080827749027,"best":1,"naive":128.04025626617766,"naiveSe":60.70278873152743,"ss":128.04025626617766,"ssSe":60.722587719813966,"ms":11431,"champ":{"kind":"build","stay":true,"n":1,"hard":6,"soft":6,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":{"hard":20,"ace":0,"n":2,"soft":20,"all7":false},"pts":0},"alt":{"kind":"build","stay":true,"n":3,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":true,"stayCol":{"hard":20,"ace":0,"n":2,"soft":20,"all7":false},"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h7 2c/h20 2c/h13 -","nBustCols":1,"nScoreCols":0,"tens":0.3333333333333333,"busts":0,"stays":2,"prev":0,"v":6},"cands":[{"stay":1,"col":1,"cv":3969.7129055998657,"m":0,"se":0,"abs":3898.080827749027},{"stay":1,"col":0,"cv":3959.8239099590273,"m":128.04025626617766,"se":60.70278873152743,"abs":4026.121084015205},{"stay":-1,"col":3,"cv":3893.350733661585,"m":76.35731941814774,"se":51.442734759142354,"abs":3974.4381471671754}]}
+{"g":7,"step":38,"rem":14,"notSampled":true,"nCand":3}
+{"g":7,"step":39,"rem":13,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":3862.50496549682,"best":2,"naive":341.323318317706,"naiveSe":50.10478960730526,"ss":341.323318317706,"ssSe":50.37183260681679,"ms":11130,"champ":{"kind":"build","stay":false,"n":2,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":16,"soft":16,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h7 1c/h6 2c/h13 1c/h7","nBustCols":1,"nScoreCols":0,"tens":0.38461538461538464,"busts":0,"stays":1,"prev":0,"v":10},"cands":[{"stay":-1,"col":3,"cv":3740.848124946721,"m":0,"se":0,"abs":3862.50496549682},{"stay":-1,"col":0,"cv":3699.835917407352,"m":78.74034432532304,"se":58.95667470548707,"abs":3941.2453098221426},{"stay":-1,"col":1,"cv":3655.0249761742202,"m":341.323318317706,"se":50.10478960730526,"abs":4203.828283814527}]}
+{"g":7,"step":40,"rem":12,"notSampled":true,"nCand":3}
+{"g":12,"step":0,"rem":52,"single":true,"nCls":1}
+{"g":12,"step":1,"rem":51,"single":true,"nCls":3}
+{"g":12,"step":2,"rem":50,"single":true,"nCls":7}
+{"g":12,"step":3,"rem":49,"single":true,"nCls":13}
+{"g":12,"step":4,"rem":48,"single":true,"nCls":2}
+{"g":12,"step":5,"rem":47,"notSampled":true,"nCand":2}
+{"g":12,"step":6,"rem":46,"single":true,"nCls":2}
+{"g":12,"step":7,"rem":45,"notSampled":true,"nCand":3}
+{"g":12,"step":8,"rem":44,"notSampled":true,"nCand":2}
+{"g":12,"step":9,"rem":43,"notSampled":true,"nCand":3}
+{"g":12,"step":10,"rem":42,"single":true,"nCls":2}
+{"g":12,"step":11,"rem":41,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":7023.519039005735,"best":1,"naive":20.316938921036506,"naiveSe":125.60439736787708,"ss":-280.488132400456,"ssSe":139.14907530399796,"ms":13473,"champ":{"kind":"build","stay":false,"n":1,"hard":9,"soft":9,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":19,"soft":19,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":1,"maxN":1,"n4":0,"n3":0,"cols":"1c/s11 1c/h4 1c/h10 -","nBustCols":0,"nScoreCols":0,"tens":0.34146341463414637,"busts":0,"stays":2,"prev":1,"v":9},"cands":[{"stay":-1,"col":3,"cv":6859.015016009545,"m":0,"se":0,"abs":7023.519039005735},{"stay":-1,"col":2,"cv":6815.375614691814,"m":20.316938921036506,"se":125.60439736787708,"abs":7043.83597792677},{"stay":-1,"col":1,"cv":6790.62374993597,"m":-61.906774682248226,"se":144.81812864856627,"abs":6961.6122643234885}]}
+{"g":12,"step":12,"rem":40,"single":true,"nCls":20}
+{"g":12,"step":13,"rem":39,"notSampled":true,"nCand":2}
+{"g":12,"step":14,"rem":38,"single":true,"nCls":13}
+{"g":12,"step":15,"rem":37,"notSampled":true,"nCand":2}
+{"g":12,"step":16,"rem":36,"single":true,"nCls":13}
+{"g":12,"step":17,"rem":35,"notSampled":true,"nCand":2}
+{"g":12,"step":18,"rem":34,"single":true,"nCls":20}
+{"g":12,"step":19,"rem":33,"single":true,"nCls":13}
+{"g":12,"step":20,"rem":32,"notSampled":true,"nCand":2}
+{"g":12,"step":21,"rem":31,"single":true,"nCls":7}
+{"g":12,"step":22,"rem":30,"single":true,"nCls":8}
+{"g":12,"step":23,"rem":29,"notSampled":true,"nCand":2}
+{"g":12,"step":24,"rem":28,"single":true,"nCls":13}
+{"g":12,"step":25,"rem":27,"notSampled":true,"nCand":2}
+{"g":12,"step":26,"rem":26,"notSampled":true,"nCand":2}
+{"g":12,"step":27,"rem":25,"single":true,"nCls":2}
+{"g":12,"step":28,"rem":24,"single":true,"nCls":2}
+{"g":12,"step":29,"rem":23,"single":true,"nCls":3}
+{"g":12,"step":30,"rem":22,"single":true,"nCls":7}
+{"g":12,"step":31,"rem":21,"notSampled":true,"nCand":3}
+{"g":12,"step":32,"rem":20,"single":true,"nCls":12}
+{"g":12,"step":33,"rem":19,"notSampled":true,"nCand":2}
+{"g":12,"step":34,"rem":18,"notSampled":true,"nCand":2}
+{"g":12,"step":35,"rem":17,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":5287.220258818102,"best":0,"naive":0,"naiveSe":0,"ss":-105.10147943093035,"ssSe":58.461106319863894,"ms":5557,"champ":{"kind":"c21","stay":false,"n":0,"hard":0,"soft":0,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":400},"alt":{"kind":"c21","stay":false,"n":0,"hard":0,"soft":0,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":400},"pf":{"nEmpty":0,"nSoft":0,"maxN":4,"n4":1,"n3":0,"cols":"4c/h13 2c/h18 2c/h12 2c/h20","nBustCols":0,"nScoreCols":2,"tens":0.35294117647058826,"busts":0,"stays":2,"prev":0,"v":1},"cands":[{"stay":-1,"col":3,"cv":5001.493453201561,"m":0,"se":0,"abs":5287.220258818102},{"stay":3,"col":3,"cv":4982.469450083267,"m":-6.100772239165366,"se":92.46245868181558,"abs":5281.119486578936}]}
+{"g":12,"step":36,"rem":16,"notSampled":true,"nCand":2}
+{"g":12,"step":37,"rem":15,"single":true,"nCls":7}
+{"g":12,"step":38,"rem":14,"single":true,"nCls":13}
+{"g":12,"step":39,"rem":13,"notSampled":true,"nCand":2}
+{"g":12,"step":40,"rem":12,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":2831.6241980287764,"best":0,"naive":0,"naiveSe":0,"ss":-25.557214438852174,"ssSe":20.49697094091274,"ms":5173,"champ":{"kind":"build","stay":true,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":{"hard":10,"ace":0,"n":1,"soft":10,"all7":false},"pts":0},"alt":{"kind":"build","stay":true,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":{"hard":10,"ace":0,"n":1,"soft":10,"all7":false},"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"1c/h8 2c/h18 1c/h10 -","nBustCols":1,"nScoreCols":0,"tens":0.4166666666666667,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":2,"col":2,"cv":2773.176464831176,"m":0,"se":0,"abs":2831.6241980287764},{"stay":-1,"col":3,"cv":2761.8049976666057,"m":-23.555718310421764,"se":20.766966400817264,"abs":2808.0684797183544},{"stay":-1,"col":0,"cv":2753.509923947026,"m":-72.63143361573506,"se":37.22372645273958,"abs":2758.992764413042}]}
+{"g":17,"step":0,"rem":52,"single":true,"nCls":1}
+{"g":17,"step":1,"rem":51,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":8415.172941484117,"best":1,"naive":440.67025973352173,"naiveSe":142.85518955286938,"ss":440.6702597335217,"ssSe":143.6794591475979,"ms":12534,"champ":{"kind":"build","stay":false,"n":1,"hard":6,"soft":6,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":3,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h7 - - -","nBustCols":0,"nScoreCols":0,"tens":0.3137254901960784,"busts":0,"stays":2,"prev":0,"v":6},"cands":[{"stay":-1,"col":1,"cv":8445.22646119892,"m":0,"se":0,"abs":8415.172941484117},{"stay":-1,"col":0,"cv":8366.197266464373,"m":440.67025973352173,"se":142.85518955286938,"abs":8855.84320121764}]}
+{"g":17,"step":2,"rem":50,"notSampled":true,"nCand":2}
+{"g":17,"step":3,"rem":49,"notSampled":true,"nCand":2}
+{"g":17,"step":4,"rem":48,"single":true,"nCls":13}
+{"g":17,"step":5,"rem":47,"notSampled":true,"nCand":3}
+{"g":17,"step":6,"rem":46,"w":2.857142857142857,"n":48,"nCand":2,"nCls":3,"champIdx":0,"champMean":8465.466942070087,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":11305,"champ":{"kind":"build","stay":false,"n":1,"hard":5,"soft":5,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":5,"soft":5,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h7 1c/h10 1c/h10 -","nBustCols":0,"nScoreCols":0,"tens":0.30434782608695654,"busts":0,"stays":2,"prev":0,"v":5},"cands":[{"stay":-1,"col":3,"cv":8085.230149313811,"m":0,"se":0,"abs":8465.466942070087},{"stay":-1,"col":1,"cv":8072.639458576355,"m":-226.6442172231498,"se":140.66389308140504,"abs":8238.82272484694}]}
+{"g":17,"step":7,"rem":45,"single":true,"nCls":13}
+{"g":17,"step":8,"rem":44,"single":true,"nCls":20}
+{"g":17,"step":9,"rem":43,"w":2.857142857142857,"n":32,"nCand":2,"nCls":2,"champIdx":0,"champMean":8524.798490654097,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":9271,"champ":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h11 2c/h19 1c/h10 1c/h5","nBustCols":1,"nScoreCols":0,"tens":0.32558139534883723,"busts":0,"stays":2,"prev":0,"v":3},"cands":[{"stay":-1,"col":2,"cv":8175.980573019963,"m":0,"se":0,"abs":8524.798490654097},{"stay":-1,"col":3,"cv":8124.168498887857,"m":-299.24207733580977,"se":187.09992725042176,"abs":8225.556413318285}]}
+{"g":17,"step":10,"rem":42,"single":true,"nCls":20}
+{"g":17,"step":11,"rem":41,"single":true,"nCls":17}
+{"g":17,"step":12,"rem":40,"single":true,"nCls":12}
+{"g":17,"step":13,"rem":39,"single":true,"nCls":6}
+{"g":17,"step":14,"rem":38,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":7288.191918601624,"best":1,"naive":3.2730919501137428,"naiveSe":91.70133848886884,"ss":-69.31040901242118,"ssSe":64.0673807317201,"ms":8362,"champ":{"kind":"build","stay":false,"n":1,"hard":1,"soft":11,"ace":1,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"c21","stay":false,"n":0,"hard":0,"soft":0,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":400},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"1c/h10 2c/h19 2c/h13 -","nBustCols":0,"nScoreCols":1,"tens":0.3157894736842105,"busts":0,"stays":2,"prev":0,"v":1},"cands":[{"stay":-1,"col":3,"cv":7454.500713467563,"m":0,"se":0,"abs":7288.191918601624},{"stay":-1,"col":0,"cv":7452.978220709658,"m":3.2730919501137428,"se":91.70133848886884,"abs":7291.4650105517385}]}
+{"g":17,"step":15,"rem":37,"single":true,"nCls":20}
+{"g":17,"step":16,"rem":36,"notSampled":true,"nCand":2}
+{"g":17,"step":17,"rem":35,"single":true,"nCls":20}
+{"g":17,"step":18,"rem":34,"notSampled":true,"nCand":2}
+{"g":17,"step":19,"rem":33,"single":true,"nCls":13}
+{"g":17,"step":20,"rem":32,"notSampled":true,"nCand":2}
+{"g":17,"step":21,"rem":31,"single":true,"nCls":6}
+{"g":17,"step":22,"rem":30,"single":true,"nCls":2}
+{"g":17,"step":23,"rem":29,"notSampled":true,"nCand":3}
+{"g":17,"step":24,"rem":28,"notSampled":true,"nCand":3}
+{"g":17,"step":25,"rem":27,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":6079.203949471757,"best":2,"naive":145.28096489073744,"naiveSe":120.60665005063933,"ss":-4.973487106706652,"ssSe":85.72890053637589,"ms":16858,"champ":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":3,"hard":15,"soft":15,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h5 1c/h10 2c/h13 -","nBustCols":1,"nScoreCols":0,"tens":0.3333333333333333,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":3,"cv":6036.341516624628,"m":0,"se":0,"abs":6079.203949471757},{"stay":-1,"col":1,"cv":6027.615175345971,"m":78.18884362051737,"se":101.24988035874848,"abs":6157.392793092273},{"stay":-1,"col":0,"cv":5982.712153684405,"m":145.28096489073744,"se":120.60665005063933,"abs":6224.484914362493}]}
+{"g":17,"step":26,"rem":26,"notSampled":true,"nCand":3}
+{"g":17,"step":27,"rem":25,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":6127.533279090333,"best":0,"naive":0,"naiveSe":0,"ss":-100.34262190886898,"ssSe":78.1870181806952,"ms":17359,"champ":{"kind":"build","stay":false,"n":2,"hard":20,"soft":20,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":20,"soft":20,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":3,"n4":0,"n3":1,"cols":"3c/h8 1c/h10 2c/h13 1c/h10","nBustCols":1,"nScoreCols":0,"tens":0.32,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":1,"cv":6004.952438475663,"m":0,"se":0,"abs":6127.533279090333},{"stay":-1,"col":0,"cv":5919.286230793677,"m":-27.052849557159902,"se":112.10629006712081,"abs":6100.480429533171},{"stay":1,"col":1,"cv":5912.485068956412,"m":-70.25440019671866,"se":98.26415867872413,"abs":6057.278878893612}]}
+{"g":17,"step":28,"rem":24,"notSampled":true,"nCand":3}
+{"g":17,"step":29,"rem":23,"single":true,"nCls":2}
+{"g":17,"step":30,"rem":22,"w":2.857142857142857,"n":48,"nCand":2,"nCls":3,"champIdx":0,"champMean":5445.776501371621,"best":1,"naive":76.52880447945262,"naiveSe":83.28942479275652,"ss":-18.659571676658004,"ssSe":51.134476263543014,"ms":8403,"champ":{"kind":"build","stay":false,"n":1,"hard":7,"soft":7,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":3,"n4":0,"n3":1,"cols":"3c/h8 - 2c/h13 1c/h10","nBustCols":0,"nScoreCols":0,"tens":0.2727272727272727,"busts":0,"stays":1,"prev":1,"v":7},"cands":[{"stay":-1,"col":1,"cv":5559.357300192212,"m":0,"se":0,"abs":5445.776501371621},{"stay":-1,"col":3,"cv":5534.928894599648,"m":76.52880447945262,"se":83.28942479275652,"abs":5522.305305851073}]}
+{"g":17,"step":31,"rem":21,"notSampled":true,"nCand":2}
+{"g":17,"step":32,"rem":20,"single":true,"nCls":20}
+{"g":17,"step":33,"rem":19,"notSampled":true,"nCand":2}
+{"g":17,"step":34,"rem":18,"notSampled":true,"nCand":3}
+{"g":17,"step":35,"rem":17,"single":true,"nCls":2}
+{"g":17,"step":36,"rem":16,"single":true,"nCls":20}
+{"g":17,"step":37,"rem":15,"single":true,"nCls":2}
+{"g":17,"step":38,"rem":14,"single":true,"nCls":7}
+{"g":17,"step":39,"rem":13,"notSampled":true,"nCand":3}
+{"g":17,"step":40,"rem":12,"w":2.857142857142857,"n":16,"nCand":3,"nCls":3,"champIdx":0,"champMean":3135.594149785572,"best":2,"naive":39.30168378201719,"naiveSe":21.66490462426071,"ss":18.934932860495394,"ssSe":27.179124082762453,"ms":6389,"champ":{"kind":"build","stay":false,"n":2,"hard":18,"soft":18,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":20,"soft":20,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h8 - - 1c/h10","nBustCols":0,"nScoreCols":0,"tens":0.3333333333333333,"busts":0,"stays":1,"prev":0,"v":10},"cands":[{"stay":-1,"col":0,"cv":3203.057480783138,"m":0,"se":0,"abs":3135.594149785572},{"stay":-1,"col":1,"cv":3194.9719407927096,"m":29.064697644823923,"se":21.299601747624365,"abs":3164.6588474303962},{"stay":-1,"col":3,"cv":3126.108468362616,"m":39.30168378201719,"se":21.66490462426071,"abs":3174.8958335675893}]}
+{"g":22,"step":0,"rem":52,"single":true,"nCls":1}
+{"g":22,"step":1,"rem":51,"single":true,"nCls":3}
+{"g":22,"step":2,"rem":50,"notSampled":true,"nCand":3}
+{"g":22,"step":3,"rem":49,"notSampled":true,"nCand":3}
+{"g":22,"step":4,"rem":48,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":9027.083130326942,"best":0,"naive":0,"naiveSe":0,"ss":-125.40395778133764,"ssSe":72.43004419409992,"ms":18344,"champ":{"kind":"c21","stay":false,"n":0,"hard":0,"soft":0,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":400},"alt":{"kind":"c21","stay":false,"n":0,"hard":0,"soft":0,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":400},"pf":{"nEmpty":1,"nSoft":1,"maxN":2,"n4":0,"n3":0,"cols":"2c/h12 1c/s11 1c/h10 -","nBustCols":1,"nScoreCols":1,"tens":0.2916666666666667,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":1,"cv":8518.514674455211,"m":0,"se":0,"abs":9027.083130326942},{"stay":-1,"col":3,"cv":8512.696565357714,"m":-32.100376469843106,"se":95.22786213633006,"abs":8994.982753857103},{"stay":-1,"col":2,"cv":8458.768023865601,"m":-177.85667276477065,"se":189.8923147905728,"abs":8849.226457562174}]}
+{"g":22,"step":5,"rem":47,"notSampled":true,"nCand":2}
+{"g":22,"step":6,"rem":46,"notSampled":true,"nCand":2}
+{"g":22,"step":7,"rem":45,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":7891.752903032525,"best":1,"naive":283.2523153765808,"naiveSe":144.10377395290283,"ss":283.2523153765808,"ssSe":144.66995396026115,"ms":12611,"champ":{"kind":"build","stay":false,"n":2,"hard":15,"soft":15,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":14,"soft":14,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h12 1c/h5 1c/h10 1c/h4","nBustCols":1,"nScoreCols":0,"tens":0.28888888888888886,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":1,"cv":8034.078828866832,"m":0,"se":0,"abs":7891.752903032525},{"stay":-1,"col":3,"cv":8033.645715749584,"m":283.2523153765808,"se":144.10377395290283,"abs":8175.005218409105},{"stay":-1,"col":2,"cv":7968.336238072431,"m":157.29295707411242,"se":161.03189790512633,"abs":8049.045860106636}]}
+{"g":22,"step":8,"rem":44,"notSampled":true,"nCand":2}
+{"g":22,"step":9,"rem":43,"single":true,"nCls":19}
+{"g":22,"step":10,"rem":42,"notSampled":true,"nCand":2}
+{"g":22,"step":11,"rem":41,"single":true,"nCls":13}
+{"g":22,"step":12,"rem":40,"single":true,"nCls":6}
+{"g":22,"step":13,"rem":39,"notSampled":true,"nCand":2}
+{"g":22,"step":14,"rem":38,"single":true,"nCls":12}
+{"g":22,"step":15,"rem":37,"single":true,"nCls":19}
+{"g":22,"step":16,"rem":36,"notSampled":true,"nCand":2}
+{"g":22,"step":17,"rem":35,"single":true,"nCls":12}
+{"g":22,"step":18,"rem":34,"notSampled":true,"nCand":3}
+{"g":22,"step":19,"rem":33,"notSampled":true,"nCand":2}
+{"g":22,"step":20,"rem":32,"single":true,"nCls":20}
+{"g":22,"step":21,"rem":31,"notSampled":true,"nCand":2}
+{"g":22,"step":22,"rem":30,"single":true,"nCls":17}
+{"g":22,"step":23,"rem":29,"single":true,"nCls":10}
+{"g":22,"step":24,"rem":28,"notSampled":true,"nCand":2}
+{"g":22,"step":25,"rem":27,"single":true,"nCls":20}
+{"g":22,"step":26,"rem":26,"notSampled":true,"nCand":2}
+{"g":22,"step":27,"rem":25,"single":true,"nCls":20}
+{"g":22,"step":28,"rem":24,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":4854.947138682748,"best":1,"naive":94.68497666666109,"naiveSe":115.89358103901145,"ss":-8.354774707555805,"ssSe":84.88342388437853,"ms":12305,"champ":{"kind":"build","stay":false,"n":1,"hard":8,"soft":8,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"1c/h5 2c/h15 - 2c/h17","nBustCols":2,"nScoreCols":0,"tens":0.20833333333333334,"busts":0,"stays":1,"prev":1,"v":8},"cands":[{"stay":-1,"col":2,"cv":4904.011707236449,"m":0,"se":0,"abs":4854.947138682748},{"stay":-1,"col":0,"cv":4892.0360549484,"m":94.68497666666109,"se":115.89358103901145,"abs":4949.632115349409}]}
+{"g":22,"step":29,"rem":23,"single":true,"nCls":19}
+{"g":22,"step":30,"rem":22,"single":true,"nCls":17}
+{"g":22,"step":31,"rem":21,"single":true,"nCls":14}
+{"g":22,"step":32,"rem":20,"single":true,"nCls":4}
+{"g":22,"step":33,"rem":19,"single":true,"nCls":4}
+{"g":22,"step":34,"rem":18,"single":true,"nCls":4}
+{"g":22,"step":35,"rem":17,"single":true,"nCls":4}
+{"g":22,"step":36,"rem":16,"single":true,"nCls":4}
+{"g":22,"step":37,"rem":15,"single":true,"nCls":3}
+{"g":22,"step":38,"rem":14,"single":true,"nCls":4}
+{"g":22,"step":39,"rem":13,"single":true,"nCls":3}
+{"g":22,"step":40,"rem":12,"single":true,"nCls":2}
+{"g":27,"step":0,"rem":52,"single":true,"nCls":1}
+{"g":27,"step":1,"rem":51,"notSampled":true,"nCand":2}
+{"g":27,"step":2,"rem":50,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":8720.020878814323,"best":0,"naive":0,"naiveSe":0,"ss":-101.47031342592179,"ssSe":69.28549593465345,"ms":15712,"champ":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":1,"maxN":1,"n4":0,"n3":0,"cols":"1c/h10 1c/s11 - -","nBustCols":0,"nScoreCols":1,"tens":0.3,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":2,"cv":8496.244842417087,"m":0,"se":0,"abs":8720.020878814323},{"stay":-1,"col":1,"cv":8492.014247872881,"m":-62.36941280806487,"se":87.99322494702416,"abs":8657.65146600626},{"stay":-1,"col":0,"cv":8454.702979626127,"m":-153.99491087154104,"se":168.21826229154027,"abs":8566.025967942787}]}
+{"g":27,"step":3,"rem":49,"notSampled":true,"nCand":3}
+{"g":27,"step":4,"rem":48,"single":true,"nCls":7}
+{"g":27,"step":5,"rem":47,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":8214.588451483387,"best":1,"naive":4.841329910578604,"naiveSe":147.59762422607932,"ss":-67.45271710535826,"ssSe":71.29828885943796,"ms":8985,"champ":{"kind":"build","stay":false,"n":2,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":7,"soft":7,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":1,"maxN":1,"n4":0,"n3":0,"cols":"- 1c/s11 1c/h10 1c/h10","nBustCols":0,"nScoreCols":0,"tens":0.2765957446808511,"busts":0,"stays":2,"prev":1,"v":7},"cands":[{"stay":-1,"col":2,"cv":8085.425018428006,"m":0,"se":0,"abs":8214.588451483387},{"stay":-1,"col":0,"cv":8071.289408059924,"m":4.841329910578604,"se":147.59762422607932,"abs":8219.429781393967}]}
+{"g":27,"step":6,"rem":46,"notSampled":true,"nCand":2}
+{"g":27,"step":7,"rem":45,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":8080.993561109982,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":12022,"champ":{"kind":"c21","stay":false,"n":0,"hard":0,"soft":0,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":400},"alt":{"kind":"c21","stay":false,"n":0,"hard":0,"soft":0,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":400},"pf":{"nEmpty":1,"nSoft":1,"maxN":2,"n4":0,"n3":0,"cols":"- 1c/s11 2c/h17 2c/h13","nBustCols":2,"nScoreCols":1,"tens":0.28888888888888886,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":1,"cv":8089.720788697538,"m":0,"se":0,"abs":8080.993561109982},{"stay":-1,"col":0,"cv":8043.3279189534405,"m":-165.26930713877482,"se":131.04308143418461,"abs":7915.724253971206}]}
+{"g":27,"step":8,"rem":44,"single":true,"nCls":7}
+{"g":27,"step":9,"rem":43,"notSampled":true,"nCand":2}
+{"g":27,"step":10,"rem":42,"single":true,"nCls":7}
+{"g":27,"step":11,"rem":41,"single":true,"nCls":2}
+{"g":27,"step":12,"rem":40,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":7314.078752223774,"best":1,"naive":3.013445143031087,"naiveSe":110.3315184147738,"ss":-20.53427138158251,"ssSe":79.74761619526453,"ms":12121,"champ":{"kind":"build","stay":false,"n":2,"hard":16,"soft":16,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":12,"soft":12,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"1c/h6 1c/h2 2c/h17 2c/h13","nBustCols":2,"nScoreCols":0,"tens":0.275,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":0,"cv":7191.401265190337,"m":0,"se":0,"abs":7314.078752223774},{"stay":-1,"col":1,"cv":7157.746988637531,"m":3.013445143031087,"se":110.3315184147738,"abs":7317.0921973668055}]}
+{"g":27,"step":13,"rem":39,"single":true,"nCls":19}
+{"g":27,"step":14,"rem":38,"notSampled":true,"nCand":2}
+{"g":27,"step":15,"rem":37,"single":true,"nCls":10}
+{"g":27,"step":16,"rem":36,"notSampled":true,"nCand":3}
+{"g":27,"step":17,"rem":35,"notSampled":true,"nCand":2}
+{"g":27,"step":18,"rem":34,"single":true,"nCls":17}
+{"g":27,"step":19,"rem":33,"single":true,"nCls":14}
+{"g":27,"step":20,"rem":32,"single":true,"nCls":20}
+{"g":27,"step":21,"rem":31,"notSampled":true,"nCand":2}
+{"g":27,"step":22,"rem":30,"notSampled":true,"nCand":2}
+{"g":27,"step":23,"rem":29,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":5264.226916035394,"best":1,"naive":379.75343568334506,"naiveSe":185.0286710706618,"ss":379.75343568334506,"ssSe":185.48401552610747,"ms":5844,"champ":{"kind":"build","stay":true,"n":1,"hard":9,"soft":9,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":{"hard":19,"ace":0,"n":2,"soft":19,"all7":false},"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":16,"soft":16,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h16 2c/h19 2c/h17 1c/h7","nBustCols":3,"nScoreCols":0,"tens":0.20689655172413793,"busts":0,"stays":1,"prev":0,"v":9},"cands":[{"stay":1,"col":1,"cv":5172.99563770391,"m":0,"se":0,"abs":5264.226916035394},{"stay":-1,"col":3,"cv":5117.024786898641,"m":379.75343568334506,"se":185.0286710706618,"abs":5643.98035171874},{"stay":1,"col":3,"cv":5110.857070162195,"m":242.46234075404982,"se":198.1446201913705,"abs":5506.689256789444}]}
+{"g":27,"step":24,"rem":28,"single":true,"nCls":4}
+{"g":27,"step":25,"rem":27,"single":true,"nCls":4}
+{"g":27,"step":26,"rem":26,"single":true,"nCls":4}
+{"g":27,"step":27,"rem":25,"single":true,"nCls":2}
+{"g":27,"step":28,"rem":24,"single":true,"nCls":4}
+{"g":27,"step":29,"rem":23,"single":true,"nCls":3}
+{"g":27,"step":30,"rem":22,"single":true,"nCls":4}
+{"g":27,"step":31,"rem":21,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":4136.634707073306,"best":1,"naive":27.99114991230947,"naiveSe":88.88868570080442,"ss":-55.163068081336014,"ssSe":51.81422369419476,"ms":3302,"champ":{"kind":"build","stay":false,"n":2,"hard":15,"soft":15,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":5,"soft":5,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":0,"maxN":3,"n4":0,"n3":1,"cols":"1c/h10 3c/h13 - -","nBustCols":0,"nScoreCols":0,"tens":0.23809523809523808,"busts":0,"stays":0,"prev":1,"v":5},"cands":[{"stay":-1,"col":0,"cv":4030.80259249388,"m":0,"se":0,"abs":4136.634707073306},{"stay":-1,"col":2,"cv":4015.5845343735004,"m":27.99114991230947,"se":88.88868570080442,"abs":4164.625856985617}]}
+{"g":27,"step":32,"rem":20,"notSampled":true,"nCand":2}
+{"g":27,"step":33,"rem":19,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":4000.2475009211776,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":3950,"champ":{"kind":"build","stay":false,"n":4,"hard":17,"soft":17,"ace":1,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":4,"hard":17,"soft":17,"ace":1,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":3,"n4":0,"n3":1,"cols":"2c/h15 3c/h13 1c/h5 -","nBustCols":0,"nScoreCols":0,"tens":0.2631578947368421,"busts":0,"stays":0,"prev":0,"v":4},"cands":[{"stay":-1,"col":1,"cv":3993.7846798589453,"m":0,"se":0,"abs":4000.2475009211776},{"stay":-1,"col":3,"cv":3975.09754031412,"m":-52.46270124010305,"se":108.48102679689303,"abs":3947.7847996810756}]}
+{"g":27,"step":34,"rem":18,"single":true,"nCls":2}
+{"g":27,"step":35,"rem":17,"single":true,"nCls":4}
+{"g":27,"step":36,"rem":16,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":3634.2437534237038,"best":0,"naive":0,"naiveSe":0,"ss":-30.249558259759628,"ssSe":41.55663260604859,"ms":2166,"champ":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h15 - 1c/h5 1c/h10","nBustCols":0,"nScoreCols":0,"tens":0.25,"busts":0,"stays":0,"prev":1,"v":3},"cands":[{"stay":-1,"col":3,"cv":3192.9706177265634,"m":0,"se":0,"abs":3634.2437534237038},{"stay":-1,"col":1,"cv":3123.437411288748,"m":-16.833963593730243,"se":50.37736476225109,"abs":3617.4097898299733}]}
+{"g":27,"step":37,"rem":15,"notSampled":true,"nCand":2}
+{"g":27,"step":38,"rem":14,"single":true,"nCls":3}
+{"g":27,"step":39,"rem":13,"single":true,"nCls":4}
+{"g":27,"step":40,"rem":12,"notSampled":true,"nCand":3}
+{"g":32,"step":0,"rem":52,"single":true,"nCls":1}
+{"g":32,"step":1,"rem":51,"notSampled":true,"nCand":2}
+{"g":32,"step":2,"rem":50,"w":2.857142857142857,"n":32,"nCand":2,"nCls":2,"champIdx":0,"champMean":9056.350486740801,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":6626,"champ":{"kind":"build","stay":false,"n":2,"hard":20,"soft":20,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":20,"soft":20,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h10 1c/h10 - -","nBustCols":0,"nScoreCols":0,"tens":0.28,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":0,"cv":8387.655403869157,"m":0,"se":0,"abs":9056.350486740801},{"stay":-1,"col":2,"cv":8376.314973220744,"m":-525.4754826961056,"se":191.9803224866455,"abs":8530.875004044696}]}
+{"g":32,"step":3,"rem":49,"single":true,"nCls":3}
+{"g":32,"step":4,"rem":48,"notSampled":true,"nCand":2}
+{"g":32,"step":5,"rem":47,"w":2.857142857142857,"n":48,"nCand":2,"nCls":3,"champIdx":0,"champMean":7988.298564032051,"best":1,"naive":198.1594673121733,"naiveSe":155.46142192006187,"ss":-24.572586824433454,"ssSe":70.30069832215241,"ms":10372,"champ":{"kind":"build","stay":false,"n":1,"hard":2,"soft":2,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":12,"soft":12,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h7 1c/h10 - -","nBustCols":0,"nScoreCols":0,"tens":0.2765957446808511,"busts":0,"stays":2,"prev":0,"v":2},"cands":[{"stay":-1,"col":2,"cv":8153.933958471611,"m":0,"se":0,"abs":7988.298564032051},{"stay":-1,"col":1,"cv":8143.805691423669,"m":198.1594673121733,"se":155.46142192006187,"abs":8186.458031344224}]}
+{"g":32,"step":6,"rem":46,"notSampled":true,"nCand":2}
+{"g":32,"step":7,"rem":45,"notSampled":true,"nCand":2}
+{"g":32,"step":8,"rem":44,"single":true,"nCls":2}
+{"g":32,"step":9,"rem":43,"single":true,"nCls":2}
+{"g":32,"step":10,"rem":42,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":8280.56248089627,"best":0,"naive":0,"naiveSe":0,"ss":-198.35539863292502,"ssSe":129.47216522870463,"ms":13946,"champ":{"kind":"build","stay":false,"n":2,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":1,"maxN":3,"n4":0,"n3":1,"cols":"1c/h7 2c/h15 3c/h7 1c/s11","nBustCols":1,"nScoreCols":1,"tens":0.30952380952380953,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":0,"cv":8098.393099796159,"m":0,"se":0,"abs":8280.56248089627},{"stay":-1,"col":3,"cv":8077.418124964628,"m":-164.44265440141103,"se":132.2186961060297,"abs":8116.119826494857},{"stay":-1,"col":2,"cv":8031.977580168276,"m":-158.702130702343,"se":184.36593133067896,"abs":8121.860350193926}]}
+{"g":32,"step":11,"rem":41,"single":true,"nCls":19}
+{"g":32,"step":12,"rem":40,"notSampled":true,"nCand":2}
+{"g":32,"step":13,"rem":39,"single":true,"nCls":10}
+{"g":32,"step":14,"rem":38,"single":true,"nCls":20}
+{"g":32,"step":15,"rem":37,"single":true,"nCls":17}
+{"g":32,"step":16,"rem":36,"single":true,"nCls":12}
+{"g":32,"step":17,"rem":35,"single":true,"nCls":7}
+{"g":32,"step":18,"rem":34,"single":true,"nCls":13}
+{"g":32,"step":19,"rem":33,"notSampled":true,"nCand":2}
+{"g":32,"step":20,"rem":32,"notSampled":true,"nCand":2}
+{"g":32,"step":21,"rem":31,"single":true,"nCls":7}
+{"g":32,"step":22,"rem":30,"notSampled":true,"nCand":2}
+{"g":32,"step":23,"rem":29,"single":true,"nCls":3}
+{"g":32,"step":24,"rem":28,"single":true,"nCls":1}
+{"g":32,"step":25,"rem":27,"notSampled":true,"nCand":2}
+{"g":32,"step":26,"rem":26,"single":true,"nCls":3}
+{"g":32,"step":27,"rem":25,"notSampled":true,"nCand":2}
+{"g":32,"step":28,"rem":24,"notSampled":true,"nCand":2}
+{"g":32,"step":29,"rem":23,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":4896.601361692487,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":12116,"champ":{"kind":"build","stay":false,"n":2,"hard":19,"soft":19,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":19,"soft":19,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h15 1c/h4 1c/h4 1c/h9","nBustCols":1,"nScoreCols":0,"tens":0.30434782608695654,"busts":0,"stays":2,"prev":0,"v":10},"cands":[{"stay":-1,"col":3,"cv":4849.438585825657,"m":0,"se":0,"abs":4896.601361692487},{"stay":-1,"col":1,"cv":4789.460655636791,"m":-100.48885826443232,"se":84.95305480246451,"abs":4796.112503428056}]}
+{"g":32,"step":30,"rem":22,"notSampled":true,"nCand":3}
+{"g":32,"step":31,"rem":21,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":4654.945903872812,"best":0,"naive":0,"naiveSe":0,"ss":-91.52509298438117,"ssSe":94.86101841350941,"ms":16984,"champ":{"kind":"build","stay":false,"n":2,"hard":9,"soft":9,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":9,"soft":9,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h15 2c/h14 1c/h4 2c/h19","nBustCols":1,"nScoreCols":0,"tens":0.23809523809523808,"busts":0,"stays":2,"prev":0,"v":5},"cands":[{"stay":-1,"col":2,"cv":4521.480443179646,"m":0,"se":0,"abs":4654.945903872812},{"stay":3,"col":3,"cv":4498.726866828554,"m":-28.646768378927607,"se":126.8008998553607,"abs":4626.299135493885},{"stay":1,"col":1,"cv":4498.577135524193,"m":-78.62965968027316,"se":113.90148518179582,"abs":4576.31624419254}]}
+{"g":32,"step":32,"rem":20,"single":true,"nCls":3}
+{"g":32,"step":33,"rem":19,"notSampled":true,"nCand":2}
+{"g":32,"step":34,"rem":18,"single":true,"nCls":20}
+{"g":32,"step":35,"rem":17,"notSampled":true,"nCand":2}
+{"g":32,"step":36,"rem":16,"single":true,"nCls":13}
+{"g":32,"step":37,"rem":15,"notSampled":true,"nCand":2}
+{"g":32,"step":38,"rem":14,"notSampled":true,"nCand":2}
+{"g":32,"step":39,"rem":13,"single":true,"nCls":13}
+{"g":32,"step":40,"rem":12,"notSampled":true,"nCand":2}
+{"g":37,"step":0,"rem":52,"single":true,"nCls":1}
+{"g":37,"step":1,"rem":51,"notSampled":true,"nCand":2}
+{"g":37,"step":2,"rem":50,"notSampled":true,"nCand":3}
+{"g":37,"step":3,"rem":49,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":8598.837221519148,"best":1,"naive":132.46339185546955,"naiveSe":121.96850850592487,"ss":132.46339185546955,"ssSe":122.20871465383554,"ms":15220,"champ":{"kind":"build","stay":false,"n":2,"hard":19,"soft":19,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":1,"hard":9,"soft":9,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":1,"n4":0,"n3":0,"cols":"1c/h9 1c/h10 1c/h10 -","nBustCols":0,"nScoreCols":0,"tens":0.2857142857142857,"busts":0,"stays":2,"prev":0,"v":9},"cands":[{"stay":-1,"col":1,"cv":8296.642590837497,"m":0,"se":0,"abs":8598.837221519148},{"stay":-1,"col":3,"cv":8285.79685188114,"m":132.46339185546955,"se":121.96850850592487,"abs":8731.300613374624},{"stay":-1,"col":0,"cv":8256.403507673793,"m":-326.0815245526808,"se":226.14979896273778,"abs":8272.75569696647}]}
+{"g":37,"step":4,"rem":48,"notSampled":true,"nCand":2}
+{"g":37,"step":5,"rem":47,"w":2.857142857142857,"n":48,"nCand":2,"nCls":3,"champIdx":0,"champMean":8262.890887244857,"best":1,"naive":25.247296523606394,"naiveSe":171.87054110613212,"ss":-24.284158232350745,"ssSe":107.83192423269678,"ms":10400,"champ":{"kind":"build","stay":false,"n":2,"hard":14,"soft":14,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"1c/h9 2c/h19 1c/h10 1c/h3","nBustCols":1,"nScoreCols":0,"tens":0.2978723404255319,"busts":0,"stays":2,"prev":0,"v":4},"cands":[{"stay":-1,"col":2,"cv":8174.4457190103885,"m":0,"se":0,"abs":8262.890887244857},{"stay":-1,"col":0,"cv":8152.513695804086,"m":25.247296523606394,"se":171.87054110613212,"abs":8288.138183768464}]}
+{"g":37,"step":6,"rem":46,"notSampled":true,"nCand":2}
+{"g":37,"step":7,"rem":45,"notSampled":true,"nCand":3}
+{"g":37,"step":8,"rem":44,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":8289.831042084934,"best":1,"naive":20.813840197066252,"naiveSe":134.81699435782352,"ss":-27.37165215980434,"ssSe":101.0946153429461,"ms":6111,"champ":{"kind":"build","stay":false,"n":2,"hard":15,"soft":15,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":13,"soft":13,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h19 1c/h5 2c/h14 1c/h3","nBustCols":2,"nScoreCols":0,"tens":0.29545454545454547,"busts":0,"stays":1,"prev":0,"v":10},"cands":[{"stay":-1,"col":1,"cv":7930.526765597417,"m":0,"se":0,"abs":8289.831042084934},{"stay":-1,"col":3,"cv":7904.571906285986,"m":20.813840197066252,"se":134.81699435782352,"abs":8310.644882281998}]}
+{"g":37,"step":9,"rem":43,"single":true,"nCls":2}
+{"g":37,"step":10,"rem":42,"single":true,"nCls":2}
+{"g":37,"step":11,"rem":41,"single":true,"nCls":20}
+{"g":37,"step":12,"rem":40,"single":true,"nCls":12}
+{"g":37,"step":13,"rem":39,"single":true,"nCls":6}
+{"g":37,"step":14,"rem":38,"notSampled":true,"nCand":2}
+{"g":37,"step":15,"rem":37,"single":true,"nCls":2}
+{"g":37,"step":16,"rem":36,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":6770.068619047302,"best":1,"naive":38.41868598161551,"naiveSe":170.2567642309755,"ss":-49.54133061135885,"ssSe":156.22372591904474,"ms":4729,"champ":{"kind":"build","stay":true,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":{"hard":17,"ace":0,"n":2,"soft":17,"all7":false},"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":0,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h19 2c/h15 2c/h17 1c/h7","nBustCols":3,"nScoreCols":0,"tens":0.3055555555555556,"busts":0,"stays":1,"prev":0,"v":10},"cands":[{"stay":2,"col":2,"cv":6663.5824617794815,"m":0,"se":0,"abs":6770.068619047302},{"stay":-1,"col":3,"cv":6655.105119595186,"m":38.41868598161551,"se":170.2567642309755,"abs":6808.48730502892},{"stay":2,"col":3,"cv":6649.856297584101,"m":-44.924160439028334,"se":160.05452122603572,"abs":6725.144458608273}]}
+{"g":37,"step":17,"rem":35,"notSampled":true,"nCand":2}
+{"g":37,"step":18,"rem":34,"notSampled":true,"nCand":2}
+{"g":37,"step":19,"rem":33,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":5889.7157658952565,"best":1,"naive":311.6542585824216,"naiveSe":208.6522004150629,"ss":-95.19769592641525,"ssSe":54.77465649687515,"ms":2886,"champ":{"kind":"build","stay":false,"n":1,"hard":10,"soft":10,"ace":0,"intoEmpty":true,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":17,"soft":17,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"- 2c/h15 2c/h19 1c/h7","nBustCols":2,"nScoreCols":0,"tens":0.30303030303030304,"busts":1,"stays":0,"prev":0,"v":10},"cands":[{"stay":-1,"col":0,"cv":5705.602105833707,"m":0,"se":0,"abs":5889.7157658952565},{"stay":-1,"col":3,"cv":5702.760483695115,"m":311.6542585824216,"se":208.6522004150629,"abs":6201.370024477678}]}
+{"g":37,"step":20,"rem":32,"notSampled":true,"nCand":2}
+{"g":37,"step":21,"rem":31,"single":true,"nCls":4}
+{"g":37,"step":22,"rem":30,"notSampled":true,"nCand":2}
+{"g":37,"step":23,"rem":29,"single":true,"nCls":4}
+{"g":37,"step":24,"rem":28,"single":true,"nCls":3}
+{"g":37,"step":25,"rem":27,"single":true,"nCls":2}
+{"g":37,"step":26,"rem":26,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":5153.541567247445,"best":0,"naive":0,"naiveSe":0,"ss":0,"ssSe":0,"ms":4143,"champ":{"kind":"build","stay":false,"n":2,"hard":4,"soft":4,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":2,"hard":4,"soft":4,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":2,"nSoft":0,"maxN":2,"n4":0,"n3":0,"cols":"2c/h20 1c/h2 - -","nBustCols":1,"nScoreCols":0,"tens":0.2692307692307692,"busts":1,"stays":0,"prev":0,"v":2},"cands":[{"stay":-1,"col":1,"cv":4982.586896232612,"m":0,"se":0,"abs":5153.541567247445},{"stay":-1,"col":2,"cv":4933.989817135656,"m":-83.79706509047082,"se":75.96583984935714,"abs":5069.744502156973}]}
+{"g":37,"step":27,"rem":25,"notSampled":true,"nCand":2}
+{"g":37,"step":28,"rem":24,"notSampled":true,"nCand":2}
+{"g":37,"step":29,"rem":23,"single":true,"nCls":3}
+{"g":37,"step":30,"rem":22,"notSampled":true,"nCand":2}
+{"g":37,"step":31,"rem":21,"notSampled":true,"nCand":3}
+{"g":37,"step":32,"rem":20,"single":true,"nCls":2}
+{"g":37,"step":33,"rem":19,"notSampled":true,"nCand":2}
+{"g":37,"step":34,"rem":18,"w":2.857142857142857,"n":48,"nCand":2,"nCls":2,"champIdx":0,"champMean":4197.921989901797,"best":0,"naive":0,"naiveSe":0,"ss":-142.21819427833353,"ssSe":60.25586475660208,"ms":4456,"champ":{"kind":"build","stay":false,"n":4,"hard":14,"soft":14,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"alt":{"kind":"build","stay":false,"n":4,"hard":14,"soft":14,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":0},"pf":{"nEmpty":1,"nSoft":1,"maxN":3,"n4":0,"n3":1,"cols":"2c/h18 3c/h8 1c/s11 -","nBustCols":1,"nScoreCols":0,"tens":0.2777777777777778,"busts":1,"stays":0,"prev":0,"v":6},"cands":[{"stay":-1,"col":1,"cv":4178.864544468747,"m":0,"se":0,"abs":4197.921989901797},{"stay":-1,"col":3,"cv":4158.816986128731,"m":-87.05943911589644,"se":87.84399372684187,"abs":4110.8625507859015}]}
+{"g":37,"step":35,"rem":17,"notSampled":true,"nCand":2}
+{"g":37,"step":36,"rem":16,"single":true,"nCls":4}
+{"g":37,"step":37,"rem":15,"w":2.857142857142857,"n":48,"nCand":3,"nCls":3,"champIdx":0,"champMean":3688.7024637155737,"best":0,"naive":0,"naiveSe":0,"ss":-39.919213442606925,"ssSe":53.638978172788384,"ms":4785,"champ":{"kind":"c5","stay":false,"n":0,"hard":0,"soft":0,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":1050},"alt":{"kind":"c5","stay":false,"n":0,"hard":0,"soft":0,"ace":0,"intoEmpty":false,"stayWasteful":false,"stayCol":null,"pts":1050},"pf":{"nEmpty":1,"nSoft":0,"maxN":4,"n4":1,"n3":0,"cols":"2c/h18 4c/h14 - 1c/h10","nBustCols":0,"nScoreCols":1,"tens":0.2,"busts":1,"stays":0,"prev":1,"v":2},"cands":[{"stay":-1,"col":1,"cv":3675.7087406081655,"m":0,"se":0,"abs":3688.7024637155737},{"stay":-1,"col":2,"cv":3628.9452466783696,"m":-31.103798926602025,"se":62.81506775282843,"abs":3657.5986647889736},{"stay":-1,"col":3,"cv":3606.4503499237026,"m":-13.220874156743767,"se":72.74954495740647,"abs":3675.481589558831}]}
+{"g":37,"step":38,"rem":14,"notSampled":true,"nCand":2}
+{"g":37,"step":39,"rem":13,"notSampled":true,"nCand":3}
+{"g":37,"step":40,"rem":12,"single":true,"nCls":3}
+{"g":42,"step":0,"rem":52,"single":true,"nCls":1}

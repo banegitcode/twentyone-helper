@@ -1,0 +1,5 @@
+== hazard calibration deeper16: 150 games, non-exact decisions with >=13 cards left
+  has empty col or Stay left               n=  5207 mean hazard 0.000  excess dev     6.4 +-  78.8
+  no empty, no Stay: hazard (5,15%]        n=     3 mean hazard 0.127  excess dev    36.3 +- 352.2
+  no empty, no Stay: hazard 0              n=   423 mean hazard 0.000  excess dev   -91.0 +- 141.8
+  no empty, no Stay: hazard >15%           n=    69 mean hazard 0.338  excess dev    72.9 +- 177.9

@@ -1,0 +1,21 @@
+== bust anatomy deeper16 (150 games)
+  bust_forced_all_moves_bust: 30 (0.200/game)
+  bust_while_streak_live: 2 (0.013/game)
+  bust_with_nonbust_option: 38 (0.253/game)
+  bust_with_stay_left: 1 (0.007/game)
+  busts: 68 (0.453/game)
+  noempty_after_16-1_stays0: 597 (3.980/game)
+  noempty_after_16-1_stays>0: 277 (1.847/game)
+  noempty_after_32-17_stays0: 375 (2.500/game)
+  noempty_after_32-17_stays>0: 739 (4.927/game)
+  noempty_after_52-33_stays0: 61 (0.407/game)
+  noempty_after_52-33_stays>0: 1132 (7.547/game)
+  busts by (phase, stays): {('32-17', 'stays=0'): 28, ('16-1', 'stays=0'): 37, ('32-17', 'stays>0'): 1, ('52-33', 'stays=0'): 2}
+  champion own value gap (bust choice minus best non-bust option), n=38 mean 175.1 median 111.7 (positive = champion valued the bust higher)
+  exposure of chosen afterstate with NO empty column: (phase, stays_left>0) -> decisions, share with P(next card busts every column)>0, mean P:
+    ('16-1', False): n=597 share_pos=0.062 meanP=0.0171
+    ('16-1', True): n=277 share_pos=0.051 meanP=0.0152
+    ('32-17', False): n=375 share_pos=0.144 meanP=0.0483
+    ('32-17', True): n=739 share_pos=0.103 meanP=0.0369
+    ('52-33', False): n=61 share_pos=0.197 meanP=0.0636
+    ('52-33', True): n=1132 share_pos=0.055 meanP=0.0203

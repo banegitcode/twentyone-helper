@@ -1,0 +1,14 @@
+per-step martingale residual: (score_{t+1}+V*(s_{t+1})) - (score_t + Q*(s_t,a_t)); expected 0 if exact2 matches the engine
+rem  1 n  989 mean    0.00 +-  0.00
+rem  2 n  991 mean    0.00 +-  0.00
+rem  3 n  992 mean   -3.10 +-  3.41
+rem  4 n  993 mean    2.58 +-  3.86
+rem  5 n  994 mean   -5.95 +-  4.60
+rem  6 n  995 mean   -6.88 +-  6.48
+rem  7 n  995 mean   -3.78 +-  5.72
+rem  8 n  996 mean    5.58 +-  4.57
+rem  9 n  996 mean   -2.14 +-  5.49
+rem 10 n  996 mean   -5.88 +-  4.14
+rem 11 n  997 mean   -1.11 +-  4.95
+rem 12 n  992 mean   -6.49 +-  5.04
+rem 13 n  976 mean   -1.49 +-  4.66

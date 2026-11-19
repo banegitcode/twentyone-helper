@@ -1,0 +1,43 @@
+{
+  "set": "set1000",
+  "set_sha256": "b7cf79437960cc597286a00c9cea411aaed8f2e9d2eb4dbf5582d1958b5a93ae",
+  "n": 6,
+  "a": "cmd:node champion/champion_adapter.js --config shipped52",
+  "b": "cmd:node /workspace/21sol/hybrid_adapter.js 13 -- /workspace/21sol/rollcmdnn /workspace/21sol/m1.bin roll 150 3 1 0 1 8",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 6,
+    "mean": 9141.666666666666,
+    "se": 352.2349279166456,
+    "sd": 862.7958429817953,
+    "busts_per_game": 0.5,
+    "bust_game_rate": 0.5,
+    "three_bust_rate": 0.0,
+    "perfect_rate": 0.5,
+    "games_per_sec_wall": 0.3855330255788229,
+    "games_per_sec_per_core": 0.38669722137986845,
+    "wall_s": 15.56286907196045,
+    "cpu_s": 15.51601529121399
+  },
+  "B": {
+    "n": 6,
+    "mean": 8675.0,
+    "se": 551.0217781540038,
+    "sd": 1349.7221936383798,
+    "busts_per_game": 0.8333333333333334,
+    "bust_game_rate": 0.6666666666666666,
+    "three_bust_rate": 0.0,
+    "perfect_rate": 0.3333333333333333,
+    "games_per_sec_wall": 0.1664173717092034,
+    "games_per_sec_per_core": 0.1666479827053069,
+    "wall_s": 36.05392837524414,
+    "cpu_s": 36.00403618812561
+  },
+  "paired_diff_B_minus_A": -466.6666666666667,
+  "paired_se": 416.86661868969287,
+  "z": -1.1194627867626024,
+  "sd_diff": 1021.1105065891089,
+  "verdict": "REJECTED (n < 1000)",
+  "timestamp": "20261118_121024"
+}

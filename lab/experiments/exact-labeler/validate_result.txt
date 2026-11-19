@@ -1,0 +1,2 @@
+running brute_raw (this is slow) -> /tmp/brute_raw_out.txt
+{"positions":50,"compared":50,"bruteAnswers":50,"mismatches":0,"maxAbsDiff":0.00011578124986044713,"tol":0.01,"positionsByCardsLeft":{"1":5,"2":2,"3":7,"4":7,"5":4,"6":6,"7":7,"8":6,"9":6},"withBust":32,"withStay":50,"withStreak":15}

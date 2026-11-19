@@ -1,0 +1,21 @@
+games 3200
+Stay usage by cards-left bucket (events/game): {'52-41': 0.181, '40-31': 0.483, '30-21': 0.437, '20-13': 0.31, '12-7': 0.305, '6-1': 0.089}
+stays used per game: 1.804375 ; games using 0/1/2 stays: Counter({2: 2668, 1: 438, 0: 94})
+
+Context: (#columns where this card busts [of 4 plain placements], any plain placement scores?) -> P(stay used | stay available)
+  bust-cols=0 noscore  n= 41875 P(use stay)=0.016
+  bust-cols=0 score    n= 18804 P(use stay)=0.018
+  bust-cols=1 noscore  n= 18426 P(use stay)=0.043
+  bust-cols=1 score    n= 11064 P(use stay)=0.019
+  bust-cols=2 noscore  n= 11982 P(use stay)=0.093
+  bust-cols=2 score    n=  5196 P(use stay)=0.024
+  bust-cols=3 noscore  n=  5368 P(use stay)=0.232
+  bust-cols=3 score    n=  1017 P(use stay)=0.031
+  bust-cols=4 noscore  n=  1273 P(use stay)=1.000
+
+rem (cards left, incl. current) when a Stay was used: mean 25.5 median 26.0; quartiles [15.0, 26.0, 36.0]
+fraction of stay uses when ALL 4 plain placements bust: 0.22047107724281262
+fraction when >=3 plain placements bust: 0.4412885348112227
+fraction when a plain placement scores: 0.12140630412192588
+unused stays at end among games finishing 52 cards: {0: 0.832, 1: 0.139, 2: 0.03}
+first stay at rem mean 29.9; second at rem mean 20.3

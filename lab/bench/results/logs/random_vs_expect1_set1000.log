@@ -1,0 +1,9 @@
+set set1000 (sha256 b7cf79437960..) n=1000  workers=4
+A = native:random
+    mean     397.9 +-  15.4 (SE)  sd    486 | busts/game 3.000  games>=1 bust 100.0%  3-bust 100.0%  perfect  0.00% | 13,365 games/s wall, 1,219,512 games/s/core
+B = native:expect1
+    mean    6461.8 +-  51.4 (SE)  sd   1624 | busts/game 1.286  games>=1 bust  77.3%  3-bust  12.6%  perfect 22.70% | 1,753 games/s wall, 542 games/s/core
+paired diff (B-A) = +6063.9 +- 53.0 (SE = sd_diff 1676 / sqrt(1000))   z = +114.44
+VERDICT: ACCEPTED   (rule: n>=1000 and diff > 2 SE)
+NOTE: ACCEPTED also requires a clean future-order audit (python3 audit.py ...) before the champion changes.
+saved /workspace/21lab/bench/results/20261118_111309_random_vs_expect1.csv/.json

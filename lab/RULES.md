@@ -1,0 +1,14 @@
+# Rules (section 1 of Landon's brief)
+- 52-card deck, no jokers, dealt one at a time. Only the current card is visible; the remaining multiset is known, order hidden.
+- 4 columns, max 5 cards each. Every card must be placed.
+- Values: 2-10 face, J/Q/K = 10, Ace = 11 unless that busts, else 1.
+- Placement results: total exactly 21 => +400, cleared. Exactly three 7s => +600 instead, cleared. 5 cards without bust => +800, cleared. 5 cards totalling exactly 21 => +1000 instead, cleared. Over 21 => 0, cleared, counts a bust. Else card stays. Bust on 5th card is a bust.
+- 3rd bust ends game immediately.
+- 2 Stays per game: empty a column, no points/no penalty; usable right before placing the current card (even into that column).
+- Streak bonus on a scoring card when previous card also scored: 2nd +250, 3rd +500, 4th +1000, 5th +2000, 6th+ +2000 (assumed). Non-scoring card (incl. bust) ends streak; Stay doesn't (assumed).
+- Perfect Bonus +1000 for zero busts at game end.
+- Game ends at 52 cards or 3rd bust. ~2.5 s thinking per card (3-minute clock).
+- Assumptions not confirmed: streak beyond 5; Stay not breaking streak; three 7s = 600 instead of on top; Perfect Bonus paid if clock ends game.
+- Clock (Landon, 2026-11-18, via 21 Search): the 3-minute clock is POOLED across the game, so thinking time can be shifted between cards (e.g. one big solve early in the endgame).
+- Stays per card: bench and engine.js allow at most one Stay before each card. Treat that as the rule unless Landon says otherwise; any bound that allows two in one turn must say so.
+- Verified 2026-11-18 from Landon's Triumph end screen: final total = Score + Perfect Bonus only; no time bonus. Streak values still unverified. See ideas/triumph-app-findings.md.

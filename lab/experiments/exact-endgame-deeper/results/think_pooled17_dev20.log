@@ -1,0 +1,132 @@
+=== START 2026-11-18 15:25:37 PST ===
+purpose: timing only for pooled:17:26 on first 20 games of dev200; NOT a score claim
+harness: bench/run_one.py (candidate only; equivalent to compare.py --limit 20 without playing shipped52)
+engine: cmd:node ../experiments/exact-endgame-deeper/adapter.js --config pooled:17:26
+timelog: /workspace/21lab/experiments/exact-endgame-deeper/results/think_pooled17_dev20.jsonl
+workers: 1
+nice: 19
+set: dev200 --limit 20
+cwd: /workspace/21lab/bench
+
+=== box at start ===
+nproc=8
+ 15:25:37 up  9:01,  0 users,  load average: 6.58, 7.33, 6.53
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       7.6Gi       4.9Gi       134Mi       3.6Gi       8.0Gi
+Swap:             0B          0B          0B
+
+=== top processes at start (pid ni %cpu %mem rss[KB] cmd) ===
+    PID  NI %CPU %MEM   RSS CMD
+ 422261   0  100  0.0  5120 ps -eo pid,ni,pcpu,pmem,rss,cmd --sort=-pcpu
+ 413825  10 90.5  2.9 478288 /usr/local/lib/nodejs/node -r /workspace/21lab/bench/cpu_timelog_hook.js /workspace/21lab/bench/frozen/exact-endgame-deeper@90c2d73f938b/experiments/exact-endgame-deeper/adapter.js --config deeper:16
+ 413814  10 90.2  2.6 427736 /usr/local/lib/nodejs/node -r /workspace/21lab/bench/cpu_timelog_hook.js /workspace/21lab/bench/frozen/exact-endgame-deeper@90c2d73f938b/experiments/exact-endgame-deeper/adapter.js --config deeper:16
+ 409155   0 90.2  5.1 847528 /usr/local/lib/nodejs/node /workspace/21lab/experiments/exact-labeler/label.js --mem-mb 800 --max-positions 60000000
+ 413813  10 89.8  2.8 471704 /usr/local/lib/nodejs/node -r /workspace/21lab/bench/cpu_timelog_hook.js /workspace/21lab/bench/frozen/exact-endgame-deeper@90c2d73f938b/experiments/exact-endgame-deeper/adapter.js --config deeper:16
+ 409156   0 86.8  5.1 848900 /usr/local/lib/nodejs/node /workspace/21lab/experiments/exact-labeler/label.js --mem-mb 800 --max-positions 60000000
+ 420370  19 49.7  1.7 281788 /usr/local/lib/nodejs/node adapter.js --v2a champ
+ 420364  19 49.5  1.7 284052 /usr/local/lib/nodejs/node /workspace/21lab/bench/frozen/exact-endgame-deeper@90c2d73f938b/experiments/exact-endgame-deeper/adapter.js --config deeper:16
+ 126522   0 13.2  3.6 605652 /exec-daemon/node --disable-warning=ExperimentalWarning /opt/sand/sand-host/host-main.cjs
+ 409139   0 13.0  1.7 285632 /usr/local/lib/nodejs/node gen_label.js --games 476 --start-game 24 --seed-base 3400000000 --out data/run1 --bust-eps 0.02 --bust-seek 0.03
+ 409141   0  9.7  1.8 298780 /usr/local/lib/nodejs/node gen_label.js --games 484 --start-game 16 --seed-base 3450000000 --out data/run2 --bust-eps 0.02 --bust-seek 0.03
+ 128884   0  4.0  0.6 104184 /exec-daemon/node /usr/local/bin/sand-web-bot-auth.mjs
+      7   0  1.4  0.0  9048 /pod-daemon --ssh-auth-sock-path /run/host-services/ssh-auth.sock --ssh-auth-vsock-port 52 --pod-identity-sock-path /run/cursor/api.sock
+ 128883   0  1.2  0.6 105096 /exec-daemon/node /usr/local/bin/sand-ua-governor.mjs
+ 400891  10  1.2  1.8 303848 /opt/google/chrome/chrome --no-sandbox --disable-dev-shm-usage --password-store=basic --no-first-run --no-default-browser-check --hide-crash-restore-bubble --class=box-chrome --user-data-dir=/home/box/chrome-profile/Fork-2 --enable-unsafe-swiftshader --remote-debugging-port=9224 --remote-debugging-address=127.0.0.1 --disable-blink-features=AutomationControlled --proxy-server=http://127.0.0.1:8791 --proxy-bypass-list=<-loopback>;localhost;127.0.0.1;[::1] --host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE localhost , EXCLUDE 127.0.0.1 , EXCLUDE ::1 --disable-quic --accept-lang=en-US,en-GB,en --sand-box-chrome-launcher=5 --sand-exit-geo=America/Los_Angeles,ipwho_is,exit_geo --disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints,EnforcePrivacySandboxAttestations,Translate,MediaRouter,DialMediaRouteProvider,CalculateNativeWinOcclusion,InterestFeedContentSuggestions,CertificateTransparencyComponentUpdater,AutofillServerCommunication,PrivacySandboxSettings4,AutomationControlled,HttpsUpgrades,TLSTrustAnchorIDs --webrtc-ip-handling-policy=disable_non_proxied_udp --no-startup-window
+ 401316  10  0.6  1.6 265332 /opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=0 --enable-crash-reporter=, --user-data-dir=/home/box/chrome-profile/Fork-2 --change-stack-guard-on-fork=enable --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9224 --ozone-platform=x11 --disable-gpu-compositing --disable-blink-features=AutomationControlled --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11 --launch-time-ticks=30623480441 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14588704808073675790,11710851709533814452,1572864 --field-trial-handle=3,i,13824929149814315447,6205635306076919563,262144 --disable-features=AutofillServerCommunication,AutomationControlled,CalculateNativeWinOcclusion,CertificateTransparencyComponentUpdater,DialMediaRouteProvider,EnforcePrivacySandboxAttestations,HttpsUpgrades,InterestFeedContentSuggestions,MediaRouter,OptimizationGuideModelDownloading,OptimizationHints,OptimizationHintsFetching,OptimizationTargetPrediction,PrivacySandboxSettings4,TLSTrustAnchorIDs,Translate --variations-seed-version=20261118-090034.726000-production --pseudonymization-salt-handle=7,i,8848773519621487993,13127983278743365254,4 --trace-process-track-uuid=3190708996619331833
+    349   0  0.4  0.5 97236 /exec-daemon/node /usr/local/bin/sand-session-sync.mjs
+    432   0  0.3  0.4 72696 /exec-daemon/node /usr/local/bin/sand-cookie-persist.mjs
+   3352   0  0.3  0.1 22168 /usr/bin/python3 /usr/local/bin/sand-memory-watch --telemetry-log /tmp/sand-box-telemetry.log
+
+=== command ===
+nice -n 19 python3 -u run_one.py --engine "cmd:node ../experiments/exact-endgame-deeper/adapter.js --config pooled:17:26 --timelog /workspace/21lab/experiments/exact-endgame-deeper/results/think_pooled17_dev20.jsonl" --set dev200 --workers 1 --limit 20
+
+cmd:node ../experiments/exact-endgame-deeper/adapter.js --config pooled:17:26 --timelog /workspace/21lab/experiments/exact-endgame-deeper/results/think_pooled17_dev20.jsonl on dev200: n=20
+  mean    9102.5 +- 224.6 (SE)  sd   1004 | busts/game 0.250  games>=1 bust  15.0%  3-bust   0.0%  perfect 85.00% | 0 games/s wall, 0 games/s/core
+
+=== END 2026-11-18 15:49:42 PST exit=0 ===
+ 15:49:42 up  9:25,  0 users,  load average: 6.11, 6.27, 6.41
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       6.4Gi       6.1Gi        77Mi       3.6Gi       9.2Gi
+Swap:             0B          0B          0B
+timelog lines: 20
+=== top processes at end ===
+    PID  NI %CPU %MEM   RSS CMD
+ 413825  10 96.1  2.9 480476 /usr/local/lib/nodejs/node -r /workspace/21lab/bench/cpu_timelog_hook.js /workspace/21lab/bench/frozen/exact-endgame-deeper@90c2d73f938b/experiments/exact-endgame-deeper/adapter.js --config deeper:16
+ 413814  10 96.0  2.7 458180 /usr/local/lib/nodejs/node -r /workspace/21lab/bench/cpu_timelog_hook.js /workspace/21lab/bench/frozen/exact-endgame-deeper@90c2d73f938b/experiments/exact-endgame-deeper/adapter.js --config deeper:16
+ 413813  10 95.9  3.0 493924 /usr/local/lib/nodejs/node -r /workspace/21lab/bench/cpu_timelog_hook.js /workspace/21lab/bench/frozen/exact-endgame-deeper@90c2d73f938b/experiments/exact-endgame-deeper/adapter.js --config deeper:16
+ 409155   0 90.0  5.1 847832 /usr/local/lib/nodejs/node /workspace/21lab/experiments/exact-labeler/label.js --mem-mb 800 --max-positions 60000000
+ 409156   0 87.2  5.1 848324 /usr/local/lib/nodejs/node /workspace/21lab/experiments/exact-labeler/label.js --mem-mb 800 --max-positions 60000000
+ 126522   0 12.9  2.8 473916 /exec-daemon/node --disable-warning=ExperimentalWarning /opt/sand/sand-host/host-main.cjs
+ 409139   0 12.7  2.0 336072 /usr/local/lib/nodejs/node gen_label.js --games 476 --start-game 24 --seed-base 3400000000 --out data/run1 --bust-eps 0.02 --bust-seek 0.03
+ 409141   0  9.8  1.8 303540 /usr/local/lib/nodejs/node gen_label.js --games 484 --start-game 16 --seed-base 3450000000 --out data/run2 --bust-eps 0.02 --bust-seek 0.03
+ 128884   0  4.0  0.6 104052 /exec-daemon/node /usr/local/bin/sand-web-bot-auth.mjs
+      7   0  1.3  0.0  9068 /pod-daemon --ssh-auth-sock-path /run/host-services/ssh-auth.sock --ssh-auth-vsock-port 52 --pod-identity-sock-path /run/cursor/api.sock
+ 128883   0  1.2  0.6 105096 /exec-daemon/node /usr/local/bin/sand-ua-governor.mjs
+ 410950   0  0.6  0.7 128900 /exec-daemon/node /exec-daemon/index.js serve --port 14009 --pty-websocket-port 13609 --auth-token local --pty-auth-token local-pty --rg-path /exec-daemon/rg --computer-use-enabled --computer-use-lazy-init --computer-use-api-width 1280 --computer-use-api-height 800 --mcp-meta-tool-enabled --orbitd-proxy-socket /run/orbitd-proxy/rpc.sock --metrics-endpoint-when-asked https://api2.cursor.sh --metrics-host sand_box
+    349   0  0.4  0.4 68636 /exec-daemon/node /usr/local/bin/sand-session-sync.mjs
+    432   0  0.3  0.4 71284 /exec-daemon/node /usr/local/bin/sand-cookie-persist.mjs
+
+=== TIMING SUMMARY (computed from think_pooled17_dev20.jsonl; timing only, not a score claim) ===
+games finished: 20 / 20 (dev200 indices 0..19)
+harness: run_one.py --set dev200 --limit 20 --workers 1  (4 sequential chunks of 5 games; new node process per chunk)
+nice: 19
+elapsed wall: 15:25:37 PST -> 15:49:42 PST (24 min 5 s)
+thinkMs is process CPU (process.cpuUsage); thinkWallMs is wall.
+
+CPU think s/game:  mean 71.920  se 8.069  sd 36.084  median 88.374  min 9.210  max 102.064
+  p95: 102.064 by think_stats.py (int(0.95*n) rank, which equals max at n=20);
+       101.838 by nearest-rank ceil(0.95*n);  101.850 by linear interpolation at p*(n-1)
+wall think s/game: mean 72.187  se 8.090  sd 36.179  median 88.682  min 9.351  max 102.628
+  p95: 102.628 by think_stats.py;  102.411 nearest-rank;  102.422 linear
+wall/cpu ratio: mean 1.0049  min 1.0006  max 1.0153  (worker got ~one full core)
+max single-decision CPU (max of maxMoveMs): 68.060 s  (median of per-game max 57.368 s)
+peak RSS (end-of-game process.memoryUsage().rss): max 787 MB  mean 699.4 MB
+giveUpMemory: 14 games (70%), 14 events total (1 per such game)
+giveUpClock: 6 games (30%), 35 events total
+solve time reached the 100 s cap (solveMs>=99s): 6 games (same 6 as clock give-ups)
+CPU think > 150 s: 0;  > 180 s: 0;  wall think > 180 s: 0
+exact moves/game: mean 14.55  min 8  max 17
+peakPositions: max 47,000,000 (table cap); median 47,000,000
+
+ESTIMATE (not measured): Mac time = box CPU / 1.5
+  mean 47.9 s,  p95_linear 67.9 s,  max 68.0 s per game
+  max single-decision 68.060 / 1.5 = 45.4 s
+
+CPU load conditions: 8-core box. Start load 6.58 7.33 6.53, MemAvailable 8.0 Gi.
+During: 1-min load 6.11-7.52, typically ~6.1-6.6 after 15:29. MemAvailable stayed ~7.6-9.2 Gi.
+End load 6.11 6.27 6.41, MemAvailable 9.2 Gi.
+Competing (not ours): Referee set5000 deeper:16 x3 at nice 10 (~90-96% CPU);
+Learner label.js x2 at nice 0 (~87-90% CPU) plus two gen_label.js (~10-13%);
+at start also two unrelated nice-19 adapters (~50% CPU each; gone by the end).
+Our worker ran at nice 19 with 1 process and still got ~99% of a core (wall ~= CPU).
+
+Per-game thinkCpu_s thinkWall_s maxMove_s rssMB giveUpMemory giveUpClock (dev200 index 0..19):
+  0:  25.939  26.324  25.004  441  0  0
+  1:  15.917  16.033  15.243  442  0  0
+  2:  13.739  13.894  13.252  442  0  0
+  3: 101.271 102.628  59.278  774  1  7
+  4:  88.785  89.321  50.717  778  1  0
+  5: 101.615 101.769  56.333  772  1  7
+  6: 102.064 102.411  59.009  773  1  2
+  7: 101.838 101.913  67.211  777  1  6
+  8:  86.241  86.448  68.060  785  1  0
+  9:  90.368  90.584  58.166  787  1  0
+ 10:  94.147  94.810  57.473  775  1  0
+ 11:  22.911  22.973  22.108  776  0  0
+ 12:  82.683  82.734  65.579  777  1  0
+ 13: 101.729 102.227  57.263  781  1  8
+ 14:  98.968  99.067  66.190  781  1  0
+ 15:   9.210   9.351   8.647  208  0  0
+ 16:  87.962  88.043  51.816  771  1  0
+ 17: 100.974 101.042  65.714  782  1  5
+ 18:  83.897  84.016  60.612  783  1  0
+ 19:  28.135  28.157  27.346  783  0  0
+
+Official think_stats.py on this file:
+games logged: 20
+CPU think s/game: mean 71.9  median 88.4  p95 102.1  max 102.1
+wall think s/game (loaded box): mean 72.2  median 88.7  p95 102.6  max 102.6
+games with CPU think > 180 s: 0;  > 150 s: 0;  wall > 180 s (load artefact): 0
+max single-decision CPU time: 68.1 s  (median of per-game max 57.4 s)
+games with a CLOCK give-up: 6 (30.0%) | with a MEMORY give-up (table > 70%): 14 (70.0%) | solve time reached the 100 s cap: 6 (30.0%) | games with no exact move at all: 0 (0.0%)
+total give-ups: clock 35, memory 14; exact moves/game mean 14.6; first exact positions median 26.4M; max RSS 787 MB

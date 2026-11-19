@@ -1,0 +1,22 @@
+decisions failed (solver table overflow at LOGCAP 25): {13: 21, 12: 5} ; games affected 21
+| cards left | regret/game over all 1000 games (failed solves counted 0) | SE | games with regret>0.01 |
+| 13 | 19.3 | 2.2 | 209 |
+| 12 | 24.3 | 2.3 | 224 |
+| 11 | 15.9 | 2.0 | 163 |
+| 10 | 9.5 | 1.5 | 78 |
+| 9 | 2.5 | 0.7 | 22 |
+| 8 | 0.0 | 0.0 | 0 |
+| 7 | 0.0 | 0.0 | 0 |
+| 6 | 0.0 | 0.0 | 0 |
+| 5 | 0.0 | 0.0 | 0 |
+total <=13: 71.5 +- 4.3 (failed solves counted as 0); 9-12: 0.0
+
+| champion move class (rem<=13, regret>0.01) | regret/game | share | decisions |
+| no-stay / build | 41.1 | 57% | 446 |
+| stay-move / build | 11.5 | 16% | 81 |
+| no-stay / c21 | 7.5 | 11% | 75 |
+| no-stay / build  / bust-before | 7.4 | 10% | 69 |
+| no-stay / c5 | 1.8 | 3% | 6 |
+| no-stay / c21  / bust-before | 0.8 | 1% | 7 |
+| no-stay / c521 | 0.7 | 1% | 4 |
+| no-stay / bust  / bust-before | 0.4 | 1% | 2 |

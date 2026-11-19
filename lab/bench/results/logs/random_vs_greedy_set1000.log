@@ -1,0 +1,8 @@
+set set1000 (sha256 b7cf79437960..) n=1000  workers=4
+A = native:random
+    mean     397.9 +-  15.4 (SE)  sd    486 | busts/game 3.000  games>=1 bust 100.0%  3-bust 100.0%  perfect  0.00% | 10,903 games/s wall, 1,253,133 games/s/core
+B = native:greedy
+    mean    4977.0 +-  54.8 (SE)  sd   1732 | busts/game 1.729  games>=1 bust  82.8%  3-bust  31.9%  perfect 17.20% | 12,922 games/s wall, 304,878 games/s/core
+paired diff (B-A) = +4579.1 +- 56.6 (SE = sd_diff 1791 / sqrt(1000))   z = +80.86
+VERDICT: ACCEPTED   (rule: n>=1000 and diff > 2 SE)
+saved /workspace/21lab/bench/results/20261118_111309_random_vs_greedy.csv/.json

@@ -1,0 +1,35 @@
+flip rows: 253  (fresh-sample re-evaluations of flagged decisions)
+  ALL flips (rem>=13)                                          n= 253 flips  net gain  49.31 +-  8.28 /game
+-- cards left >=33
+  all                                                          n= 129 flips  net gain   8.60 +-  3.82 /game
+  streak live (previous card scored)                           n=  25 flips  net gain  -0.03 +-  1.61 /game
+  no streak live                                               n= 104 flips  net gain   8.62 +-  3.50 /game
+  some column scores with the current card                     n=  22 flips  net gain   2.24 +-  1.39 /game
+  a scoring placement existed, champion did not take it        n=   7 flips  net gain   0.50 +-  0.65 /game
+  no empty column                                              n=  42 flips  net gain   9.56 +-  2.81 /game
+  no empty column and streak live                              n=   0 flips  net gain   0.00 +-  0.00 /game
+  champion uses a Stay                                         n=  14 flips  net gain   5.52 +-  1.80 /game
+  champion uses a Stay while streak live                       n=   0 flips  net gain   0.00 +-  0.00 /game
+  after a bust                                                 n=   0 flips  net gain   0.00 +-  0.00 /game
+-- cards left 17-32
+  all                                                          n=  74 flips  net gain  12.08 +-  3.67 /game
+  streak live (previous card scored)                           n=  20 flips  net gain   0.56 +-  1.47 /game
+  no streak live                                               n=  54 flips  net gain  11.52 +-  3.33 /game
+  some column scores with the current card                     n=  10 flips  net gain   1.18 +-  0.83 /game
+  a scoring placement existed, champion did not take it        n=   3 flips  net gain   0.58 +-  0.44 /game
+  no empty column                                              n=  26 flips  net gain   8.62 +-  2.96 /game
+  no empty column and streak live                              n=   0 flips  net gain   0.00 +-  0.00 /game
+  champion uses a Stay                                         n=   7 flips  net gain   4.94 +-  2.30 /game
+  champion uses a Stay while streak live                       n=   0 flips  net gain   0.00 +-  0.00 /game
+  after a bust                                                 n=   3 flips  net gain   0.63 +-  0.85 /game
+-- cards left 13-16
+  all                                                          n=  50 flips  net gain  28.63 +-  6.22 /game
+  streak live (previous card scored)                           n=  11 flips  net gain   5.80 +-  2.21 /game
+  no streak live                                               n=  39 flips  net gain  22.83 +-  5.48 /game
+  some column scores with the current card                     n=  14 flips  net gain   5.38 +-  2.35 /game
+  a scoring placement existed, champion did not take it        n=   4 flips  net gain   1.63 +-  0.98 /game
+  no empty column                                              n=  21 flips  net gain  13.56 +-  3.88 /game
+  no empty column and streak live                              n=   0 flips  net gain   0.00 +-  0.00 /game
+  champion uses a Stay                                         n=   5 flips  net gain   3.22 +-  1.97 /game
+  champion uses a Stay while streak live                       n=   0 flips  net gain   0.00 +-  0.00 /game
+  after a bust                                                 n=  11 flips  net gain   6.71 +-  3.29 /game

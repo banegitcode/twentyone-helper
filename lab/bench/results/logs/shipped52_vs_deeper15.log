@@ -1,0 +1,9 @@
+set set1000 (sha256 b7cf79437960..) n=1000  workers=3
+A = cmd:node champion/champion_adapter.js --config shipped52
+    mean    8871.6 +-  38.0 (SE)  sd   1202 | busts/game 0.363  games>=1 bust  23.7%  3-bust   1.5%  perfect 76.30% | 1 games/s wall, 0 games/s/core
+B = cmd:node ../experiments/exact-endgame-deeper/adapter.js --config deeper:15
+    mean    8919.2 +-  37.9 (SE)  sd   1199 | busts/game 0.373  games>=1 bust  24.2%  3-bust   1.1%  perfect 75.80% | 0 games/s wall, 0 games/s/core
+paired diff (B-A) = +47.6 +- 14.3 (SE = sd_diff 451 / sqrt(1000))   z = +3.34
+VERDICT: ACCEPTED   (rule: n>=1000 and diff > 2 SE)
+NOTE: ACCEPTED also requires a clean future-order audit (python3 audit.py ...) before the champion changes.
+saved /workspace/21lab/bench/results/20261118_133815_cmd_shipped52_vs_cmd_deeper_15.csv/.json

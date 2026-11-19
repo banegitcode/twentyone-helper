@@ -1,0 +1,23 @@
+{
+ "10": {
+  "n": 10,
+  "medianActions": 4,
+  "medianRedundancy": 1.64,
+  "medianBound4": 1.25,
+  "medianBound8": 1.25
+ },
+ "11": {
+  "n": 10,
+  "medianActions": 4,
+  "medianRedundancy": 1.63,
+  "medianBound4": 1.33,
+  "medianBound8": 1.33
+ },
+ "12": {
+  "n": 10,
+  "medianActions": 4,
+  "medianRedundancy": 1.65,
+  "medianBound4": 1.36,
+  "medianBound8": 1.36
+ }
+}

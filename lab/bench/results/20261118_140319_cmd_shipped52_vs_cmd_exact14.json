@@ -1,0 +1,43 @@
+{
+  "set": "set1000",
+  "set_sha256": "b7cf79437960cc597286a00c9cea411aaed8f2e9d2eb4dbf5582d1958b5a93ae",
+  "n": 1000,
+  "a": "cmd:node champion/champion_adapter.js --config shipped52",
+  "b": "cmd:node champion/champion_adapter.js --config exact14",
+  "seed": 1,
+  "spc": 1,
+  "A": {
+    "n": 1000,
+    "mean": 8871.65,
+    "se": 38.02617213534998,
+    "sd": 1202.4931464533456,
+    "busts_per_game": 0.363,
+    "bust_game_rate": 0.237,
+    "three_bust_rate": 0.015,
+    "perfect_rate": 0.763,
+    "games_per_sec_wall": 0.8840250579940108,
+    "games_per_sec_per_core": 0.29850004692171017,
+    "wall_s": 1131.1896545886993,
+    "cpu_s": 3350.0832254886627
+  },
+  "B": {
+    "n": 1000,
+    "mean": 8924.65,
+    "se": 38.13566843136103,
+    "sd": 1205.955723360815,
+    "busts_per_game": 0.377,
+    "bust_game_rate": 0.24,
+    "three_bust_rate": 0.012,
+    "perfect_rate": 0.76,
+    "games_per_sec_wall": 0.10792559502676799,
+    "games_per_sec_per_core": 0.03775047768487984,
+    "wall_s": 9265.642684221268,
+    "cpu_s": 26489.731026649475
+  },
+  "paired_diff_B_minus_A": 53.0,
+  "paired_se": 15.185242559524415,
+  "z": 3.490230715264907,
+  "sd_diff": 480.19953310222155,
+  "verdict": "ACCEPTED",
+  "timestamp": "20261118_140319"
+}

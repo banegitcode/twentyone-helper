@@ -1,0 +1,455 @@
+{
+  "n": 60,
+  "start": 0,
+  "end_exclusive": 60,
+  "frozen": "exact-endgame-deeper@90c2d73f938b",
+  "config": "deeper:16",
+  "cpu_s": {
+    "mean": 8.69184,
+    "median": 8.623850000000001,
+    "p95": 19.5013,
+    "max": 26.346799999999998
+  },
+  "wall_s": {
+    "mean": 10.246393333333334,
+    "median": 9.4971,
+    "p95": 28.718400000000003,
+    "max": 45.3024
+  },
+  "longest_decision_s": 5.1321,
+  "games_over_60s_cpu": 0,
+  "games_over_90s_cpu": 0,
+  "games_over_150s_cpu": 0,
+  "mac_estimate_box_div_1.5_s": {
+    "note": "Node timing kit only (Mac ~1.5x faster than this box); not measured in a browser",
+    "mean": 5.79456,
+    "median": 5.749233333333334,
+    "p95": 13.000866666666667,
+    "max": 17.564533333333333,
+    "longest_decision": 3.4214
+  },
+  "timelog": "/workspace/21lab/bench/results/deeper16_timing/think_deeper16_games0_59.jsonl",
+  "play_wall_s": 614.9108741283417,
+  "scores": [
+    {
+      "game": 0,
+      "score": 8100,
+      "busts": 1,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 1,
+      "score": 9000,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 2,
+      "score": 11650,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 3,
+      "score": 9350,
+      "busts": 1,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 4,
+      "score": 9250,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 5,
+      "score": 8750,
+      "busts": 1,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 6,
+      "score": 7400,
+      "busts": 2,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 7,
+      "score": 9350,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 8,
+      "score": 8650,
+      "busts": 2,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 9,
+      "score": 8800,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 10,
+      "score": 8900,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 11,
+      "score": 9900,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 12,
+      "score": 9050,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 13,
+      "score": 9150,
+      "busts": 1,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 14,
+      "score": 6350,
+      "busts": 2,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 15,
+      "score": 9500,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 16,
+      "score": 9300,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 17,
+      "score": 5950,
+      "busts": 2,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 18,
+      "score": 9100,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 19,
+      "score": 8850,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 20,
+      "score": 7600,
+      "busts": 2,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 21,
+      "score": 10050,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 22,
+      "score": 9000,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 23,
+      "score": 8600,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 24,
+      "score": 9550,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 25,
+      "score": 10200,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 26,
+      "score": 9650,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 27,
+      "score": 8600,
+      "busts": 1,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 28,
+      "score": 11450,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 29,
+      "score": 9050,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 30,
+      "score": 10150,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 31,
+      "score": 9350,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 32,
+      "score": 9000,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 33,
+      "score": 7200,
+      "busts": 1,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 34,
+      "score": 7200,
+      "busts": 2,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 35,
+      "score": 8850,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 36,
+      "score": 9900,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 37,
+      "score": 8550,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 38,
+      "score": 9500,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 39,
+      "score": 8750,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 40,
+      "score": 9250,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 41,
+      "score": 10500,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 42,
+      "score": 9550,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 43,
+      "score": 8800,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 44,
+      "score": 8600,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 45,
+      "score": 9300,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 46,
+      "score": 9050,
+      "busts": 1,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 47,
+      "score": 3450,
+      "busts": 3,
+      "perfect": 0,
+      "ncards": 42
+    },
+    {
+      "game": 48,
+      "score": 9250,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 49,
+      "score": 8550,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 50,
+      "score": 7500,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 51,
+      "score": 9200,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 52,
+      "score": 9050,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 53,
+      "score": 7700,
+      "busts": 2,
+      "perfect": 0,
+      "ncards": 52
+    },
+    {
+      "game": 54,
+      "score": 9700,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 55,
+      "score": 9500,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 56,
+      "score": 9950,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 57,
+      "score": 12050,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 58,
+      "score": 9900,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    },
+    {
+      "game": 59,
+      "score": 9050,
+      "busts": 0,
+      "perfect": 1,
+      "ncards": 52
+    }
+  ]
+}

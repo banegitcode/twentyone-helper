@@ -1,0 +1,1 @@
+cmd:node ../experiments/learner-e1/adapter.js --config shipped52 --corr none: 120/120 games identical (score,busts,perfect,ncards) to cached shipped52; wall 170s

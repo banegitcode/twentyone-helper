@@ -1,0 +1,30 @@
+Timing kit on grok-bot-vm-478306472 | Intel(R) Xeon(R) Processor x8 | node v24.22.1 | load 19.7 22.8 26.1 | free mem 2.3 GB
+
+== shipped52
+  shipped52  game 1 (dev200 line 1): score 9050  busts 0  think CPU 1.2 s  wall 2.6 s  max decision CPU 0.1 s  (52 decisions)
+  shipped52  game 2 (dev200 line 2): score 10350  busts 0  think CPU 0.8 s  wall 1.6 s  max decision CPU 0.1 s  (52 decisions)
+  shipped52  game 3 (dev200 line 3): score 8150  busts 0  think CPU 0.6 s  wall 1.4 s  max decision CPU 0.1 s  (52 decisions)
+
+== pooled:16:26 (cpu clock)
+  pooled:16:26 (cpu clock)  game 1 (dev200 line 1): score 10050  busts 0  think CPU 28.9 s  wall 58.6 s  max decision CPU 28.0 s  (52 decisions)
+  pooled:16:26 (cpu clock)  game 2 (dev200 line 2): score 10100  busts 0  think CPU 9.0 s  wall 20.6 s  max decision CPU 8.3 s  (52 decisions)
+  pooled:16:26 (cpu clock)  game 3 (dev200 line 3): score 8150  busts 0  think CPU 12.3 s  wall 27.5 s  max decision CPU 11.8 s  (52 decisions)
+  pooled:16:26 (cpu clock)  game 1: new table positions 21.95 M (peak table 21.95 M) | rate 0.78 M pos/CPU-s, 0.39 M pos/wall-s (exact phase: CPU 28.0 s, wall 57.0 s)
+  pooled:16:26 (cpu clock)  game 2: new table positions 7.25 M (peak table 7.25 M) | rate 0.87 M pos/CPU-s, 0.38 M pos/wall-s (exact phase: CPU 8.3 s, wall 18.9 s)
+  pooled:16:26 (cpu clock)  game 3: new table positions 10.88 M (peak table 10.88 M) | rate 0.92 M pos/CPU-s, 0.41 M pos/wall-s (exact phase: CPU 11.8 s, wall 26.5 s)
+
+Summary (think time per game, seconds; CPU = process CPU of the engine, wall = elapsed incl. time-slicing)
+engine                      game  score  think_cpu  think_wall  max_dec_cpu
+shipped52                   1     9050   1.2        2.6         0.1
+shipped52                   2     10350  0.8        1.6         0.1
+shipped52                   3     8150   0.6        1.4         0.1
+pooled:16:26 (cpu clock)    1     10050  28.9       58.6        28.0
+pooled:16:26 (cpu clock)    2     10100  9.0        20.6        8.3
+pooled:16:26 (cpu clock)    3     8150   12.3       27.5        11.8
+
+pooled:16:26 (cpu clock): exact-solver table positions solved per second, overall (3 games, 40.09 M new positions): 0.83 M/CPU-s, 0.39 M/wall-s
+  per game (M positions/CPU-s | /wall-s): g1 0.78 | 0.39; g2 0.87 | 0.38; g3 0.92 | 0.41
+shipped52: mean think CPU 0.9 s, max 1.2 s (budget for a real game: 150 s target, 180 s limit)
+pooled:16:26 (cpu clock): mean think CPU 16.7 s, max 28.9 s (budget for a real game: 150 s target, 180 s limit)
+
+wrote results/box_run2.json

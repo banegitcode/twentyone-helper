@@ -1,0 +1,2 @@
+games 3200 events/game (3-card soft hard<=7 meets a 21-completing card): 0.020 taken 0.092 {"hard4":[4,0],"hard7":[24,2],"hard5":[9,2],"hard6":[28,2]}
+hard<=10: 0.043 taken 0.116

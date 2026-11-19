@@ -1,0 +1,12 @@
+games 3200 per game: { n21: 13.064, n777: 0.03, n5: 0.735, n521: 0.679, bust: 0.376 }
+clears/game by cards-left bucket {
+  '52-42': 1.72,
+  '41-32': 2.88,
+  '31-22': 2.9,
+  '21-12': 2.96,
+  '11-1': 4.04
+}
+final busts 0 n 2430 mean score 9123 ± 17
+final busts 1 n 376 mean score 7663 ± 41
+final busts 2 n 355 mean score 7037 ± 35
+final busts 3 n 39 mean score 4283 ± 375

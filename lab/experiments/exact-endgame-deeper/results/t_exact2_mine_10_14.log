@@ -1,0 +1,66 @@
+solver exact2 kernel wasm set mine
+10 0 solve 65443 49ms | choose 57353 28ms
+10 1 solve 5463 3ms | choose 4434 2ms
+10 2 solve 10309 4ms | choose 8763 4ms
+10 3 solve 2095 1ms | choose 1380 1ms
+10 4 solve 51949 29ms | choose 38667 21ms
+10 7 solve 105981 59ms | choose 91704 52ms
+10 8 solve 80506 50ms | choose 67411 39ms
+10 9 solve 65273 32ms | choose 39264 20ms
+10 10 solve 47939 24ms | choose 40354 21ms
+10 11 solve 70121 33ms | choose 39533 18ms
+10 12 solve 23646 9ms | choose 6160 3ms
+10 14 solve 4818 2ms | choose 3826 1ms
+SUMMARY 10 {"n":12,"dnf":0,"solveStates":{"med":47939,"p90":70121,"max":105981},"solveMs":{"med":23.632000000000005,"p90":48.536,"max":59.14999999999998},"chooseStates":{"med":38667,"p90":57353,"max":91704},"chooseMs":{"med":18.230000000000018,"p90":28.328000000000003,"max":52.12899999999996}}
+11 0 solve 91407 46ms | choose 86590 44ms
+11 1 solve 5576 3ms | choose 5463 3ms
+11 2 solve 49967 24ms | choose 10309 5ms
+11 3 solve 9482 4ms | choose 3852 2ms
+11 4 solve 422466 296ms | choose 193859 112ms
+11 7 solve 414839 243ms | choose 250550 142ms
+11 8 solve 195871 108ms | choose 155406 81ms
+11 9 solve 181632 100ms | choose 113392 60ms
+11 10 solve 107041 54ms | choose 76270 36ms
+11 11 solve 216115 111ms | choose 167885 85ms
+11 12 solve 41834 18ms | choose 29017 13ms
+11 13 solve 7946 4ms | choose 0 1ms
+SUMMARY 11 {"n":12,"dnf":0,"solveStates":{"med":91407,"p90":216115,"max":422466},"solveMs":{"med":46.059999999999945,"p90":111.01199999999994,"max":296.02699999999993},"chooseStates":{"med":76270,"p90":167885,"max":250550},"chooseMs":{"med":36.452999999999975,"p90":85.41300000000001,"max":141.846}}
+12 0 solve 126943 62ms | choose 104978 52ms
+12 1 solve 22585 11ms | choose 22245 10ms
+12 2 solve 75342 35ms | choose 49967 24ms
+12 3 solve 39896 17ms | choose 12864 6ms
+12 4 solve 752986 559ms | choose 449955 305ms
+12 6 solve 2951 2ms | choose 0 1ms
+12 7 solve 605349 390ms | choose 517867 333ms
+12 8 solve 266779 152ms | choose 211460 120ms
+12 9 solve 666033 435ms | choose 432183 262ms
+12 10 solve 723303 432ms | choose 231341 128ms
+12 11 solve 284174 158ms | choose 226874 130ms
+12 12 solve 50374 22ms | choose 43846 20ms
+SUMMARY 12 {"n":12,"dnf":0,"solveStates":{"med":126943,"p90":666033,"max":752986},"solveMs":{"med":61.98199999999997,"p90":432.2560000000003,"max":558.9970000000003},"chooseStates":{"med":104978,"p90":432183,"max":517867},"chooseMs":{"med":51.6880000000001,"p90":262.10499999999956,"max":332.63099999999986}}
+13 0 solve 399226 217ms | choose 330403 180ms
+13 1 solve 108593 58ms | choose 96977 52ms
+13 2 solve 373629 200ms | choose 133784 67ms
+13 3 solve 52860 23ms | choose 42927 19ms
+13 4 solve 3776191 4000ms | choose 2097725 1965ms
+13 6 solve 8151 5ms | choose 2951 3ms
+13 7 solve 1124542 802ms | choose 1034740 747ms
+13 8 solve 342300 190ms | choose 275977 148ms
+13 9 solve 1355739 933ms | choose 1205496 861ms
+13 10 solve 1723333 1187ms | choose 998303 612ms
+13 11 solve 516449 266ms | choose 436600 227ms
+13 12 solve 95484 43ms | choose 72642 30ms
+SUMMARY 13 {"n":12,"dnf":0,"solveStates":{"med":373629,"p90":1355739,"max":3776191},"solveMs":{"med":199.692,"p90":932.5859999999993,"max":3999.749999999999},"chooseStates":{"med":275977,"p90":1034740,"max":2097725},"chooseMs":{"med":148.0590000000011,"p90":747.1700000000001,"max":1964.9979999999996}}
+14 0 solve 2281364 1584ms | choose 904952 531ms
+14 1 solve 427730 261ms | choose 246332 146ms
+14 2 solve 982995 603ms | choose 569645 324ms
+14 3 solve 91303 40ms | choose 58378 25ms
+14 4 solve 11877175 14903ms | choose 9397107 11935ms
+14 6 solve 14639 8ms | choose 8151 6ms
+14 7 solve 3135525 2814ms | choose 1492499 1127ms
+14 8 solve 671778 422ms | choose 595160 389ms
+14 9 solve 1718882 1282ms | choose 1622327 1240ms
+14 10 solve 5119329 4634ms | choose 2784054 2196ms
+14 11 solve 1061267 648ms | choose 578826 314ms
+14 12 solve 270607 147ms | choose 148487 75ms
+SUMMARY 14 {"n":12,"dnf":0,"solveStates":{"med":982995,"p90":3135525,"max":11877175},"solveMs":{"med":602.9069999999992,"p90":2814.019999999997,"max":14902.647},"chooseStates":{"med":578826,"p90":1622327,"max":9397107},"chooseMs":{"med":323.9370000000017,"p90":1239.565999999999,"max":11935.39}}

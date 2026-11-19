@@ -1,0 +1,5 @@
+N  n  median V   median LP(base only)  median sound UB   median ratio UB/V
+10 20 2136 2212 4927 2.06 min ratio 1.6
+11 20 2122 2450 5494 2.18 min ratio 1.64
+12 20 2135 2656 5788 2.17 min ratio 1.62
+root actions 288 prunable by p+UB(child) <= best Q: 4 median UB(child)+p over true Q 2.16

@@ -1,0 +1,14 @@
+501c59c50bb5a5aceef7caa748bf13f36f96e69b4085e1cb093127ddf1356271  ./bench/champion/champion_adapter.js
+0d74b9e6dbfccc733cfd61d8f3971786cac991977dd838bd5428a0047e9c0609  ./experiments/exact-endgame-deeper/js/exact3.js
+d9c95cb01a2900d02d5071794ef3198270a5bfc131b814ccbc9306bf746ad451  ./experiments/exact-endgame-deeper/js/pooled.js
+715ada32bc1448f4f21b8d42f5f34513c7ecf5ae85fef0852baeb9c75ad226ab  ./experiments/exact-endgame-deeper/js/common.js
+2a786d4e1361246972f3121da080a3b3397179231b3f7fe7d5d02f23eea4b9a7  ./experiments/exact-endgame-deeper/js/hybrid.js
+00e691aeccff2e21addf5e024ed3ce63da2fe3b112c7fefb9f209ee5107f8a6f  ./experiments/exact-endgame-deeper/js/policy_exact3.js
+6c49a215282ee804f4ff0568cc4448c80ac8bbd897178c6053bf42f9b7bd734f  ./experiments/exact-endgame-deeper/adapter.js
+252ed2f98bc3c5daf7b3fe6cb85c898667bc16cada6cc5e97c8c2727772b6586  ./engine/twentyone-solver/src/policies.js
+a4e0becf88fda3cedee9a5548a6d43a366a5357447c541b097ae2608830869a9  ./engine/twentyone-solver/src/exact2_kernel.wasm.js
+0fa9a77748b4c58fffdf65b44690983dd8b8d36cb19130ea827d02a47b680392  ./engine/twentyone-solver/src/engine.js
+23b73e9c658126f0d3bb707ec742527c24f80d77bd963074f416e5e48e56de25  ./engine/twentyone-solver/src/x_policies.js
+7cf3122a48fd25890730c179ae8e8f878708003a86e69865f52d9c8b088c2648  ./engine/twentyone-solver/src/exact.js
+62e885b0ea1e5022b9b6bb1d2315a383f403adeb9bd1f22b72f015e5730b80e5  ./engine/twentyone-solver/src/exact2.js
+c64ea00d6f10ce77460e91f399ae4ac214390e9b2e5d0d3698afc1a3b4c04b9c  ./engine/twentyone-solver/results/shipped_policies.json

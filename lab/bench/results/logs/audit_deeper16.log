@@ -1,0 +1,93 @@
+  [REVIEW] ../experiments/exact-endgame-deeper/adapter.js:5: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         // bench/champion/champion_adapter.js.  Only the observable state arrives; the deck order never reaches this process.
+  [REVIEW] ../experiments/exact-endgame-deeper/adapter.js:49: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         const deck = new Int32Array(11); for (let v = 1; v <= 10; v++) deck[v] = o.remaining[v - 1]; deck[o.current] += 1;
+  [REVIEW] ../experiments/exact-endgame-deeper/adapter.js:50: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         return { cols, deck, rem: o.cards_left + 1, played: o.cards_dealt - 1, horizon: Infinity, busts: o.busts, stays: o.stays_left,
+  [REVIEW] ../experiments/exact-endgame-deeper/adapter.js:23: file/process/env access
+         const fs = require('fs'), path = require('path'), readline = require('readline');
+  [REVIEW] ../experiments/exact-endgame-deeper/adapter.js:24: file/process/env access
+         const DIR = process.env.CHAMPION_DIR || path.join(__dirname, '..', '..', 'engine', 'twentyone-solver');
+  [REVIEW] ../experiments/exact-endgame-deeper/js/common.js:18: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         st.deck.fill(0); for (let v = 1; v <= 10; v++) st.deck[v] = p.cnt[v - 1];
+  [REVIEW] ../experiments/exact-endgame-deeper/js/common.js:19: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         st.deck[p.cur]++;                       // the current card is still in the deck for the engine
+  [REVIEW] ../experiments/exact-endgame-deeper/js/common.js:26: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         return P.map((p) => ({ id: p.seed, N: p.rem, busts: p.busts, stays: p.stays, streak: p.prev, cur: p.card, st: Object.assign(E.newGame(R), { cols: Int3
+  [REVIEW] ../experiments/exact-endgame-deeper/js/common.js:3: file/process/env access
+         const path = require('path'), fs = require('fs');
+  [REVIEW] ../experiments/exact-endgame-deeper/js/common.js:4: file/process/env access
+         const ENGINE_SRC = process.env.TWENTYONE_SRC || path.join(__dirname, '../../../engine/twentyone-solver/src');
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:7: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //     be dealt (any sub-multiset of the remaining deck, in any order) produces the same outcomes on both (nothing /
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:9: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //     behaviour, so each column is replaced by the smallest id of its class.  The classes for deck D are computed from
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:10: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //     the classes for the decks D - v (partition refinement), once per deck.  This subsumes: ace flag kept only while
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:13: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //     Classes only merge as the deck shrinks, so a representative stays valid for every later deck.
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:19: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //  5. Storage: one small open-addressing table per (deck, busts, stays, streak), 8 bytes per position (32-bit column
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:21: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //     The search works deck by deck, so the tables it touches stay in the processor cache.  Children are looked up
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:27: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         // The table is emptied when a position arrives whose deck is not a sub-deck of the one the tables were built for
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:70: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //          [5] max positions   [16..47] free-list heads by table size  [48..58] deck
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:71: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //          [64..74] local deck multipliers  [80..87] streak bonus   then PT, NX (NID*11 each), then the pool:
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:72: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //  pool:   SLOT[local deck index] -> deck block (0 = not built), deck blocks and tables
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:73: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //  deck block: NID bytes class of each raw id, NID bytes "can score with one more card", then per (busts, stays,
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:91: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         const deck = new Int32Array(buf, DK * 4, 11), lmult = new Int32Array(buf, LM * 4, 11);
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:109: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         if (n > cap) { bdeck.fill(-1); throw new Error('deck too large for this table'); }
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:112: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         // deck block for the deck currently in deck[] (local index li); builds the blocks of its sub-decks first
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:114: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         for (let v = 1; v <= 10; v++) if (deck[v] > 0 && U[P0 + li - lmult[v]] === 0) { deck[v]--; buildRow(li - lmult[v]); deck[v]++; }
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:120: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         if (deck[v] <= 0) continue;
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:165: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         // value of the position a <= b <= c <= d (class ids for the current deck, whose block is blk); rem > 0
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:201: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         // a <= b <= c <= d are class ids for the current deck; m = 0: do not store
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:208: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         if (deck[v] === 0) continue;
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:218: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         const cnt = deck[v]; if (cnt === 0) continue;
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:219: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         deck[v]--; rem--; lidx -= lmult[v];
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:245: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         deck[v]++; rem++; lidx += lmult[v];
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:255: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         // entry point: columns x0..x3 are class ids for the current deck in any order
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:271: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         let crem = 0, clidx = 0;            // the loaded position's card count and local deck index
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:274: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         let sub = true; for (let v = 1; v <= 10; v++) if (st.deck[v] > bdeck[v]) sub = false;
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:275: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         if (!sub) rebase(st.deck);
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:277: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         for (let v = 1; v <= 10; v++) { deck[v] = st.deck[v]; clidx += lmult[v] * deck[v]; crem += deck[v]; }
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:281: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         // value of the position with raw column ids x0..x3 for the deck in deck[] (n cards, local index li)
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:297: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         deck[v]--;
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:300: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         finally { for (let w = 1; w <= 10; w++) deck[w] = st.deck[w]; }
+  [REVIEW] ../experiments/exact-endgame-deeper/js/exact3.js:31: file/process/env access
+         const SRC = process.env.TWENTYONE_SRC || require('path').join(__dirname, '../../../engine/twentyone-solver/src');
+  [REVIEW] ../experiments/exact-endgame-deeper/js/hybrid.js:13: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         //   { cols: Int32Array(4) engine column codes (E.mkCol layout), deck: Int32Array(11) unseen cards per value 1..10, rem, busts, stays, prev }
+  [REVIEW] ../experiments/exact-endgame-deeper/js/hybrid.js:24: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         for (let j = 0; j < 4; j++) { const c = s.cols[j]; if (!c) continue; nonEmpty++; const hard = E.hardOf(c), n = E.nOf(c); let safe = 0; for (let v = 1;
+  [REVIEW] ../experiments/exact-endgame-deeper/js/hybrid.js:36: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         if (d === 0) { nodes++; return evaluator({ cols: s.cols, deck: s.deck, rem: s.rem, busts: s.busts, stays: s.stays, prev: s.prev }); }
+  [REVIEW] ../experiments/exact-endgame-deeper/js/hybrid.js:38: word 'deck' (fine if it means remaining-card COUNTS; check by eye)
+         for (let w = 1; w <= 10; w++) { const c = s.deck[w]; if (!c) continue; sum += c * best(s, w, d - 1).value; }
+static scan: 5 files, 0 HIGH hits (REVIEW hits need a human look)
+dynamic audit of cmd:node ../experiments/exact-endgame-deeper/adapter.js --config deeper:16: 4 games, 154 (decision, reshuffle) pairs checked, 0 future-dependent, 0 nondeterministic games
+AUDIT PASSED

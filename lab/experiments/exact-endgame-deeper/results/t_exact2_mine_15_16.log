@@ -1,0 +1,15 @@
+solver exact2 kernel wasm set mine
+15 0 solve 3713677 3162ms | choose 2671683 2254ms
+15 1 solve 2008569 1746ms | choose 1196965 962ms
+15 2 solve 2003410 1581ms | choose 1084634 770ms
+15 3 solve 253695 125ms | choose 130296 62ms
+15 4 solve 12759935 17480ms | choose 12025033 15293ms
+15 5 solve 74396 37ms | choose 0 5ms
+SUMMARY 15 {"n":6,"dnf":0,"solveStates":{"med":2003410,"p90":3713677,"max":12759935},"solveMs":{"med":1580.708999999999,"p90":3161.65,"max":17479.609},"chooseStates":{"med":1084634,"p90":2671683,"max":12025033},"chooseMs":{"med":769.8719999999994,"p90":2254.3210000000004,"max":15292.825}}
+16 0 solve 4779034 4401ms | choose 4147897 3825ms
+16 1 solve 8230097 9173ms | choose 4906955 5464ms
+16 2 solve 2660352 2270ms | choose 2081756 1668ms
+16 3 solve 821203 519ms | choose 372487 226ms
+16 4 solve 49949512 87168ms | choose 41402967 66357ms
+16 5 solve 179178 92ms | choose 120257 60ms
+SUMMARY 16 {"n":6,"dnf":0,"solveStates":{"med":2660352,"p90":8230097,"max":49949512},"solveMs":{"med":2270.0179999999964,"p90":9173.125,"max":87167.77799999999},"chooseStates":{"med":2081756,"p90":4906955,"max":41402967},"chooseMs":{"med":1668.2000000000116,"p90":5463.949999999997,"max":66357.11600000001}}

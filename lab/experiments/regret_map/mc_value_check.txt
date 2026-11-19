@@ -1,0 +1,6 @@
+{"rem":10,"states":299,"playouts":23920,"meanResidual":-1.47,"se":2.72,"sd":420,"noBustShare":0.785}
+{"rem":12,"states":148,"playouts":22200,"meanResidual":-1.57,"se":3.38,"sd":503,"noBustShare":0.775}
+{"rem":9,"states":400,"playouts":20000,"meanResidual":0.7,"se":2.78,"sd":394,"noBustShare":0.763}
+{"rem":11,"states":200,"playouts":20000,"meanResidual":0.33,"se":3.15,"sd":445,"noBustShare":0.782}
+{"rem":13,"states":96,"playouts":19200,"meanResidual":-3.51,"se":3.8,"sd":527,"noBustShare":0.781}
+{"rem":8,"states":400,"playouts":20000,"meanResidual":-0.33,"se":2.65,"sd":375}

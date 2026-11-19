@@ -1,0 +1,2 @@
+dynamic audit of cmd:node ../experiments/exact-endgame-deeper/adapter.js --config pooled:16:26: 2 games, 36 (decision, reshuffle) pairs checked, 0 future-dependent, 0 nondeterministic games
+AUDIT PASSED

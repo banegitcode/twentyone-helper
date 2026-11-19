@@ -1,0 +1,3 @@
+{"id":"3000500001:0:34","v":null,"ok":false,"ms":135775.417,"n":17,"err":"depth-limited target exceeded the budget (positions)","cpu_ms":133197.32}
+{"id":"3000500001:1:34","v":4672.67041015625,"ok":true,"ms":124785.37,"n":17,"se":148.741,"exact":false,"mode":"depth-limited","depth":1,"frontier":16,"samples":3,"n16":8,"pos":80978065,"cpu_ms":123643.328}
+{"id":"3000500001:2:34","v":4697.388509114583,"ok":true,"ms":85482.414,"n":17,"se":7.99,"exact":false,"mode":"depth-limited","depth":1,"frontier":16,"samples":3,"n16":6,"pos":57768899,"cpu_ms":84959.649}

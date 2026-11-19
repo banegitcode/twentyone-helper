@@ -1,0 +1,53 @@
+== T1: f_30(state) in points, d=75, bonus=100 (value of holding this column state, 30 cards to go)
+empty column: 1357
+1 cards: 2:1614 3:1567 4:1514 5:1459 6:1397 8:1261 9:1181 10:1131 11s:1742
+2 cards: 4:1861 5:1820 6:1771 7:1718 8:1656 9:1595 10:1516 11:1667 12:1434 12s:1914 13:1336 13s:1877 14:1225 14s:1840 15:1077 15s:1799 16:919 16s:1754 17:727 17s:1703 18:562 18s:1649 19:439 19s:1586 20:402 20s:1516
+3 cards: 6:2089 7:2058 8:2032 9:1999 10:1901 11:1909 12:1851 13:1789 13s:2131 14:1707 14s:2117 15:1610 15s:2097 16:1483 16s:2070 17:1297 17s:2031 18:1007 18s:1993 19:687 19s:1949 20:402 20s:1901
+4 cards: 8:2206 9:2206 10:2221 11:2267 12:2171 13:2151 14:2125 14s:2221 15:2091 15s:2221 16:2042 16s:2221 17:1970 17s:2221 18:1849 18s:2221 19:1608 19s:2221 20:948 20s:2221
+
+== T2: decline-vs-take a completing card.  advantage of declining = (-d + f_{k-1}(s)) - (400+bonus+f_{k-1}(empty))  [k cards left incl. this one]
+d=75 bonus=100
+  k=30: states where declining a 400-completion beats taking it: 7/41; best advantage +199 at 3c/13s + card 8
+  k=15: states where declining a 400-completion beats taking it: 7/41; best advantage +200 at 3c/13s + card 8
+  k= 8: states where declining a 400-completion beats taking it: 11/41; best advantage +233 at 3c/13s + card 8
+  k= 4: states where declining a 400-completion beats taking it: 5/41; best advantage +227 at 3c/13s + card 8
+
+d=150 bonus=100
+  k=30: states where declining a 400-completion beats taking it: 6/41; best advantage +187 at 3c/13s + card 8
+  k=15: states where declining a 400-completion beats taking it: 6/41; best advantage +188 at 3c/13s + card 8
+  k= 8: states where declining a 400-completion beats taking it: 7/41; best advantage +227 at 3c/13s + card 8
+  k= 4: states where declining a 400-completion beats taking it: 4/41; best advantage +162 at 3c/13s + card 8
+
+d=25 bonus=100
+  k=30: states where declining a 400-completion beats taking it: 10/41; best advantage +206 at 3c/13s + card 8
+  k=15: states where declining a 400-completion beats taking it: 10/41; best advantage +208 at 3c/13s + card 8
+  k= 8: states where declining a 400-completion beats taking it: 13/41; best advantage +236 at 3c/13s + card 8
+  k= 4: states where declining a 400-completion beats taking it: 6/41; best advantage +269 at 3c/13s + card 8
+
+== T3: P(5th card is a safe 800+) etc for 4-card states, and f for 4-card states (d=75,bonus=100,k=30 vs k=6)
+  4c total 4c/14s: P(5th card does not bust)=1.00  f30=2221 f6=984
+  4c total 4c/15s: P(5th card does not bust)=1.00  f30=2221 f6=984
+  4c total 4c/16s: P(5th card does not bust)=1.00  f30=2221 f6=984
+  4c total 4c/17s: P(5th card does not bust)=1.00  f30=2221 f6=984
+  4c total 4c/8: P(5th card does not bust)=1.00  f30=2206 f6=968
+  4c total 4c/18s: P(5th card does not bust)=1.00  f30=2221 f6=984
+  4c total 4c/9: P(5th card does not bust)=1.00  f30=2206 f6=968
+  4c total 4c/19s: P(5th card does not bust)=1.00  f30=2221 f6=984
+  4c total 4c/10: P(5th card does not bust)=1.00  f30=2221 f6=984
+  4c total 4c/20s: P(5th card does not bust)=1.00  f30=2221 f6=984
+  4c total 4c/11: P(5th card does not bust)=1.00  f30=2267 f6=1030
+  4c total 4c/12: P(5th card does not bust)=0.69  f30=2171 f6=946
+  4c total 4c/13: P(5th card does not bust)=0.62  f30=2151 f6=930
+  4c total 4c/14: P(5th card does not bust)=0.54  f30=2125 f6=907
+  4c total 4c/15: P(5th card does not bust)=0.46  f30=2091 f6=872
+  4c total 4c/16: P(5th card does not bust)=0.38  f30=2042 f6=817
+  4c total 4c/17: P(5th card does not bust)=0.31  f30=1970 f6=731
+  4c total 4c/18: P(5th card does not bust)=0.23  f30=1849 f6=598
+  4c total 4c/19: P(5th card does not bust)=0.15  f30=1608 f6=393
+  4c total 4c/20: P(5th card does not bust)=0.08  f30=948 f6=88
+
+== T4: three-7s: value of the +200 premium (600 vs 400), column states (7) and (7,7), d=75,bonus=100
+  k=30: f(7)  with600=1335.2 with400=1331.5 premium=3.7; f(7,7) with600=1274.6 with400=1223.3 premium=51.3; f(10+4 style 2c/14)=1224.6
+  k=15: f(7)  with600=557.7 with400=553.2 premium=4.5; f(7,7) with600=503.2 with400=453.5 premium=49.7; f(10+4 style 2c/14)=454.0
+  k=8: f(7)  with600=199.2 with400=194.1 premium=5.1; f(7,7) with600=174.4 with400=133.9 premium=40.5; f(10+4 style 2c/14)=134.0
+  card-count note: value of premium depends on p7; P(7,7,7 in a given column in order from a fresh column)= tiny. See T4b

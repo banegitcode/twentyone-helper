@@ -1,0 +1,9 @@
+== high-hazard choices deeper16 (150 games): decisions 69 (0.460/game) by phase {'52-33': 12, '32-17': 52, '16-1': 5}
+  has_low_hazard_alt: 65
+  has_low_hazard_alt_no_stay: 65
+  low_alt_within_120: 8
+  low_alt_within_60: 5
+  n: 69
+  next_card_bust: 27
+  forced busts (all 4 placements bust, no Stay left, cards left>=13, non-exact): 24
+  champion's own value gap chosen - best low-hazard alt: n=65 mean 451 median 433 p25 239 (positive = chosen valued higher)

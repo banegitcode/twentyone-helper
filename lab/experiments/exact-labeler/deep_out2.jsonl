@@ -1,0 +1,2 @@
+{"id":"3000400001:2:33","v":null,"ok":false,"ms":67477.621,"n":18,"err":"depth-limited target exceeded the budget (positions)","cpu_ms":66892.29}
+{"id":"3000400001:2:34","v":3605.4678955078125,"ok":true,"ms":32770.528,"n":17,"se":0.563,"exact":false,"mode":"depth-limited","depth":1,"frontier":16,"samples":2,"n16":6,"pos":21063742,"cpu_ms":32459.807}

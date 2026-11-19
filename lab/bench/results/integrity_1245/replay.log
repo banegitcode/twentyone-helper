@@ -1,0 +1,24 @@
+rem  decisions  attempted  exact  giveup  giveup/attempts  giveup/decisions
+ 16         40         40      3      37    92.5%    92.5%
+ 15         40         40     11      29    72.5%    72.5%
+ 14         40         40     26      14    35.0%    35.0%
+ 13         40         40     34       6    15.0%    15.0%
+ 12         40         40     39       1     2.5%     2.5%
+ 11         40         40     39       1     2.5%     2.5%
+ 10         40         40     40       0     0.0%     0.0%
+  9         40         40     40       0     0.0%     0.0%
+  8         40         40     40       0     0.0%     0.0%
+  7         40         40     40       0     0.0%     0.0%
+  6         40         40     40       0     0.0%     0.0%
+  5         40         40     40       0     0.0%     0.0%
+  4         40         40     40       0     0.0%     0.0%
+  3         40         40     40       0     0.0%     0.0%
+  2         40         40     40       0     0.0%     0.0%
+  1         40         40     40       0     0.0%     0.0%
+tot        640        640    552      88    13.8%    13.8%
+9-13 decisions=200 attempts=200 exact=192 giveup=8 rate_of_attempts=4.0%
+deeper:16 pre-12:45: 10/10 match, mismatches=[]
+deeper:16 post-12:45: 30/30 match, mismatches=[]
+deeper:15 pre-12:45: 10/10 match, mismatches=[]
+deeper:15 post-12:45: 20/20 match, mismatches=[]
+wrote /workspace/21lab/bench/results/integrity_1245/replay_report.json wall 580.3 s

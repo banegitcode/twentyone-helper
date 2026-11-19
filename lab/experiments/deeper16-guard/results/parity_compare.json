@@ -1,0 +1,50 @@
+{
+  "visit_only_vs_frozen": {
+    "n": 20,
+    "scoreDiff": 0,
+    "moveDiff": 0,
+    "pairedDiff": 0,
+    "a": {
+      "file": "/workspace/21lab/experiments/deeper16-guard/results/parity_frozen_0_19.jsonl",
+      "visitTrips": 0,
+      "cpuTrips": 0,
+      "cpuMean": 8243.2,
+      "cpuMax": 13889.8,
+      "maxDecisionMs": 3973.5
+    },
+    "b": {
+      "file": "/workspace/21lab/experiments/deeper16-guard/results/parity_guard_0_19.jsonl",
+      "visitTrips": 0,
+      "cpuTrips": 0,
+      "cpuMean": 8489.7,
+      "cpuMax": 14365.8,
+      "maxDecisionMs": 4211.4
+    },
+    "diffs": [],
+    "ok": true
+  },
+  "cpu_guard_vs_frozen": {
+    "n": 20,
+    "scoreDiff": 0,
+    "moveDiff": 0,
+    "pairedDiff": 0,
+    "a": {
+      "file": "/workspace/21lab/experiments/deeper16-guard/results/parity_frozen_0_19.jsonl",
+      "visitTrips": 0,
+      "cpuTrips": 0,
+      "cpuMean": 8243.2,
+      "cpuMax": 13889.8,
+      "maxDecisionMs": 3973.5
+    },
+    "b": {
+      "file": "/workspace/21lab/experiments/deeper16-guard/results/parity_guardcpu_0_19.jsonl",
+      "visitTrips": 0,
+      "cpuTrips": 0,
+      "cpuMean": 9041,
+      "cpuMax": 14857.6,
+      "maxDecisionMs": 4023.6
+    },
+    "diffs": [],
+    "ok": true
+  }
+}

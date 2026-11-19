@@ -1,0 +1,10 @@
+== Stay stats deeper16 (150 games): stays/game 1.867 +- 0.032
+  live_decisions: 2080  (13.867/game)
+  live_with_empty_col: 2080  (13.867/game)
+  stay_16-1: 77  (0.513/game)
+  stay_32-17: 110  (0.733/game)
+  stay_52-33: 93  (0.620/game)
+  stay_then_scored: 3  (0.020/game)
+  stay_total: 280  (1.867/game)
+  stay_while_live: 8  (0.053/game)
+  stay_with_empty_col_available: 23  (0.153/game)

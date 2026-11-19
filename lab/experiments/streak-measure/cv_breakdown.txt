@@ -1,0 +1,13 @@
+CLAIRVOYANT (hindsight bound, one Stay/card), 300 shuffles:
+  score 13193.7 +- 35.0
+  base clears 6878.7 +- 16.9
+  streak bonus 5331.7 +- 32.5
+  perfect 983.3 +- 7.4
+  clears/game 15.5 +- 0.0
+  zero-bust share 98.3%
+CHAMPION shipped52, same 300 games:
+  score 8882.7 +- 66.3
+  streak bonus 1453.3 +- 41.4
+  clears/game 14.7 +- 0.1
+gap clairvoyant - champion (paired): score 4311 +- 63, streak bonus 3878 +- 47, clears 0.88 +- 0.08
+  bonus/1750 mean (4-runs equivalent) 3.05; bonus values are multiples of 250: True

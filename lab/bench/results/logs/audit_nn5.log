@@ -1,0 +1,2 @@
+dynamic audit of cmd:node champion/champion_adapter.js --config nn5: 2 games, 52 (decision, reshuffle) pairs checked, 0 future-dependent, 0 nondeterministic games
+AUDIT PASSED

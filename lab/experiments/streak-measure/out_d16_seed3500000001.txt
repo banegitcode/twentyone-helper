@@ -1,0 +1,66 @@
+== deeper16 train seeds 3.5e9: 150 games (raw/d16_seed3500000001.jsonl)
+score 8814 +- 112
+points/game (base clears / streak bonus / perfect bonus): base 6585.3 +- 51.6 | bonus 1501.7 +- 59.2 | perfect 726.7 +- 36.5
+base+bonus+perfect = score (per game, exact identity): True
+max streak per game histogram (0..4): {'0': 0, '1': 1, '2': 41, '3': 80, '4': 28, '5': 0}  share {'0': '0.0%', '1': '0.7%', '2': '27.3%', '3': '53.3%', '4': '18.7%', '5': '0.0%'}
+runs per game (consecutive scoring placements): {'clears': '14.593 +- 0.137', 'run1': '6.687 +- 0.187', 'n2': '2.460 +- 0.106', 'n3': '0.747 +- 0.059', 'n4': '0.187 +- 0.032', 'n2plus': '3.393 +- 0.101', 'n3plus': '0.933 +- 0.060'}
+busts/game 0.453 +- 0.065, zero-bust % 72.7 +- 3.7
+
+-- streak bonus per game by cards-left phase: {'52-33': 271.7, '32-17': 355.0, '16-1': 875.0}  scoring placements per game by phase: {'52-33': 4.26, '32-17': 4.53, '16-1': 5.8}
+-- how realized runs END (next non-scoring decision kind; scoring_move_was_available = a scoring placement existed there)
+  len1/build: {'n': 965, 'scoring_move_was_available': 37}
+  len1/bust: {'n': 1, 'scoring_move_was_available': 1}
+  len1/game-end: {'n': 31, 'scoring_move_was_available': 0}
+  len1/stay-nonscore: {'n': 6, 'scoring_move_was_available': 0}
+  len2/build: {'n': 339, 'scoring_move_was_available': 1}
+  len2/bust: {'n': 1, 'scoring_move_was_available': 0}
+  len2/game-end: {'n': 28, 'scoring_move_was_available': 0}
+  len2/stay-nonscore: {'n': 1, 'scoring_move_was_available': 0}
+  len3/build: {'n': 78, 'scoring_move_was_available': 0}
+  len3/game-end: {'n': 34, 'scoring_move_was_available': 0}
+  len4/build: {'n': 12, 'scoring_move_was_available': 0}
+  len4/game-end: {'n': 16, 'scoring_move_was_available': 0}
+-- decision table (streak live = previous card scored; fresh = not)
+  fresh/16-1: {'n': 1587, 'score_avail': 783, 'took': 516, 'declined_build': 240, 'declined_stay-nonscore': 25, 'declined_bust': 2}
+  fresh/32-17: {'n': 1712, 'score_avail': 658, 'took': 500, 'declined_build': 148, 'declined_stay-nonscore': 10}
+  fresh/52-33: {'n': 2399, 'score_avail': 665, 'declined_build': 166, 'took': 496, 'declined_stay-nonscore': 3}
+  live/16-1: {'n': 797, 'score_avail': 383, 'declined_bust': 1, 'declined_build': 28, 'took': 354}
+  live/32-17: {'n': 682, 'score_avail': 187, 'took': 180, 'declined_build': 7}
+  live/52-33: {'n': 601, 'score_avail': 146, 'took': 143, 'declined_build': 3}
+  prev>=2/16-1: {'n': 285, 'score_avail': 124, 'took': 123, 'declined_build': 1}
+  prev>=2/32-17: {'n': 180, 'score_avail': 27, 'took': 27}
+  prev>=2/52-33: {'n': 134, 'score_avail': 18, 'took': 18}
+-- declined scoring placement: champion's OWN value gap (best scoring cand. minus chosen, same search field), immediate pts forgone (base+bonus)
+  fresh/16-1/build: {'n': 240, 'mean_champ_value_gap': -298.5, 'median_champ_value_gap': -200.0, 'mean_immediate_pts_forgone': 464.2, 'n_exact_flag': 227}
+  fresh/16-1/bust: {'n': 2, 'mean_champ_value_gap': -121.2, 'median_champ_value_gap': -117.3, 'mean_immediate_pts_forgone': 400.0, 'n_exact_flag': 2}
+  fresh/16-1/stay-nonscore: {'n': 25, 'mean_champ_value_gap': -269.2, 'median_champ_value_gap': -252.7, 'mean_immediate_pts_forgone': 416.0, 'n_exact_flag': 24}
+  fresh/32-17/build: {'n': 148, 'mean_champ_value_gap': -118.0, 'median_champ_value_gap': -77.0, 'mean_immediate_pts_forgone': 520.3, 'n_exact_flag': 0}
+  fresh/32-17/stay-nonscore: {'n': 10, 'mean_champ_value_gap': -54.5, 'median_champ_value_gap': -44.7, 'mean_immediate_pts_forgone': 480.0, 'n_exact_flag': 0}
+  fresh/52-33/build: {'n': 166, 'mean_champ_value_gap': -58.6, 'median_champ_value_gap': -25.7, 'mean_immediate_pts_forgone': 445.8, 'n_exact_flag': 0}
+  fresh/52-33/stay-nonscore: {'n': 3, 'mean_champ_value_gap': -73.1, 'median_champ_value_gap': -81.3, 'mean_immediate_pts_forgone': 666.7, 'n_exact_flag': 0}
+  live/16-1/build: {'n': 28, 'mean_champ_value_gap': -229.5, 'median_champ_value_gap': -150, 'mean_immediate_pts_forgone': 808.9, 'n_exact_flag': 26}
+  live/16-1/bust: {'n': 1, 'mean_champ_value_gap': -225.6, 'median_champ_value_gap': -225.6, 'mean_immediate_pts_forgone': 650.0, 'n_exact_flag': 1}
+  live/32-17/build: {'n': 7, 'mean_champ_value_gap': -237.8, 'median_champ_value_gap': -237.5, 'mean_immediate_pts_forgone': 1050.0, 'n_exact_flag': 0}
+  live/52-33/build: {'n': 3, 'mean_champ_value_gap': -141.8, 'median_champ_value_gap': -119.4, 'mean_immediate_pts_forgone': 1050.0, 'n_exact_flag': 0}
+-- setups: live_cols = columns where some unseen card (incl. current) scores; real_run_geK = realized consecutive scoring placements from this decision >=K; reach_geK = HINDSIGHT (future order) reachable
+  live_cols=0,streak_live=False: {'n': 412, 'per_game': 2.75, 'real_run_ge1': 0.0, 'real_run_ge2': 0.0, 'real_run_ge3': 0.0, 'real_run_ge4': 0.0, 'reach_ge1': 0.0, 'reach_ge2': 0.0, 'reach_ge3': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.0}
+  live_cols=0,streak_live=True: {'n': 152, 'per_game': 1.01, 'real_run_ge1': 0.0, 'real_run_ge2': 0.0, 'real_run_ge3': 0.0, 'real_run_ge4': 0.0, 'reach_ge1': 0.0, 'reach_ge2': 0.0, 'reach_ge3': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.0}
+  live_cols=1,streak_live=False: {'n': 890, 'per_game': 5.93, 'real_run_ge1': 0.0933, 'real_run_ge2': 0.0, 'real_run_ge3': 0.0, 'real_run_ge4': 0.0, 'reach_ge1': 0.2124, 'reach_ge2': 0.0, 'reach_ge3': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.093}
+  live_cols=1,streak_live=True: {'n': 590, 'per_game': 3.93, 'real_run_ge1': 0.2814, 'real_run_ge2': 0.0, 'real_run_ge3': 0.0, 'real_run_ge4': 0.0, 'reach_ge1': 0.2932, 'reach_ge2': 0.0, 'reach_ge3': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.281}
+  live_cols=2,streak_live=False: {'n': 1522, 'per_game': 10.15, 'real_run_ge1': 0.1873, 'real_run_ge2': 0.044, 'real_run_ge3': 0.0, 'real_run_ge4': 0.0, 'reach_ge1': 0.3693, 'reach_ge2': 0.0795, 'reach_ge3': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.231}
+  live_cols=2,streak_live=True: {'n': 887, 'per_game': 5.91, 'real_run_ge1': 0.3439, 'real_run_ge2': 0.1071, 'real_run_ge3': 0.0, 'real_run_ge4': 0.0, 'reach_ge1': 0.372, 'reach_ge2': 0.1172, 'reach_ge3': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.451}
+  live_cols=3,streak_live=False: {'n': 1883, 'per_game': 12.55, 'real_run_ge1': 0.3622, 'real_run_ge2': 0.1227, 'real_run_ge3': 0.0345, 'real_run_ge4': 0.0, 'reach_ge1': 0.4572, 'reach_ge2': 0.1763, 'reach_ge3': 0.0473, 'reach_ge4': 0.0, 'mean_real_run': 0.519}
+  live_cols=3,streak_live=True: {'n': 451, 'per_game': 3.01, 'real_run_ge1': 0.4568, 'real_run_ge2': 0.1619, 'real_run_ge3': 0.0621, 'real_run_ge4': 0.0, 'reach_ge1': 0.4723, 'reach_ge2': 0.1707, 'reach_ge3': 0.0643, 'reach_ge4': 0.0, 'mean_real_run': 0.681}
+  live_cols=4,streak_live=False: {'n': 991, 'per_game': 6.61, 'real_run_ge1': 0.4662, 'real_run_ge2': 0.2129, 'real_run_ge3': 0.0757, 'real_run_ge4': 0.0283, 'reach_ge1': 0.4985, 'reach_ge2': 0.2392, 'reach_ge3': 0.0858, 'reach_ge4': 0.0293, 'mean_real_run': 0.783}
+-- strong setups: columns whose scoring-card share of the unseen next card is >=15% (current card excluded)
+  strong_cols(next-card scoring prob>=0.15)=0,streak_live=False: {'n': 2379, 'per_game': 15.86, 'real_run_ge1': 0.1795, 'reach_ge1': 0.2127, 'real_run_ge2': 0.0256, 'reach_ge2': 0.029, 'real_run_ge3': 0.0017, 'reach_ge3': 0.0021, 'real_run_ge4': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.207}
+  strong_cols(next-card scoring prob>=0.15)=0,streak_live=True: {'n': 1022, 'per_game': 6.81, 'real_run_ge1': 0.2397, 'reach_ge1': 0.2417, 'real_run_ge2': 0.0078, 'reach_ge2': 0.0098, 'real_run_ge3': 0.0, 'reach_ge3': 0.0, 'real_run_ge4': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.248}
+  strong_cols(next-card scoring prob>=0.15)=1,streak_live=False: {'n': 1987, 'per_game': 13.25, 'real_run_ge1': 0.2843, 'reach_ge1': 0.4399, 'real_run_ge2': 0.0936, 'reach_ge2': 0.1228, 'real_run_ge3': 0.0101, 'reach_ge3': 0.0136, 'real_run_ge4': 0.0, 'reach_ge4': 0.0005, 'mean_real_run': 0.388}
+  strong_cols(next-card scoring prob>=0.15)=1,streak_live=True: {'n': 743, 'per_game': 4.95, 'real_run_ge1': 0.3863, 'reach_ge1': 0.4172, 'real_run_ge2': 0.1157, 'reach_ge2': 0.1238, 'real_run_ge3': 0.0, 'reach_ge3': 0.0013, 'real_run_ge4': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.502}
+  strong_cols(next-card scoring prob>=0.15)=2,streak_live=False: {'n': 921, 'per_game': 6.14, 'real_run_ge1': 0.3844, 'reach_ge1': 0.5342, 'real_run_ge2': 0.1726, 'reach_ge2': 0.2573, 'real_run_ge3': 0.0586, 'reach_ge3': 0.076, 'real_run_ge4': 0.0011, 'reach_ge4': 0.0011, 'mean_real_run': 0.617}
+  strong_cols(next-card scoring prob>=0.15)=2,streak_live=True: {'n': 267, 'per_game': 1.78, 'real_run_ge1': 0.4494, 'reach_ge1': 0.5019, 'real_run_ge2': 0.221, 'reach_ge2': 0.2397, 'real_run_ge3': 0.0749, 'reach_ge3': 0.0749, 'real_run_ge4': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 0.745}
+  strong_cols(next-card scoring prob>=0.15)=3,streak_live=False: {'n': 348, 'per_game': 2.32, 'real_run_ge1': 0.3966, 'reach_ge1': 0.5747, 'real_run_ge2': 0.2414, 'reach_ge2': 0.3391, 'real_run_ge3': 0.1437, 'reach_ge3': 0.1724, 'real_run_ge4': 0.0546, 'reach_ge4': 0.0546, 'mean_real_run': 0.836}
+  strong_cols(next-card scoring prob>=0.15)=3,streak_live=True: {'n': 48, 'per_game': 0.32, 'real_run_ge1': 0.5208, 'reach_ge1': 0.5208, 'real_run_ge2': 0.3125, 'reach_ge2': 0.3125, 'real_run_ge3': 0.1667, 'reach_ge3': 0.1667, 'real_run_ge4': 0.0, 'reach_ge4': 0.0, 'mean_real_run': 1.0}
+  strong_cols(next-card scoring prob>=0.15)=4,streak_live=False: {'n': 63, 'per_game': 0.42, 'real_run_ge1': 0.4444, 'reach_ge1': 0.5397, 'real_run_ge2': 0.3016, 'reach_ge2': 0.3492, 'real_run_ge3': 0.1905, 'reach_ge3': 0.1905, 'real_run_ge4': 0.127, 'reach_ge4': 0.127, 'mean_real_run': 1.063}
+-- hindsight lost windows (3+/4 streak reachable by scoring-only chain from a real state, realized shorter)
+  {"n_windows": 34, "per_game": 0.227, "games_with_any": 28, "by_potential_total": {"3": 33, "4": 1}, "by_dev_kind": {"build": 31, "stay-nonscore": 3}, "by_dev_kind_when_scoring_avail": {"build": 30, "stay-nonscore": 3}, "dev_without_scoring_move_available": 1, "dev_is_bust": 0, "mean_bonus_gap": 764.7, "bonus_gap_per_game": "173.3 +- 33.9", "by_phase": {"52-33": 2, "32-17": 6, "16-1": 26}, "bonus_gap_per_game_by_dev_phase": {"52-33": 10.0, "32-17": 30.0, "16-1": 133.3}, "dev_with_stay_available_and_nonscore_stay_used": 3, "prev_live": 0, "bonus_gap_by_dev_kind_per_game": {"bust": 0.0, "build": 158.3, "stay-nonscore": 15.0, "score": 0.0}}
