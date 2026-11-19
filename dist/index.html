@@ -228,7 +228,8 @@
           <option value="2.5">2.5 seconds</option><option value="3">3 seconds</option>
         </select></label>
     </div>
-    <button class="ghostbtn danger" id="stReset">Erase all games</button></details>
+    <button class="ghostbtn danger" id="stReset">Erase all games</button>
+    <button class="ghostbtn danger" id="stClearAll">Clear everything (games, balance, deposits, settings)</button></details>
   </div>
 
   <div id="game">
@@ -2406,6 +2407,7 @@ $('betBox').onclick = (e) => {
   else return;
   saveRec(); renderStats();
 };
+$('stClearAll').onclick = () => { if (!confirm('Clear EVERYTHING? All games, wins/losses, balance, deposits, withdrawals and settings will be erased. This cannot be undone.')) return; try { Object.keys(localStorage).filter((k) => k.indexOf('twentyone.') === 0).forEach((k) => localStorage.removeItem(k)); } catch (e) {} location.reload(); };
 $('stReset').onclick = () => { if (REC.games.length && confirm('Erase all ' + REC.games.length + ' recorded games? This cannot be undone.')) { REC.games = []; REC.sessions = []; REC.sess = null; saveRec(); renderStats(); renderStrip(); } };
 $('pendBox').onclick = (e) => { const b = e.target.closest('[data-ed]'); if (b) openResult(false, +b.dataset.ed); };
 $('glist').onclick = (e) => { const b = e.target.closest('[data-ed]'); if (b) openResult(false, +b.dataset.ed); };
